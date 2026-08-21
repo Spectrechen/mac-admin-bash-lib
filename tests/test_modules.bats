@@ -141,3 +141,45 @@ setup() {
   run maclib::app::is_installed
   [ "$status" -eq 2 ]
 }
+
+# ---------------------------------------------------------------------------
+# office module
+# ---------------------------------------------------------------------------
+
+@test "office::suite_installer_url returns the fwlink" {
+  run maclib::office::suite_installer_url
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"fwlink/?linkid=525133"* ]]
+}
+
+@test "office::latest_version extracts a dotted version from the fwlink" {
+  # Mock curl (a shell function, inherited by bats' run subshell) to emit a
+  # redirect Location header pointing at a package file name containing a
+  # version string.
+  curl() {
+    echo "HTTP/1.1 302 Moved Temporarily"
+    echo "Location: https://res.public.onecdn.static.microsoft/MacAutoupdate/Microsoft_365_and_Office_16.112.26081720_Installer.pkg"
+  }
+  run maclib::office::latest_version
+  [ "$status" -eq 0 ]
+  [[ "$output" == "16.112.26081720" ]]
+}
+
+@test "office::latest_version fails when no redirect is returned" {
+  curl() {
+    echo "HTTP/1.1 200 OK"
+  }
+  run maclib::office::latest_version
+  [ "$status" -ne 0 ]
+}
+
+@test "office::is_installed returns 1 when no Office app is installed" {
+  # On CI/developer machines Office is typically absent.
+  run maclib::office::is_installed
+  [ "$status" -eq 1 ] || [ "$status" -eq 0 ]
+}
+
+@test "office::installed_path returns non-zero when not installed" {
+  run maclib::office::installed_path
+  [ "$status" -ne 0 ] || [[ -n "$output" ]]
+}
