@@ -25,3 +25,5 @@ source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/management.sh"
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/network.sh"
 # shellcheck source=lib/app.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/app.sh"
+# shellcheck source=lib/util.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/util.sh"

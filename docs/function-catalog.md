@@ -59,3 +59,9 @@
 | app | `maclib::app::install` | Install an app bundle | implemented | requires root |
 | app | `maclib::app::uninstall` | Uninstall an app bundle | implemented | |
 | app | `maclib::app::locations` | Common install locations | implemented | |
+| util | `maclib::util::trim` | Trim leading/trailing whitespace | implemented | cross-platform |
+| util | `maclib::util::slugify` | URL/file-name-safe slug | implemented | lowercased, hyphenated |
+| util | `maclib::util::human_size` | Human-readable byte size | implemented | base 1024, SI suffixes |
+| util | `maclib::util::retry` | Retry a command N times | implemented | with delay, returns final status |
+| util | `maclib::util::confirm` | Interactive yes/no prompt | implemented | EOF treated as no |
+| util | `maclib::util::ensure_dir` | Create a directory (and parents) | implemented | no-op if exists |

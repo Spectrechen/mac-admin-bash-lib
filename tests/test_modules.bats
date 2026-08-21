@@ -141,3 +141,86 @@ setup() {
   run maclib::app::is_installed
   [ "$status" -eq 2 ]
 }
+
+# ---------------------------------------------------------------------------
+# util module (cross-platform helpers)
+# ---------------------------------------------------------------------------
+
+@test "util::trim strips surrounding whitespace" {
+  run maclib::util::trim "   hello world   "
+  [ "$status" -eq 0 ]
+  [ "$output" == "hello world" ]
+}
+
+@test "util::trim handles empty and whitespace-only input" {
+  run maclib::util::trim ""
+  [ "$status" -eq 0 ]
+  [ -z "$output" ]
+
+  run maclib::util::trim "    "
+  [ "$status" -eq 0 ]
+  [ -z "$output" ]
+}
+
+@test "util::slugify lowercases and hyphenates" {
+  run maclib::util::slugify "Hello, World! 2026"
+  [ "$status" -eq 0 ]
+  [ "$output" == "hello-world-2026" ]
+}
+
+@test "util::slugify strips leading/trailing separators" {
+  run maclib::util::slugify "  --A B--  "
+  [ "$status" -eq 0 ]
+  [ "$output" == "a-b" ]
+}
+
+@test "util::human_size converts bytes to KB/GB" {
+  run maclib::util::human_size 1536
+  [ "$status" -eq 0 ]
+  [ "$output" == "1.5 KB" ]
+
+  run maclib::util::human_size 0
+  [ "$status" -eq 0 ]
+  [ "$output" == "0 B" ]
+
+  run maclib::util::human_size 1073741824
+  [ "$status" -eq 0 ]
+  [ "$output" == "1.0 GB" ]
+}
+
+@test "util::human_size rejects non-integer input" {
+  run maclib::util::human_size "abc"
+  [ "$status" -eq 2 ]
+
+  run maclib::util::human_size "-5"
+  [ "$status" -eq 2 ]
+}
+
+@test "util::ensure_dir creates missing directory" {
+  local d
+  d="$(mktemp -d)/sub/dir"
+  [[ -d "$d" ]] || d="/tmp/maclib_test_$$"
+  run maclib::util::ensure_dir "$d"
+  [ "$status" -eq 0 ]
+  [[ -d "$d" ]]
+  rm -rf "$d" 2>/dev/null || true
+}
+
+@test "util::ensure_dir accepts existing directory" {
+  local d
+  d="$(mktemp -d)"
+  run maclib::util::ensure_dir "$d"
+  [ "$status" -eq 0 ]
+  rm -rf "$d" 2>/dev/null || true
+}
+
+@test "util::ensure_dir with no path returns 2" {
+  run maclib::util::ensure_dir
+  [ "$status" -eq 2 ]
+}
+
+@test "util::slugify with no input returns empty" {
+  run maclib::util::slugify
+  [ "$status" -eq 0 ]
+  [ -z "$output" ]
+}
