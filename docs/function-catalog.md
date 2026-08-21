@@ -59,3 +59,9 @@
 | app | `maclib::app::install` | Install an app bundle | implemented | requires root |
 | app | `maclib::app::uninstall` | Uninstall an app bundle | implemented | |
 | app | `maclib::app::locations` | Common install locations | implemented | |
+|| office | `maclib::office::suite_installer_url` | fwlink to Office for Mac suite installer | implemented | go.microsoft.com/fwlink/?linkid=525133 |
+|| office | `maclib::office::latest_version` | Current Office for Mac build version from CDN | implemented | resolves fwlink, parses package name |
+|| office | `maclib::office::is_installed` | Return 0 if core Office app bundle present | implemented | Word/Excel/Outlook/PowerPoint/OneNote |
+|| office | `maclib::office::installed_path` | Path to installed Office app bundle | implemented | |
+|| office | `maclib::office::install` | Download suite installer and install it | implemented | requires root |
+|| office | `maclib::office::update` | Update via Microsoft AutoUpdate (msupdate) | implemented | |
