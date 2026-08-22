@@ -1,0 +1,6122 @@
+[
+  {
+    "label": "1password7",
+    "name": "1Password 7",
+    "type": "pkg"
+  },
+  {
+    "label": "1password8",
+    "name": "1Password",
+    "type": "pkg"
+  },
+  {
+    "label": "1passwordcli",
+    "name": "1Password CLI",
+    "type": "pkg"
+  },
+  {
+    "label": "4kvideodownloader",
+    "name": "4K Video Downloader",
+    "type": "dmg"
+  },
+  {
+    "label": "4kvideodownloaderplus",
+    "name": "4K Video Downloader+",
+    "type": "dmg"
+  },
+  {
+    "label": "8x8",
+    "name": "8x8 Work",
+    "type": "dmg"
+  },
+  {
+    "label": "abetterfinderattributes7",
+    "name": "A Better Finder Attributes 7",
+    "type": "dmg"
+  },
+  {
+    "label": "abetterfinderrename11",
+    "name": "A Better Finder Rename 11",
+    "type": "dmg"
+  },
+  {
+    "label": "abetterfinderrename12",
+    "name": "A Better Finder Rename 12",
+    "type": "dmg"
+  },
+  {
+    "label": "abletonlive12intro",
+    "name": "Ableton Live 12 Intro",
+    "type": "dmg"
+  },
+  {
+    "label": "abletonlive12lite",
+    "name": "Ableton Live 12 Lite",
+    "type": "dmg"
+  },
+  {
+    "label": "abletonlive12standard",
+    "name": "Ableton Live 12 Standard",
+    "type": "dmg"
+  },
+  {
+    "label": "abletonlive12suite",
+    "name": "Ableton Live 12 Suite",
+    "type": "dmg"
+  },
+  {
+    "label": "abletonlive12trial",
+    "name": "Ableton Live 12 Trial",
+    "type": "dmg"
+  },
+  {
+    "label": "abstract",
+    "name": "Abstract",
+    "type": "zip"
+  },
+  {
+    "label": "acorn",
+    "name": "Acorn",
+    "type": "zip"
+  },
+  {
+    "label": "acroniscyberprotectconnect",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "acroniscyberprotectconnectagent",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "adium",
+    "name": "Adium",
+    "type": "dmg"
+  },
+  {
+    "label": "adobeacrobatprodc",
+    "name": "Adobe Acrobat Pro DC",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "adobebrackets",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "adobeconnect",
+    "name": "AdobeConnectInstaller",
+    "type": "dmg"
+  },
+  {
+    "label": "adobecreativeclouddesktop",
+    "name": "Adobe Creative Cloud",
+    "type": "dmg"
+  },
+  {
+    "label": "adobedigitaleditions",
+    "name": "Adobe Digital Editions",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "adobereaderdc",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "adobereaderdc-install",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "adobereaderdc-update",
+    "name": "Adobe Acrobat Reader",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "affinityapp",
+    "name": "Affinity",
+    "type": "dmg"
+  },
+  {
+    "label": "affinitydesigner2",
+    "name": "Affinity Designer 2",
+    "type": "dmg"
+  },
+  {
+    "label": "affinityphoto2",
+    "name": "Affinity Photo 2",
+    "type": "dmg"
+  },
+  {
+    "label": "affinitypublisher2",
+    "name": "Affinity Publisher 2",
+    "type": "dmg"
+  },
+  {
+    "label": "aftermath",
+    "name": "Aftermath",
+    "type": "pkg"
+  },
+  {
+    "label": "aircall",
+    "name": "Aircall Workspace",
+    "type": "pkg"
+  },
+  {
+    "label": "airflow",
+    "name": "Air",
+    "type": "dmg"
+  },
+  {
+    "label": "airserver",
+    "name": "AirServer",
+    "type": "dmg"
+  },
+  {
+    "label": "airtable",
+    "name": "Airtable",
+    "type": "dmg"
+  },
+  {
+    "label": "airtame",
+    "name": "Airtame",
+    "type": "dmg"
+  },
+  {
+    "label": "airtamepkg",
+    "name": "Airtame",
+    "type": "pkg"
+  },
+  {
+    "label": "aldente",
+    "name": "AlDente",
+    "type": "dmg"
+  },
+  {
+    "label": "alephone",
+    "name": "Aleph One",
+    "type": "dmg"
+  },
+  {
+    "label": "alfred",
+    "name": "Alfred",
+    "type": "dmg"
+  },
+  {
+    "label": "altserver",
+    "name": "AltServer",
+    "type": "zip"
+  },
+  {
+    "label": "alttab",
+    "name": "AltTab",
+    "type": "zip"
+  },
+  {
+    "label": "amadeuspro2",
+    "name": "Amadeus Pro",
+    "type": "zip"
+  },
+  {
+    "label": "amazonchime",
+    "name": "Amazon Chime",
+    "type": "dmg"
+  },
+  {
+    "label": "amazoncorretto11jdk",
+    "name": "Amazon Corretto 11 JDK",
+    "type": "pkg"
+  },
+  {
+    "label": "amazoncorretto17jdk",
+    "name": "Amazon Corretto 17 JDK",
+    "type": "pkg"
+  },
+  {
+    "label": "amazoncorretto21jdk",
+    "name": "Amazon Corretto 21 JDK",
+    "type": "pkg"
+  },
+  {
+    "label": "amazoncorretto22jdk",
+    "name": "Amazon Corretto 22 JDK",
+    "type": "pkg"
+  },
+  {
+    "label": "amazoncorretto23jdk",
+    "name": "Amazon Corretto 23 JDK",
+    "type": "pkg"
+  },
+  {
+    "label": "amazoncorretto25jdk",
+    "name": "Amazon Corretto 25 JDK",
+    "type": "pkg"
+  },
+  {
+    "label": "amazoncorretto8jdk",
+    "name": "Amazon Corretto 8 JDK",
+    "type": "pkg"
+  },
+  {
+    "label": "amazonq",
+    "name": "Amazon Q",
+    "type": "dmg"
+  },
+  {
+    "label": "amazonworkspaces",
+    "name": "Workspaces",
+    "type": "pkg"
+  },
+  {
+    "label": "anaconda",
+    "name": "Anaconda-Navigator",
+    "type": "pkg"
+  },
+  {
+    "label": "anastasiysextensionmanager",
+    "name": "ExtensionManager",
+    "type": "zip"
+  },
+  {
+    "label": "androidfiletransfer",
+    "name": "Android File Transfer",
+    "type": "dmg"
+  },
+  {
+    "label": "androidstudio",
+    "name": "Android Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "anki",
+    "name": "Anki",
+    "type": "dmg"
+  },
+  {
+    "label": "anotherredisdesktopmanager",
+    "name": "Another Redis Desktop Manager",
+    "type": "dmg"
+  },
+  {
+    "label": "antconc",
+    "name": "AntConc",
+    "type": "dmg"
+  },
+  {
+    "label": "anydesk",
+    "name": "AnyDesk",
+    "type": "dmg"
+  },
+  {
+    "label": "apachedirectorystudio",
+    "name": "ApacheDirectoryStudio",
+    "type": "dmg"
+  },
+  {
+    "label": "apachenetbeans",
+    "name": "Apache NetBeans",
+    "type": "pkg"
+  },
+  {
+    "label": "ape",
+    "name": "ApE",
+    "type": "dmg"
+  },
+  {
+    "label": "apparency",
+    "name": "Apparency",
+    "type": "dmg"
+  },
+  {
+    "label": "appcleaner",
+    "name": "AppCleaner",
+    "type": "zip"
+  },
+  {
+    "label": "applenyfonts",
+    "name": "Apple New York Font Collection",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "appleprovideoformats",
+    "name": "ProVideoFormats",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "applesfarabic",
+    "name": "San Francisco Arabic",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "applesfcompact",
+    "name": "San Francisco Compact",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "applesfmono",
+    "name": "San Francisco Mono",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "applesfpro",
+    "name": "San Francisco Pro",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "applesfsymbols",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "appsanywhere",
+    "name": "AppsAnywhere Client (macOS)",
+    "type": "pkg"
+  },
+  {
+    "label": "aquamacs",
+    "name": "Aquamacs",
+    "type": "dmg"
+  },
+  {
+    "label": "aquaskk",
+    "name": "aquaskk",
+    "type": "pkg"
+  },
+  {
+    "label": "arcbrowser",
+    "name": "Arc",
+    "type": "dmg"
+  },
+  {
+    "label": "archaeology",
+    "name": "Archaeology",
+    "type": "dmg"
+  },
+  {
+    "label": "archimate",
+    "name": "Archi",
+    "type": "dmg"
+  },
+  {
+    "label": "archiwareb2go",
+    "name": "P5 Workstation",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "archiwarepst",
+    "name": "P5",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "arduinoide",
+    "name": "Arduino IDE",
+    "type": "dmg"
+  },
+  {
+    "label": "arq7",
+    "name": "Arq7",
+    "type": "pkg"
+  },
+  {
+    "label": "arturiamcc",
+    "name": "MIDI Control Center",
+    "type": "pkg"
+  },
+  {
+    "label": "arturiasoftwarecenter",
+    "name": "Arturia Software Center",
+    "type": "pkg"
+  },
+  {
+    "label": "asana",
+    "name": "Asana",
+    "type": "dmg"
+  },
+  {
+    "label": "aspera",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "asperaconnect",
+    "name": "Aspera Connect",
+    "type": "pkg"
+  },
+  {
+    "label": "asymmetrickeygenerator",
+    "name": "AsymmetricKeyGenerator",
+    "type": "dmg"
+  },
+  {
+    "label": "atext",
+    "name": "aText",
+    "type": "dmg"
+  },
+  {
+    "label": "atextlegacy",
+    "name": "aText",
+    "type": "dmg"
+  },
+  {
+    "label": "atlassiancompanion",
+    "name": "Atlassian Companion",
+    "type": "dmg"
+  },
+  {
+    "label": "audacity",
+    "name": "Audacity",
+    "type": "dmg"
+  },
+  {
+    "label": "autodeskfusion360admininstall",
+    "name": "Autodesk Fusion 360 Admin Install",
+    "type": "pkg"
+  },
+  {
+    "label": "autodmg",
+    "name": "AutoDMG",
+    "type": "dmg"
+  },
+  {
+    "label": "automounter",
+    "name": "AutoMounter",
+    "type": "dmg"
+  },
+  {
+    "label": "autopkgr",
+    "name": "AutoPkgr",
+    "type": "dmg"
+  },
+  {
+    "label": "avertouch",
+    "name": "AverTouch",
+    "type": "zip"
+  },
+  {
+    "label": "aviatrix",
+    "name": "Aviatrix VPN Client",
+    "type": "pkg"
+  },
+  {
+    "label": "awscli2",
+    "name": "AWSCLI",
+    "type": "pkg"
+  },
+  {
+    "label": "awsvpnclient",
+    "name": "AWS VPN Client",
+    "type": "pkg"
+  },
+  {
+    "label": "axurerp10",
+    "name": "Axure RP 10",
+    "type": "dmg"
+  },
+  {
+    "label": "azuredatastudio",
+    "name": "Azure Data Studio",
+    "type": "zip"
+  },
+  {
+    "label": "backgroundmusic",
+    "name": "BackgroundMusic",
+    "type": "pkg"
+  },
+  {
+    "label": "backgrounds",
+    "name": "Backgrounds",
+    "type": "pkg"
+  },
+  {
+    "label": "balenaetcher",
+    "name": "balenaEtcher",
+    "type": "dmg"
+  },
+  {
+    "label": "balsamiqwireframes",
+    "name": "Balsamiq Wireframes",
+    "type": "dmg"
+  },
+  {
+    "label": "bambustudio",
+    "name": "BambuStudio",
+    "type": "dmg"
+  },
+  {
+    "label": "bartender",
+    "name": "Bartender 4",
+    "type": "dmg"
+  },
+  {
+    "label": "basecamp3",
+    "name": "Basecamp 3",
+    "type": "zip"
+  },
+  {
+    "label": "baseline",
+    "name": "Baseline",
+    "type": "pkg"
+  },
+  {
+    "label": "baseline-nodaemon",
+    "name": "Baseline",
+    "type": "pkg"
+  },
+  {
+    "label": "basictex",
+    "name": "BasicTeX",
+    "type": "pkg"
+  },
+  {
+    "label": "bbedit",
+    "name": "BBEdit",
+    "type": "dmg"
+  },
+  {
+    "label": "bbeditpkg",
+    "name": "BBEdit",
+    "type": "pkg"
+  },
+  {
+    "label": "beamstudio",
+    "name": "Beam Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "beekeeperstudio",
+    "name": "Beekeeper Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "betterdisplay",
+    "name": "BetterDisplay",
+    "type": "dmg"
+  },
+  {
+    "label": "bettertouchtool",
+    "name": "BetterTouchTool",
+    "type": "zip"
+  },
+  {
+    "label": "betterzip",
+    "name": "BetterZip",
+    "type": "zip"
+  },
+  {
+    "label": "beyondcomparepro",
+    "name": "Beyond Compare",
+    "type": "zip"
+  },
+  {
+    "label": "bezel",
+    "name": "Bezel",
+    "type": "dmg"
+  },
+  {
+    "label": "bibdesk",
+    "name": "BibDesk",
+    "type": "dmg"
+  },
+  {
+    "label": "bitrix24",
+    "name": "Bitrix24",
+    "type": "dmg"
+  },
+  {
+    "label": "bitwarden",
+    "name": "Bitwarden",
+    "type": "dmg"
+  },
+  {
+    "label": "bitwigstudio",
+    "name": "Bitwig Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "blackhole16ch",
+    "name": "BlackHole",
+    "type": "pkg"
+  },
+  {
+    "label": "blackhole2ch",
+    "name": "BlackHole",
+    "type": "pkg"
+  },
+  {
+    "label": "blackhole64ch",
+    "name": "BlackHole",
+    "type": "pkg"
+  },
+  {
+    "label": "blender",
+    "name": "Blender",
+    "type": "dmg"
+  },
+  {
+    "label": "blitzit",
+    "name": "Blitzit",
+    "type": "dmg"
+  },
+  {
+    "label": "boop",
+    "name": "Boop",
+    "type": "zip"
+  },
+  {
+    "label": "boxdrive",
+    "name": "Box",
+    "type": "pkg"
+  },
+  {
+    "label": "boxsync",
+    "name": "Box Sync",
+    "type": "dmg"
+  },
+  {
+    "label": "boxtools",
+    "name": "Box Tools",
+    "type": "pkg"
+  },
+  {
+    "label": "bracketsio",
+    "name": "Brackets",
+    "type": "dmg"
+  },
+  {
+    "label": "brave",
+    "name": "Brave Browser",
+    "type": "dmg"
+  },
+  {
+    "label": "bravepkg",
+    "name": "Brave Browser",
+    "type": "pkg"
+  },
+  {
+    "label": "brosix",
+    "name": "Brosix",
+    "type": "pkg"
+  },
+  {
+    "label": "browserosaurus",
+    "name": "Browserosaurus",
+    "type": "zip"
+  },
+  {
+    "label": "bruno",
+    "name": "Bruno",
+    "type": "dmg"
+  },
+  {
+    "label": "bugdom",
+    "name": "Bugdom",
+    "type": "dmg"
+  },
+  {
+    "label": "burpsuitecommunityedition",
+    "name": "Burp Suite Community Edition",
+    "type": "dmg"
+  },
+  {
+    "label": "burpsuiteprofessional",
+    "name": "Burp Suite Professional",
+    "type": "dmg"
+  },
+  {
+    "label": "busycal",
+    "name": "BusyCal",
+    "type": "dmg"
+  },
+  {
+    "label": "busycontacts",
+    "name": "BusyContacts",
+    "type": "dmg"
+  },
+  {
+    "label": "buttercup",
+    "name": "Buttercup",
+    "type": "zip"
+  },
+  {
+    "label": "caffeine",
+    "name": "Caffeine",
+    "type": "dmg"
+  },
+  {
+    "label": "cakebrew",
+    "name": "Cakebrew",
+    "type": "zip"
+  },
+  {
+    "label": "calcservice",
+    "name": "CalcService",
+    "type": "zip"
+  },
+  {
+    "label": "calibre",
+    "name": "calibre",
+    "type": "dmg"
+  },
+  {
+    "label": "calibriteprofiler",
+    "name": "calibrite PROFILER",
+    "type": "dmg"
+  },
+  {
+    "label": "cameracontroller",
+    "name": "CameraController",
+    "type": "zip"
+  },
+  {
+    "label": "camostudio",
+    "name": "Camo Studio",
+    "type": "zip"
+  },
+  {
+    "label": "camtasia",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "camtasia2019",
+    "name": "Camtasia 2019",
+    "type": "dmg"
+  },
+  {
+    "label": "camtasia2020",
+    "name": "Camtasia 2020",
+    "type": "dmg"
+  },
+  {
+    "label": "camtasia2021",
+    "name": "Camtasia 2021",
+    "type": "dmg"
+  },
+  {
+    "label": "camtasia2022",
+    "name": "Camtasia 2022",
+    "type": "dmg"
+  },
+  {
+    "label": "camtasia2023",
+    "name": "Camtasia 2023",
+    "type": "dmg"
+  },
+  {
+    "label": "camtasia2024",
+    "name": "Camtasia",
+    "type": "dmg"
+  },
+  {
+    "label": "camtasia2025",
+    "name": "Camtasia",
+    "type": "dmg"
+  },
+  {
+    "label": "camtasia2026",
+    "name": "Camtasia",
+    "type": "dmg"
+  },
+  {
+    "label": "camunda",
+    "name": "Camunda Modeler",
+    "type": "dmg"
+  },
+  {
+    "label": "canva",
+    "name": "Canva",
+    "type": "dmg"
+  },
+  {
+    "label": "carboncopycloner",
+    "name": "Carbon Copy Cloner",
+    "type": "zip"
+  },
+  {
+    "label": "cardpresso",
+    "name": "cardpresso",
+    "type": "dmg"
+  },
+  {
+    "label": "catoclient",
+    "name": "CatoClient",
+    "type": "pkg"
+  },
+  {
+    "label": "charles",
+    "name": "Charles",
+    "type": "dmg"
+  },
+  {
+    "label": "chatgpt",
+    "name": "ChatGPT",
+    "type": "dmg"
+  },
+  {
+    "label": "chatwork",
+    "name": "Chatwork",
+    "type": "dmg"
+  },
+  {
+    "label": "chemdoodle",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "chemdoodle2d",
+    "name": "ChemDoodle",
+    "type": "dmg"
+  },
+  {
+    "label": "chemdoodle3d",
+    "name": "ChemDoodle3D",
+    "type": "dmg"
+  },
+  {
+    "label": "cherryaudioatomika",
+    "name": "Atomika",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudioblue3",
+    "name": "Blue3 Organ",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudioca2600",
+    "name": "CA2600",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiochroma",
+    "name": "Chroma",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiocr78",
+    "name": "CR-78",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiodco106",
+    "name": "DCO-106",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiodreamsynth",
+    "name": "Dreamsynth",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudioeightvoice",
+    "name": "Eight Voice",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudioelkax",
+    "name": "Elka-X",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiogalacticreverb",
+    "name": "Galactic Reverb",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiogx80",
+    "name": "GX-80",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudioharmonia",
+    "name": "Harmonia",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiolowdown",
+    "name": "Lowdown",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiomemorymode",
+    "name": "Memorymode",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiomercury4",
+    "name": "Mercury-4",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiomercury6",
+    "name": "Mercury-6",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiominiverse",
+    "name": "Miniverse",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiomoduledesigner",
+    "name": "Voltage Module Designer",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudionovachord",
+    "name": "Novachord",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiooctavecat",
+    "name": "Octave Cat",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiopolymode",
+    "name": "Polymode Synthesizer",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudioprosoloist",
+    "name": "Pro Soloist",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiops20",
+    "name": "PS-20",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiops3300",
+    "name": "PS-3300",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudioquadra",
+    "name": "Quadra",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiorackmode",
+    "name": "Rackmode",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiosines",
+    "name": "Sines",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiosolovox",
+    "name": "Solovox",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiostardust201",
+    "name": "Stardust 201 Tape Echo",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiosurrealisticmg1plus",
+    "name": "Surrealistic MG-1 Plus",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiosync",
+    "name": "Cherry Audio Sync",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiosynthesizerexpander",
+    "name": "Synthesizer Expander Module",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiovoltagemodular",
+    "name": "Voltage Modular",
+    "type": "pkg"
+  },
+  {
+    "label": "cherryaudiowurlybird140b",
+    "name": "Wurlybird 140B",
+    "type": "pkg"
+  },
+  {
+    "label": "chromeremotedesktop",
+    "name": "chromeremotedesktop",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "chronoagent",
+    "name": "ChronoAgent",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "chronosync",
+    "name": "ChronoSync",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "cinema4d",
+    "name": "Cinema 4D",
+    "type": "dmg"
+  },
+  {
+    "label": "cinema4d2023",
+    "name": "Cinema 4D",
+    "type": "dmg"
+  },
+  {
+    "label": "cinema4d2024",
+    "name": "Cinema 4D",
+    "type": "dmg"
+  },
+  {
+    "label": "cinema4d2025",
+    "name": "Cinema 4D",
+    "type": "dmg"
+  },
+  {
+    "label": "cinema4d2026",
+    "name": "Cinema 4D",
+    "type": "dmg"
+  },
+  {
+    "label": "cisdemdocumentreader",
+    "name": "cisdem-documentreader",
+    "type": "dmg"
+  },
+  {
+    "label": "citrixworkspace",
+    "name": "Citrix Workspace",
+    "type": "pkg"
+  },
+  {
+    "label": "claudedesktop",
+    "name": "Claude",
+    "type": "zip"
+  },
+  {
+    "label": "cleartouchcollage",
+    "name": "Collage",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "clevershare2",
+    "name": "Clevershare",
+    "type": "dmg"
+  },
+  {
+    "label": "clickshare",
+    "name": "ClickShare",
+    "type": "zip"
+  },
+  {
+    "label": "clickup",
+    "name": "ClickUp",
+    "type": "dmg"
+  },
+  {
+    "label": "clipgrab",
+    "name": "ClipGrab",
+    "type": "dmg"
+  },
+  {
+    "label": "clipy",
+    "name": "Clipy",
+    "type": "dmg"
+  },
+  {
+    "label": "closeio",
+    "name": "Close.io",
+    "type": "dmg"
+  },
+  {
+    "label": "cloudflarewarp",
+    "name": "Cloudflare_WARP",
+    "type": "pkg"
+  },
+  {
+    "label": "cloudya",
+    "name": "Cloudya",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "clue",
+    "name": "Clue",
+    "type": "dmg"
+  },
+  {
+    "label": "cluefull",
+    "name": "Clue",
+    "type": "dmg"
+  },
+  {
+    "label": "cmake",
+    "name": "CMake",
+    "type": "dmg"
+  },
+  {
+    "label": "cocoapods",
+    "name": "CocoaPods",
+    "type": "bz2"
+  },
+  {
+    "label": "coconutbattery",
+    "name": "coconutBattery",
+    "type": "zip"
+  },
+  {
+    "label": "code42",
+    "name": "Code42",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "codemeter",
+    "name": "CodeMeter",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "coderunner",
+    "name": "CodeRunner",
+    "type": "zip"
+  },
+  {
+    "label": "codex",
+    "name": "Codex",
+    "type": "dmg"
+  },
+  {
+    "label": "colourcontrastanalyser",
+    "name": "Colour Contrast Analyser",
+    "type": "dmg"
+  },
+  {
+    "label": "conductor",
+    "name": "Conductor",
+    "type": "dmg"
+  },
+  {
+    "label": "connectfonts",
+    "name": "Connect Fonts",
+    "type": "dmg"
+  },
+  {
+    "label": "container",
+    "name": "container",
+    "type": "pkg"
+  },
+  {
+    "label": "cormorant",
+    "name": "Cormorant",
+    "type": "zip"
+  },
+  {
+    "label": "coteditor",
+    "name": "CotEditor",
+    "type": "dmg"
+  },
+  {
+    "label": "craftmanagerforsketch",
+    "name": "CraftManager",
+    "type": "zip"
+  },
+  {
+    "label": "crashplan",
+    "name": "CrashPlan",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "crashplansmb",
+    "name": "CrashPlan",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "creativeforcehue",
+    "name": "Hue",
+    "type": "pkg"
+  },
+  {
+    "label": "creativeforcekelvin",
+    "name": "Kelvin",
+    "type": "pkg"
+  },
+  {
+    "label": "creativeforceluma",
+    "name": "Luma",
+    "type": "pkg"
+  },
+  {
+    "label": "creativeforcetriad",
+    "name": "Triad",
+    "type": "pkg"
+  },
+  {
+    "label": "cricutdesignspace",
+    "name": "Cricut Design Space",
+    "type": "dmg"
+  },
+  {
+    "label": "cryptomator",
+    "name": "Cryptomator",
+    "type": "dmg"
+  },
+  {
+    "label": "crystalfetch",
+    "name": "CrystalFetch",
+    "type": "dmg"
+  },
+  {
+    "label": "cursorai",
+    "name": "Cursor",
+    "type": "dmg"
+  },
+  {
+    "label": "cyberduck",
+    "name": "Cyberduck",
+    "type": "zip"
+  },
+  {
+    "label": "cycling74max",
+    "name": "Max",
+    "type": "dmg"
+  },
+  {
+    "label": "cytoscape",
+    "name": "Cytoscape",
+    "type": "dmg"
+  },
+  {
+    "label": "daisydisk",
+    "name": "DaisyDisk",
+    "type": "zip"
+  },
+  {
+    "label": "dangerzone",
+    "name": "Dangerzone",
+    "type": "dmg"
+  },
+  {
+    "label": "darktable",
+    "name": "darktable",
+    "type": "dmg"
+  },
+  {
+    "label": "daruma",
+    "name": "Daruma",
+    "type": "dmg"
+  },
+  {
+    "label": "daylite",
+    "name": "Daylite",
+    "type": "zip"
+  },
+  {
+    "label": "dbeaverce",
+    "name": "DBeaver",
+    "type": "dmg"
+  },
+  {
+    "label": "dbvisualizer",
+    "name": "DbVisualizer",
+    "type": "dmg"
+  },
+  {
+    "label": "debookee",
+    "name": "Debookee",
+    "type": "zip"
+  },
+  {
+    "label": "dedoose",
+    "name": "Dedoose",
+    "type": "dmg"
+  },
+  {
+    "label": "deepl",
+    "name": "DeepL",
+    "type": "dmg"
+  },
+  {
+    "label": "deezer",
+    "name": "Deezer",
+    "type": "dmg"
+  },
+  {
+    "label": "defaultfolderx",
+    "name": "Default Folder X",
+    "type": "dmg"
+  },
+  {
+    "label": "deon-cloud",
+    "name": "Deon",
+    "type": "zip"
+  },
+  {
+    "label": "deon-onprem",
+    "name": "Deon",
+    "type": "zip"
+  },
+  {
+    "label": "depnotify",
+    "name": "DEPNotify",
+    "type": "pkg"
+  },
+  {
+    "label": "deskpad",
+    "name": "DeskPad",
+    "type": "zip"
+  },
+  {
+    "label": "desktoppr",
+    "name": "desktoppr",
+    "type": "pkg"
+  },
+  {
+    "label": "detectxswift",
+    "name": "DetectX Swift",
+    "type": "zip"
+  },
+  {
+    "label": "determinate",
+    "name": "Determinate",
+    "type": "pkg"
+  },
+  {
+    "label": "devin",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "devonthink",
+    "name": "DEVONthink",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "dia",
+    "name": "Dia",
+    "type": "dmg"
+  },
+  {
+    "label": "dialog",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "dialpad",
+    "name": "Dialpad",
+    "type": "dmg"
+  },
+  {
+    "label": "digiexam",
+    "name": "Digiexam",
+    "type": "dmg"
+  },
+  {
+    "label": "discord",
+    "name": "Discord",
+    "type": "dmg"
+  },
+  {
+    "label": "discordcanary",
+    "name": "Discord Canary",
+    "type": "dmg"
+  },
+  {
+    "label": "diskdrill",
+    "name": "Disk Drill",
+    "type": "dmg"
+  },
+  {
+    "label": "diskspace",
+    "name": "diskspace",
+    "type": "pkg"
+  },
+  {
+    "label": "displaylinkmanager",
+    "name": "DisplayLink Manager",
+    "type": "pkg"
+  },
+  {
+    "label": "docker",
+    "name": "Docker",
+    "type": "dmg"
+  },
+  {
+    "label": "dockutil",
+    "name": "dockutil",
+    "type": "pkg"
+  },
+  {
+    "label": "doctolib",
+    "name": "Doctolib",
+    "type": "dmg"
+  },
+  {
+    "label": "domzilla-caffeine",
+    "name": "Caffeine",
+    "type": "zip"
+  },
+  {
+    "label": "dracoon",
+    "name": "Dracoon",
+    "type": "zip"
+  },
+  {
+    "label": "dragonframe2024",
+    "name": "DragonFrame 2024",
+    "type": "pkg"
+  },
+  {
+    "label": "dragonframe2025",
+    "name": "DragonFrame 2025",
+    "type": "pkg"
+  },
+  {
+    "label": "dragonframe5",
+    "name": "DragonFrame 5",
+    "type": "pkg"
+  },
+  {
+    "label": "drawio",
+    "name": "draw.io",
+    "type": "dmg"
+  },
+  {
+    "label": "drift",
+    "name": "Drift",
+    "type": "dmg"
+  },
+  {
+    "label": "dropbox",
+    "name": "Dropbox",
+    "type": "dmg"
+  },
+  {
+    "label": "dropboxenterprise",
+    "name": "Dropbox Enterprise",
+    "type": "pkg"
+  },
+  {
+    "label": "droplr",
+    "name": "Droplr",
+    "type": "dmg"
+  },
+  {
+    "label": "drracket",
+    "name": "DrRacket",
+    "type": "dmg"
+  },
+  {
+    "label": "druvainsync",
+    "name": "Druva inSync",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "dstny",
+    "name": "Dstny",
+    "type": "dmg"
+  },
+  {
+    "label": "duckduckgo",
+    "name": "DuckDuckGo",
+    "type": "dmg"
+  },
+  {
+    "label": "duet",
+    "name": "duet",
+    "type": "dmg"
+  },
+  {
+    "label": "duodesktop",
+    "name": "Duo Desktop",
+    "type": "pkg"
+  },
+  {
+    "label": "duodevicehealth",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "dymoconnectdesktop",
+    "name": "DYMO Connect",
+    "type": "pkg"
+  },
+  {
+    "label": "dynalist",
+    "name": "Dynalist",
+    "type": "dmg"
+  },
+  {
+    "label": "easeusdatarecoverywizard",
+    "name": "EaseUS Data Recovery Wizard",
+    "type": "dmg"
+  },
+  {
+    "label": "eastwestinstallationcenter",
+    "name": "EW Installation Center",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "eastwestopus",
+    "name": "Opus",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "eastwestplay",
+    "name": "Play",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "easyfind",
+    "name": "EasyFind",
+    "type": "zip"
+  },
+  {
+    "label": "eclipseideforjavadevelopers",
+    "name": "Eclipse",
+    "type": "dmg"
+  },
+  {
+    "label": "eclipsetemurin11",
+    "name": "Temurin 11",
+    "type": "pkg"
+  },
+  {
+    "label": "eclipsetemurin17",
+    "name": "Temurin 17",
+    "type": "pkg"
+  },
+  {
+    "label": "eclipsetemurin21",
+    "name": "Temurin 21",
+    "type": "pkg"
+  },
+  {
+    "label": "eclipsetemurin25",
+    "name": "Temurin 25",
+    "type": "pkg"
+  },
+  {
+    "label": "eclipsetemurin8",
+    "name": "Temurin 8",
+    "type": "pkg"
+  },
+  {
+    "label": "ecosiabrowser",
+    "name": "Ecosia Browser",
+    "type": "dmg"
+  },
+  {
+    "label": "editshare-connect",
+    "name": "EditShare Connect",
+    "type": "pkg"
+  },
+  {
+    "label": "editshare-flowstory",
+    "name": "FLOW Story",
+    "type": "dmg"
+  },
+  {
+    "label": "egnyte",
+    "name": "Egnyte Connect",
+    "type": "pkg"
+  },
+  {
+    "label": "egnytecore",
+    "name": "Egnyte Core",
+    "type": "dmg"
+  },
+  {
+    "label": "egnytewebedit",
+    "name": "EgnyteWebEdit",
+    "type": "pkg"
+  },
+  {
+    "label": "elan",
+    "name": "ELAN_${appNewVersion}",
+    "type": "dmg"
+  },
+  {
+    "label": "elasticvue",
+    "name": "elasticvue",
+    "type": "dmg"
+  },
+  {
+    "label": "element",
+    "name": "Element",
+    "type": "dmg"
+  },
+  {
+    "label": "elevate24",
+    "name": "Elevate24",
+    "type": "pkg"
+  },
+  {
+    "label": "elgatocamerahub",
+    "name": "Elgato Camera Hub",
+    "type": "pkg"
+  },
+  {
+    "label": "elgatostreamdeck",
+    "name": "Elgato Stream Deck",
+    "type": "pkg"
+  },
+  {
+    "label": "emacs",
+    "name": "Emacs",
+    "type": "dmg"
+  },
+  {
+    "label": "emdash",
+    "name": "Emdash",
+    "type": "dmg"
+  },
+  {
+    "label": "enpass",
+    "name": "Enpass",
+    "type": "pkg"
+  },
+  {
+    "label": "enteauth",
+    "name": "Ente Auth",
+    "type": "dmg"
+  },
+  {
+    "label": "epicgameslauncher",
+    "name": "Epic Games Launcher",
+    "type": "dmg"
+  },
+  {
+    "label": "eposconnect",
+    "name": "EPOS Connect",
+    "type": "pkg"
+  },
+  {
+    "label": "epsonprintlayout",
+    "name": "Epson Print Layout",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "escrowbuddy",
+    "name": "Escrow Buddy",
+    "type": "pkg"
+  },
+  {
+    "label": "eshareosx",
+    "name": "e-Share",
+    "type": "pkg"
+  },
+  {
+    "label": "espanso",
+    "name": "Espanso",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "etrecheck",
+    "name": "EtreCheckPro",
+    "type": "zip"
+  },
+  {
+    "label": "etssecurebrowser",
+    "name": "ETS Secure Browser",
+    "type": "dmg"
+  },
+  {
+    "label": "eul",
+    "name": "eul",
+    "type": "zip"
+  },
+  {
+    "label": "evercast",
+    "name": "Evercast",
+    "type": "pkg"
+  },
+  {
+    "label": "evernote",
+    "name": "Evernote",
+    "type": "dmg"
+  },
+  {
+    "label": "everweb",
+    "name": "EverWeb",
+    "type": "dmg"
+  },
+  {
+    "label": "examplify",
+    "name": "Examplify",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "exelbanstats",
+    "name": "Stats",
+    "type": "dmg"
+  },
+  {
+    "label": "exifrenamer",
+    "name": "ExifRenamer",
+    "type": "dmg"
+  },
+  {
+    "label": "exocharts",
+    "name": "Exocharts",
+    "type": "dmg"
+  },
+  {
+    "label": "expressvpn",
+    "name": "ExpressVPN",
+    "type": "pkg"
+  },
+  {
+    "label": "extensisconnect",
+    "name": "Extensis Connect",
+    "type": "dmg"
+  },
+  {
+    "label": "facebookmessenger",
+    "name": "Messenger",
+    "type": "dmg"
+  },
+  {
+    "label": "fantastical",
+    "name": "Fantastical",
+    "type": "zip"
+  },
+  {
+    "label": "fastscripts",
+    "name": "FastScripts",
+    "type": "zip"
+  },
+  {
+    "label": "favro",
+    "name": "Favro",
+    "type": "dmg"
+  },
+  {
+    "label": "fellow",
+    "name": "Fellow",
+    "type": "dmg"
+  },
+  {
+    "label": "ffmpegmartinriedl",
+    "name": "FFmpeg",
+    "type": "pkg"
+  },
+  {
+    "label": "fierycommandworkstation",
+    "name": "FieryCommandWorkStation",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "figma",
+    "name": "Figma",
+    "type": "zip"
+  },
+  {
+    "label": "filemakerpro",
+    "name": "FileMaker Pro",
+    "type": "dmg"
+  },
+  {
+    "label": "filemakerpro20",
+    "name": "FileMaker Pro",
+    "type": "dmg"
+  },
+  {
+    "label": "filemakerpro21",
+    "name": "FileMaker Pro",
+    "type": "dmg"
+  },
+  {
+    "label": "filemakerpro22",
+    "name": "FileMaker Pro",
+    "type": "dmg"
+  },
+  {
+    "label": "filmlab",
+    "name": "FilmLab",
+    "type": "dmg"
+  },
+  {
+    "label": "finalcutprocontent",
+    "name": "FCPContent",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "finaldraft11",
+    "name": "Final Draft 11",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "finaldraft12",
+    "name": "Final Draft 12",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "finaldraft13",
+    "name": "Final Draft 13",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "findanyfile",
+    "name": "Find Any File",
+    "type": "zip"
+  },
+  {
+    "label": "firecutfordavinciresolve",
+    "name": "FireCut for DaVinci Resolve",
+    "type": "dmg"
+  },
+  {
+    "label": "firecutforpremierepro",
+    "name": "FireCut for Premiere Pro",
+    "type": "pkg"
+  },
+  {
+    "label": "firefox",
+    "name": "Firefox",
+    "type": "dmg"
+  },
+  {
+    "label": "firefox_da",
+    "name": "Firefox",
+    "type": "dmg"
+  },
+  {
+    "label": "firefox_intl",
+    "name": "Firefox",
+    "type": "dmg"
+  },
+  {
+    "label": "firefoxdeveloperedition",
+    "name": "Firefox Developer Edition",
+    "type": "dmg"
+  },
+  {
+    "label": "firefoxesr",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "firefoxesrintl",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "firefoxesrpkg",
+    "name": "Firefox",
+    "type": "pkg"
+  },
+  {
+    "label": "firefoxesrpkgintl",
+    "name": "Firefox",
+    "type": "pkg"
+  },
+  {
+    "label": "firefoxpkg",
+    "name": "Firefox",
+    "type": "pkg"
+  },
+  {
+    "label": "firefoxpkg_intl",
+    "name": "Firefox",
+    "type": "pkg"
+  },
+  {
+    "label": "flexoptixapp",
+    "name": "FLEXOPTIX App",
+    "type": "dmg"
+  },
+  {
+    "label": "flowjo",
+    "name": "FlowJo 11",
+    "type": "dmg"
+  },
+  {
+    "label": "flstudiomac",
+    "name": "FL Studio",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "flux",
+    "name": "Flux",
+    "type": "zip"
+  },
+  {
+    "label": "flycut",
+    "name": "Flycut",
+    "type": "zip"
+  },
+  {
+    "label": "fontagent10",
+    "name": "FontAgent",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "fontbase",
+    "name": "FontBase",
+    "type": "dmg"
+  },
+  {
+    "label": "fontexplorer",
+    "name": "FontExplorer X Pro",
+    "type": "dmg"
+  },
+  {
+    "label": "fork",
+    "name": "Fork",
+    "type": "dmg"
+  },
+  {
+    "label": "foxitpdfeditor",
+    "name": "Foxit PDF Editor",
+    "type": "pkg"
+  },
+  {
+    "label": "franz",
+    "name": "Franz",
+    "type": "dmg"
+  },
+  {
+    "label": "freeplane",
+    "name": "Freeplane",
+    "type": "dmg"
+  },
+  {
+    "label": "front",
+    "name": "Front",
+    "type": "dmg"
+  },
+  {
+    "label": "fsmonitor",
+    "name": "FSMonitor",
+    "type": "zip"
+  },
+  {
+    "label": "fujifilmwebcam",
+    "name": "FUJIFILM X Webcam 2",
+    "type": "pkg"
+  },
+  {
+    "label": "garminaviationdatabasemanager",
+    "name": "Garmin Aviation Database Manager",
+    "type": "pkg"
+  },
+  {
+    "label": "garminbasecamp",
+    "name": "Garmin BaseCamp",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "garminexpress",
+    "name": "Garmin Express",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "gary",
+    "name": "gary",
+    "type": "pkg"
+  },
+  {
+    "label": "gather",
+    "name": "Gather",
+    "type": "dmg"
+  },
+  {
+    "label": "gather2",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "gathertown",
+    "name": "GatherV2",
+    "type": "dmg"
+  },
+  {
+    "label": "gdevelop",
+    "name": "GDevelop 5",
+    "type": "dmg"
+  },
+  {
+    "label": "geneiousprime",
+    "name": "Geneious Prime",
+    "type": "dmg"
+  },
+  {
+    "label": "gephi",
+    "name": "Gephi",
+    "type": "dmg"
+  },
+  {
+    "label": "gfxcardstatus",
+    "name": "gfxCardStatus",
+    "type": "zip"
+  },
+  {
+    "label": "ghostty",
+    "name": "ghostty",
+    "type": "dmg"
+  },
+  {
+    "label": "gimp",
+    "name": "GIMP",
+    "type": "dmg"
+  },
+  {
+    "label": "gimpdev",
+    "name": "GIMP",
+    "type": "dmg"
+  },
+  {
+    "label": "gitcredentialmanager",
+    "name": "Git Credential Manager",
+    "type": "pkg"
+  },
+  {
+    "label": "githubcopilotforxcode",
+    "name": "GitHub Copilot for Xcode",
+    "type": "dmg"
+  },
+  {
+    "label": "githubdesktop",
+    "name": "GitHub Desktop",
+    "type": "zip"
+  },
+  {
+    "label": "gitkraken",
+    "name": "gitkraken",
+    "type": "dmg"
+  },
+  {
+    "label": "globusconnectpersonal",
+    "name": "Globus Connect Personal",
+    "type": "dmg"
+  },
+  {
+    "label": "glpiagent",
+    "name": "GLPI-agent",
+    "type": "pkg"
+  },
+  {
+    "label": "glyphs3",
+    "name": "Glyphs 3",
+    "type": "zip"
+  },
+  {
+    "label": "gns3",
+    "name": "GNS3",
+    "type": "dmg"
+  },
+  {
+    "label": "godot",
+    "name": "Godot",
+    "type": "zip"
+  },
+  {
+    "label": "goland",
+    "name": "GoLand",
+    "type": "dmg"
+  },
+  {
+    "label": "golang",
+    "name": "GoLang",
+    "type": "pkg"
+  },
+  {
+    "label": "googleadseditor",
+    "name": "Google Ads Editor",
+    "type": "dmg"
+  },
+  {
+    "label": "googlechrome",
+    "name": "Google Chrome",
+    "type": "dmg"
+  },
+  {
+    "label": "googlechromeenterprise",
+    "name": "Google Chrome",
+    "type": "pkg"
+  },
+  {
+    "label": "googlechromepkg",
+    "name": "Google Chrome",
+    "type": "pkg"
+  },
+  {
+    "label": "googledrive",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "googledrivebackupandsync",
+    "name": "Backup and Sync",
+    "type": "dmg"
+  },
+  {
+    "label": "googledrivefilestream",
+    "name": "Google Drive File Stream",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "googleearth",
+    "name": "Google Earth Pro",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "googlegemini",
+    "name": "Gemini",
+    "type": "dmg"
+  },
+  {
+    "label": "googlejapaneseinput",
+    "name": "GoogleJapaneseInput",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "googlesoftwareupdate",
+    "name": "Install Google Software Update",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "googlewebdesigner",
+    "name": "Google Web Designer",
+    "type": "dmg"
+  },
+  {
+    "label": "goose",
+    "name": "Goose",
+    "type": "zip"
+  },
+  {
+    "label": "gosign",
+    "name": "GoSign-Desktop",
+    "type": "dmg"
+  },
+  {
+    "label": "gotiengviet",
+    "name": "GoTiengViet",
+    "type": "dmg"
+  },
+  {
+    "label": "gotomeeting",
+    "name": "GoToMeeting",
+    "type": "dmg"
+  },
+  {
+    "label": "gotowebinar",
+    "name": "GoTo",
+    "type": "dmg"
+  },
+  {
+    "label": "gpgsuite",
+    "name": "GPG Suite",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "gpgsync",
+    "name": "GPG Sync",
+    "type": "pkg"
+  },
+  {
+    "label": "gram",
+    "name": "Gram Editor",
+    "type": "dmg"
+  },
+  {
+    "label": "grammarly",
+    "name": "Grammarly Desktop",
+    "type": "dmg"
+  },
+  {
+    "label": "grandperspective",
+    "name": "GrandPerspective",
+    "type": "dmg"
+  },
+  {
+    "label": "granola",
+    "name": "Granola",
+    "type": "dmg"
+  },
+  {
+    "label": "graphicconverter10",
+    "name": "GraphicConverter 10",
+    "type": "zip"
+  },
+  {
+    "label": "grasshopper",
+    "name": "Grasshopper",
+    "type": "dmg"
+  },
+  {
+    "label": "grooveomnidialerenterpriseedition",
+    "name": "Groove Omnidialer Enterprise Edition",
+    "type": "zip"
+  },
+  {
+    "label": "guardianbrowser",
+    "name": "Guardian Browser",
+    "type": "dmg"
+  },
+  {
+    "label": "gyazo",
+    "name": "Gyazo",
+    "type": "dmg"
+  },
+  {
+    "label": "gyazogif",
+    "name": "Gyazo GIF",
+    "type": "dmg"
+  },
+  {
+    "label": "hancock",
+    "name": "Hancock",
+    "type": "dmg"
+  },
+  {
+    "label": "handbrake",
+    "name": "HandBrake",
+    "type": "dmg"
+  },
+  {
+    "label": "handy",
+    "name": "Handy",
+    "type": "dmg"
+  },
+  {
+    "label": "harmonysase",
+    "name": "Harmony SASE",
+    "type": "pkg"
+  },
+  {
+    "label": "hazel",
+    "name": "Hazel",
+    "type": "dmg"
+  },
+  {
+    "label": "hexfiend",
+    "name": "Hex Fiend",
+    "type": "dmg"
+  },
+  {
+    "label": "hiddenbar",
+    "name": "Hidden Bar",
+    "type": "zip"
+  },
+  {
+    "label": "hmavpn",
+    "name": "HMA-VPN",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "homebrew",
+    "name": "Homebrew",
+    "type": "pkg"
+  },
+  {
+    "label": "homerow",
+    "name": "Homerow",
+    "type": "dmg"
+  },
+  {
+    "label": "hoppscotch",
+    "name": "Hoppscotch",
+    "type": "dmg"
+  },
+  {
+    "label": "horos",
+    "name": "Horos",
+    "type": "dmg"
+  },
+  {
+    "label": "hot",
+    "name": "Hot",
+    "type": "zip"
+  },
+  {
+    "label": "houdahspot",
+    "name": "HoudahSpot",
+    "type": "zip"
+  },
+  {
+    "label": "hpeasyadmin",
+    "name": "HP Easy Admin",
+    "type": "zip"
+  },
+  {
+    "label": "hpeasystart",
+    "name": "HP Easy Start",
+    "type": "zip"
+  },
+  {
+    "label": "hubstaff",
+    "name": "Hubstaff",
+    "type": "dmg"
+  },
+  {
+    "label": "huddly",
+    "name": "Huddly",
+    "type": "dmg"
+  },
+  {
+    "label": "hudlsportscode",
+    "name": "Hudl Sportscode",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "hudlstudio",
+    "name": "Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "hype",
+    "name": "Hype4",
+    "type": "dmg"
+  },
+  {
+    "label": "hyper",
+    "name": "Hyper",
+    "type": "dmg"
+  },
+  {
+    "label": "i1profiler",
+    "name": "i1Profiler",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "ibarcoder",
+    "name": "iBarcoder",
+    "type": "dmg"
+  },
+  {
+    "label": "ibmaspera",
+    "name": "IBM Aspera",
+    "type": "pkg"
+  },
+  {
+    "label": "ibmnotifier",
+    "name": "IBM Notifier",
+    "type": "zip"
+  },
+  {
+    "label": "ice",
+    "name": "Ice",
+    "type": "zip"
+  },
+  {
+    "label": "icons",
+    "name": "Icons",
+    "type": "pkg"
+  },
+  {
+    "label": "idrive",
+    "name": "IDrive",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "idrivethin",
+    "name": "IDrive",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "igv",
+    "name": "IGV",
+    "type": "zip"
+  },
+  {
+    "label": "iina",
+    "name": "IINA",
+    "type": "dmg"
+  },
+  {
+    "label": "ikproductmanager",
+    "name": "IK Product Manager",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "imageoptim",
+    "name": "imageoptim",
+    "type": "tbz"
+  },
+  {
+    "label": "imazing3",
+    "name": "iMazing",
+    "type": "dmg"
+  },
+  {
+    "label": "imazingprofileeditor",
+    "name": "iMazing Profile Editor",
+    "type": "dmg"
+  },
+  {
+    "label": "inetclearreportsdesigner",
+    "name": "i-Net Clear Reports Designer",
+    "type": "appindmg"
+  },
+  {
+    "label": "inkscape",
+    "name": "Inkscape",
+    "type": "dmg"
+  },
+  {
+    "label": "inmusicsoftwarecenter",
+    "name": "inMusic Software Center",
+    "type": "zip"
+  },
+  {
+    "label": "insomnia",
+    "name": "Insomnia",
+    "type": "dmg"
+  },
+  {
+    "label": "installomator",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "installomator_theile",
+    "name": "Installomator",
+    "type": "pkg"
+  },
+  {
+    "label": "installomatormate",
+    "name": "InstallomatorMate",
+    "type": "zip"
+  },
+  {
+    "label": "instantview",
+    "name": "macOS InstantView",
+    "type": "dmg"
+  },
+  {
+    "label": "intellijideace",
+    "name": "IntelliJ IDEA",
+    "type": "dmg"
+  },
+  {
+    "label": "ipswupdater",
+    "name": "IPSW Updater",
+    "type": "zip"
+  },
+  {
+    "label": "ipvisionconnect",
+    "name": "ipvision Connect",
+    "type": "dmg"
+  },
+  {
+    "label": "iriunwebcam",
+    "name": "IriunWebcam",
+    "type": "pkg"
+  },
+  {
+    "label": "isadora",
+    "name": "Isadora",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "island",
+    "name": "Island",
+    "type": "dmg"
+  },
+  {
+    "label": "istatmenus",
+    "name": "iStat Menus",
+    "type": "zip"
+  },
+  {
+    "label": "iterm2",
+    "name": "iTerm",
+    "type": "zip"
+  },
+  {
+    "label": "itsycal",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "izotopeproductportal",
+    "name": "iZotope Product Portal",
+    "type": "dmg"
+  },
+  {
+    "label": "jabradirect",
+    "name": "Jabra Direct",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jamf-cli",
+    "name": "jamf-cli",
+    "type": "pkg"
+  },
+  {
+    "label": "jamfcheck",
+    "name": "jamfcheck",
+    "type": "dmg"
+  },
+  {
+    "label": "jamfcli",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "jamfconnect",
+    "name": "Jamf Connect",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jamfconnectconfiguration",
+    "name": "Jamf Connect Configuration",
+    "type": "dmg"
+  },
+  {
+    "label": "jamfconnectlaunchagent",
+    "name": "Jamf Connect Launch Agent",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jamfconnectlogin",
+    "name": "Jamf Connect Login",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jamfcpr",
+    "name": "jamfcpr",
+    "type": "zip"
+  },
+  {
+    "label": "jamfmigrator",
+    "name": "jamf-migrator",
+    "type": "zip"
+  },
+  {
+    "label": "jamfpppcutility",
+    "name": "PPPC Utility",
+    "type": "zip"
+  },
+  {
+    "label": "jamfprintermanager",
+    "name": "Jamf Printer Manager",
+    "type": "zip"
+  },
+  {
+    "label": "jamfreenroller",
+    "name": "ReEnroller",
+    "type": "zip"
+  },
+  {
+    "label": "jamfsetupmanager",
+    "name": "Setup Manager",
+    "type": "pkg"
+  },
+  {
+    "label": "jamovi",
+    "name": "jamovi",
+    "type": "dmg"
+  },
+  {
+    "label": "jasp",
+    "name": "JASP",
+    "type": "dmg"
+  },
+  {
+    "label": "jcpswdmgr",
+    "name": "JumpCloud Password Manager",
+    "type": "dmg"
+  },
+  {
+    "label": "jdk17",
+    "name": "Java SE Development Kit 17",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jdk18",
+    "name": "Java SE Development Kit 18",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jdk19",
+    "name": "Java SE Development Kit 19",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jdk20",
+    "name": "Java SE Development Kit 20",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jetbrainsclion",
+    "name": "CLion",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainsdatagrip",
+    "name": "DataGrip",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainsdataspell",
+    "name": "DataSpell",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainsgateway",
+    "name": "JetBrains Gateway",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainsgoland",
+    "name": "GoLand",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainsintellijidea",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "jetbrainsintellijideace",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "jetbrainsphpstorm",
+    "name": "PHPStorm",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainspycharm",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "jetbrainspycharmce",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "jetbrainsrider",
+    "name": "Rider",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainsrubymine",
+    "name": "RubyMine",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainstoolbox",
+    "name": "JetBrains Toolbox",
+    "type": "dmg"
+  },
+  {
+    "label": "jetbrainswebstorm",
+    "name": "Webstorm",
+    "type": "dmg"
+  },
+  {
+    "label": "jitsimeet",
+    "name": "Jitsi Meet",
+    "type": "dmg"
+  },
+  {
+    "label": "joplin",
+    "name": "Joplin",
+    "type": "dmg"
+  },
+  {
+    "label": "jre8",
+    "name": "Java Runtime Environment 8",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "jumpcloudpasswordmanager",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "jumpdesktop",
+    "name": "Jump Desktop",
+    "type": "zip"
+  },
+  {
+    "label": "jumper",
+    "name": "Jumper",
+    "type": "dmg"
+  },
+  {
+    "label": "jupyterlab",
+    "name": "JupyterLab",
+    "type": "dmg"
+  },
+  {
+    "label": "kaleidoscope",
+    "name": "Kaleidoscope",
+    "type": "zip"
+  },
+  {
+    "label": "kap",
+    "name": "Kap",
+    "type": "dmg"
+  },
+  {
+    "label": "karabinerelements",
+    "name": "Karabiner-Elements",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "kdrive",
+    "name": "kDrive",
+    "type": "pkg"
+  },
+  {
+    "label": "keepassxc",
+    "name": "KeePassXC",
+    "type": "dmg"
+  },
+  {
+    "label": "keeperpasswordmanager",
+    "name": "Keeper Password Manager",
+    "type": "dmg"
+  },
+  {
+    "label": "keepingyouawake",
+    "name": "KeepingYouAwake",
+    "type": "zip"
+  },
+  {
+    "label": "keka",
+    "name": "Keka",
+    "type": "dmg"
+  },
+  {
+    "label": "keyaccess",
+    "name": "KeyAccess",
+    "type": "pkg"
+  },
+  {
+    "label": "keybase",
+    "name": "Keybase",
+    "type": "dmg"
+  },
+  {
+    "label": "keyboardmaestro",
+    "name": "Keyboard Maestro",
+    "type": "zip"
+  },
+  {
+    "label": "keyshot",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "keyshot12",
+    "name": "KeyShot12",
+    "type": "pkg"
+  },
+  {
+    "label": "keyshot2024",
+    "name": "KeyShot",
+    "type": "pkg"
+  },
+  {
+    "label": "keystoreexplorer",
+    "name": "KeyStore Explorer",
+    "type": "dmg"
+  },
+  {
+    "label": "kicad",
+    "name": "KiCad",
+    "type": "dmg"
+  },
+  {
+    "label": "kimplusclientmodul",
+    "name": "KIMplus Clientmodul",
+    "type": "dmg"
+  },
+  {
+    "label": "kiro",
+    "name": "Kiro",
+    "type": "dmg"
+  },
+  {
+    "label": "kirocli",
+    "name": "Kiro CLI",
+    "type": "dmg"
+  },
+  {
+    "label": "klokki",
+    "name": "Klokki",
+    "type": "dmg"
+  },
+  {
+    "label": "knockknock",
+    "name": "KnockKnock",
+    "type": "zip"
+  },
+  {
+    "label": "kommodo",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "kommodoscreenrecorder",
+    "name": "Kommodo Screen Recorder",
+    "type": "pkg"
+  },
+  {
+    "label": "korgsoftwarepass",
+    "name": "Korg Software Pass",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "krisp",
+    "name": "Krisp",
+    "type": "pkg"
+  },
+  {
+    "label": "krita",
+    "name": "krita",
+    "type": "dmg"
+  },
+  {
+    "label": "lastpass",
+    "name": "LastPass",
+    "type": "dmg"
+  },
+  {
+    "label": "latexit",
+    "name": "LaTeXiT",
+    "type": "dmg"
+  },
+  {
+    "label": "launchbar",
+    "name": "LaunchBar",
+    "type": "dmg"
+  },
+  {
+    "label": "launchcontrol",
+    "name": "LaunchControl",
+    "type": "tbz"
+  },
+  {
+    "label": "lcadvancedvpnclient",
+    "name": "LANCOM Advanced VPN Client",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "ledgerwallet",
+    "name": "Ledger Wallet",
+    "type": "dmg"
+  },
+  {
+    "label": "lens",
+    "name": "Lens",
+    "type": "dmg"
+  },
+  {
+    "label": "lexarrecoverytool",
+    "name": "Lexar Recovery Tool",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "lgcalibrationstudio",
+    "name": "LG Calibration Studio",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "libericajdk11ltsfull",
+    "name": "Liberica JDK 11 LTS Full",
+    "type": "pkg"
+  },
+  {
+    "label": "libericajdk17ltsfull",
+    "name": "Liberica JDK 17 Full LTS",
+    "type": "pkg"
+  },
+  {
+    "label": "libericajdk8ltsfull",
+    "name": "Liberica JDK 8 Full LTS",
+    "type": "pkg"
+  },
+  {
+    "label": "libreoffice",
+    "name": "LibreOffice",
+    "type": "dmg"
+  },
+  {
+    "label": "libreofficelanguagepackintl",
+    "name": "LibreOffice Language Pack",
+    "type": "dmg"
+  },
+  {
+    "label": "lifesize",
+    "name": "Lifesize",
+    "type": "dmg"
+  },
+  {
+    "label": "lightburn",
+    "name": "LightBurn",
+    "type": "dmg"
+  },
+  {
+    "label": "lightkey",
+    "name": "Lightkey",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "linear",
+    "name": "Linear",
+    "type": "dmg"
+  },
+  {
+    "label": "linearmouse",
+    "name": "LinearMouse",
+    "type": "dmg"
+  },
+  {
+    "label": "livereplayer",
+    "name": "LiveReplayer",
+    "type": "pkg"
+  },
+  {
+    "label": "lmstudio",
+    "name": "LM Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "logighub",
+    "name": "Logi G-HUB",
+    "type": "zip"
+  },
+  {
+    "label": "logioptions",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "logitechghub",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "logitechoptions",
+    "name": "Logi Options",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "logitechoptionsplus",
+    "name": "Logi Options+",
+    "type": "zip"
+  },
+  {
+    "label": "logitechoptionsplusoffline",
+    "name": "Logi Options+",
+    "type": "zip"
+  },
+  {
+    "label": "logitune",
+    "name": "Logi Tune",
+    "type": "pkg"
+  },
+  {
+    "label": "logseq",
+    "name": "Logseq",
+    "type": "dmg"
+  },
+  {
+    "label": "loom",
+    "name": "Loom",
+    "type": "dmg"
+  },
+  {
+    "label": "loopcloud",
+    "name": "Loopcloud",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "losslesscut",
+    "name": "LosslessCut",
+    "type": "dmg"
+  },
+  {
+    "label": "loupedeck",
+    "name": "Loupedeck",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "lovable",
+    "name": "Lovable",
+    "type": "dmg"
+  },
+  {
+    "label": "lowprofile",
+    "name": "Low Profile",
+    "type": "dmg"
+  },
+  {
+    "label": "lsagent",
+    "name": "LsAgent-osx",
+    "type": "dmg"
+  },
+  {
+    "label": "lucidlink",
+    "name": "Lucid",
+    "type": "pkg"
+  },
+  {
+    "label": "lucifer",
+    "name": "Lucifer",
+    "type": "zip"
+  },
+  {
+    "label": "lulu",
+    "name": "LuLu",
+    "type": "dmg"
+  },
+  {
+    "label": "lunadisplay",
+    "name": "Luna Display",
+    "type": "dmg"
+  },
+  {
+    "label": "macadminspython",
+    "name": "MacAdmins Python",
+    "type": "pkg"
+  },
+  {
+    "label": "maccyapp",
+    "name": "Maccy",
+    "type": "zip"
+  },
+  {
+    "label": "mace",
+    "name": "MACE",
+    "type": "dmg"
+  },
+  {
+    "label": "macfuse",
+    "name": "FUSE for macOS",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "macoslaps",
+    "name": "macOSLAPS",
+    "type": "pkg"
+  },
+  {
+    "label": "macpass",
+    "name": "MacPass",
+    "type": "zip"
+  },
+  {
+    "label": "macports",
+    "name": "MacPorts",
+    "type": "pkg"
+  },
+  {
+    "label": "mactex",
+    "name": "MacTeX",
+    "type": "pkg"
+  },
+  {
+    "label": "mactracker",
+    "name": "Mactracker",
+    "type": "zip"
+  },
+  {
+    "label": "macvector",
+    "name": "MacVector",
+    "type": "dmg"
+  },
+  {
+    "label": "magicbullet",
+    "name": "Magic Bullet Suite",
+    "type": "zip"
+  },
+  {
+    "label": "mailmate",
+    "name": "MailMate",
+    "type": "tbz"
+  },
+  {
+    "label": "mailtooutlook",
+    "name": "MailToOutlook",
+    "type": "pkg"
+  },
+  {
+    "label": "malwarebytes",
+    "name": "Malwarebytes",
+    "type": "pkg"
+  },
+  {
+    "label": "mamp",
+    "name": "MAMP PRO",
+    "type": "pkg"
+  },
+  {
+    "label": "managedappschemabuilder",
+    "name": "Managed App Schema Builder",
+    "type": "zip"
+  },
+  {
+    "label": "marathon",
+    "name": "Classic Marathon",
+    "type": "dmg"
+  },
+  {
+    "label": "marathon2",
+    "name": "Classic Marathon 2",
+    "type": "dmg"
+  },
+  {
+    "label": "marathoninfinity",
+    "name": "Classic Marathon Infinity",
+    "type": "dmg"
+  },
+  {
+    "label": "masterfader",
+    "name": "MasterFader",
+    "type": "dmg"
+  },
+  {
+    "label": "masv",
+    "name": "MASV",
+    "type": "dmg"
+  },
+  {
+    "label": "mattermost",
+    "name": "Mattermost",
+    "type": "dmg"
+  },
+  {
+    "label": "maxcycling74",
+    "name": "Max",
+    "type": "dmg"
+  },
+  {
+    "label": "maxonapp",
+    "name": "Maxon",
+    "type": "dmg"
+  },
+  {
+    "label": "maxqda24",
+    "name": "MAXQDA24",
+    "type": "dmg"
+  },
+  {
+    "label": "mdmwatchdog",
+    "name": "Addigy MDM Watchdog",
+    "type": "pkg"
+  },
+  {
+    "label": "meetingbar",
+    "name": "Meetingbar",
+    "type": "dmg"
+  },
+  {
+    "label": "meistertask",
+    "name": "MeisterTask",
+    "type": "dmg"
+  },
+  {
+    "label": "mendeleyreferencemanager",
+    "name": "Mendeley Reference Manager",
+    "type": "dmg"
+  },
+  {
+    "label": "menumeters",
+    "name": "MenuMeters",
+    "type": "zip"
+  },
+  {
+    "label": "merlinproject",
+    "name": "Merlin Project",
+    "type": "zip"
+  },
+  {
+    "label": "mestrenova",
+    "name": "MestReNova",
+    "type": "dmg"
+  },
+  {
+    "label": "microsoft365copilot",
+    "name": "Microsoft 365 Copilot",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftautoupdate",
+    "name": "Microsoft AutoUpdate",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftazuredatastudio",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "microsoftazurestorageexplorer",
+    "name": "Microsoft Azure Storage Explorer",
+    "type": "zip"
+  },
+  {
+    "label": "microsoftcompanyportal",
+    "name": "Company Portal",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftdefender",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "microsoftdefenderatp",
+    "name": "Microsoft Defender",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftedge",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "microsoftedgebeta",
+    "name": "Microsoft Edge Beta",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftedgeconsumerstable",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "microsoftedgedev",
+    "name": "Microsoft Edge Dev",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftedgeenterprisestable",
+    "name": "Microsoft Edge",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftexcel",
+    "name": "Microsoft Excel",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftexcelreset",
+    "name": "Microsoft Excel Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftglobalsecureaccessclient",
+    "name": "Global Secure Access Client",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftlicenseremovaltool",
+    "name": "Microsoft License Removal Tool",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftlicensereset",
+    "name": "Microsoft License Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftoffice365",
+    "name": "MicrosoftOffice365",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftofficebusinesspro",
+    "name": "MicrosoftOfficeBusinessPro",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftofficefactoryreset",
+    "name": "Microsoft Office Factory Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftofficeremoval",
+    "name": "Microsoft Office Removal",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonedrive",
+    "name": "OneDrive",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonedrive-deferred",
+    "name": "OneDrive",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonedrive-rollingout",
+    "name": "OneDrive",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonedrive-rollingoutdeferred",
+    "name": "OneDrive",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonedrivereset",
+    "name": "Microsoft OneDrive Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonedrivesuinsiders",
+    "name": "OneDrive",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonedrivesuprod",
+    "name": "OneDrive",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonenote",
+    "name": "Microsoft OneNote",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftonenotereset",
+    "name": "Microsoft OneNote Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftoutlook",
+    "name": "Microsoft Outlook",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftoutlook-monthly",
+    "name": "Microsoft Outlook",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftoutlookdataremoval",
+    "name": "Microsoft Outlook Data Removal",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftoutlookreset",
+    "name": "Microsoft Outlook Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftpowerpoint",
+    "name": "Microsoft PowerPoint",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftpowerpointreset",
+    "name": "Microsoft PowerPoint Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftpowershell",
+    "name": "PowerShell",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftremotedesktop",
+    "name": "Windows App",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftremotehelp",
+    "name": "Microsoft Remote Help",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftsharepointplugin",
+    "name": "MicrosoftSharePointPlugin",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftskypeforbusiness",
+    "name": "Skype for Business",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftskypeforbusinessremovaltool",
+    "name": "Skype for Business Removal",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftteams",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "microsoftteams-rollingout",
+    "name": "Microsoft Teams",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftteamsnew",
+    "name": "Microsoft Teams",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftteamsreset",
+    "name": "Microsoft Teams Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftvisualstudiocode",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "microsoftwindowsapp",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "microsoftword",
+    "name": "Microsoft Word",
+    "type": "pkg"
+  },
+  {
+    "label": "microsoftwordreset",
+    "name": "Microsoft Word Reset",
+    "type": "pkg"
+  },
+  {
+    "label": "midimonitor",
+    "name": "MIDI Monitor",
+    "type": "dmg"
+  },
+  {
+    "label": "mightymike",
+    "name": "Mighty Mike",
+    "type": "dmg"
+  },
+  {
+    "label": "mindmanager",
+    "name": "MindManager",
+    "type": "dmg"
+  },
+  {
+    "label": "minecraftedu",
+    "name": "minecraft-edu",
+    "type": "dmg"
+  },
+  {
+    "label": "miniconda",
+    "name": "Miniconda3-latest-MacOSX-arm64",
+    "type": "pkg"
+  },
+  {
+    "label": "minisim",
+    "name": "Minisim",
+    "type": "zip"
+  },
+  {
+    "label": "miro",
+    "name": "Miro",
+    "type": "dmg"
+  },
+  {
+    "label": "mist",
+    "name": "Mist",
+    "type": "pkg"
+  },
+  {
+    "label": "mist-cli",
+    "name": "Mist-CLI",
+    "type": "pkg"
+  },
+  {
+    "label": "mkuser",
+    "name": "mkuser",
+    "type": "pkg"
+  },
+  {
+    "label": "mmhmm",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "mmhmm-desktop",
+    "name": "mmhmm",
+    "type": "pkg"
+  },
+  {
+    "label": "mmhmm-studio",
+    "name": "mmhmm Studio",
+    "type": "pkg"
+  },
+  {
+    "label": "mobikinassistantforandroid",
+    "name": "MobiKin Assistant for Android",
+    "type": "dmg"
+  },
+  {
+    "label": "mobiletolocal",
+    "name": "Mobile to Local",
+    "type": "zip"
+  },
+  {
+    "label": "mobirise",
+    "name": "mobirise",
+    "type": "dmg"
+  },
+  {
+    "label": "mochakeyboard",
+    "name": "Mocha Keyboard",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "mochatelnet",
+    "name": "Telnet",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "mochatn3270",
+    "name": "TN3270",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "mochatn3812",
+    "name": "TN3812",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "mochatn5250",
+    "name": "TN5250",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "mockoon",
+    "name": "Mockoon",
+    "type": "dmg"
+  },
+  {
+    "label": "moderncsv",
+    "name": "Modern CSV",
+    "type": "dmg"
+  },
+  {
+    "label": "mongodbcompass",
+    "name": "MongoDB Compass",
+    "type": "dmg"
+  },
+  {
+    "label": "monitorcontrol",
+    "name": "MonitorControl",
+    "type": "dmg"
+  },
+  {
+    "label": "montereyblocker",
+    "name": "montereyblocker",
+    "type": "pkg"
+  },
+  {
+    "label": "morisawadesktopmanager",
+    "name": "Morisawa Desktop Manager",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "motion",
+    "name": "Motion",
+    "type": "zip"
+  },
+  {
+    "label": "mountainduck",
+    "name": "Mountain Duck",
+    "type": "zip"
+  },
+  {
+    "label": "mowgliiitsycal",
+    "name": "Itsycal",
+    "type": "zip"
+  },
+  {
+    "label": "multipass",
+    "name": "multipass",
+    "type": "pkg"
+  },
+  {
+    "label": "munki",
+    "name": "Munki",
+    "type": "pkg"
+  },
+  {
+    "label": "munkiadmin",
+    "name": "MunkiAdmin",
+    "type": "dmg"
+  },
+  {
+    "label": "mural",
+    "name": "Mural",
+    "type": "dmg"
+  },
+  {
+    "label": "musescore",
+    "name": "MuseScore 4",
+    "type": "dmg"
+  },
+  {
+    "label": "muzzle",
+    "name": "Muzzle",
+    "type": "zip"
+  },
+  {
+    "label": "mysqlworkbenchce",
+    "name": "MySQLWorkbench",
+    "type": "dmg"
+  },
+  {
+    "label": "namiral",
+    "name": "Namirial Sign",
+    "type": "dmg"
+  },
+  {
+    "label": "nanosaur",
+    "name": "Nanosaur",
+    "type": "dmg"
+  },
+  {
+    "label": "nativeaccess",
+    "name": "Native Access",
+    "type": "zip"
+  },
+  {
+    "label": "nditools",
+    "name": "NDI Tools",
+    "type": "pkg"
+  },
+  {
+    "label": "nessusagent",
+    "name": "Nessus Agent",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "netiquette",
+    "name": "Netiquette",
+    "type": "zip"
+  },
+  {
+    "label": "netnewswire",
+    "name": "NetNewsWire",
+    "type": "zip"
+  },
+  {
+    "label": "netspot",
+    "name": "NetSpot",
+    "type": "dmg"
+  },
+  {
+    "label": "networksharemounter",
+    "name": "NetworkShareMounter",
+    "type": "pkg"
+  },
+  {
+    "label": "nextcloud",
+    "name": "Nextcloud",
+    "type": "pkg"
+  },
+  {
+    "label": "nextcloudtalk",
+    "name": "Nextcloud Talk",
+    "type": "dmg"
+  },
+  {
+    "label": "nodejs",
+    "name": "nodejs",
+    "type": "pkg"
+  },
+  {
+    "label": "nodejslts",
+    "name": "nodejs",
+    "type": "pkg"
+  },
+  {
+    "label": "nomachine",
+    "name": "NoMachine",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "nomad",
+    "name": "NoMAD",
+    "type": "pkg"
+  },
+  {
+    "label": "nomadlogin",
+    "name": "NoMAD Login",
+    "type": "pkg"
+  },
+  {
+    "label": "nordlayer",
+    "name": "NordLayer",
+    "type": "pkg"
+  },
+  {
+    "label": "nordvpn",
+    "name": "NordVPN",
+    "type": "pkg"
+  },
+  {
+    "label": "notion",
+    "name": "Notion",
+    "type": "dmg"
+  },
+  {
+    "label": "notioncalendar",
+    "name": "Notion Calendar",
+    "type": "dmg"
+  },
+  {
+    "label": "nova",
+    "name": "Nova",
+    "type": "zip"
+  },
+  {
+    "label": "nps-santa",
+    "name": "Santa",
+    "type": "pkg"
+  },
+  {
+    "label": "npssantafull",
+    "name": "Santa",
+    "type": "pkg"
+  },
+  {
+    "label": "nudge",
+    "name": "Nudge",
+    "type": "pkg"
+  },
+  {
+    "label": "nudgesuite",
+    "name": "Nudge Suite",
+    "type": "pkg"
+  },
+  {
+    "label": "numi",
+    "name": "Numi",
+    "type": "dmg"
+  },
+  {
+    "label": "nvivo",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "nvivo13",
+    "name": "NVivo",
+    "type": "dmg"
+  },
+  {
+    "label": "nvivo14",
+    "name": "NVivo 14",
+    "type": "dmg"
+  },
+  {
+    "label": "nvivo15",
+    "name": "NVivo 15",
+    "type": "dmg"
+  },
+  {
+    "label": "nweasecuretestingbrowser",
+    "name": "NWEA Secure Testing Browser",
+    "type": "dmg"
+  },
+  {
+    "label": "obs",
+    "name": "OBS",
+    "type": "dmg"
+  },
+  {
+    "label": "obsbotcenter",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "obsbotwebcam",
+    "name": "OBSBOT_Center",
+    "type": "dmg"
+  },
+  {
+    "label": "obsidian",
+    "name": "Obsidian",
+    "type": "dmg"
+  },
+  {
+    "label": "obsioscamera",
+    "name": "iOS Camera for OBS Studio",
+    "type": "pkg"
+  },
+  {
+    "label": "odrive",
+    "name": "odrive",
+    "type": "pkg"
+  },
+  {
+    "label": "oktaverify",
+    "name": "Okta Verify",
+    "type": "pkg"
+  },
+  {
+    "label": "ollama",
+    "name": "Ollama",
+    "type": "zip"
+  },
+  {
+    "label": "omnidisksweeper",
+    "name": "OmniDiskSweeper",
+    "type": "dmg"
+  },
+  {
+    "label": "omnifocus3",
+    "name": "OmniFocus",
+    "type": "dmg"
+  },
+  {
+    "label": "omnifocus4",
+    "name": "OmniFocus",
+    "type": "dmg"
+  },
+  {
+    "label": "omnigraffle6",
+    "name": "OmniGraffle",
+    "type": "dmg"
+  },
+  {
+    "label": "omnigraffle7",
+    "name": "OmniGraffle",
+    "type": "dmg"
+  },
+  {
+    "label": "omnioutliner5",
+    "name": "OmniOutliner",
+    "type": "dmg"
+  },
+  {
+    "label": "omnioutliner6",
+    "name": "OmniOutliner",
+    "type": "dmg"
+  },
+  {
+    "label": "omniplan3",
+    "name": "OmniPlan",
+    "type": "dmg"
+  },
+  {
+    "label": "omniplan4",
+    "name": "OmniPlan",
+    "type": "dmg"
+  },
+  {
+    "label": "omnipresence",
+    "name": "OmniPresence",
+    "type": "dmg"
+  },
+  {
+    "label": "omnissahorizonclient",
+    "name": "Omnissa Horizon Client",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "onionshare",
+    "name": "OnionShare",
+    "type": "dmg"
+  },
+  {
+    "label": "onlyofficedesktop",
+    "name": "ONLYOFFICE",
+    "type": "dmg"
+  },
+  {
+    "label": "onscreencontrol",
+    "name": "OnScreen Control",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "onyx",
+    "name": "OnyX",
+    "type": "dmg"
+  },
+  {
+    "label": "openeid",
+    "name": "Open-EID",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "openlens",
+    "name": "OpenLens",
+    "type": "dmg"
+  },
+  {
+    "label": "openrefine",
+    "name": "OpenRefine",
+    "type": "dmg"
+  },
+  {
+    "label": "openvpnconnect",
+    "name": "OpenVPN",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "openvpnconnectv3",
+    "name": "OpenVPN Connect",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "opera",
+    "name": "Opera",
+    "type": "dmg"
+  },
+  {
+    "label": "oraclesqldeveloper",
+    "name": "SQLDeveloper",
+    "type": "zip"
+  },
+  {
+    "label": "orbstack",
+    "name": "OrbStack",
+    "type": "dmg"
+  },
+  {
+    "label": "orcaslicer",
+    "name": "OrcaSlicer",
+    "type": "dmg"
+  },
+  {
+    "label": "origin",
+    "name": "Origin",
+    "type": "dmg"
+  },
+  {
+    "label": "orion",
+    "name": "Orion",
+    "type": "dmg"
+  },
+  {
+    "label": "orkadesktop",
+    "name": "Orka Desktop",
+    "type": "dmg"
+  },
+  {
+    "label": "osquery",
+    "name": "osquery-*",
+    "type": "pkg"
+  },
+  {
+    "label": "ottomatic",
+    "name": "Otto Matic",
+    "type": "dmg"
+  },
+  {
+    "label": "outputarcade",
+    "name": "Arcade",
+    "type": "pkg"
+  },
+  {
+    "label": "outputhub",
+    "name": "Output Hub",
+    "type": "dmg"
+  },
+  {
+    "label": "outset",
+    "name": "Outset",
+    "type": "pkg"
+  },
+  {
+    "label": "overflow",
+    "name": "Overflow",
+    "type": "dmg"
+  },
+  {
+    "label": "owncloud",
+    "name": "ownCloud",
+    "type": "pkg"
+  },
+  {
+    "label": "pacifist",
+    "name": "Pacifist",
+    "type": "dmg"
+  },
+  {
+    "label": "packages",
+    "name": "Packages",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "pandoc",
+    "name": "Pandoc",
+    "type": "pkg"
+  },
+  {
+    "label": "papers",
+    "name": "Papers",
+    "type": "dmg"
+  },
+  {
+    "label": "parallelsrasclient",
+    "name": "Parallels Client",
+    "type": "pkg"
+  },
+  {
+    "label": "paretosecurity",
+    "name": "Pareto Security",
+    "type": "dmg"
+  },
+  {
+    "label": "parsec",
+    "name": "Parsec",
+    "type": "pkg"
+  },
+  {
+    "label": "particulars",
+    "name": "Particulars",
+    "type": "pkg"
+  },
+  {
+    "label": "passwordutility",
+    "name": "Password Utility",
+    "type": "pkg"
+  },
+  {
+    "label": "patchomator",
+    "name": "patchomator",
+    "type": "pkg"
+  },
+  {
+    "label": "pcoipclient",
+    "name": "PCoIPClient",
+    "type": "dmg"
+  },
+  {
+    "label": "pdfexpert",
+    "name": "PDF Expert",
+    "type": "zip"
+  },
+  {
+    "label": "pdfsam",
+    "name": "PDFsam Basic",
+    "type": "dmg"
+  },
+  {
+    "label": "perimeter81",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "pgadmin4",
+    "name": "pgAdmin 4",
+    "type": "dmg"
+  },
+  {
+    "label": "phoenixcode",
+    "name": "Phoenix Code",
+    "type": "dmg"
+  },
+  {
+    "label": "pika",
+    "name": "Pika",
+    "type": "dmg"
+  },
+  {
+    "label": "pingplotter",
+    "name": "PingPlotter",
+    "type": "zip"
+  },
+  {
+    "label": "pique",
+    "name": "Pique",
+    "type": "pkg"
+  },
+  {
+    "label": "pitch",
+    "name": "Pitch",
+    "type": "dmg"
+  },
+  {
+    "label": "plantronicshub",
+    "name": "Plantronics Hub",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "platypus",
+    "name": "Platypus",
+    "type": "zip"
+  },
+  {
+    "label": "plexdesktop",
+    "name": "Plex",
+    "type": "zip"
+  },
+  {
+    "label": "plexmediaserver",
+    "name": "Plex Media Server",
+    "type": "zip"
+  },
+  {
+    "label": "plisteditpro",
+    "name": "PlistEdit Pro",
+    "type": "zip"
+  },
+  {
+    "label": "podman",
+    "name": "Podman",
+    "type": "pkg"
+  },
+  {
+    "label": "podmandesktop",
+    "name": "Podman Desktop",
+    "type": "dmg"
+  },
+  {
+    "label": "podmandesktopairgap",
+    "name": "Podman Desktop",
+    "type": "dmg"
+  },
+  {
+    "label": "polleverywhere",
+    "name": "Poll Everywhere",
+    "type": "dmg"
+  },
+  {
+    "label": "polylens",
+    "name": "Lens Desktop",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "popsql",
+    "name": "PopSQL",
+    "type": "dmg"
+  },
+  {
+    "label": "portingkit",
+    "name": "Porting Kit",
+    "type": "dmg"
+  },
+  {
+    "label": "postgresapp",
+    "name": "Postgres",
+    "type": "dmg"
+  },
+  {
+    "label": "postman",
+    "name": "Postman",
+    "type": "zip"
+  },
+  {
+    "label": "powermonitor",
+    "name": "Power Monitor",
+    "type": "pkg"
+  },
+  {
+    "label": "pppcutility",
+    "name": "PPPC Utility",
+    "type": "zip"
+  },
+  {
+    "label": "praat",
+    "name": "Praat",
+    "type": "dmg"
+  },
+  {
+    "label": "prism10",
+    "name": "Prism 10",
+    "type": "dmg"
+  },
+  {
+    "label": "prism9",
+    "name": "Prism 9",
+    "type": "dmg"
+  },
+  {
+    "label": "pritunl",
+    "name": "Pritunl",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "privileges",
+    "name": "Privileges",
+    "type": "zip"
+  },
+  {
+    "label": "privileges2",
+    "name": "Privileges",
+    "type": "pkg"
+  },
+  {
+    "label": "processing3",
+    "name": "Processing",
+    "type": "zip"
+  },
+  {
+    "label": "processing4",
+    "name": "Processing",
+    "type": "dmg"
+  },
+  {
+    "label": "proctortrack",
+    "name": "Proctortrack",
+    "type": "zip"
+  },
+  {
+    "label": "projectplace",
+    "name": "Projectplace",
+    "type": "dmg"
+  },
+  {
+    "label": "promiseutility",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "promiseutilityr",
+    "name": "Promise Utility",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "proofpointautoupdater",
+    "name": "Proofpoint Auto Updater",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "propresenter7",
+    "name": "ProPresenter 7",
+    "type": "zip"
+  },
+  {
+    "label": "protondrive",
+    "name": "Proton Drive",
+    "type": "dmg"
+  },
+  {
+    "label": "protonvpn",
+    "name": "ProtonVPN",
+    "type": "dmg"
+  },
+  {
+    "label": "proxyman",
+    "name": "Proxyman",
+    "type": "dmg"
+  },
+  {
+    "label": "prune",
+    "name": "Prune",
+    "type": "zip"
+  },
+  {
+    "label": "prusaslicer",
+    "name": "PrusaSlicer",
+    "type": "dmg"
+  },
+  {
+    "label": "psychopystudio",
+    "name": "PsychoPy Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "pulsar",
+    "name": "Pulsar",
+    "type": "zip"
+  },
+  {
+    "label": "pycharmce",
+    "name": "PyCharm",
+    "type": "dmg"
+  },
+  {
+    "label": "pymol",
+    "name": "PyMOL",
+    "type": "dmg"
+  },
+  {
+    "label": "python",
+    "name": "Python",
+    "type": "pkg"
+  },
+  {
+    "label": "qgis-pr",
+    "name": "QGIS",
+    "type": "dmg"
+  },
+  {
+    "label": "qgisltr",
+    "name": "QGIS-LTR",
+    "type": "dmg"
+  },
+  {
+    "label": "qlab",
+    "name": "QLab",
+    "type": "dmg"
+  },
+  {
+    "label": "r",
+    "name": "R",
+    "type": "pkg"
+  },
+  {
+    "label": "radiosilence",
+    "name": "Radio Silence",
+    "type": "pkg"
+  },
+  {
+    "label": "raindropio",
+    "name": "Raindrop.io",
+    "type": "dmg"
+  },
+  {
+    "label": "rancherdesktop",
+    "name": "Rancher Desktop",
+    "type": "zip"
+  },
+  {
+    "label": "rapidapi",
+    "name": "RapidAPI",
+    "type": "zip"
+  },
+  {
+    "label": "rawtherapee",
+    "name": "RawTherapee",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "raycast",
+    "name": "Raycast",
+    "type": "dmg"
+  },
+  {
+    "label": "realvncondemandassist",
+    "name": "On-Demand-Assist-$(curl -sL ",
+    "type": "zip"
+  },
+  {
+    "label": "realvncserver",
+    "name": "RealVNC Server",
+    "type": "pkg"
+  },
+  {
+    "label": "realvncviewer",
+    "name": "Real VNC Viewer",
+    "type": "dmg"
+  },
+  {
+    "label": "reaper",
+    "name": "REAPER",
+    "type": "dmg"
+  },
+  {
+    "label": "rectangle",
+    "name": "Rectangle",
+    "type": "dmg"
+  },
+  {
+    "label": "redcanarymacmonitor",
+    "name": "Red Canary Mac Monitor",
+    "type": "pkg"
+  },
+  {
+    "label": "redgiant",
+    "name": "Red Giant",
+    "type": "dmg"
+  },
+  {
+    "label": "redshift",
+    "name": "redshift",
+    "type": "dmg"
+  },
+  {
+    "label": "redshiftlite",
+    "name": "redshift",
+    "type": "dmg"
+  },
+  {
+    "label": "reflector4",
+    "name": "Reflector 4",
+    "type": "dmg"
+  },
+  {
+    "label": "relatel",
+    "name": "Relatel",
+    "type": "dmg"
+  },
+  {
+    "label": "remotedesktopmanager",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "remotedesktopmanagerenterprise",
+    "name": "Remote Desktop Manager",
+    "type": "dmg"
+  },
+  {
+    "label": "remotedesktopmanagerfree",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "remotix",
+    "name": "Acronis Cyber Protect Connect",
+    "type": "dmg"
+  },
+  {
+    "label": "remotixagent",
+    "name": "Acronis Cyber Protect Connect Agent",
+    "type": "pkg"
+  },
+  {
+    "label": "renew",
+    "name": "Renew",
+    "type": "pkg"
+  },
+  {
+    "label": "renew-noagent",
+    "name": "Renew-NoAgent",
+    "type": "pkg"
+  },
+  {
+    "label": "resiliosynchome",
+    "name": "Resilio Sync",
+    "type": "dmg"
+  },
+  {
+    "label": "retrobatch",
+    "name": "Retrobatch",
+    "type": "zip"
+  },
+  {
+    "label": "rhino7",
+    "name": "Rhino 7",
+    "type": "dmg"
+  },
+  {
+    "label": "rhino8",
+    "name": "Rhino 8",
+    "type": "dmg"
+  },
+  {
+    "label": "ricohpsprinters",
+    "name": "Ricoh Printers",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "ricohtheta",
+    "name": "RICOH THETA",
+    "type": "dmg"
+  },
+  {
+    "label": "ringcentralapp",
+    "name": "RingCentral",
+    "type": "pkg"
+  },
+  {
+    "label": "ringcentralclassicapp",
+    "name": "Glip",
+    "type": "dmg"
+  },
+  {
+    "label": "ringcentralmeetings",
+    "name": "Ring Central Meetings",
+    "type": "pkg"
+  },
+  {
+    "label": "ringcentralphone",
+    "name": "RingCentral for Mac",
+    "type": "dmg"
+  },
+  {
+    "label": "riversidestudio",
+    "name": "Riverside Studio",
+    "type": "dmg"
+  },
+  {
+    "label": "rocket",
+    "name": "Rocket",
+    "type": "dmg"
+  },
+  {
+    "label": "rocketchat",
+    "name": "Rocket.Chat",
+    "type": "dmg"
+  },
+  {
+    "label": "rodecentral",
+    "name": "RODE Central",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "rodeconnect",
+    "name": "RODE Connect",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "rodeunify",
+    "name": "RODE UNIFY",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "rogueamoebaaudiohijack4",
+    "name": "Audio Hijack",
+    "type": "zip"
+  },
+  {
+    "label": "rogueamoebafission2",
+    "name": "Fission",
+    "type": "zip"
+  },
+  {
+    "label": "rogueamoebaloopback2",
+    "name": "Loopback",
+    "type": "zip"
+  },
+  {
+    "label": "rogueamoebasoundsource5",
+    "name": "SoundSource",
+    "type": "zip"
+  },
+  {
+    "label": "rokokostudiopreview",
+    "name": "Rokoko Studio Preview",
+    "type": "dmg"
+  },
+  {
+    "label": "royaltsx",
+    "name": "Royal TSX",
+    "type": "dmg"
+  },
+  {
+    "label": "rstudio",
+    "name": "RStudio",
+    "type": "dmg"
+  },
+  {
+    "label": "rustdesk",
+    "name": "RustDesk",
+    "type": "dmg"
+  },
+  {
+    "label": "safeexambrowser",
+    "name": "Safe Exam Browser",
+    "type": "dmg"
+  },
+  {
+    "label": "salesforcecli",
+    "name": "Salesforce CLI",
+    "type": "pkg"
+  },
+  {
+    "label": "santa",
+    "name": "Santa",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "sawgrassprintutility",
+    "name": "Sawgrass Print Utility",
+    "type": "dmg"
+  },
+  {
+    "label": "scaleft",
+    "name": "ScaleFT",
+    "type": "pkg"
+  },
+  {
+    "label": "scapple",
+    "name": "Scapple",
+    "type": "dmg"
+  },
+  {
+    "label": "scenebuilder",
+    "name": "SceneBuilder",
+    "type": "dmg"
+  },
+  {
+    "label": "scmenu",
+    "name": "SC Menu",
+    "type": "dmg"
+  },
+  {
+    "label": "scratch",
+    "name": "Scratch 3",
+    "type": "dmg"
+  },
+  {
+    "label": "screamingfrogseospider",
+    "name": "Screaming Frog SEO Spider",
+    "type": "dmg"
+  },
+  {
+    "label": "screencloudplayer",
+    "name": "ScreenCloud Player",
+    "type": "dmg"
+  },
+  {
+    "label": "screenflick",
+    "name": "Screenflick",
+    "type": "zip"
+  },
+  {
+    "label": "scribus",
+    "name": "Scribus",
+    "type": "dmg"
+  },
+  {
+    "label": "scrollreverser",
+    "name": "Scroll Reverser",
+    "type": "zip"
+  },
+  {
+    "label": "sdnotary",
+    "name": "SD Notary",
+    "type": "zip"
+  },
+  {
+    "label": "secretive",
+    "name": "Secretive",
+    "type": "zip"
+  },
+  {
+    "label": "selfcontrol",
+    "name": "SelfControl",
+    "type": "zip"
+  },
+  {
+    "label": "sequelace",
+    "name": "Sequel Ace",
+    "type": "zip"
+  },
+  {
+    "label": "sequelpro",
+    "name": "Sequel Pro",
+    "type": "dmg"
+  },
+  {
+    "label": "sessiondesktop",
+    "name": "Session",
+    "type": "dmg"
+  },
+  {
+    "label": "sfsymbols",
+    "name": "SF Symbols",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "shield",
+    "name": "Shield",
+    "type": "zip"
+  },
+  {
+    "label": "shotcut",
+    "name": "shotcut",
+    "type": "dmg"
+  },
+  {
+    "label": "shottr",
+    "name": "Shottr",
+    "type": "dmg"
+  },
+  {
+    "label": "sidekick",
+    "name": "Sidekick",
+    "type": "dmg"
+  },
+  {
+    "label": "sigil",
+    "name": "Sigil",
+    "type": "tbz"
+  },
+  {
+    "label": "signal",
+    "name": "Signal",
+    "type": "dmg"
+  },
+  {
+    "label": "signiantapp",
+    "name": "Signiant App",
+    "type": "dmg"
+  },
+  {
+    "label": "silentknight",
+    "name": "SilentKnight",
+    "type": "zip"
+  },
+  {
+    "label": "silnite",
+    "name": "silnite",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "sipgateclinq",
+    "name": "Sipgate",
+    "type": "dmg"
+  },
+  {
+    "label": "sirimote",
+    "name": "SiriMote",
+    "type": "zip"
+  },
+  {
+    "label": "sizeup",
+    "name": "SizeUp",
+    "type": "zip"
+  },
+  {
+    "label": "sketch",
+    "name": "Sketch",
+    "type": "zip"
+  },
+  {
+    "label": "sketchup2024",
+    "name": "SketchUp 2024",
+    "type": "dmg"
+  },
+  {
+    "label": "sketchup2025",
+    "name": "SketchUp 2025",
+    "type": "dmg"
+  },
+  {
+    "label": "sketchup2026",
+    "name": "SketchUp 2026",
+    "type": "dmg"
+  },
+  {
+    "label": "skim",
+    "name": "Skim",
+    "type": "dmg"
+  },
+  {
+    "label": "skype",
+    "name": "Skype",
+    "type": "dmg"
+  },
+  {
+    "label": "slab",
+    "name": "Slab",
+    "type": "dmg"
+  },
+  {
+    "label": "slack",
+    "name": "Slack",
+    "type": "pkg"
+  },
+  {
+    "label": "slido",
+    "name": "Slido",
+    "type": "dmg"
+  },
+  {
+    "label": "sloth",
+    "name": "Sloth",
+    "type": "zip"
+  },
+  {
+    "label": "smartgit",
+    "name": "SmartGit",
+    "type": "dmg"
+  },
+  {
+    "label": "smartsheet",
+    "name": "Smartsheet",
+    "type": "dmg"
+  },
+  {
+    "label": "smartsvn",
+    "name": "SmartSVN",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "snagit2019",
+    "name": "Snagit 2019",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit2020",
+    "name": "Snagit 2020",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit2021",
+    "name": "Snagit 2021",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit2022",
+    "name": "Snagit 2022",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit2023",
+    "name": "Snagit 2023",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit2024",
+    "name": "Snagit",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit2025",
+    "name": "Snagit",
+    "type": "dmg"
+  },
+  {
+    "label": "snagit2026",
+    "name": "Snagit",
+    "type": "dmg"
+  },
+  {
+    "label": "snapgene",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "snapgeneviewer",
+    "name": "SnapGene",
+    "type": "dmg"
+  },
+  {
+    "label": "soapuiopensource",
+    "name": "SoapUI-$appNewVersion",
+    "type": "dmg"
+  },
+  {
+    "label": "sococo",
+    "name": "Sococo",
+    "type": "dmg"
+  },
+  {
+    "label": "softubecentral",
+    "name": "Softube Central",
+    "type": "pkg"
+  },
+  {
+    "label": "solstice",
+    "name": "Mersive Solstice",
+    "type": "dmg"
+  },
+  {
+    "label": "sonicpi",
+    "name": "Sonic Pi",
+    "type": "dmg"
+  },
+  {
+    "label": "sonicvisualiser",
+    "name": "Sonic Visualiser",
+    "type": "dmg"
+  },
+  {
+    "label": "sonobus",
+    "name": "Sonobus",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "sonos",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "sonoss1",
+    "name": "Sonos S1 Controller",
+    "type": "dmg"
+  },
+  {
+    "label": "sonoss2",
+    "name": "Sonos",
+    "type": "dmg"
+  },
+  {
+    "label": "soundly",
+    "name": "Soundly",
+    "type": "dmg"
+  },
+  {
+    "label": "soundly-placeit",
+    "name": "Placeit",
+    "type": "pkg"
+  },
+  {
+    "label": "soundlyshapeit",
+    "name": "Shapeit",
+    "type": "pkg"
+  },
+  {
+    "label": "sourcetree",
+    "name": "Sourcetree",
+    "type": "zip"
+  },
+  {
+    "label": "spark",
+    "name": "Spark",
+    "type": "dmg"
+  },
+  {
+    "label": "splashtopbusiness",
+    "name": "Splashtop Business",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "splashtopsos",
+    "name": "Splashtop SOS",
+    "type": "dmg"
+  },
+  {
+    "label": "splashtopstreamer",
+    "name": "Splashtop Streamer",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "splice",
+    "name": "Splice",
+    "type": "zip"
+  },
+  {
+    "label": "spotify",
+    "name": "Spotify",
+    "type": "dmg"
+  },
+  {
+    "label": "sqldeveloper",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "sqlitebrowser",
+    "name": "DB Browser for SQLite",
+    "type": "dmg"
+  },
+  {
+    "label": "sqlpropostgres",
+    "name": "SQLPro for Postgres",
+    "type": "zip"
+  },
+  {
+    "label": "sqlprostudio",
+    "name": "SQLPro Studio",
+    "type": "zip"
+  },
+  {
+    "label": "sshfs",
+    "name": "sshfs-3.7.3-ccb6821",
+    "type": "pkg"
+  },
+  {
+    "label": "starface10x",
+    "name": "STARFACE",
+    "type": "dmg"
+  },
+  {
+    "label": "starface90x",
+    "name": "STARFACE",
+    "type": "dmg"
+  },
+  {
+    "label": "starface91x",
+    "name": "STARFACE",
+    "type": "dmg"
+  },
+  {
+    "label": "stats",
+    "name": "Stats",
+    "type": "dmg"
+  },
+  {
+    "label": "steelseriesengine",
+    "name": "SteelSeries GG",
+    "type": "pkg"
+  },
+  {
+    "label": "steinbergactivationmanager",
+    "name": "Steinberg Activation Manager",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "steinbergcubaseproartist13",
+    "name": "Cubase 13",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "steinberglibrarymanager",
+    "name": "Steinberg Library Manager",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "steinbergmediabay",
+    "name": "Steinberg Media Bay",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "strongdm",
+    "name": "strongDM",
+    "type": "dmg"
+  },
+  {
+    "label": "strongsync",
+    "name": "Strongsync",
+    "type": "dmg"
+  },
+  {
+    "label": "subethaedit",
+    "name": "SubEthaEdit",
+    "type": "zip"
+  },
+  {
+    "label": "sublimemerge",
+    "name": "Sublime Merge",
+    "type": "zip"
+  },
+  {
+    "label": "sublimetext",
+    "name": "Sublime Text",
+    "type": "zip"
+  },
+  {
+    "label": "suitestudio",
+    "name": "Suite",
+    "type": "pkg"
+  },
+  {
+    "label": "supercollider",
+    "name": "SuperCollider",
+    "type": "dmg"
+  },
+  {
+    "label": "superhuman",
+    "name": "superhuman",
+    "type": "dmg"
+  },
+  {
+    "label": "superwhisper",
+    "name": "superwhisper",
+    "type": "dmg"
+  },
+  {
+    "label": "supportapp",
+    "name": "Support",
+    "type": "pkg"
+  },
+  {
+    "label": "surfdrive",
+    "name": "SURFdrive",
+    "type": "pkg"
+  },
+  {
+    "label": "suspiciouspackage",
+    "name": "Suspicious Package",
+    "type": "dmg"
+  },
+  {
+    "label": "swiftdialog",
+    "name": "Dialog",
+    "type": "pkg"
+  },
+  {
+    "label": "swiftruntimeforcommandlinetools",
+    "name": "SwiftRuntimeForCommandLineTools",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "symantecvipaccess",
+    "name": "VIP Access",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "symhelper",
+    "name": "SYM-Helper",
+    "type": "zip"
+  },
+  {
+    "label": "sync",
+    "name": "Sync",
+    "type": "dmg"
+  },
+  {
+    "label": "synergybaseball",
+    "name": "Synergy Baseball",
+    "type": "dmg"
+  },
+  {
+    "label": "synergybasketball",
+    "name": "Synergy Basketball",
+    "type": "dmg"
+  },
+  {
+    "label": "synergyvideoexpress",
+    "name": "Synergy Video Express",
+    "type": "dmg"
+  },
+  {
+    "label": "synologyactivebackupforbusinessagent",
+    "name": "Synology Active Backup for Business Agent",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "synologyassistant",
+    "name": "SynologyAssistant",
+    "type": "dmg"
+  },
+  {
+    "label": "synologydriveclient",
+    "name": "Synology Drive Client",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "sysexlibrarian",
+    "name": "SysEx Librarian",
+    "type": "dmg"
+  },
+  {
+    "label": "tabby",
+    "name": "Tabby",
+    "type": "dmg"
+  },
+  {
+    "label": "tableaudesktop",
+    "name": "Tableau Desktop",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "tableaupublic",
+    "name": "Tableau Public",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "tableaureader",
+    "name": "Tableau Reader",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "tableplus",
+    "name": "TablePlus",
+    "type": "dmg"
+  },
+  {
+    "label": "tageditor",
+    "name": "Tag Editor",
+    "type": "dmg"
+  },
+  {
+    "label": "tailscale",
+    "name": "Tailscale",
+    "type": "zip"
+  },
+  {
+    "label": "talkdeskcxcloud",
+    "name": "Talkdesk",
+    "type": "dmg"
+  },
+  {
+    "label": "taskpaper",
+    "name": "TaskPaper",
+    "type": "dmg"
+  },
+  {
+    "label": "teamviewer",
+    "name": "TeamViewer",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "teamviewerhost",
+    "name": "TeamViewerHost",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "teamviewerhostcustom",
+    "name": "TeamViewerHost",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "teamviewerqs",
+    "name": "TeamViewerQS",
+    "type": "dmg"
+  },
+  {
+    "label": "teamviewerqscustom",
+    "name": "TeamViewerQS",
+    "type": "zip"
+  },
+  {
+    "label": "teamwire",
+    "name": "Teamwire",
+    "type": "dmg"
+  },
+  {
+    "label": "techsmithaudiate",
+    "name": "TechSmith Audiate",
+    "type": "dmg"
+  },
+  {
+    "label": "techsmithcapture",
+    "name": "TechSmith Capture",
+    "type": "dmg"
+  },
+  {
+    "label": "teladocproviderinstaller",
+    "name": "TeladocProviderInstaller",
+    "type": "pkg"
+  },
+  {
+    "label": "telegram",
+    "name": "Telegram",
+    "type": "dmg"
+  },
+  {
+    "label": "tembo",
+    "name": "Tembo",
+    "type": "zip"
+  },
+  {
+    "label": "tencentmeeting",
+    "name": "TencentMeeting",
+    "type": "dmg"
+  },
+  {
+    "label": "texliveutility",
+    "name": "TeX Live Utility",
+    "type": "zip"
+  },
+  {
+    "label": "texshop",
+    "name": "TeXShop",
+    "type": "zip"
+  },
+  {
+    "label": "texshop-alternative",
+    "name": "TeXShop",
+    "type": "zip"
+  },
+  {
+    "label": "textexpander",
+    "name": "TextExpander",
+    "type": "dmg"
+  },
+  {
+    "label": "textmate",
+    "name": "TextMate",
+    "type": "tbz"
+  },
+  {
+    "label": "theunarchiver",
+    "name": "The Unarchiver",
+    "type": "dmg"
+  },
+  {
+    "label": "things",
+    "name": "Things3",
+    "type": "zip"
+  },
+  {
+    "label": "thinlincclient",
+    "name": "ThinLinc Client",
+    "type": "dmg"
+  },
+  {
+    "label": "thonny",
+    "name": "Thonny",
+    "type": "pkg"
+  },
+  {
+    "label": "thoriumreader",
+    "name": "Thorium",
+    "type": "dmg"
+  },
+  {
+    "label": "thunderbird",
+    "name": "Thunderbird",
+    "type": "dmg"
+  },
+  {
+    "label": "thunderbird_intl",
+    "name": "Thunderbird",
+    "type": "dmg"
+  },
+  {
+    "label": "thunderbirdesr",
+    "name": "Thunderbird",
+    "type": "dmg"
+  },
+  {
+    "label": "ticktick",
+    "name": "TickTick",
+    "type": "dmg"
+  },
+  {
+    "label": "tidal",
+    "name": "TIDAL",
+    "type": "dmg"
+  },
+  {
+    "label": "tigervnc",
+    "name": "TigerVNC",
+    "type": "dmg"
+  },
+  {
+    "label": "todoist",
+    "name": "Todoist",
+    "type": "dmg"
+  },
+  {
+    "label": "toggltrack",
+    "name": "Toggl Track",
+    "type": "dmg"
+  },
+  {
+    "label": "tom4aconverter",
+    "name": "To M4A Converter",
+    "type": "dmg"
+  },
+  {
+    "label": "toonboomharmonypremium2024",
+    "name": "Harmony 24 Premium",
+    "type": "dmg"
+  },
+  {
+    "label": "toonboomharmonypremium2025",
+    "name": "Harmony 25 Premium",
+    "type": "dmg"
+  },
+  {
+    "label": "toonboomstoryboardpro2024",
+    "name": "Storyboard Pro 24",
+    "type": "dmg"
+  },
+  {
+    "label": "toonboomstoryboardpro2025",
+    "name": "Storyboard Pro 25",
+    "type": "dmg"
+  },
+  {
+    "label": "topazgigapixel",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "topazgigapixelai",
+    "name": "Topaz Gigapixel AI",
+    "type": "pkg"
+  },
+  {
+    "label": "topazphoto",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "topazphotoai",
+    "name": "Topaz Photo AI",
+    "type": "pkg"
+  },
+  {
+    "label": "topazvideo",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "topazvideoai",
+    "name": "Topaz Video AI",
+    "type": "dmg"
+  },
+  {
+    "label": "tophat",
+    "name": "tophat",
+    "type": "zip"
+  },
+  {
+    "label": "torbrowser",
+    "name": "Tor Browser",
+    "type": "dmg"
+  },
+  {
+    "label": "tortalk_en",
+    "name": "TorTalk EN",
+    "type": "pkg"
+  },
+  {
+    "label": "tortalk_se",
+    "name": "TorTal SE",
+    "type": "pkg"
+  },
+  {
+    "label": "touchdesigner",
+    "name": "TouchDesigner",
+    "type": "dmg"
+  },
+  {
+    "label": "tower",
+    "name": "Tower",
+    "type": "zip"
+  },
+  {
+    "label": "transfer",
+    "name": "Transfer",
+    "type": "dmg"
+  },
+  {
+    "label": "transmit5",
+    "name": "Transmit",
+    "type": "zip"
+  },
+  {
+    "label": "trapcode",
+    "name": "Trapcode Suite",
+    "type": "zip"
+  },
+  {
+    "label": "trex",
+    "name": "TRex",
+    "type": "zip"
+  },
+  {
+    "label": "trint",
+    "name": "Trint",
+    "type": "zip"
+  },
+  {
+    "label": "tropy",
+    "name": "Tropy",
+    "type": "dmg"
+  },
+  {
+    "label": "tunnelbear",
+    "name": "TunnelBear",
+    "type": "zip"
+  },
+  {
+    "label": "tunnelblick",
+    "name": "Tunnelblick",
+    "type": "dmg"
+  },
+  {
+    "label": "tuple",
+    "name": "Tuple",
+    "type": "zip"
+  },
+  {
+    "label": "twingate",
+    "name": "Twingate",
+    "type": "pkg"
+  },
+  {
+    "label": "typeface",
+    "name": "Typeface",
+    "type": "dmg"
+  },
+  {
+    "label": "typinator",
+    "name": "Typinator",
+    "type": "zip"
+  },
+  {
+    "label": "typora",
+    "name": "Typora",
+    "type": "dmg"
+  },
+  {
+    "label": "uaconnect",
+    "name": "UA Connect",
+    "type": "dmg"
+  },
+  {
+    "label": "ujamportal",
+    "name": "UJAM",
+    "type": "dmg"
+  },
+  {
+    "label": "ulbow",
+    "name": "Ulbow",
+    "type": "zip"
+  },
+  {
+    "label": "ultimakercura",
+    "name": "Ultimaker Cura",
+    "type": "dmg"
+  },
+  {
+    "label": "ultracompare",
+    "name": "UltraCompare",
+    "type": "dmg"
+  },
+  {
+    "label": "ultraedit",
+    "name": "UltraEdit",
+    "type": "dmg"
+  },
+  {
+    "label": "umbrellaroamingclient",
+    "name": "Umbrella Roaming Client",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "uniconverter",
+    "name": "Wondershare UniConverter",
+    "type": "dmg"
+  },
+  {
+    "label": "unityhub",
+    "name": "Unity Hub",
+    "type": "dmg"
+  },
+  {
+    "label": "universaltypeclient",
+    "name": "Universal Type Client",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "unnaturalscrollwheels",
+    "name": "UnnaturalScrollWheels",
+    "type": "dmg"
+  },
+  {
+    "label": "upscayl",
+    "name": "Upscayl",
+    "type": "dmg"
+  },
+  {
+    "label": "utiluti",
+    "name": "utiluti",
+    "type": "pkg"
+  },
+  {
+    "label": "utm",
+    "name": "UTM",
+    "type": "dmg"
+  },
+  {
+    "label": "uviportal",
+    "name": "UVI Portal",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "uviworkstation",
+    "name": "UVIWorksation",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "vagrant",
+    "name": "Vagrant",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "vanilla",
+    "name": "Vanilla",
+    "type": "dmg"
+  },
+  {
+    "label": "venturablocker",
+    "name": "venturablocker",
+    "type": "pkg"
+  },
+  {
+    "label": "veracrypt",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "veracrypt-fuse-t",
+    "name": "VeraCrypt",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "veracrypt-macfuse",
+    "name": "VeraCrypt",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "vernierspectralanalysis",
+    "name": "Vernier Spectral Analysis",
+    "type": "dmg"
+  },
+  {
+    "label": "vfx",
+    "name": "VFX Suite",
+    "type": "zip"
+  },
+  {
+    "label": "viennaassistant",
+    "name": "Vienna Assistant",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "vimcal",
+    "name": "Vimcal",
+    "type": "dmg"
+  },
+  {
+    "label": "virtualbox",
+    "name": "VirtualBox",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "virtualboxbeta",
+    "name": "VirtualBox",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "virtualboxlatest",
+    "name": "VirtualBox",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "virtualboxstable",
+    "name": "VirtualBox",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "virtualbuddy",
+    "name": "VirtualBuddy",
+    "type": "dmg"
+  },
+  {
+    "label": "viscosity",
+    "name": "Viscosity",
+    "type": "dmg"
+  },
+  {
+    "label": "visualstudiocode",
+    "name": "Visual Studio Code",
+    "type": "zip"
+  },
+  {
+    "label": "visualz",
+    "name": "Visualz",
+    "type": "dmg"
+  },
+  {
+    "label": "vivaldi",
+    "name": "Vivaldi",
+    "type": "tbz"
+  },
+  {
+    "label": "vivi",
+    "name": "Vivi",
+    "type": "pkg"
+  },
+  {
+    "label": "vlc",
+    "name": "VLC",
+    "type": "dmg"
+  },
+  {
+    "label": "vmwarefusion",
+    "name": "VMware Fusion",
+    "type": "dmg"
+  },
+  {
+    "label": "vmwarehorizonclient",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "vncconnect",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "vonagebusiness",
+    "name": "Vonage Business",
+    "type": "dmg"
+  },
+  {
+    "label": "vpntracker365",
+    "name": "VPN Tracker 365",
+    "type": "zip"
+  },
+  {
+    "label": "vscodium",
+    "name": "VSCodium",
+    "type": "dmg"
+  },
+  {
+    "label": "vuescanintel",
+    "name": "VueScan",
+    "type": "dmg"
+  },
+  {
+    "label": "vuescanuni",
+    "name": "VueScan",
+    "type": "dmg"
+  },
+  {
+    "label": "vysor",
+    "name": "Vysor",
+    "type": "zip"
+  },
+  {
+    "label": "wacomdrivers",
+    "name": "Wacom Center",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "wallyezflash",
+    "name": "Wally",
+    "type": "dmg"
+  },
+  {
+    "label": "warp",
+    "name": "Warp",
+    "type": "dmg"
+  },
+  {
+    "label": "wavescentral",
+    "name": "Waves Central",
+    "type": "dmg"
+  },
+  {
+    "label": "weasis",
+    "name": "Weasis",
+    "type": "pkg"
+  },
+  {
+    "label": "webcatalog",
+    "name": "WebCatalog",
+    "type": "dmg"
+  },
+  {
+    "label": "webex",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "webexmeetings",
+    "name": "Cisco Webex Meetings",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "webexteams",
+    "name": "Webex",
+    "type": "dmg"
+  },
+  {
+    "label": "webextoolsremoval",
+    "name": "WebEx Tools Removal",
+    "type": "pkg"
+  },
+  {
+    "label": "webexvdiplugin",
+    "name": "Cisco Webex VDI Plugin",
+    "type": "pkg"
+  },
+  {
+    "label": "wechat",
+    "name": "WeChat",
+    "type": "dmg"
+  },
+  {
+    "label": "weprint",
+    "name": "Print",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "whatroute",
+    "name": "WhatRoute",
+    "type": "zip"
+  },
+  {
+    "label": "whatsapp",
+    "name": "WhatsApp",
+    "type": "dmg"
+  },
+  {
+    "label": "whimsical",
+    "name": "Whimsical",
+    "type": "dmg"
+  },
+  {
+    "label": "whiterabbit",
+    "name": "White Rabbit",
+    "type": "dmg"
+  },
+  {
+    "label": "windsurf",
+    "name": "Devin",
+    "type": "dmg"
+  },
+  {
+    "label": "wireshark",
+    "name": "Wireshark",
+    "type": "dmg"
+  },
+  {
+    "label": "wisenetwave",
+    "name": "Wisenet WAVE",
+    "type": "dmg"
+  },
+  {
+    "label": "wisprflow",
+    "name": "Wispr Flow",
+    "type": "dmg"
+  },
+  {
+    "label": "wordservice",
+    "name": "WordService",
+    "type": "zip"
+  },
+  {
+    "label": "workbrew",
+    "name": "Workbrew",
+    "type": "pkg"
+  },
+  {
+    "label": "workplacechat",
+    "name": "Workplace Chat",
+    "type": "dmg"
+  },
+  {
+    "label": "wrikeformac",
+    "name": "Wrike for Mac",
+    "type": "dmg"
+  },
+  {
+    "label": "wwdc",
+    "name": "WWDC",
+    "type": "dmg"
+  },
+  {
+    "label": "xattred",
+    "name": "xattred",
+    "type": "zip"
+  },
+  {
+    "label": "xbar",
+    "name": "xbar",
+    "type": "dmg"
+  },
+  {
+    "label": "xcodesapp",
+    "name": "Xcodes",
+    "type": "zip"
+  },
+  {
+    "label": "xcreds",
+    "name": "XCreds",
+    "type": "pkg"
+  },
+  {
+    "label": "xeroxphaser7800",
+    "name": "XeroxPhaser",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "xeroxprintandscan",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "xeroxworkcentre7800",
+    "name": "XeroxWorkCentre",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "xink",
+    "name": "Xink",
+    "type": "pkg"
+  },
+  {
+    "label": "xmenu",
+    "name": "XMenu",
+    "type": "zip"
+  },
+  {
+    "label": "xmind",
+    "name": "Xmind",
+    "type": "dmg"
+  },
+  {
+    "label": "xmplify",
+    "name": "Xmplify",
+    "type": "dmg"
+  },
+  {
+    "label": "xquartz",
+    "name": "XQuartz",
+    "type": "pkg"
+  },
+  {
+    "label": "yed",
+    "name": "yEd",
+    "type": "dmg"
+  },
+  {
+    "label": "youleanloudnessmeter2",
+    "name": "Youlean Loudness Meter 2",
+    "type": "pkgInZip"
+  },
+  {
+    "label": "yubicoauthenticator",
+    "name": "Yubico Authenticator",
+    "type": "dmg"
+  },
+  {
+    "label": "yubikeymanager",
+    "name": "YubiKey Manager",
+    "type": "pkg"
+  },
+  {
+    "label": "yubikeymanagerqt",
+    "name": "YubiKey Manager",
+    "type": "pkg"
+  },
+  {
+    "label": "zappy",
+    "name": "Zappy",
+    "type": "appInDmgInZip"
+  },
+  {
+    "label": "zbrush2025",
+    "name": "ZBrush",
+    "type": "dmg"
+  },
+  {
+    "label": "zed",
+    "name": "Zed",
+    "type": "dmg"
+  },
+  {
+    "label": "zen",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "zenbrowser",
+    "name": "Zen",
+    "type": "dmg"
+  },
+  {
+    "label": "zeplin",
+    "name": "Zeplin",
+    "type": "zip"
+  },
+  {
+    "label": "zerotier",
+    "name": "ZeroTier%20One",
+    "type": "pkg"
+  },
+  {
+    "label": "zettlr",
+    "name": "Zettlr",
+    "type": "dmg"
+  },
+  {
+    "label": "zipwhip",
+    "name": "Zipwhip",
+    "type": "dmg"
+  },
+  {
+    "label": "zohoworkdrive",
+    "name": "Zoho WorkDrive",
+    "type": "dmg"
+  },
+  {
+    "label": "zohoworkdrivegenie",
+    "name": "Zoho WorkDrive Genie",
+    "type": "dmg"
+  },
+  {
+    "label": "zohoworkdrivetruesync",
+    "name": "Zoho WorkDrive TrueSync",
+    "type": "pkg"
+  },
+  {
+    "label": "zoom",
+    "name": "zoom.us",
+    "type": "pkg"
+  },
+  {
+    "label": "zoomclient",
+    "name": "zoom.us",
+    "type": "pkg"
+  },
+  {
+    "label": "zoomgov",
+    "name": "zoom.us",
+    "type": "pkg"
+  },
+  {
+    "label": "zoomoutlookplugin",
+    "name": "Zoom Outlook Plugin",
+    "type": "pkg"
+  },
+  {
+    "label": "zoomoutlookpluginremoval",
+    "name": "Zoom Outlook Plugin Removal",
+    "type": "pkg"
+  },
+  {
+    "label": "zoompresence",
+    "name": null,
+    "type": null
+  },
+  {
+    "label": "zoomrooms",
+    "name": "ZoomPresence",
+    "type": "pkg"
+  },
+  {
+    "label": "zotero",
+    "name": "Zotero",
+    "type": "dmg"
+  },
+  {
+    "label": "zulip",
+    "name": "Zulip",
+    "type": "dmg"
+  },
+  {
+    "label": "zulujdk11",
+    "name": "Zulu JDK 11",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk13",
+    "name": "Zulu JDK 13",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk15",
+    "name": "Zulu JDK 15",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk17",
+    "name": "Zulu JDK 17",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk18",
+    "name": "Zulu JDK 18",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk21",
+    "name": "Zulu JDK 21",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk23",
+    "name": "Zulu JDK 23",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk25",
+    "name": "Zulu JDK 25",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdk8",
+    "name": "Zulu JDK 8",
+    "type": "pkgInDmg"
+  },
+  {
+    "label": "zulujdkfx17",
+    "name": "Zulu JDK FX 17",
+    "type": "pkgInDmg"
+  }
+]
