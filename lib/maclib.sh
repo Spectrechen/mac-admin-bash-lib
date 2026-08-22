@@ -19,6 +19,8 @@ source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/keychain.sh"
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/launchd.sh"
 # shellcheck source=lib/filevault.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/filevault.sh"
+# shellcheck source=lib/security.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/security.sh"
 # shellcheck source=lib/management.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/management.sh"
 # shellcheck source=lib/network.sh
@@ -27,3 +29,29 @@ source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/network.sh"
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/app.sh"
 # shellcheck source=lib/office.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/office.sh"
+# shellcheck source=lib/chrome.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/chrome.sh"
+# shellcheck source=lib/firefox.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/firefox.sh"
+# shellcheck source=lib/zoom.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/zoom.sh"
+# shellcheck source=lib/1password.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/1password.sh"
+# shellcheck source=lib/slack.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/slack.sh"
+# shellcheck source=lib/dropbox.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/dropbox.sh"
+# shellcheck source=lib/notion.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/notion.sh"
+# shellcheck source=lib/vlc.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/vlc.sh"
+# shellcheck source=lib/signal.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/signal.sh"
+# shellcheck source=lib/libreoffice.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/libreoffice.sh"
+# shellcheck source=lib/iterm2.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/iterm2.sh"
+# shellcheck source=lib/figma.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/figma.sh"
+# shellcheck source=lib/chatgpt.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/chatgpt.sh"
