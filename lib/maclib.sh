@@ -55,3 +55,5 @@ source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/iterm2.sh"
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/figma.sh"
 # shellcheck source=lib/chatgpt.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/chatgpt.sh"
+# shellcheck source=lib/jamf.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/jamf.sh"

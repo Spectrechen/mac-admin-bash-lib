@@ -416,3 +416,186 @@ setup() {
   [ "$status" -eq 0 ]
   [[ "$output" == "1.2025060521" ]]
 }
+
+# ---------------------------------------------------------------------------
+# jamf module: Jamf Extension Attribute helpers
+# (external macOS binaries mocked as shell functions, per test_security.bats)
+# ---------------------------------------------------------------------------
+
+@test "jamf::battery_cycle_count returns 0 on a batteryless machine" {
+  system_profiler() { echo "AC Charger Information"; }
+  run maclib::jamf::battery_cycle_count
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>0</result>" ]]
+}
+
+@test "jamf::battery_cycle_count extracts Cycle Count when present" {
+  system_profiler() {
+    echo "Battery Information"
+    echo "    Cycle Count: 42"
+  }
+  run maclib::jamf::battery_cycle_count
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>42</result>" ]]
+}
+
+@test "jamf::battery_charge_percent is empty on AC-only power" {
+  pmset() { echo "Now drawing from 'AC Power'"; }
+  run maclib::jamf::battery_charge_percent
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result></result>" ]]
+}
+
+@test "jamf::battery_charge_percent extracts percentage" {
+  pmset() { echo "Drawing from 'Battery' - 85%"; }
+  run maclib::jamf::battery_charge_percent
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>85</result>" ]]
+}
+
+@test "jamf::security_chip prints Model Identifier (Apple Silicon fix)" {
+  system_profiler() { echo "      Model Identifier: Mac16,11"; }
+  run maclib::jamf::security_chip
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>Mac16,11</result>" ]]
+}
+
+@test "jamf::third_party_kexts lists non-Apple kext load IDs" {
+  kmutil() {
+    echo "    3  215 0                  0          0          com.apple.kpi.bsd (27.0.0) UUID <>"
+    echo "    8  300 0                  0          0          com.example.foo.kext (1.0) UUID <>"
+  }
+  run maclib::jamf::third_party_kexts
+  [ "$status" -eq 0 ]
+  [[ "$output" == "com.example.foo.kext" ]]
+}
+
+@test "jamf::third_party_kexts is empty when no third-party kexts" {
+  kmutil() { echo "    3  215 0                  0          0          com.apple.kpi.bsd (27.0.0) UUID <>"; }
+  run maclib::jamf::third_party_kexts
+  [ "$status" -eq 0 ]
+  [ -z "$output" ]
+}
+
+@test "jamf::system_extensions extracts enabled bundle IDs" {
+  systemextensionsctl() {
+    echo "2 extension(s)"
+    echo "--- com.apple.system_extension.network_extension"
+    echo "enabled	active	teamID	bundleID (version)	name	[state]"
+    printf '\t*\t57P38MF5GS\tcom.f5.access.macos.DNSProxy (7260.0.0.1/7260.0.0.1)\tDNSProxy\t[activated waiting for user]\n'
+  }
+  run maclib::jamf::system_extensions
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"com.f5.access.macos.DNSProxy"* ]]
+}
+
+@test "jamf::system_extensions is empty when none enabled" {
+  systemextensionsctl() { echo "0 extension(s)"; }
+  run maclib::jamf::system_extensions
+  [ "$status" -eq 0 ]
+  [ -z "$output" ]
+}
+
+@test "jamf::uptime_seconds prints seconds since boot" {
+  date() { echo "1000"; }
+  sysctl() { echo "{ sec = 400, usec = 0 }"; }
+  run maclib::jamf::uptime_seconds
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>600</result>" ]]
+}
+
+@test "jamf::xcode_clt_state reports Standalone" {
+  xcode-select() { echo "/Library/Developer/CommandLineTools"; }
+  run maclib::jamf::xcode_clt_state
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>Standalone</result>" ]]
+}
+
+@test "jamf::xcode_clt_state reports Bundled with Xcode-beta" {
+  xcode-select() { echo "/Applications/Xcode-beta.app/Contents/Developer"; }
+  run maclib::jamf::xcode_clt_state
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>Bundled with Xcode-beta</result>" ]]
+}
+
+@test "jamf::xcode_clt_state is empty when not installed" {
+  xcode-select() { echo "/usr/bin"; }
+  run maclib::jamf::xcode_clt_state
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result></result>" ]]
+}
+
+@test "jamf::startup_volume_name prints the boot volume name" {
+  bless() { echo "/dev/disk3s1"; }
+  diskutil() { echo "Volume Name: Macintosh HD"; }
+  plutil() { echo "Macintosh HD"; }
+  run maclib::jamf::startup_volume_name
+  [ "$status" -eq 0 ]
+  [[ "$output" == "Macintosh HD" ]]
+}
+
+@test "jamf::charger_wattage extracts wattage" {
+  system_profiler() {
+    echo "AC Charger Information:"
+    echo "    Wattage: 96W"
+  }
+  run maclib::jamf::charger_wattage
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>96</result>" ]]
+}
+
+@test "jamf::charger_wattage is empty when no adapter" {
+  system_profiler() { echo "AC Charger Information:"; }
+  run maclib::jamf::charger_wattage
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result></result>" ]]
+}
+
+@test "jamf::time_machine_autobackup reports Enabled" {
+  defaults() { echo "1"; }
+  run maclib::jamf::time_machine_autobackup
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result>Enabled</result>" ]]
+}
+
+@test "jamf::time_machine_autobackup is empty when not configured" {
+  defaults() { echo "0"; }
+  run maclib::jamf::time_machine_autobackup
+  [ "$status" -eq 0 ]
+  [[ "$output" == "<result></result>" ]]
+}
+
+# Fake brew script for the homebrew EA test (created in a temp dir).
+__fake_brew() {
+  local dir="$1"
+  mkdir -p "$dir"
+  cat >"$dir/brew" <<'BREW'
+#!/usr/bin/env bash
+echo "com.example.oldlib"
+BREW
+  chmod +x "$dir/brew"
+  printf '%s\n' "$dir/brew"
+}
+
+@test "jamf::homebrew_outdated_formulae runs brew under console UID" {
+  local fake out
+  fake="$(__fake_brew "$(mktemp -d)")"
+  arch() { echo "arm64"; }
+  stat() {
+    case "$2" in
+      -f%u) echo "501" ;;
+      *) echo "malbers" ;;
+    esac
+  }
+  launchctl() {
+    if [[ "$1" == "asuser" ]]; then
+      "$MACLIB_BREW_BIN" outdated --formula --quiet
+    fi
+  }
+  # Use command substitution (not `run`) so the mocked shell functions survive
+  # into the subshell; MACLIB_BREW_BIN is exported only for this call.
+  out="$(MACLIB_BREW_BIN="$fake" maclib::jamf::homebrew_outdated_formulae)"
+  [ "$?" -eq 0 ]
+  [[ "$out" == "com.example.oldlib" ]]
+  rm -rf "${fake%/*}"
+}
