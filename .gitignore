@@ -1,0 +1,7 @@
+.DS_Store
+*.swp
+*.tmp
+
+# Agent/convention docs — never push to git
+AGENTS.md
+CONventions.md
