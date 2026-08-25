@@ -2,363 +2,396 @@
 # maclib.sh - entrypoint to source all modules
 
 # Compute the library directory once (avoids forking a subshell per
-# source line). Modules are referenced as "$LIB_DIR/<module>.sh".
+# source line). Modules are referenced as "$LIB_DIR/<subdir>/<module>.sh".
 LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=lib/log.sh
-source "$LIB_DIR/log.sh"
-# shellcheck source=lib/os.sh
-source "$LIB_DIR/os.sh"
-# shellcheck source=lib/user.sh
-source "$LIB_DIR/user.sh"
-# shellcheck source=lib/system.sh
-source "$LIB_DIR/system.sh"
-# shellcheck source=lib/packages.sh
-source "$LIB_DIR/packages.sh"
-# shellcheck source=lib/signing.sh
-source "$LIB_DIR/signing.sh"
-# shellcheck source=lib/keychain.sh
-source "$LIB_DIR/keychain.sh"
-# shellcheck source=lib/launchd.sh
-source "$LIB_DIR/launchd.sh"
-# shellcheck source=lib/filevault.sh
-source "$LIB_DIR/filevault.sh"
-# shellcheck source=lib/security.sh
-source "$LIB_DIR/security.sh"
-# shellcheck source=lib/management.sh
-source "$LIB_DIR/management.sh"
-# shellcheck source=lib/network.sh
-source "$LIB_DIR/network.sh"
-# shellcheck source=lib/app.sh
-source "$LIB_DIR/app.sh"
-# shellcheck source=lib/office.sh
-source "$LIB_DIR/office.sh"
-# shellcheck source=lib/chrome.sh
-source "$LIB_DIR/chrome.sh"
-# shellcheck source=lib/firefox.sh
-source "$LIB_DIR/firefox.sh"
-# shellcheck source=lib/zoom.sh
-source "$LIB_DIR/zoom.sh"
-# shellcheck source=lib/1password.sh
-source "$LIB_DIR/1password.sh"
-# shellcheck source=lib/slack.sh
-source "$LIB_DIR/slack.sh"
-# shellcheck source=lib/dropbox.sh
-source "$LIB_DIR/dropbox.sh"
-# shellcheck source=lib/notion.sh
-source "$LIB_DIR/notion.sh"
-# shellcheck source=lib/vlc.sh
-source "$LIB_DIR/vlc.sh"
-# shellcheck source=lib/signal.sh
-source "$LIB_DIR/signal.sh"
-# shellcheck source=lib/libreoffice.sh
-source "$LIB_DIR/libreoffice.sh"
-# shellcheck source=lib/iterm2.sh
-source "$LIB_DIR/iterm2.sh"
-# shellcheck source=lib/figma.sh
-source "$LIB_DIR/figma.sh"
-# shellcheck source=lib/chatgpt.sh
-source "$LIB_DIR/chatgpt.sh"
-# shellcheck source=lib/jamf.sh
-source "$LIB_DIR/jamf.sh"
+# core modules
+# shellcheck source=lib/core/app.sh
+source "$LIB_DIR/core/app.sh"
+# shellcheck source=lib/core/filevault.sh
+source "$LIB_DIR/core/filevault.sh"
+# shellcheck source=lib/core/keychain.sh
+source "$LIB_DIR/core/keychain.sh"
+# shellcheck source=lib/core/launchd.sh
+source "$LIB_DIR/core/launchd.sh"
+# shellcheck source=lib/core/log.sh
+source "$LIB_DIR/core/log.sh"
+# shellcheck source=lib/core/management.sh
+source "$LIB_DIR/core/management.sh"
+# shellcheck source=lib/core/network.sh
+source "$LIB_DIR/core/network.sh"
+# shellcheck source=lib/core/os.sh
+source "$LIB_DIR/core/os.sh"
+# shellcheck source=lib/core/packages.sh
+source "$LIB_DIR/core/packages.sh"
+# shellcheck source=lib/core/signing.sh
+source "$LIB_DIR/core/signing.sh"
+# shellcheck source=lib/core/system.sh
+source "$LIB_DIR/core/system.sh"
+# shellcheck source=lib/core/user.sh
+source "$LIB_DIR/core/user.sh"
 
-# shellcheck source=lib/4kvideodownloader.sh
-source "$LIB_DIR/4kvideodownloader.sh"
-# shellcheck source=lib/4kvideodownloaderplus.sh
-source "$LIB_DIR/4kvideodownloaderplus.sh"
-# shellcheck source=lib/8x8.sh
-source "$LIB_DIR/8x8.sh"
-# shellcheck source=lib/abetterfinderattributes7.sh
-source "$LIB_DIR/abetterfinderattributes7.sh"
-# shellcheck source=lib/abetterfinderrename11.sh
-source "$LIB_DIR/abetterfinderrename11.sh"
-# shellcheck source=lib/abetterfinderrename12.sh
-source "$LIB_DIR/abetterfinderrename12.sh"
-# shellcheck source=lib/abletonlive12intro.sh
-source "$LIB_DIR/abletonlive12intro.sh"
-# shellcheck source=lib/abletonlive12lite.sh
-source "$LIB_DIR/abletonlive12lite.sh"
-# shellcheck source=lib/abletonlive12standard.sh
-source "$LIB_DIR/abletonlive12standard.sh"
-# shellcheck source=lib/abletonlive12suite.sh
-source "$LIB_DIR/abletonlive12suite.sh"
-# shellcheck source=lib/abletonlive12trial.sh
-source "$LIB_DIR/abletonlive12trial.sh"
-# shellcheck source=lib/abstract.sh
-source "$LIB_DIR/abstract.sh"
-# shellcheck source=lib/acorn.sh
-source "$LIB_DIR/acorn.sh"
-# shellcheck source=lib/acroniscyberprotectconnect.sh
-source "$LIB_DIR/acroniscyberprotectconnect.sh"
-# shellcheck source=lib/acroniscyberprotectconnectagent.sh
-source "$LIB_DIR/acroniscyberprotectconnectagent.sh"
-# shellcheck source=lib/adium.sh
-source "$LIB_DIR/adium.sh"
-# shellcheck source=lib/adobeacrobatprodc.sh
-source "$LIB_DIR/adobeacrobatprodc.sh"
-# shellcheck source=lib/adobebrackets.sh
-source "$LIB_DIR/adobebrackets.sh"
-# shellcheck source=lib/adobeconnect.sh
-source "$LIB_DIR/adobeconnect.sh"
-# shellcheck source=lib/adobecreativeclouddesktop.sh
-source "$LIB_DIR/adobecreativeclouddesktop.sh"
-# shellcheck source=lib/adobereaderdc.sh
-source "$LIB_DIR/adobereaderdc.sh"
-# shellcheck source=lib/adobereaderdc-install.sh
-source "$LIB_DIR/adobereaderdc-install.sh"
-# shellcheck source=lib/adobereaderdc-update.sh
-source "$LIB_DIR/adobereaderdc-update.sh"
-# shellcheck source=lib/aftermath.sh
-source "$LIB_DIR/aftermath.sh"
-# shellcheck source=lib/airflow.sh
-source "$LIB_DIR/airflow.sh"
-# shellcheck source=lib/airserver.sh
-source "$LIB_DIR/airserver.sh"
-# shellcheck source=lib/aldente.sh
-source "$LIB_DIR/aldente.sh"
-# shellcheck source=lib/alephone.sh
-source "$LIB_DIR/alephone.sh"
-# shellcheck source=lib/alfred.sh
-source "$LIB_DIR/alfred.sh"
-# shellcheck source=lib/altserver.sh
-source "$LIB_DIR/altserver.sh"
-# shellcheck source=lib/alttab.sh
-source "$LIB_DIR/alttab.sh"
-# shellcheck source=lib/amazoncorretto11jdk.sh
-source "$LIB_DIR/amazoncorretto11jdk.sh"
-# shellcheck source=lib/amazoncorretto17jdk.sh
-source "$LIB_DIR/amazoncorretto17jdk.sh"
-# shellcheck source=lib/amazoncorretto21jdk.sh
-source "$LIB_DIR/amazoncorretto21jdk.sh"
-# shellcheck source=lib/amazoncorretto22jdk.sh
-source "$LIB_DIR/amazoncorretto22jdk.sh"
-# shellcheck source=lib/amazoncorretto23jdk.sh
-source "$LIB_DIR/amazoncorretto23jdk.sh"
-# shellcheck source=lib/amazoncorretto25jdk.sh
-source "$LIB_DIR/amazoncorretto25jdk.sh"
-# shellcheck source=lib/amazoncorretto8jdk.sh
-source "$LIB_DIR/amazoncorretto8jdk.sh"
-# shellcheck source=lib/amazonq.sh
-source "$LIB_DIR/amazonq.sh"
-# shellcheck source=lib/amazonworkspaces.sh
-source "$LIB_DIR/amazonworkspaces.sh"
-# shellcheck source=lib/anastasiysextensionmanager.sh
-source "$LIB_DIR/anastasiysextensionmanager.sh"
-# shellcheck source=lib/androidfiletransfer.sh
-source "$LIB_DIR/androidfiletransfer.sh"
-# shellcheck source=lib/anki.sh
-source "$LIB_DIR/anki.sh"
-# shellcheck source=lib/antconc.sh
-source "$LIB_DIR/antconc.sh"
-# shellcheck source=lib/apachedirectorystudio.sh
-source "$LIB_DIR/apachedirectorystudio.sh"
-# shellcheck source=lib/ape.sh
-source "$LIB_DIR/ape.sh"
-# shellcheck source=lib/apparency.sh
-source "$LIB_DIR/apparency.sh"
-# shellcheck source=lib/appcleaner.sh
-source "$LIB_DIR/appcleaner.sh"
-# shellcheck source=lib/applenyfonts.sh
-source "$LIB_DIR/applenyfonts.sh"
-# shellcheck source=lib/appleprovideoformats.sh
-source "$LIB_DIR/appleprovideoformats.sh"
-# shellcheck source=lib/applesfarabic.sh
-source "$LIB_DIR/applesfarabic.sh"
-# shellcheck source=lib/applesfcompact.sh
-source "$LIB_DIR/applesfcompact.sh"
-# shellcheck source=lib/applesfmono.sh
-source "$LIB_DIR/applesfmono.sh"
-# shellcheck source=lib/applesfpro.sh
-source "$LIB_DIR/applesfpro.sh"
-# shellcheck source=lib/applesfsymbols.sh
-source "$LIB_DIR/applesfsymbols.sh"
-# shellcheck source=lib/appsanywhere.sh
-source "$LIB_DIR/appsanywhere.sh"
-# shellcheck source=lib/aquamacs.sh
-source "$LIB_DIR/aquamacs.sh"
-# shellcheck source=lib/aquaskk.sh
-source "$LIB_DIR/aquaskk.sh"
-# shellcheck source=lib/arcbrowser.sh
-source "$LIB_DIR/arcbrowser.sh"
-# shellcheck source=lib/archaeology.sh
-source "$LIB_DIR/archaeology.sh"
-# shellcheck source=lib/archimate.sh
-source "$LIB_DIR/archimate.sh"
-# shellcheck source=lib/archiwareb2go.sh
-source "$LIB_DIR/archiwareb2go.sh"
-# shellcheck source=lib/archiwarepst.sh
-source "$LIB_DIR/archiwarepst.sh"
-# shellcheck source=lib/arduinoide.sh
-source "$LIB_DIR/arduinoide.sh"
-# shellcheck source=lib/arq7.sh
-source "$LIB_DIR/arq7.sh"
-# shellcheck source=lib/arturiamcc.sh
-source "$LIB_DIR/arturiamcc.sh"
-# shellcheck source=lib/arturiasoftwarecenter.sh
-source "$LIB_DIR/arturiasoftwarecenter.sh"
-# shellcheck source=lib/asana.sh
-source "$LIB_DIR/asana.sh"
-# shellcheck source=lib/aspera.sh
-source "$LIB_DIR/aspera.sh"
-# shellcheck source=lib/asperaconnect.sh
-source "$LIB_DIR/asperaconnect.sh"
-# shellcheck source=lib/asymmetrickeygenerator.sh
-source "$LIB_DIR/asymmetrickeygenerator.sh"
-# shellcheck source=lib/atlassiancompanion.sh
-source "$LIB_DIR/atlassiancompanion.sh"
-# shellcheck source=lib/audacity.sh
-source "$LIB_DIR/audacity.sh"
-# shellcheck source=lib/autodmg.sh
-source "$LIB_DIR/autodmg.sh"
-# shellcheck source=lib/automounter.sh
-source "$LIB_DIR/automounter.sh"
-# shellcheck source=lib/autopkgr.sh
-source "$LIB_DIR/autopkgr.sh"
-# shellcheck source=lib/avertouch.sh
-source "$LIB_DIR/avertouch.sh"
-# shellcheck source=lib/aviatrix.sh
-source "$LIB_DIR/aviatrix.sh"
-# shellcheck source=lib/awscli2.sh
-source "$LIB_DIR/awscli2.sh"
-# shellcheck source=lib/awsvpnclient.sh
-source "$LIB_DIR/awsvpnclient.sh"
-# shellcheck source=lib/axurerp10.sh
-source "$LIB_DIR/axurerp10.sh"
-# shellcheck source=lib/azuredatastudio.sh
-source "$LIB_DIR/azuredatastudio.sh"
-# shellcheck source=lib/backgroundmusic.sh
-source "$LIB_DIR/backgroundmusic.sh"
-# shellcheck source=lib/backgrounds.sh
-source "$LIB_DIR/backgrounds.sh"
-# shellcheck source=lib/balenaetcher.sh
-source "$LIB_DIR/balenaetcher.sh"
-# shellcheck source=lib/balsamiqwireframes.sh
-source "$LIB_DIR/balsamiqwireframes.sh"
-# shellcheck source=lib/bambustudio.sh
-source "$LIB_DIR/bambustudio.sh"
-# shellcheck source=lib/bartender.sh
-source "$LIB_DIR/bartender.sh"
-# shellcheck source=lib/basecamp3.sh
-source "$LIB_DIR/basecamp3.sh"
-# shellcheck source=lib/baseline.sh
-source "$LIB_DIR/baseline.sh"
-# shellcheck source=lib/baseline-nodaemon.sh
-source "$LIB_DIR/baseline-nodaemon.sh"
-# shellcheck source=lib/bbedit.sh
-source "$LIB_DIR/bbedit.sh"
-# shellcheck source=lib/bbeditpkg.sh
-source "$LIB_DIR/bbeditpkg.sh"
-# shellcheck source=lib/beamstudio.sh
-source "$LIB_DIR/beamstudio.sh"
-# shellcheck source=lib/beekeeperstudio.sh
-source "$LIB_DIR/beekeeperstudio.sh"
-# shellcheck source=lib/betterdisplay.sh
-source "$LIB_DIR/betterdisplay.sh"
-# shellcheck source=lib/bettertouchtool.sh
-source "$LIB_DIR/bettertouchtool.sh"
-# shellcheck source=lib/betterzip.sh
-source "$LIB_DIR/betterzip.sh"
-# shellcheck source=lib/beyondcomparepro.sh
-source "$LIB_DIR/beyondcomparepro.sh"
-# shellcheck source=lib/bezel.sh
-source "$LIB_DIR/bezel.sh"
-# shellcheck source=lib/bibdesk.sh
-source "$LIB_DIR/bibdesk.sh"
-# shellcheck source=lib/bitrix24.sh
-source "$LIB_DIR/bitrix24.sh"
-# shellcheck source=lib/bitwarden.sh
-source "$LIB_DIR/bitwarden.sh"
-# shellcheck source=lib/bitwigstudio.sh
-source "$LIB_DIR/bitwigstudio.sh"
-# shellcheck source=lib/blackhole16ch.sh
-source "$LIB_DIR/blackhole16ch.sh"
-# shellcheck source=lib/blackhole2ch.sh
-source "$LIB_DIR/blackhole2ch.sh"
-# shellcheck source=lib/blackhole64ch.sh
-source "$LIB_DIR/blackhole64ch.sh"
-# shellcheck source=lib/blitzit.sh
-source "$LIB_DIR/blitzit.sh"
-# shellcheck source=lib/boop.sh
-source "$LIB_DIR/boop.sh"
-# shellcheck source=lib/boxdrive.sh
-source "$LIB_DIR/boxdrive.sh"
-# shellcheck source=lib/boxsync.sh
-source "$LIB_DIR/boxsync.sh"
-# shellcheck source=lib/boxtools.sh
-source "$LIB_DIR/boxtools.sh"
-# shellcheck source=lib/bracketsio.sh
-source "$LIB_DIR/bracketsio.sh"
-# shellcheck source=lib/brave.sh
-source "$LIB_DIR/brave.sh"
-# shellcheck source=lib/bravepkg.sh
-source "$LIB_DIR/bravepkg.sh"
-# shellcheck source=lib/brosix.sh
-source "$LIB_DIR/brosix.sh"
-# shellcheck source=lib/browserosaurus.sh
-source "$LIB_DIR/browserosaurus.sh"
-# shellcheck source=lib/bruno.sh
-source "$LIB_DIR/bruno.sh"
-# shellcheck source=lib/bugdom.sh
-source "$LIB_DIR/bugdom.sh"
-# shellcheck source=lib/burpsuiteprofessional.sh
-source "$LIB_DIR/burpsuiteprofessional.sh"
-# shellcheck source=lib/busycal.sh
-source "$LIB_DIR/busycal.sh"
-# shellcheck source=lib/busycontacts.sh
-source "$LIB_DIR/busycontacts.sh"
-# shellcheck source=lib/buttercup.sh
-source "$LIB_DIR/buttercup.sh"
-# shellcheck source=lib/caffeine.sh
-source "$LIB_DIR/caffeine.sh"
-# shellcheck source=lib/cakebrew.sh
-source "$LIB_DIR/cakebrew.sh"
-# shellcheck source=lib/calcservice.sh
-source "$LIB_DIR/calcservice.sh"
-# shellcheck source=lib/calibre.sh
-source "$LIB_DIR/calibre.sh"
-# shellcheck source=lib/calibriteprofiler.sh
-source "$LIB_DIR/calibriteprofiler.sh"
-# shellcheck source=lib/cameracontroller.sh
-source "$LIB_DIR/cameracontroller.sh"
-# shellcheck source=lib/camostudio.sh
-source "$LIB_DIR/camostudio.sh"
-# shellcheck source=lib/camunda.sh
-source "$LIB_DIR/camunda.sh"
-# shellcheck source=lib/canva.sh
-source "$LIB_DIR/canva.sh"
-# shellcheck source=lib/carboncopycloner.sh
-source "$LIB_DIR/carboncopycloner.sh"
-# shellcheck source=lib/cardpresso.sh
-source "$LIB_DIR/cardpresso.sh"
-# shellcheck source=lib/catoclient.sh
-source "$LIB_DIR/catoclient.sh"
-# shellcheck source=lib/charles.sh
-source "$LIB_DIR/charles.sh"
-# shellcheck source=lib/chatwork.sh
-source "$LIB_DIR/chatwork.sh"
-# shellcheck source=lib/chemdoodle.sh
-source "$LIB_DIR/chemdoodle.sh"
-# shellcheck source=lib/chemdoodle2d.sh
-source "$LIB_DIR/chemdoodle2d.sh"
-# shellcheck source=lib/chemdoodle3d.sh
-source "$LIB_DIR/chemdoodle3d.sh"
-# shellcheck source=lib/cherryaudioblue3.sh
-source "$LIB_DIR/cherryaudioblue3.sh"
-# shellcheck source=lib/cherryaudioca2600.sh
-source "$LIB_DIR/cherryaudioca2600.sh"
-# shellcheck source=lib/cherryaudiochroma.sh
-source "$LIB_DIR/cherryaudiochroma.sh"
-# shellcheck source=lib/cherryaudiocr78.sh
-source "$LIB_DIR/cherryaudiocr78.sh"
-# shellcheck source=lib/cherryaudiodco106.sh
-source "$LIB_DIR/cherryaudiodco106.sh"
-# shellcheck source=lib/cherryaudiodreamsynth.sh
-source "$LIB_DIR/cherryaudiodreamsynth.sh"
-# shellcheck source=lib/cherryaudioeightvoice.sh
-source "$LIB_DIR/cherryaudioeightvoice.sh"
-# shellcheck source=lib/cherryaudioelkax.sh
-source "$LIB_DIR/cherryaudioelkax.sh"
-# shellcheck source=lib/cherryaudiogalacticreverb.sh
-source "$LIB_DIR/cherryaudiogalacticreverb.sh"
-# shellcheck source=lib/cherryaudiogx80.sh
-source "$LIB_DIR/cherryaudiogx80.sh"
+# security modules
+# shellcheck source=lib/security/security.sh
+source "$LIB_DIR/security/security.sh"
+
+# mdm modules
+# shellcheck source=lib/mdm/jamf.sh
+source "$LIB_DIR/mdm/jamf.sh"
+
+# browsers modules
+# shellcheck source=lib/browsers/chrome.sh
+source "$LIB_DIR/browsers/chrome.sh"
+# shellcheck source=lib/browsers/firefox.sh
+source "$LIB_DIR/browsers/firefox.sh"
+
+# communication modules
+# shellcheck source=lib/communication/signal.sh
+source "$LIB_DIR/communication/signal.sh"
+# shellcheck source=lib/communication/slack.sh
+source "$LIB_DIR/communication/slack.sh"
+# shellcheck source=lib/communication/zoom.sh
+source "$LIB_DIR/communication/zoom.sh"
+
+# productivity modules
+# shellcheck source=lib/productivity/libreoffice.sh
+source "$LIB_DIR/productivity/libreoffice.sh"
+# shellcheck source=lib/productivity/notion.sh
+source "$LIB_DIR/productivity/notion.sh"
+# shellcheck source=lib/productivity/office.sh
+source "$LIB_DIR/productivity/office.sh"
+
+# media modules
+# shellcheck source=lib/media/vlc.sh
+source "$LIB_DIR/media/vlc.sh"
+
+# ai modules
+# shellcheck source=lib/ai/chatgpt.sh
+source "$LIB_DIR/ai/chatgpt.sh"
+
+# creative modules
+# shellcheck source=lib/creative/figma.sh
+source "$LIB_DIR/creative/figma.sh"
+
+# devops modules
+# shellcheck source=lib/devops/iterm2.sh
+source "$LIB_DIR/devops/iterm2.sh"
+
+# cloud_storage modules
+# shellcheck source=lib/cloud_storage/dropbox.sh
+source "$LIB_DIR/cloud_storage/dropbox.sh"
+
+# security_tools modules
+# shellcheck source=lib/security_tools/1password.sh
+source "$LIB_DIR/security_tools/1password.sh"
+
+# misc app modules (first letter '4')
+# shellcheck source=lib/apps/4/4kvideodownloader.sh
+source "$LIB_DIR/apps/4/4kvideodownloader.sh"
+# shellcheck source=lib/apps/4/4kvideodownloaderplus.sh
+source "$LIB_DIR/apps/4/4kvideodownloaderplus.sh"
+
+# misc app modules (first letter '8')
+# shellcheck source=lib/apps/8/8x8.sh
+source "$LIB_DIR/apps/8/8x8.sh"
+
+# misc app modules (first letter 'a')
+# shellcheck source=lib/apps/a/abetterfinderattributes7.sh
+source "$LIB_DIR/apps/a/abetterfinderattributes7.sh"
+# shellcheck source=lib/apps/a/abetterfinderrename11.sh
+source "$LIB_DIR/apps/a/abetterfinderrename11.sh"
+# shellcheck source=lib/apps/a/abetterfinderrename12.sh
+source "$LIB_DIR/apps/a/abetterfinderrename12.sh"
+# shellcheck source=lib/apps/a/abletonlive12intro.sh
+source "$LIB_DIR/apps/a/abletonlive12intro.sh"
+# shellcheck source=lib/apps/a/abletonlive12lite.sh
+source "$LIB_DIR/apps/a/abletonlive12lite.sh"
+# shellcheck source=lib/apps/a/abletonlive12standard.sh
+source "$LIB_DIR/apps/a/abletonlive12standard.sh"
+# shellcheck source=lib/apps/a/abletonlive12suite.sh
+source "$LIB_DIR/apps/a/abletonlive12suite.sh"
+# shellcheck source=lib/apps/a/abletonlive12trial.sh
+source "$LIB_DIR/apps/a/abletonlive12trial.sh"
+# shellcheck source=lib/apps/a/abstract.sh
+source "$LIB_DIR/apps/a/abstract.sh"
+# shellcheck source=lib/apps/a/acorn.sh
+source "$LIB_DIR/apps/a/acorn.sh"
+# shellcheck source=lib/apps/a/acroniscyberprotectconnect.sh
+source "$LIB_DIR/apps/a/acroniscyberprotectconnect.sh"
+# shellcheck source=lib/apps/a/acroniscyberprotectconnectagent.sh
+source "$LIB_DIR/apps/a/acroniscyberprotectconnectagent.sh"
+# shellcheck source=lib/apps/a/adium.sh
+source "$LIB_DIR/apps/a/adium.sh"
+# shellcheck source=lib/apps/a/adobeacrobatprodc.sh
+source "$LIB_DIR/apps/a/adobeacrobatprodc.sh"
+# shellcheck source=lib/apps/a/adobebrackets.sh
+source "$LIB_DIR/apps/a/adobebrackets.sh"
+# shellcheck source=lib/apps/a/adobeconnect.sh
+source "$LIB_DIR/apps/a/adobeconnect.sh"
+# shellcheck source=lib/apps/a/adobecreativeclouddesktop.sh
+source "$LIB_DIR/apps/a/adobecreativeclouddesktop.sh"
+# shellcheck source=lib/apps/a/adobereaderdc.sh
+source "$LIB_DIR/apps/a/adobereaderdc.sh"
+# shellcheck source=lib/apps/a/adobereaderdc-install.sh
+source "$LIB_DIR/apps/a/adobereaderdc-install.sh"
+# shellcheck source=lib/apps/a/adobereaderdc-update.sh
+source "$LIB_DIR/apps/a/adobereaderdc-update.sh"
+# shellcheck source=lib/apps/a/aftermath.sh
+source "$LIB_DIR/apps/a/aftermath.sh"
+# shellcheck source=lib/apps/a/airflow.sh
+source "$LIB_DIR/apps/a/airflow.sh"
+# shellcheck source=lib/apps/a/airserver.sh
+source "$LIB_DIR/apps/a/airserver.sh"
+# shellcheck source=lib/apps/a/aldente.sh
+source "$LIB_DIR/apps/a/aldente.sh"
+# shellcheck source=lib/apps/a/alephone.sh
+source "$LIB_DIR/apps/a/alephone.sh"
+# shellcheck source=lib/apps/a/alfred.sh
+source "$LIB_DIR/apps/a/alfred.sh"
+# shellcheck source=lib/apps/a/altserver.sh
+source "$LIB_DIR/apps/a/altserver.sh"
+# shellcheck source=lib/apps/a/alttab.sh
+source "$LIB_DIR/apps/a/alttab.sh"
+# shellcheck source=lib/apps/a/amazoncorretto11jdk.sh
+source "$LIB_DIR/apps/a/amazoncorretto11jdk.sh"
+# shellcheck source=lib/apps/a/amazoncorretto17jdk.sh
+source "$LIB_DIR/apps/a/amazoncorretto17jdk.sh"
+# shellcheck source=lib/apps/a/amazoncorretto21jdk.sh
+source "$LIB_DIR/apps/a/amazoncorretto21jdk.sh"
+# shellcheck source=lib/apps/a/amazoncorretto22jdk.sh
+source "$LIB_DIR/apps/a/amazoncorretto22jdk.sh"
+# shellcheck source=lib/apps/a/amazoncorretto23jdk.sh
+source "$LIB_DIR/apps/a/amazoncorretto23jdk.sh"
+# shellcheck source=lib/apps/a/amazoncorretto25jdk.sh
+source "$LIB_DIR/apps/a/amazoncorretto25jdk.sh"
+# shellcheck source=lib/apps/a/amazoncorretto8jdk.sh
+source "$LIB_DIR/apps/a/amazoncorretto8jdk.sh"
+# shellcheck source=lib/apps/a/amazonq.sh
+source "$LIB_DIR/apps/a/amazonq.sh"
+# shellcheck source=lib/apps/a/amazonworkspaces.sh
+source "$LIB_DIR/apps/a/amazonworkspaces.sh"
+# shellcheck source=lib/apps/a/anastasiysextensionmanager.sh
+source "$LIB_DIR/apps/a/anastasiysextensionmanager.sh"
+# shellcheck source=lib/apps/a/androidfiletransfer.sh
+source "$LIB_DIR/apps/a/androidfiletransfer.sh"
+# shellcheck source=lib/apps/a/anki.sh
+source "$LIB_DIR/apps/a/anki.sh"
+# shellcheck source=lib/apps/a/antconc.sh
+source "$LIB_DIR/apps/a/antconc.sh"
+# shellcheck source=lib/apps/a/apachedirectorystudio.sh
+source "$LIB_DIR/apps/a/apachedirectorystudio.sh"
+# shellcheck source=lib/apps/a/ape.sh
+source "$LIB_DIR/apps/a/ape.sh"
+# shellcheck source=lib/apps/a/apparency.sh
+source "$LIB_DIR/apps/a/apparency.sh"
+# shellcheck source=lib/apps/a/appcleaner.sh
+source "$LIB_DIR/apps/a/appcleaner.sh"
+# shellcheck source=lib/apps/a/applenyfonts.sh
+source "$LIB_DIR/apps/a/applenyfonts.sh"
+# shellcheck source=lib/apps/a/appleprovideoformats.sh
+source "$LIB_DIR/apps/a/appleprovideoformats.sh"
+# shellcheck source=lib/apps/a/applesfarabic.sh
+source "$LIB_DIR/apps/a/applesfarabic.sh"
+# shellcheck source=lib/apps/a/applesfcompact.sh
+source "$LIB_DIR/apps/a/applesfcompact.sh"
+# shellcheck source=lib/apps/a/applesfmono.sh
+source "$LIB_DIR/apps/a/applesfmono.sh"
+# shellcheck source=lib/apps/a/applesfpro.sh
+source "$LIB_DIR/apps/a/applesfpro.sh"
+# shellcheck source=lib/apps/a/applesfsymbols.sh
+source "$LIB_DIR/apps/a/applesfsymbols.sh"
+# shellcheck source=lib/apps/a/appsanywhere.sh
+source "$LIB_DIR/apps/a/appsanywhere.sh"
+# shellcheck source=lib/apps/a/aquamacs.sh
+source "$LIB_DIR/apps/a/aquamacs.sh"
+# shellcheck source=lib/apps/a/aquaskk.sh
+source "$LIB_DIR/apps/a/aquaskk.sh"
+# shellcheck source=lib/apps/a/arcbrowser.sh
+source "$LIB_DIR/apps/a/arcbrowser.sh"
+# shellcheck source=lib/apps/a/archaeology.sh
+source "$LIB_DIR/apps/a/archaeology.sh"
+# shellcheck source=lib/apps/a/archimate.sh
+source "$LIB_DIR/apps/a/archimate.sh"
+# shellcheck source=lib/apps/a/archiwareb2go.sh
+source "$LIB_DIR/apps/a/archiwareb2go.sh"
+# shellcheck source=lib/apps/a/archiwarepst.sh
+source "$LIB_DIR/apps/a/archiwarepst.sh"
+# shellcheck source=lib/apps/a/arduinoide.sh
+source "$LIB_DIR/apps/a/arduinoide.sh"
+# shellcheck source=lib/apps/a/arq7.sh
+source "$LIB_DIR/apps/a/arq7.sh"
+# shellcheck source=lib/apps/a/arturiamcc.sh
+source "$LIB_DIR/apps/a/arturiamcc.sh"
+# shellcheck source=lib/apps/a/arturiasoftwarecenter.sh
+source "$LIB_DIR/apps/a/arturiasoftwarecenter.sh"
+# shellcheck source=lib/apps/a/asana.sh
+source "$LIB_DIR/apps/a/asana.sh"
+# shellcheck source=lib/apps/a/aspera.sh
+source "$LIB_DIR/apps/a/aspera.sh"
+# shellcheck source=lib/apps/a/asperaconnect.sh
+source "$LIB_DIR/apps/a/asperaconnect.sh"
+# shellcheck source=lib/apps/a/asymmetrickeygenerator.sh
+source "$LIB_DIR/apps/a/asymmetrickeygenerator.sh"
+# shellcheck source=lib/apps/a/atlassiancompanion.sh
+source "$LIB_DIR/apps/a/atlassiancompanion.sh"
+# shellcheck source=lib/apps/a/audacity.sh
+source "$LIB_DIR/apps/a/audacity.sh"
+# shellcheck source=lib/apps/a/autodmg.sh
+source "$LIB_DIR/apps/a/autodmg.sh"
+# shellcheck source=lib/apps/a/automounter.sh
+source "$LIB_DIR/apps/a/automounter.sh"
+# shellcheck source=lib/apps/a/autopkgr.sh
+source "$LIB_DIR/apps/a/autopkgr.sh"
+# shellcheck source=lib/apps/a/avertouch.sh
+source "$LIB_DIR/apps/a/avertouch.sh"
+# shellcheck source=lib/apps/a/aviatrix.sh
+source "$LIB_DIR/apps/a/aviatrix.sh"
+# shellcheck source=lib/apps/a/awscli2.sh
+source "$LIB_DIR/apps/a/awscli2.sh"
+# shellcheck source=lib/apps/a/awsvpnclient.sh
+source "$LIB_DIR/apps/a/awsvpnclient.sh"
+# shellcheck source=lib/apps/a/axurerp10.sh
+source "$LIB_DIR/apps/a/axurerp10.sh"
+# shellcheck source=lib/apps/a/azuredatastudio.sh
+source "$LIB_DIR/apps/a/azuredatastudio.sh"
+
+# misc app modules (first letter 'b')
+# shellcheck source=lib/apps/b/backgroundmusic.sh
+source "$LIB_DIR/apps/b/backgroundmusic.sh"
+# shellcheck source=lib/apps/b/backgrounds.sh
+source "$LIB_DIR/apps/b/backgrounds.sh"
+# shellcheck source=lib/apps/b/balenaetcher.sh
+source "$LIB_DIR/apps/b/balenaetcher.sh"
+# shellcheck source=lib/apps/b/balsamiqwireframes.sh
+source "$LIB_DIR/apps/b/balsamiqwireframes.sh"
+# shellcheck source=lib/apps/b/bambustudio.sh
+source "$LIB_DIR/apps/b/bambustudio.sh"
+# shellcheck source=lib/apps/b/bartender.sh
+source "$LIB_DIR/apps/b/bartender.sh"
+# shellcheck source=lib/apps/b/basecamp3.sh
+source "$LIB_DIR/apps/b/basecamp3.sh"
+# shellcheck source=lib/apps/b/baseline.sh
+source "$LIB_DIR/apps/b/baseline.sh"
+# shellcheck source=lib/apps/b/baseline-nodaemon.sh
+source "$LIB_DIR/apps/b/baseline-nodaemon.sh"
+# shellcheck source=lib/apps/b/bbedit.sh
+source "$LIB_DIR/apps/b/bbedit.sh"
+# shellcheck source=lib/apps/b/bbeditpkg.sh
+source "$LIB_DIR/apps/b/bbeditpkg.sh"
+# shellcheck source=lib/apps/b/beamstudio.sh
+source "$LIB_DIR/apps/b/beamstudio.sh"
+# shellcheck source=lib/apps/b/beekeeperstudio.sh
+source "$LIB_DIR/apps/b/beekeeperstudio.sh"
+# shellcheck source=lib/apps/b/betterdisplay.sh
+source "$LIB_DIR/apps/b/betterdisplay.sh"
+# shellcheck source=lib/apps/b/bettertouchtool.sh
+source "$LIB_DIR/apps/b/bettertouchtool.sh"
+# shellcheck source=lib/apps/b/betterzip.sh
+source "$LIB_DIR/apps/b/betterzip.sh"
+# shellcheck source=lib/apps/b/beyondcomparepro.sh
+source "$LIB_DIR/apps/b/beyondcomparepro.sh"
+# shellcheck source=lib/apps/b/bezel.sh
+source "$LIB_DIR/apps/b/bezel.sh"
+# shellcheck source=lib/apps/b/bibdesk.sh
+source "$LIB_DIR/apps/b/bibdesk.sh"
+# shellcheck source=lib/apps/b/bitrix24.sh
+source "$LIB_DIR/apps/b/bitrix24.sh"
+# shellcheck source=lib/apps/b/bitwarden.sh
+source "$LIB_DIR/apps/b/bitwarden.sh"
+# shellcheck source=lib/apps/b/bitwigstudio.sh
+source "$LIB_DIR/apps/b/bitwigstudio.sh"
+# shellcheck source=lib/apps/b/blackhole16ch.sh
+source "$LIB_DIR/apps/b/blackhole16ch.sh"
+# shellcheck source=lib/apps/b/blackhole2ch.sh
+source "$LIB_DIR/apps/b/blackhole2ch.sh"
+# shellcheck source=lib/apps/b/blackhole64ch.sh
+source "$LIB_DIR/apps/b/blackhole64ch.sh"
+# shellcheck source=lib/apps/b/blitzit.sh
+source "$LIB_DIR/apps/b/blitzit.sh"
+# shellcheck source=lib/apps/b/boop.sh
+source "$LIB_DIR/apps/b/boop.sh"
+# shellcheck source=lib/apps/b/boxdrive.sh
+source "$LIB_DIR/apps/b/boxdrive.sh"
+# shellcheck source=lib/apps/b/boxsync.sh
+source "$LIB_DIR/apps/b/boxsync.sh"
+# shellcheck source=lib/apps/b/boxtools.sh
+source "$LIB_DIR/apps/b/boxtools.sh"
+# shellcheck source=lib/apps/b/bracketsio.sh
+source "$LIB_DIR/apps/b/bracketsio.sh"
+# shellcheck source=lib/apps/b/brave.sh
+source "$LIB_DIR/apps/b/brave.sh"
+# shellcheck source=lib/apps/b/bravepkg.sh
+source "$LIB_DIR/apps/b/bravepkg.sh"
+# shellcheck source=lib/apps/b/brosix.sh
+source "$LIB_DIR/apps/b/brosix.sh"
+# shellcheck source=lib/apps/b/browserosaurus.sh
+source "$LIB_DIR/apps/b/browserosaurus.sh"
+# shellcheck source=lib/apps/b/bruno.sh
+source "$LIB_DIR/apps/b/bruno.sh"
+# shellcheck source=lib/apps/b/bugdom.sh
+source "$LIB_DIR/apps/b/bugdom.sh"
+# shellcheck source=lib/apps/b/burpsuiteprofessional.sh
+source "$LIB_DIR/apps/b/burpsuiteprofessional.sh"
+# shellcheck source=lib/apps/b/busycal.sh
+source "$LIB_DIR/apps/b/busycal.sh"
+# shellcheck source=lib/apps/b/busycontacts.sh
+source "$LIB_DIR/apps/b/busycontacts.sh"
+# shellcheck source=lib/apps/b/buttercup.sh
+source "$LIB_DIR/apps/b/buttercup.sh"
+
+# misc app modules (first letter 'c')
+# shellcheck source=lib/apps/c/caffeine.sh
+source "$LIB_DIR/apps/c/caffeine.sh"
+# shellcheck source=lib/apps/c/cakebrew.sh
+source "$LIB_DIR/apps/c/cakebrew.sh"
+# shellcheck source=lib/apps/c/calcservice.sh
+source "$LIB_DIR/apps/c/calcservice.sh"
+# shellcheck source=lib/apps/c/calibre.sh
+source "$LIB_DIR/apps/c/calibre.sh"
+# shellcheck source=lib/apps/c/calibriteprofiler.sh
+source "$LIB_DIR/apps/c/calibriteprofiler.sh"
+# shellcheck source=lib/apps/c/cameracontroller.sh
+source "$LIB_DIR/apps/c/cameracontroller.sh"
+# shellcheck source=lib/apps/c/camostudio.sh
+source "$LIB_DIR/apps/c/camostudio.sh"
+# shellcheck source=lib/apps/c/camunda.sh
+source "$LIB_DIR/apps/c/camunda.sh"
+# shellcheck source=lib/apps/c/canva.sh
+source "$LIB_DIR/apps/c/canva.sh"
+# shellcheck source=lib/apps/c/carboncopycloner.sh
+source "$LIB_DIR/apps/c/carboncopycloner.sh"
+# shellcheck source=lib/apps/c/cardpresso.sh
+source "$LIB_DIR/apps/c/cardpresso.sh"
+# shellcheck source=lib/apps/c/catoclient.sh
+source "$LIB_DIR/apps/c/catoclient.sh"
+# shellcheck source=lib/apps/c/charles.sh
+source "$LIB_DIR/apps/c/charles.sh"
+# shellcheck source=lib/apps/c/chatwork.sh
+source "$LIB_DIR/apps/c/chatwork.sh"
+# shellcheck source=lib/apps/c/chemdoodle.sh
+source "$LIB_DIR/apps/c/chemdoodle.sh"
+# shellcheck source=lib/apps/c/chemdoodle2d.sh
+source "$LIB_DIR/apps/c/chemdoodle2d.sh"
+# shellcheck source=lib/apps/c/chemdoodle3d.sh
+source "$LIB_DIR/apps/c/chemdoodle3d.sh"
+# shellcheck source=lib/apps/c/cherryaudioblue3.sh
+source "$LIB_DIR/apps/c/cherryaudioblue3.sh"
+# shellcheck source=lib/apps/c/cherryaudioca2600.sh
+source "$LIB_DIR/apps/c/cherryaudioca2600.sh"
+# shellcheck source=lib/apps/c/cherryaudiochroma.sh
+source "$LIB_DIR/apps/c/cherryaudiochroma.sh"
+# shellcheck source=lib/apps/c/cherryaudiocr78.sh
+source "$LIB_DIR/apps/c/cherryaudiocr78.sh"
+# shellcheck source=lib/apps/c/cherryaudiodco106.sh
+source "$LIB_DIR/apps/c/cherryaudiodco106.sh"
+# shellcheck source=lib/apps/c/cherryaudiodreamsynth.sh
+source "$LIB_DIR/apps/c/cherryaudiodreamsynth.sh"
+# shellcheck source=lib/apps/c/cherryaudioeightvoice.sh
+source "$LIB_DIR/apps/c/cherryaudioeightvoice.sh"
+# shellcheck source=lib/apps/c/cherryaudioelkax.sh
+source "$LIB_DIR/apps/c/cherryaudioelkax.sh"
+# shellcheck source=lib/apps/c/cherryaudiogalacticreverb.sh
+source "$LIB_DIR/apps/c/cherryaudiogalacticreverb.sh"
+# shellcheck source=lib/apps/c/cherryaudiogx80.sh
+source "$LIB_DIR/apps/c/cherryaudiogx80.sh"
+
