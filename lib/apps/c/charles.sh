@@ -9,7 +9,10 @@
 #
 
 maclib::charles::suite_installer_url() {
-  https://www.charlesproxy.com/assets/release/$appNewVersion/charles-proxy-$appNewVersion.dmg
+  local appNewVersion
+  appNewVersion="$(maclib::charles::latest_version)"
+  [[ -n "$appNewVersion" ]] || return 1
+  printf '%s\n' "https://www.charlesproxy.com/assets/release/${appNewVersion}/charles-proxy-${appNewVersion}.dmg"
 }
 
 maclib::charles::latest_version() {

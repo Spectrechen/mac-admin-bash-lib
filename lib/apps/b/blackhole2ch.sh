@@ -18,12 +18,12 @@ maclib::blackhole2ch::latest_version() {
 }
 
 maclib::blackhole2ch::is_installed() {
-  pkgutil --pkg-info ""audio.existential.BlackHole2ch"" >/dev/null 2>&1
+  pkgutil --pkg-info "audio.existential.BlackHole2ch" >/dev/null 2>&1
 }
 
 maclib::blackhole2ch::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""audio.existential.BlackHole2ch"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "audio.existential.BlackHole2ch" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::blackhole2ch::update() {
 }
 
 maclib::blackhole2ch::uninstall() {
-  # No clean uninstall for "BlackHole"; removing package receipt ""audio.existential.BlackHole2ch"".
-  pkgutil --forget ""audio.existential.BlackHole2ch""
+  # No clean uninstall for "BlackHole"; removing package receipt "audio.existential.BlackHole2ch".
+  pkgutil --forget "audio.existential.BlackHole2ch"
   return $?
 }

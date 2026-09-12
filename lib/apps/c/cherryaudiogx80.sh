@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudiogx80::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/gx-80-macos-installer?file=GX-80-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/gx-80-macos-installer?file=GX-80-Installer-macOS.pkg'
 }
 
 maclib::cherryaudiogx80::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudiogx80::latest_version() {
 }
 
 maclib::cherryaudiogx80::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.GX-80Package-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.GX-80Package-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudiogx80::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.GX-80Package-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.GX-80Package-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudiogx80::update() {
 }
 
 maclib::cherryaudiogx80::uninstall() {
-  # No clean uninstall for "GX-80"; removing package receipt ""com.cherryaudio.pkg.GX-80Package-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.GX-80Package-StandAlone""
+  # No clean uninstall for "GX-80"; removing package receipt "com.cherryaudio.pkg.GX-80Package-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.GX-80Package-StandAlone"
   return $?
 }

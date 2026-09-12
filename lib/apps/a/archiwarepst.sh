@@ -18,12 +18,12 @@ maclib::archiwarepst::latest_version() {
 }
 
 maclib::archiwarepst::is_installed() {
-  pkgutil --pkg-info ""com.archiware.presstore"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.archiware.presstore" >/dev/null 2>&1
 }
 
 maclib::archiwarepst::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.archiware.presstore"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.archiware.presstore" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::archiwarepst::update() {
 }
 
 maclib::archiwarepst::uninstall() {
-  # No clean uninstall for "P5"; removing package receipt ""com.archiware.presstore"".
-  pkgutil --forget ""com.archiware.presstore""
+  # No clean uninstall for "P5"; removing package receipt "com.archiware.presstore".
+  pkgutil --forget "com.archiware.presstore"
   return $?
 }

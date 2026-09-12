@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudioelkax::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/elka-x-macos-installer?file=Elka-X-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/elka-x-macos-installer?file=Elka-X-Installer-macOS.pkg'
 }
 
 maclib::cherryaudioelkax::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudioelkax::latest_version() {
 }
 
 maclib::cherryaudioelkax::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.Elka-XPackage-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.Elka-XPackage-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudioelkax::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.Elka-XPackage-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.Elka-XPackage-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudioelkax::update() {
 }
 
 maclib::cherryaudioelkax::uninstall() {
-  # No clean uninstall for "Elka-X"; removing package receipt ""com.cherryaudio.pkg.Elka-XPackage-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.Elka-XPackage-StandAlone""
+  # No clean uninstall for "Elka-X"; removing package receipt "com.cherryaudio.pkg.Elka-XPackage-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.Elka-XPackage-StandAlone"
   return $?
 }

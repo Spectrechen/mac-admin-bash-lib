@@ -9,7 +9,7 @@
 #
 
 maclib::catoclient::suite_installer_url() {
-  https://clientdownload.catonetworks.com/public/clients/CatoClient.pkg
+  printf '%s\n' 'https://clientdownload.catonetworks.com/public/clients/CatoClient.pkg'
 }
 
 maclib::catoclient::latest_version() {

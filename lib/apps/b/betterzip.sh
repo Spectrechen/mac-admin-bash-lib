@@ -9,7 +9,7 @@
 #
 
 maclib::betterzip::suite_installer_url() {
-  https://macitbetter.com/BetterZip.zip
+  printf '%s\n' 'https://macitbetter.com/BetterZip.zip'
 }
 
 maclib::betterzip::latest_version() {

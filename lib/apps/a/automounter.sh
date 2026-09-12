@@ -9,7 +9,7 @@
 #
 
 maclib::automounter::suite_installer_url() {
-  https://www.pixeleyes.co.nz/automounter/AutoMounter.dmg
+  printf '%s\n' 'https://www.pixeleyes.co.nz/automounter/AutoMounter.dmg'
 }
 
 maclib::automounter::latest_version() {

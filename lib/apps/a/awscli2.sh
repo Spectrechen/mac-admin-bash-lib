@@ -10,7 +10,7 @@
 #
 
 maclib::awscli2::suite_installer_url() {
-  https://awscli.amazonaws.com/AWSCLIV2.pkg
+  printf '%s\n' 'https://awscli.amazonaws.com/AWSCLIV2.pkg'
 }
 
 maclib::awscli2::latest_version() {
@@ -18,12 +18,12 @@ maclib::awscli2::latest_version() {
 }
 
 maclib::awscli2::is_installed() {
-  pkgutil --pkg-info ""com.amazon.aws.cli2"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.amazon.aws.cli2" >/dev/null 2>&1
 }
 
 maclib::awscli2::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.amazon.aws.cli2"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.amazon.aws.cli2" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::awscli2::update() {
 }
 
 maclib::awscli2::uninstall() {
-  # No clean uninstall for "AWSCLI"; removing package receipt ""com.amazon.aws.cli2"".
-  pkgutil --forget ""com.amazon.aws.cli2""
+  # No clean uninstall for "AWSCLI"; removing package receipt "com.amazon.aws.cli2".
+  pkgutil --forget "com.amazon.aws.cli2"
   return $?
 }

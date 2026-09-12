@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudiochroma::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/chroma-macos-installer?file=Chroma-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/chroma-macos-installer?file=Chroma-Installer-macOS.pkg'
 }
 
 maclib::cherryaudiochroma::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudiochroma::latest_version() {
 }
 
 maclib::cherryaudiochroma::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.ChromaPackage-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.ChromaPackage-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudiochroma::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.ChromaPackage-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.ChromaPackage-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudiochroma::update() {
 }
 
 maclib::cherryaudiochroma::uninstall() {
-  # No clean uninstall for "Chroma"; removing package receipt ""com.cherryaudio.pkg.ChromaPackage-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.ChromaPackage-StandAlone""
+  # No clean uninstall for "Chroma"; removing package receipt "com.cherryaudio.pkg.ChromaPackage-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.ChromaPackage-StandAlone"
   return $?
 }

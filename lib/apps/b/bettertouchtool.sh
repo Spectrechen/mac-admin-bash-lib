@@ -9,7 +9,7 @@
 #
 
 maclib::bettertouchtool::suite_installer_url() {
-  https://folivora.ai/releases/BetterTouchTool.zip
+  printf '%s\n' 'https://folivora.ai/releases/BetterTouchTool.zip'
 }
 
 maclib::bettertouchtool::latest_version() {

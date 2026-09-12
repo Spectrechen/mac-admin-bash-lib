@@ -66,7 +66,7 @@ maclib::aircall::install() {
   local app
   app="$(find "$tmp/extracted" -maxdepth 2 -type d -name '*.app' | head -n1)"
   if [[ -n "$app" ]]; then
-    /usr/bin cp -R "$app" "/Applications/" "$@"
+    /usr/bin/cp -R "$app" "/Applications/" "$@"
     local rc=$?
     return "$rc"
   fi

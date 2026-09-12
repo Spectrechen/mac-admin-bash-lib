@@ -9,7 +9,7 @@
 #
 
 maclib::bezel::suite_installer_url() {
-  https://download.nonstrict.eu/bezel/Bezel.dmg
+  printf '%s\n' 'https://download.nonstrict.eu/bezel/Bezel.dmg'
 }
 
 maclib::bezel::latest_version() {

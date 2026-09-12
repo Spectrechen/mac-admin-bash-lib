@@ -18,12 +18,12 @@ maclib::arturiasoftwarecenter::latest_version() {
 }
 
 maclib::arturiasoftwarecenter::is_installed() {
-  pkgutil --pkg-info ""com.Arturia.ArturiaSoftwareCenter.resources"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.Arturia.ArturiaSoftwareCenter.resources" >/dev/null 2>&1
 }
 
 maclib::arturiasoftwarecenter::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.Arturia.ArturiaSoftwareCenter.resources"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.Arturia.ArturiaSoftwareCenter.resources" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::arturiasoftwarecenter::update() {
 }
 
 maclib::arturiasoftwarecenter::uninstall() {
-  # No clean uninstall for "Arturia Software Center"; removing package receipt ""com.Arturia.ArturiaSoftwareCenter.resources"".
-  pkgutil --forget ""com.Arturia.ArturiaSoftwareCenter.resources""
+  # No clean uninstall for "Arturia Software Center"; removing package receipt "com.Arturia.ArturiaSoftwareCenter.resources".
+  pkgutil --forget "com.Arturia.ArturiaSoftwareCenter.resources"
   return $?
 }

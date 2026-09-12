@@ -10,8 +10,9 @@
 
 maclib::cardpresso::suite_installer_url() {
   local appNewVersion
-  appNewVersion=curl -is "https://formulae.brew.sh/cask/cardpresso" | grep 'Current version:' | grep -oie "[0-9\.]*\.dmg" | awk -F ".dmg" '{print $1}'
-  https://www.cardpresso.com/downloads/cardpresso_releases/for_mac_osx/cardPresso${appNewVersion}.dmg
+  appNewVersion="$(maclib::cardpresso::latest_version)"
+  [[ -n "$appNewVersion" ]] || return 1
+  printf '%s\n' "https://www.cardpresso.com/downloads/cardpresso_releases/for_mac_osx/cardPresso${appNewVersion}.dmg"
 }
 
 maclib::cardpresso::latest_version() {

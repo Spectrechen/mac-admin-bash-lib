@@ -86,134 +86,72 @@ source "$LIB_DIR/cloud_storage/dropbox.sh"
 source "$LIB_DIR/security_tools/1password.sh"
 
 # misc app modules (first letter '4')
-# shellcheck source=lib/apps/4/4kvideodownloader.sh
-source "$LIB_DIR/apps/4/4kvideodownloader.sh"
-# shellcheck source=lib/apps/4/4kvideodownloaderplus.sh
-source "$LIB_DIR/apps/4/4kvideodownloaderplus.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/4/4kvideodownloader.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/4/4kvideodownloaderplus.sh"
 
 # misc app modules (first letter '8')
-# shellcheck source=lib/apps/8/8x8.sh
-source "$LIB_DIR/apps/8/8x8.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/8/8x8.sh"
 
 # misc app modules (first letter 'a')
-# shellcheck source=lib/apps/a/abetterfinderattributes7.sh
-source "$LIB_DIR/apps/a/abetterfinderattributes7.sh"
-# shellcheck source=lib/apps/a/abetterfinderrename11.sh
-source "$LIB_DIR/apps/a/abetterfinderrename11.sh"
-# shellcheck source=lib/apps/a/abetterfinderrename12.sh
-source "$LIB_DIR/apps/a/abetterfinderrename12.sh"
-# shellcheck source=lib/apps/a/abletonlive12intro.sh
-source "$LIB_DIR/apps/a/abletonlive12intro.sh"
-# shellcheck source=lib/apps/a/abletonlive12lite.sh
-source "$LIB_DIR/apps/a/abletonlive12lite.sh"
-# shellcheck source=lib/apps/a/abletonlive12standard.sh
-source "$LIB_DIR/apps/a/abletonlive12standard.sh"
-# shellcheck source=lib/apps/a/abletonlive12suite.sh
-source "$LIB_DIR/apps/a/abletonlive12suite.sh"
-# shellcheck source=lib/apps/a/abletonlive12trial.sh
-source "$LIB_DIR/apps/a/abletonlive12trial.sh"
-# shellcheck source=lib/apps/a/abstract.sh
-source "$LIB_DIR/apps/a/abstract.sh"
-# shellcheck source=lib/apps/a/acorn.sh
-source "$LIB_DIR/apps/a/acorn.sh"
-# shellcheck source=lib/apps/a/acroniscyberprotectconnect.sh
-source "$LIB_DIR/apps/a/acroniscyberprotectconnect.sh"
-# shellcheck source=lib/apps/a/acroniscyberprotectconnectagent.sh
-source "$LIB_DIR/apps/a/acroniscyberprotectconnectagent.sh"
-# shellcheck source=lib/apps/a/adium.sh
-source "$LIB_DIR/apps/a/adium.sh"
-# shellcheck source=lib/apps/a/adobeacrobatprodc.sh
-source "$LIB_DIR/apps/a/adobeacrobatprodc.sh"
-# shellcheck source=lib/apps/a/adobebrackets.sh
-source "$LIB_DIR/apps/a/adobebrackets.sh"
-# shellcheck source=lib/apps/a/adobeconnect.sh
-source "$LIB_DIR/apps/a/adobeconnect.sh"
-# shellcheck source=lib/apps/a/adobecreativeclouddesktop.sh
-source "$LIB_DIR/apps/a/adobecreativeclouddesktop.sh"
-# shellcheck source=lib/apps/a/adobereaderdc.sh
-source "$LIB_DIR/apps/a/adobereaderdc.sh"
-# shellcheck source=lib/apps/a/adobereaderdc-install.sh
-source "$LIB_DIR/apps/a/adobereaderdc-install.sh"
-# shellcheck source=lib/apps/a/adobereaderdc-update.sh
-source "$LIB_DIR/apps/a/adobereaderdc-update.sh"
-# shellcheck source=lib/apps/a/aftermath.sh
-source "$LIB_DIR/apps/a/aftermath.sh"
-# shellcheck source=lib/apps/a/airflow.sh
-source "$LIB_DIR/apps/a/airflow.sh"
-# shellcheck source=lib/apps/a/airserver.sh
-source "$LIB_DIR/apps/a/airserver.sh"
-# shellcheck source=lib/apps/a/aldente.sh
-source "$LIB_DIR/apps/a/aldente.sh"
-# shellcheck source=lib/apps/a/alephone.sh
-source "$LIB_DIR/apps/a/alephone.sh"
-# shellcheck source=lib/apps/a/alfred.sh
-source "$LIB_DIR/apps/a/alfred.sh"
-# shellcheck source=lib/apps/a/altserver.sh
-source "$LIB_DIR/apps/a/altserver.sh"
-# shellcheck source=lib/apps/a/alttab.sh
-source "$LIB_DIR/apps/a/alttab.sh"
-# shellcheck source=lib/apps/a/amazoncorretto11jdk.sh
-source "$LIB_DIR/apps/a/amazoncorretto11jdk.sh"
-# shellcheck source=lib/apps/a/amazoncorretto17jdk.sh
-source "$LIB_DIR/apps/a/amazoncorretto17jdk.sh"
-# shellcheck source=lib/apps/a/amazoncorretto21jdk.sh
-source "$LIB_DIR/apps/a/amazoncorretto21jdk.sh"
-# shellcheck source=lib/apps/a/amazoncorretto22jdk.sh
-source "$LIB_DIR/apps/a/amazoncorretto22jdk.sh"
-# shellcheck source=lib/apps/a/amazoncorretto23jdk.sh
-source "$LIB_DIR/apps/a/amazoncorretto23jdk.sh"
-# shellcheck source=lib/apps/a/amazoncorretto25jdk.sh
-source "$LIB_DIR/apps/a/amazoncorretto25jdk.sh"
-# shellcheck source=lib/apps/a/amazoncorretto8jdk.sh
-source "$LIB_DIR/apps/a/amazoncorretto8jdk.sh"
-# shellcheck source=lib/apps/a/amazonq.sh
-source "$LIB_DIR/apps/a/amazonq.sh"
-# shellcheck source=lib/apps/a/amazonworkspaces.sh
-source "$LIB_DIR/apps/a/amazonworkspaces.sh"
-# shellcheck source=lib/apps/a/anastasiysextensionmanager.sh
-source "$LIB_DIR/apps/a/anastasiysextensionmanager.sh"
-# shellcheck source=lib/apps/a/androidfiletransfer.sh
-source "$LIB_DIR/apps/a/androidfiletransfer.sh"
-# shellcheck source=lib/apps/a/anki.sh
-source "$LIB_DIR/apps/a/anki.sh"
-# shellcheck source=lib/apps/a/antconc.sh
-source "$LIB_DIR/apps/a/antconc.sh"
-# shellcheck source=lib/apps/a/apachedirectorystudio.sh
-source "$LIB_DIR/apps/a/apachedirectorystudio.sh"
-# shellcheck source=lib/apps/a/ape.sh
-source "$LIB_DIR/apps/a/ape.sh"
-# shellcheck source=lib/apps/a/apparency.sh
-source "$LIB_DIR/apps/a/apparency.sh"
-# shellcheck source=lib/apps/a/appcleaner.sh
-source "$LIB_DIR/apps/a/appcleaner.sh"
-# shellcheck source=lib/apps/a/applenyfonts.sh
-source "$LIB_DIR/apps/a/applenyfonts.sh"
-# shellcheck source=lib/apps/a/appleprovideoformats.sh
-source "$LIB_DIR/apps/a/appleprovideoformats.sh"
-# shellcheck source=lib/apps/a/applesfarabic.sh
-source "$LIB_DIR/apps/a/applesfarabic.sh"
-# shellcheck source=lib/apps/a/applesfcompact.sh
-source "$LIB_DIR/apps/a/applesfcompact.sh"
-# shellcheck source=lib/apps/a/applesfmono.sh
-source "$LIB_DIR/apps/a/applesfmono.sh"
-# shellcheck source=lib/apps/a/applesfpro.sh
-source "$LIB_DIR/apps/a/applesfpro.sh"
-# shellcheck source=lib/apps/a/applesfsymbols.sh
-source "$LIB_DIR/apps/a/applesfsymbols.sh"
-# shellcheck source=lib/apps/a/appsanywhere.sh
-source "$LIB_DIR/apps/a/appsanywhere.sh"
-# shellcheck source=lib/apps/a/aquamacs.sh
-source "$LIB_DIR/apps/a/aquamacs.sh"
-# shellcheck source=lib/apps/a/aquaskk.sh
-source "$LIB_DIR/apps/a/aquaskk.sh"
-# shellcheck source=lib/apps/a/arcbrowser.sh
-source "$LIB_DIR/apps/a/arcbrowser.sh"
-# shellcheck source=lib/apps/a/archaeology.sh
-source "$LIB_DIR/apps/a/archaeology.sh"
-# shellcheck source=lib/apps/a/archimate.sh
-source "$LIB_DIR/apps/a/archimate.sh"
-# shellcheck source=lib/apps/a/archiwareb2go.sh
-source "$LIB_DIR/apps/a/archiwareb2go.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abetterfinderattributes7.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abetterfinderrename11.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abetterfinderrename12.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abletonlive12intro.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abletonlive12lite.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abletonlive12standard.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abletonlive12suite.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abletonlive12trial.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/abstract.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/acorn.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/acroniscyberprotectconnect.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/acroniscyberprotectconnectagent.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adium.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adobeacrobatprodc.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adobebrackets.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adobeconnect.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adobecreativeclouddesktop.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adobereaderdc.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adobereaderdc-install.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/adobereaderdc-update.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/aftermath.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/airflow.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/airserver.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/aldente.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/alephone.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/alfred.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/altserver.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/alttab.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazoncorretto11jdk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazoncorretto17jdk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazoncorretto21jdk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazoncorretto22jdk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazoncorretto23jdk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazoncorretto25jdk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazoncorretto8jdk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazonq.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/amazonworkspaces.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/anastasiysextensionmanager.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/androidfiletransfer.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/anki.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/antconc.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/apachedirectorystudio.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/ape.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/apparency.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/appcleaner.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/applenyfonts.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/appleprovideoformats.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/applesfarabic.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/applesfcompact.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/applesfmono.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/applesfpro.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/applesfsymbols.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/appsanywhere.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/aquamacs.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/aquaskk.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/arcbrowser.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/archaeology.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/archimate.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/archiwareb2go.sh"
 # shellcheck source=lib/apps/a/archiwarepst.sh
 source "$LIB_DIR/apps/a/archiwarepst.sh"
 # shellcheck source=lib/apps/a/arduinoide.sh
@@ -226,8 +164,7 @@ source "$LIB_DIR/apps/a/arturiamcc.sh"
 source "$LIB_DIR/apps/a/arturiasoftwarecenter.sh"
 # shellcheck source=lib/apps/a/asana.sh
 source "$LIB_DIR/apps/a/asana.sh"
-# shellcheck source=lib/apps/a/aspera.sh
-source "$LIB_DIR/apps/a/aspera.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/a/aspera.sh"
 # shellcheck source=lib/apps/a/asperaconnect.sh
 source "$LIB_DIR/apps/a/asperaconnect.sh"
 # shellcheck source=lib/apps/a/asymmetrickeygenerator.sh
@@ -368,8 +305,7 @@ source "$LIB_DIR/apps/c/catoclient.sh"
 source "$LIB_DIR/apps/c/charles.sh"
 # shellcheck source=lib/apps/c/chatwork.sh
 source "$LIB_DIR/apps/c/chatwork.sh"
-# shellcheck source=lib/apps/c/chemdoodle.sh
-source "$LIB_DIR/apps/c/chemdoodle.sh"
+# DRAFT, not loaded: source "$LIB_DIR/apps/c/chemdoodle.sh"
 # shellcheck source=lib/apps/c/chemdoodle2d.sh
 source "$LIB_DIR/apps/c/chemdoodle2d.sh"
 # shellcheck source=lib/apps/c/chemdoodle3d.sh
@@ -394,4 +330,3 @@ source "$LIB_DIR/apps/c/cherryaudioelkax.sh"
 source "$LIB_DIR/apps/c/cherryaudiogalacticreverb.sh"
 # shellcheck source=lib/apps/c/cherryaudiogx80.sh
 source "$LIB_DIR/apps/c/cherryaudiogx80.sh"
-

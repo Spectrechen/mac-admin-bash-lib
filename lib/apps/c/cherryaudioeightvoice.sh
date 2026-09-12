@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudioeightvoice::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/eight-voice-macos-installer?file=Eight-Voice-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/eight-voice-macos-installer?file=Eight-Voice-Installer-macOS.pkg'
 }
 
 maclib::cherryaudioeightvoice::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudioeightvoice::latest_version() {
 }
 
 maclib::cherryaudioeightvoice::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.EightVoicePackage-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.EightVoicePackage-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudioeightvoice::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.EightVoicePackage-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.EightVoicePackage-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudioeightvoice::update() {
 }
 
 maclib::cherryaudioeightvoice::uninstall() {
-  # No clean uninstall for "Eight Voice"; removing package receipt ""com.cherryaudio.pkg.EightVoicePackage-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.EightVoicePackage-StandAlone""
+  # No clean uninstall for "Eight Voice"; removing package receipt "com.cherryaudio.pkg.EightVoicePackage-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.EightVoicePackage-StandAlone"
   return $?
 }

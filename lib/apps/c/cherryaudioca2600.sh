@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudioca2600::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/ca2600-macos-installer?file=CA2600-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/ca2600-macos-installer?file=CA2600-Installer-macOS.pkg'
 }
 
 maclib::cherryaudioca2600::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudioca2600::latest_version() {
 }
 
 maclib::cherryaudioca2600::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.CA2600Package-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.CA2600Package-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudioca2600::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.CA2600Package-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.CA2600Package-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudioca2600::update() {
 }
 
 maclib::cherryaudioca2600::uninstall() {
-  # No clean uninstall for "CA2600"; removing package receipt ""com.cherryaudio.pkg.CA2600Package-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.CA2600Package-StandAlone""
+  # No clean uninstall for "CA2600"; removing package receipt "com.cherryaudio.pkg.CA2600Package-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.CA2600Package-StandAlone"
   return $?
 }

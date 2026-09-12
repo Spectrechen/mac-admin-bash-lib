@@ -18,12 +18,12 @@ maclib::boxtools::latest_version() {
 }
 
 maclib::boxtools::is_installed() {
-  pkgutil --pkg-info ""com.box.boxtools.installer.boxedit"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.box.boxtools.installer.boxedit" >/dev/null 2>&1
 }
 
 maclib::boxtools::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.box.boxtools.installer.boxedit"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.box.boxtools.installer.boxedit" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::boxtools::update() {
 }
 
 maclib::boxtools::uninstall() {
-  # No clean uninstall for "Box Tools"; removing package receipt ""com.box.boxtools.installer.boxedit"".
-  pkgutil --forget ""com.box.boxtools.installer.boxedit""
+  # No clean uninstall for "Box Tools"; removing package receipt "com.box.boxtools.installer.boxedit".
+  pkgutil --forget "com.box.boxtools.installer.boxedit"
   return $?
 }

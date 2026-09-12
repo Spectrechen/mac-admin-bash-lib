@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudiodreamsynth::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/dreamsynth-macos-installer?file=Dreamsynth-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/dreamsynth-macos-installer?file=Dreamsynth-Installer-macOS.pkg'
 }
 
 maclib::cherryaudiodreamsynth::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudiodreamsynth::latest_version() {
 }
 
 maclib::cherryaudiodreamsynth::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.DreamsynthPackage-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.DreamsynthPackage-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudiodreamsynth::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.DreamsynthPackage-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.DreamsynthPackage-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudiodreamsynth::update() {
 }
 
 maclib::cherryaudiodreamsynth::uninstall() {
-  # No clean uninstall for "Dreamsynth"; removing package receipt ""com.cherryaudio.pkg.DreamsynthPackage-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.DreamsynthPackage-StandAlone""
+  # No clean uninstall for "Dreamsynth"; removing package receipt "com.cherryaudio.pkg.DreamsynthPackage-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.DreamsynthPackage-StandAlone"
   return $?
 }

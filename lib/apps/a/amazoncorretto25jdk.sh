@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# STATUS: DRAFT — NOT production-ready. Placeholder installer URL (example.com)
+# from the bulk vendor-research pass; real vendor data was never filled in.
+# Not sourced by lib/maclib.sh. Do not use install()/update() from this module
+# until the vendor URL, Team ID and update path are verified and this notice
+# is removed. Re-run vendor research against the Installomator label before use.
 # shellcheck disable=all
 # amazoncorretto25jdk.sh - "Amazon Corretto 25 JDK" (Installomator label) helpers
 #
@@ -17,7 +22,7 @@ maclib::amazoncorretto25jdk::suite_installer_url() {
   local live
   live="$(curl -fsL "https://example.com/amazoncorretto25jdk-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   [[ -n "$live" ]] || live="https://example.com/amazoncorretto25jdk-1.0.0.dmg"
-  printf '%%s\n' "$live"
+  printf '%s\n' "$live"
 }
 
 maclib::amazoncorretto25jdk::latest_version() {
@@ -28,7 +33,7 @@ maclib::amazoncorretto25jdk::latest_version() {
   else
     ver="1.0.0"
   fi
-  printf '%%s\n' "$ver"
+  printf '%s\n' "$ver"
 }
 
 maclib::amazoncorretto25jdk::is_installed() {

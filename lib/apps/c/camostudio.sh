@@ -9,7 +9,7 @@
 #
 
 maclib::camostudio::suite_installer_url() {
-  https://reincubate.com/res/labs/camo/camo-macos-latest.zip
+  printf '%s\n' 'https://reincubate.com/res/labs/camo/camo-macos-latest.zip'
 }
 
 maclib::camostudio::latest_version() {

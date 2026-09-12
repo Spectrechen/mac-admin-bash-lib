@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudiodco106::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/dco-106-macos-installer?file=DCO-106-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/dco-106-macos-installer?file=DCO-106-Installer-macOS.pkg'
 }
 
 maclib::cherryaudiodco106::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudiodco106::latest_version() {
 }
 
 maclib::cherryaudiodco106::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.DCO106Package-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.DCO106Package-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudiodco106::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.DCO106Package-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.DCO106Package-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudiodco106::update() {
 }
 
 maclib::cherryaudiodco106::uninstall() {
-  # No clean uninstall for "DCO-106"; removing package receipt ""com.cherryaudio.pkg.DCO106Package-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.DCO106Package-StandAlone""
+  # No clean uninstall for "DCO-106"; removing package receipt "com.cherryaudio.pkg.DCO106Package-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.DCO106Package-StandAlone"
   return $?
 }

@@ -18,12 +18,12 @@ maclib::blackhole16ch::latest_version() {
 }
 
 maclib::blackhole16ch::is_installed() {
-  pkgutil --pkg-info ""audio.existential.BlackHole16ch"" >/dev/null 2>&1
+  pkgutil --pkg-info "audio.existential.BlackHole16ch" >/dev/null 2>&1
 }
 
 maclib::blackhole16ch::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""audio.existential.BlackHole16ch"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "audio.existential.BlackHole16ch" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::blackhole16ch::update() {
 }
 
 maclib::blackhole16ch::uninstall() {
-  # No clean uninstall for "BlackHole"; removing package receipt ""audio.existential.BlackHole16ch"".
-  pkgutil --forget ""audio.existential.BlackHole16ch""
+  # No clean uninstall for "BlackHole"; removing package receipt "audio.existential.BlackHole16ch".
+  pkgutil --forget "audio.existential.BlackHole16ch"
   return $?
 }

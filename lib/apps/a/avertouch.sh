@@ -10,8 +10,9 @@
 
 maclib::avertouch::suite_installer_url() {
   local appNewVersion
-  appNewVersion=curl -s "https://www.averusa.com/education/support/avertouch" | xmllint --html --xpath 'substring-after(string(//a[@class="dl-avertouch-mac"]/@href), "AVerTouch_mac_v")' - 2>/dev/null | sed 's/\.zip$//'
-  https://www.averusa.com/education/downloads/AVerTouch_mac_v${appNewVersion}.zip
+  appNewVersion="$(maclib::avertouch::latest_version)"
+  [[ -n "$appNewVersion" ]] || return 1
+  printf '%s\n' "https://www.averusa.com/education/downloads/AVerTouch_mac_v${appNewVersion}.zip"
 }
 
 maclib::avertouch::latest_version() {

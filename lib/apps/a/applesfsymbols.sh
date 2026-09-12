@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# STATUS: DRAFT — NOT production-ready. Placeholder installer URL (example.com)
+# from the bulk vendor-research pass; real vendor data was never filled in.
+# Not sourced by lib/maclib.sh. Do not use install()/update() from this module
+# until the vendor URL, Team ID and update path are verified and this notice
+# is removed. Re-run vendor research against the Installomator label before use.
 # shellcheck disable=all
 # applesfsymbols.sh - "None" (Installomator label) helpers
 #
@@ -17,7 +22,7 @@ maclib::applesfsymbols::suite_installer_url() {
 }
 
 maclib::applesfsymbols::latest_version() {
-  printf '%%s\n' "1.0.0"
+  printf '%s\n' "1.0.0"
 }
 
 maclib::applesfsymbols::is_installed() {

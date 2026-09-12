@@ -18,12 +18,12 @@ maclib::backgroundmusic::latest_version() {
 }
 
 maclib::backgroundmusic::is_installed() {
-  pkgutil --pkg-info ""com.bearisdriving.BGM"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.bearisdriving.BGM" >/dev/null 2>&1
 }
 
 maclib::backgroundmusic::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.bearisdriving.BGM"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.bearisdriving.BGM" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::backgroundmusic::update() {
 }
 
 maclib::backgroundmusic::uninstall() {
-  # No clean uninstall for "BackgroundMusic"; removing package receipt ""com.bearisdriving.BGM"".
-  pkgutil --forget ""com.bearisdriving.BGM""
+  # No clean uninstall for "BackgroundMusic"; removing package receipt "com.bearisdriving.BGM".
+  pkgutil --forget "com.bearisdriving.BGM"
   return $?
 }

@@ -9,7 +9,7 @@
 #
 
 maclib::busycal::suite_installer_url() {
-  https://www.busymac.com/download/BusyCal.dmg
+  printf '%s\n' 'https://www.busymac.com/download/BusyCal.dmg'
 }
 
 maclib::busycal::latest_version() {

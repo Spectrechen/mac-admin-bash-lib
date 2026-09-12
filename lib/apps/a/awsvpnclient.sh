@@ -9,9 +9,15 @@
 #
 
 maclib::awsvpnclient::suite_installer_url() {
-  local appNewVersion
-  appNewVersion=curl -s "https://docs.aws.amazon.com/vpn/latest/clientvpn-user/client-vpn-user-guide.rss" | grep -o 'AWS provided client ([0-9]*\.[0-9]*\.[0-9]*) for macOS' | head -1 | grep -o '[0-9]*\.[0-9]*\.[0-9]*'
-  ${baseURL}/${appNewVersion}/AWS_VPN_Client.pkg
+  local appNewVersion baseURL
+  appNewVersion="$(maclib::awsvpnclient::latest_version)"
+  [[ -n "$appNewVersion" ]] || return 1
+  baseURL="https://d20adtppz83p9s.cloudfront.net/OSX"
+  if [[ "$(maclib::os::arch)" == "arm64" ]]; then
+    printf '%s\n' "${baseURL}_ARM64/${appNewVersion}/AWS_VPN_Client_ARM64.pkg"
+  else
+    printf '%s\n' "${baseURL}/${appNewVersion}/AWS_VPN_Client.pkg"
+  fi
 }
 
 maclib::awsvpnclient::latest_version() {

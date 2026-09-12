@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudioblue3::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/blue3-tonewheel-organ-macos-installer?file=Blue3-Organ-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/blue3-tonewheel-organ-macos-installer?file=Blue3-Organ-Installer-macOS.pkg'
 }
 
 maclib::cherryaudioblue3::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudioblue3::latest_version() {
 }
 
 maclib::cherryaudioblue3::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.Blue3Package-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.Blue3Package-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudioblue3::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.Blue3Package-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.Blue3Package-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudioblue3::update() {
 }
 
 maclib::cherryaudioblue3::uninstall() {
-  # No clean uninstall for "Blue3 Organ"; removing package receipt ""com.cherryaudio.pkg.Blue3Package-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.Blue3Package-StandAlone""
+  # No clean uninstall for "Blue3 Organ"; removing package receipt "com.cherryaudio.pkg.Blue3Package-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.Blue3Package-StandAlone"
   return $?
 }

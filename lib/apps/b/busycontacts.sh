@@ -9,7 +9,7 @@
 #
 
 maclib::busycontacts::suite_installer_url() {
-  https://www.busymac.com/download/BusyContacts.dmg
+  printf '%s\n' 'https://www.busymac.com/download/BusyContacts.dmg'
 }
 
 maclib::busycontacts::latest_version() {

@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudiocr78::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/cr-78-macos-installer?file=CR-78-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/cr-78-macos-installer?file=CR-78-Installer-macOS.pkg'
 }
 
 maclib::cherryaudiocr78::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudiocr78::latest_version() {
 }
 
 maclib::cherryaudiocr78::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.CR-78Package-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.CR-78Package-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudiocr78::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.CR-78Package-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.CR-78Package-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudiocr78::update() {
 }
 
 maclib::cherryaudiocr78::uninstall() {
-  # No clean uninstall for "CR-78"; removing package receipt ""com.cherryaudio.pkg.CR-78Package-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.CR-78Package-StandAlone""
+  # No clean uninstall for "CR-78"; removing package receipt "com.cherryaudio.pkg.CR-78Package-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.CR-78Package-StandAlone"
   return $?
 }

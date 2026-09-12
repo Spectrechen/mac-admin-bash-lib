@@ -9,7 +9,7 @@
 #
 
 maclib::bitrix24::suite_installer_url() {
-  https://dl.bitrix24.com/b24/bitrix24_desktop.dmg
+  printf '%s\n' 'https://dl.bitrix24.com/b24/bitrix24_desktop.dmg'
 }
 
 maclib::bitrix24::latest_version() {

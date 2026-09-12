@@ -33,7 +33,7 @@ maclib::app::install() {
     maclib::log::error "install: not a bundle: $source"
     return 1
   }
-  /usr/bin cp -R "$source" "/Applications/" "$@"
+  /usr/bin/cp -R "$source" "/Applications/" "$@"
 }
 
 # Uninstall an application by removing its .app bundle.

@@ -10,7 +10,7 @@
 #
 
 maclib::cherryaudiogalacticreverb::suite_installer_url() {
-  https://store.cherryaudio.com/downloads/galactic-reverb-macos-installer?file=Galactic-Reverb-Installer-macOS.pkg
+  printf '%s\n' 'https://store.cherryaudio.com/downloads/galactic-reverb-macos-installer?file=Galactic-Reverb-Installer-macOS.pkg'
 }
 
 maclib::cherryaudiogalacticreverb::latest_version() {
@@ -18,12 +18,12 @@ maclib::cherryaudiogalacticreverb::latest_version() {
 }
 
 maclib::cherryaudiogalacticreverb::is_installed() {
-  pkgutil --pkg-info ""com.cherryaudio.pkg.GalacticPackage-StandAlone"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.cherryaudio.pkg.GalacticPackage-StandAlone" >/dev/null 2>&1
 }
 
 maclib::cherryaudiogalacticreverb::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.GalacticPackage-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.cherryaudio.pkg.GalacticPackage-StandAlone" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::cherryaudiogalacticreverb::update() {
 }
 
 maclib::cherryaudiogalacticreverb::uninstall() {
-  # No clean uninstall for "Galactic Reverb"; removing package receipt ""com.cherryaudio.pkg.GalacticPackage-StandAlone"".
-  pkgutil --forget ""com.cherryaudio.pkg.GalacticPackage-StandAlone""
+  # No clean uninstall for "Galactic Reverb"; removing package receipt "com.cherryaudio.pkg.GalacticPackage-StandAlone".
+  pkgutil --forget "com.cherryaudio.pkg.GalacticPackage-StandAlone"
   return $?
 }

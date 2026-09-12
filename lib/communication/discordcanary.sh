@@ -64,7 +64,7 @@ maclib::discordcanary::install() {
   local app
   app="$(find "$mount" -maxdepth 2 -type d -name '*.app' | head -n1)"
   if [[ -n "$app" ]]; then
-    /usr/bin cp -R "$app" "/Applications/" "$@"
+    /usr/bin/cp -R "$app" "/Applications/" "$@"
     local rc=$?
     hdiutil detach "$mount" >/dev/null 2>&1
     return "$rc"

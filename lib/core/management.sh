@@ -43,5 +43,5 @@ maclib::management::remove_profile() {
     maclib::log::error "remove_profile: no UUID given"
     return 2
   }
-  /usr/bin profiles -R -UUID "$uuid" "$@"
+  /usr/bin/profiles -R -UUID "$uuid" "$@"
 }

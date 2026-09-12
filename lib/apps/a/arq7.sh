@@ -10,7 +10,7 @@
 #
 
 maclib::arq7::suite_installer_url() {
-  https://arqbackup.com/download/arqbackup/Arq7.pkg
+  printf '%s\n' 'https://arqbackup.com/download/arqbackup/Arq7.pkg'
 }
 
 maclib::arq7::latest_version() {
@@ -18,12 +18,12 @@ maclib::arq7::latest_version() {
 }
 
 maclib::arq7::is_installed() {
-  pkgutil --pkg-info ""com.haystacksoftware.Arq"" >/dev/null 2>&1
+  pkgutil --pkg-info "com.haystacksoftware.Arq" >/dev/null 2>&1
 }
 
 maclib::arq7::installed_path() {
   local p
-  p="$(pkgutil --pkg-info ""com.haystacksoftware.Arq"" 2>/dev/null | sed -nE "s/^path: //p")"
+  p="$(pkgutil --pkg-info "com.haystacksoftware.Arq" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
@@ -56,7 +56,7 @@ maclib::arq7::update() {
 }
 
 maclib::arq7::uninstall() {
-  # No clean uninstall for "Arq7"; removing package receipt ""com.haystacksoftware.Arq"".
-  pkgutil --forget ""com.haystacksoftware.Arq""
+  # No clean uninstall for "Arq7"; removing package receipt "com.haystacksoftware.Arq".
+  pkgutil --forget "com.haystacksoftware.Arq"
   return $?
 }

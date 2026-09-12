@@ -9,7 +9,7 @@
 #
 
 maclib::canva::suite_installer_url() {
-  https://desktop-release.canva.com/Canva-latest.dmg
+  printf '%s\n' 'https://desktop-release.canva.com/Canva-latest.dmg'
 }
 
 maclib::canva::latest_version() {
