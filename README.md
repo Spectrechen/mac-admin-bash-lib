@@ -30,3 +30,12 @@ make test
 
 ## Status
 Initial skeleton created: 2026-02-28
+
+## License
+Licensed under the [Apache License, Version 2.0](LICENSE).
+
+Many application modules in `lib/` are derived from
+[Installomator](https://github.com/Installomator/Installomator) labels
+(© 2020 Armin Briegel, Scripting OS X, and the Installomator contributors,
+Apache 2.0). Each such file names its Installomator label in its header;
+see [NOTICE](NOTICE) for the attribution.

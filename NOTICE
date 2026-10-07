@@ -1,0 +1,20 @@
+mac-admin-bash-lib
+Copyright 2026 Marian Albers
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+------------------------------------------------------------------------
+Third-party material
+------------------------------------------------------------------------
+
+Installomator
+https://github.com/Installomator/Installomator
+Copyright 2020 Armin Briegel, Scripting OS X, and the Installomator contributors
+Licensed under the Apache License, Version 2.0
+
+The application modules under lib/ whose header names an Installomator
+label as their source (e.g. "Source: Installomator `iterm2` label") are
+derived from those Installomator labels: download URLs, Apple Developer
+Team IDs and version-detection logic were taken from the labels and
+rewritten as namespaced Bash functions for this library. These files
+have been modified from the original Installomator script.
