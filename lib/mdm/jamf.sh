@@ -12,7 +12,7 @@
 # Tools are invoked by plain name (as lib/security.sh does) so the helpers stay
 # testable — bats mocks external macOS binaries as shell functions.
 #
-# Namespace: maclib::jamf::<name>(). See docs/jamf-ea-integration-specs.md.
+# Namespace: maclib::mdm::jamf::<name>(). See docs/jamf-ea-integration-specs.md.
 
 # ---------------------------------------------------------------------------
 # Tier 1 — integrate first (clearly worth, robust, low-risk)
@@ -21,7 +21,7 @@
 # Print the integer battery cycle count. Batteryless desktops (e.g. Mac mini)
 # have no "Battery Information" block, so this returns 0 with <result>0</result>
 # rather than failing under pipefail. Needs bc (ships with macOS).
-maclib::jamf::battery_cycle_count() {
+maclib::mdm::jamf::battery_cycle_count() {
   local powerReport cycleCount
   powerReport="$(system_profiler SPPowerDataType 2>/dev/null)" || true
   if printf '%s' "$powerReport" | grep -q "Battery Information"; then
@@ -34,7 +34,7 @@ maclib::jamf::battery_cycle_count() {
 
 # Print the battery charge percentage (0-100). Empty on batteryless / always-AC
 # machines (e.g. "Now drawing from 'AC Power'" has no percentage). Needs bc.
-maclib::jamf::battery_charge_percent() {
+maclib::mdm::jamf::battery_charge_percent() {
   local charge
   # Realistic output is like "Drawing from 'Battery' - 85%"; the percentage is
   # the last field. The spec's `awk '/%/ {print $3}'` extracts field 3 ("Battery")
@@ -48,7 +48,7 @@ maclib::jamf::battery_charge_percent() {
 # FIX: palantir greps "/Model Name/" but SPiBridgeDataType prints
 # "Model Identifier: Mac16,11" — the original matches nothing on every Apple
 # Silicon Mac. We parse the Model Identifier column instead.
-maclib::jamf::security_chip() {
+maclib::mdm::jamf::security_chip() {
   local chip
   chip="$(system_profiler SPiBridgeDataType 2>/dev/null | awk -F': ' '/Model Identifier/ {print $NF}')" || true
   printf '<result>%s</result>\n' "$chip"
@@ -56,7 +56,7 @@ maclib::jamf::security_chip() {
 
 # Print a newline-separated list of third-party kernel extension load
 # identifiers (empty when none loaded). Requires kmutil (macOS 12.3+).
-maclib::jamf::third_party_kexts() {
+maclib::mdm::jamf::third_party_kexts() {
   kmutil showloaded --list-only 2>/dev/null | grep -v 'com.apple' | awk '{print $6}' | sort
 }
 
@@ -66,7 +66,7 @@ maclib::jamf::third_party_kexts() {
 # systemextensionsctl list is a tab-separated table whose data rows begin with
 # empty columns. Skip the header lines, then extract the bundle-ID column with
 # a regex rather than a fixed field position.
-maclib::jamf::system_extensions() {
+maclib::mdm::jamf::system_extensions() {
   systemextensionsctl list 2>/dev/null | tail -n +3 \
     | grep -oE 'com\.[A-Za-z0-9._]+ \([0-9]' \
     | sed -E 's/ \([0-9].*$//' \
@@ -74,7 +74,7 @@ maclib::jamf::system_extensions() {
 }
 
 # Print seconds since last boot (integer). Trivial and robust.
-maclib::jamf::uptime_seconds() {
+maclib::mdm::jamf::uptime_seconds() {
   local currentDate bootDate uptime
   currentDate="$(date +%s)"
   bootDate="$(sysctl -n kern.boottime 2>/dev/null | awk -F'[ ,]' '{print $4}')"
@@ -87,7 +87,7 @@ maclib::jamf::uptime_seconds() {
 #
 # FIX: handle the Xcode-beta path ("/Applications/Xcode-beta.app/Contents/Developer")
 # that palantir's two-case check missed (it returned empty for that case).
-maclib::jamf::xcode_clt_state() {
+maclib::mdm::jamf::xcode_clt_state() {
   local xcodeAppPath xcodeCLTPath xcodeBetaPath xcodeCheck xcodeCLTCheck
   xcodeAppPath="/Applications/Xcode.app/Contents/Developer"
   xcodeCLTPath="/Library/Developer/CommandLineTools"
@@ -104,7 +104,7 @@ maclib::jamf::xcode_clt_state() {
 }
 
 # Print the name of the startup / boot volume (e.g. "Macintosh HD"). Trivial.
-maclib::jamf::startup_volume_name() {
+maclib::mdm::jamf::startup_volume_name() {
   diskutil info -plist "$(bless --getBoot 2>/dev/null)" 2>/dev/null \
     | plutil -extract VolumeName raw -- -
 }
@@ -115,7 +115,7 @@ maclib::jamf::startup_volume_name() {
 
 # Print the power adapter wattage (empty when no adapter / batteryless). Only
 # meaningful when a power adapter is attached to a battery device.
-maclib::jamf::charger_wattage() {
+maclib::mdm::jamf::charger_wattage() {
   local wattage
   wattage="$(system_profiler SPPowerDataType 2>/dev/null | awk '/Wattage/ {print $NF}')" || true
   # SPPowerDataType prints "Wattage: 96W"; keep only the digits.
@@ -124,7 +124,7 @@ maclib::jamf::charger_wattage() {
 }
 
 # Print "Enabled" when Time Machine auto-backup is configured, else empty.
-maclib::jamf::time_machine_autobackup() {
+maclib::mdm::jamf::time_machine_autobackup() {
   local timeMachineAutoBackup timeMachineStatus
   timeMachineAutoBackup="$(defaults read "/Library/Preferences/com.apple.TimeMachine.plist" AutoBackup 2>/dev/null)"
   if [ "$timeMachineAutoBackup" = "1" ]; then
@@ -152,7 +152,7 @@ maclib::jamf::time_machine_autobackup() {
 
 # SKIPPED: remote_login_state.
 #
-# Partial duplicate of maclib::security::is_ssh_disabled. `systemsetup
+# Partial duplicate of maclib::security::security::is_ssh_disabled. `systemsetup
 # -getremotelogin` requires root and prints an error string when run without
 # it (fragile against awk parsing). Given the security module already covers
 # SSH state, this EA is only worth it for a distinct "Remote Login toggle"
@@ -168,7 +168,7 @@ maclib::jamf::time_machine_autobackup() {
 # formula names (empty when none). The brew binary path is overridable via
 # $MACLIB_BREW_BIN (useful for MDM deployments / tests); it defaults to the
 # arch-aware Homebrew prefix.
-maclib::jamf::homebrew_outdated_formulae() {
+maclib::mdm::jamf::homebrew_outdated_formulae() {
   local architectureCheck brewPrefix brewPath brew_bin uid
   architectureCheck="$(arch)"
   if [ "$architectureCheck" = "arm64" ]; then

@@ -8,16 +8,16 @@
 #   Source: Installomator `iterm2` label.
 
 # Print the iTerm2 zip archive URL.
-maclib::iterm2::url() {
+maclib::devops::iterm2::url() {
   printf '%s\n' 'https://iterm2.com/downloads/stable/latest'
 }
 
 # Print the current iTerm2 build version.
 # Installomator parses the version from the redirect Location header of the
 # zip URL.
-maclib::iterm2::latest_version() {
+maclib::devops::iterm2::latest_version() {
   local url location version
-  url="$(maclib::iterm2::url)"
+  url="$(maclib::devops::iterm2::url)"
   location="$(curl -fsIL "$url" 2>/dev/null | grep -i '^location:' | tail -n1 | sed -E 's/^[Ii]ocation:[[:space:]]*//')"
   [[ -n "$location" ]] || return 1
   # Location ends in "iTerm2-<version>.zip".
@@ -29,12 +29,12 @@ maclib::iterm2::latest_version() {
 }
 
 # Return 0 if the iTerm2 app bundle is installed.
-maclib::iterm2::is_installed() {
+maclib::devops::iterm2::is_installed() {
   [[ -d "/Applications/iTerm.app" ]] || [[ -d "$HOME/Applications/iTerm.app" ]]
 }
 
 # Print the path to the iTerm2 app bundle if present.
-maclib::iterm2::installed_path() {
+maclib::devops::iterm2::installed_path() {
   if [[ -d "/Applications/iTerm.app" ]]; then
     printf '%s\n' "/Applications/iTerm.app"
   elif [[ -d "$HOME/Applications/iTerm.app" ]]; then
@@ -44,9 +44,9 @@ maclib::iterm2::installed_path() {
 
 # Download the iTerm2 zip archive and extract the app bundle to /Applications
 # (requires root).
-maclib::iterm2::install() {
+maclib::devops::iterm2::install() {
   local url zip extract
-  url="$(maclib::iterm2::url)"
+  url="$(maclib::devops::iterm2::url)"
   zip="$(mktemp -t "iterm2_install.XXXXXX.zip")" || return 1
   extract="$(mktemp -d /tmp/iterm2_extract.XXXXXX)" || {
     rm -f "$zip"
@@ -54,11 +54,11 @@ maclib::iterm2::install() {
   }
   trap 'rm -f "$zip"; rm -rf "$extract"' RETURN
   if ! curl -fsL "$url" -o "$zip" 2>/dev/null; then
-    maclib::log::error "iterm2::install: failed to download archive"
+    maclib::core::log::error "iterm2::install: failed to download archive"
     return 1
   fi
   if ! unzip -o "$zip" -d "$extract" >/dev/null 2>&1; then
-    maclib::log::error "iterm2::install: failed to extract archive"
+    maclib::core::log::error "iterm2::install: failed to extract archive"
     return 1
   fi
   local app
@@ -68,7 +68,7 @@ maclib::iterm2::install() {
     local rc=$?
     return "$rc"
   fi
-  maclib::log::error "iterm2::install: no .app found in archive"
+  maclib::core::log::error "iterm2::install: no .app found in archive"
   return 1
 }
 

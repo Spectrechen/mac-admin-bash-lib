@@ -9,32 +9,32 @@
 # Installer type: "pkg".
 #
 
-maclib::arq7::suite_installer_url() {
+maclib::apps::a::arq7::suite_installer_url() {
   https://arqbackup.com/download/arqbackup/Arq7.pkg
 }
 
-maclib::arq7::latest_version() {
+maclib::apps::a::arq7::latest_version() {
   curl -fs "https://arqbackup.com" | grep -io "version .*[0-9.]*.* for macOS" | cut -d ">" -f2 | cut -d "<" -f1
 }
 
-maclib::arq7::is_installed() {
+maclib::apps::a::arq7::is_installed() {
   pkgutil --pkg-info ""com.haystacksoftware.Arq"" >/dev/null 2>&1
 }
 
-maclib::arq7::installed_path() {
+maclib::apps::a::arq7::installed_path() {
   local p
   p="$(pkgutil --pkg-info ""com.haystacksoftware.Arq"" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
 
-maclib::arq7::install() {
+maclib::apps::a::arq7::install() {
   local url tmp
-  url="$(maclib::arq7::suite_installer_url)"
+  url="$(maclib::apps::a::arq7::suite_installer_url)"
   tmp="$(mktemp -d -t "arq7.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "arq7::install: download failed"
+    maclib::core::log::error "arq7::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,13 +49,13 @@ maclib::arq7::install() {
   return "$rc"
 }
 
-maclib::arq7::update() {
+maclib::apps::a::arq7::update() {
   # No vendor update path documented for "Arq7".
-  maclib::log::error "arq7::update: no update path"
+  maclib::core::log::error "arq7::update: no update path"
   return 127
 }
 
-maclib::arq7::uninstall() {
+maclib::apps::a::arq7::uninstall() {
   # No clean uninstall for "Arq7"; removing package receipt ""com.haystacksoftware.Arq"".
   pkgutil --forget ""com.haystacksoftware.Arq""
   return $?

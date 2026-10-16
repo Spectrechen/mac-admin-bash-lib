@@ -11,16 +11,16 @@
 #   Apple Developer Team ID: UBF8T346G9.
 
 # Print the Skype for Business installer package URL.
-maclib::microsoftskypeforbusiness::suite_installer_url() {
+maclib::communication::microsoftskypeforbusiness::suite_installer_url() {
   printf '%s\n' 'https://go.microsoft.com/fwlink/?linkid=832978'
 }
 
 # Print the current Skype for Business build version.
 # Installomator parses the version from the redirect Location header of the
 # fwlink (the dotted number before the .pkg).
-maclib::microsoftskypeforbusiness::latest_version() {
+maclib::communication::microsoftskypeforbusiness::latest_version() {
   local url location version
-  url="$(maclib::microsoftskypeforbusiness::suite_installer_url)"
+  url="$(maclib::communication::microsoftskypeforbusiness::suite_installer_url)"
   location="$(curl -fsIL "$url" 2>/dev/null | grep -i '^location:' | tail -n1 | sed -E 's/^[Ii]ocation:[[:space:]]*//')"
   [[ -n "$location" ]] || return 1
   version="$(printf '%s' "$location" | grep -oE '[0-9]+\.[0-9.]+' | head -n1)"
@@ -29,12 +29,12 @@ maclib::microsoftskypeforbusiness::latest_version() {
 }
 
 # Return 0 if the Skype for Business app bundle is installed.
-maclib::microsoftskypeforbusiness::is_installed() {
+maclib::communication::microsoftskypeforbusiness::is_installed() {
   [[ -d "/Applications/Skype for Business.app" ]] || [[ -d "$HOME/Applications/Skype for Business.app" ]]
 }
 
 # Print the path to the Skype for Business app bundle if present.
-maclib::microsoftskypeforbusiness::installed_path() {
+maclib::communication::microsoftskypeforbusiness::installed_path() {
   if [[ -d "/Applications/Skype for Business.app" ]]; then
     printf '%s\n' "/Applications/Skype for Business.app"
   elif [[ -d "$HOME/Applications/Skype for Business.app" ]]; then
@@ -46,13 +46,13 @@ maclib::microsoftskypeforbusiness::installed_path() {
 
 # Download the Skype for Business installer package and install it (requires
 # root).
-maclib::microsoftskypeforbusiness::install() {
+maclib::communication::microsoftskypeforbusiness::install() {
   local url tmp
-  url="$(maclib::microsoftskypeforbusiness::suite_installer_url)"
+  url="$(maclib::communication::microsoftskypeforbusiness::suite_installer_url)"
   tmp="$(mktemp -t "skypeforbusiness_install.XXXXXX.pkg")" || return 1
   trap 'rm -f "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp" 2>/dev/null; then
-    maclib::log::error "microsoftskypeforbusiness::install: failed to download installer"
+    maclib::core::log::error "microsoftskypeforbusiness::install: failed to download installer"
     rm -f "$tmp"
     return 1
   fi
@@ -65,7 +65,7 @@ maclib::microsoftskypeforbusiness::install() {
 # Skype for Business updates are delivered through Microsoft AutoUpdate's
 # msupdate tool (apps MSFB16) when present, otherwise by re-installing the
 # latest package (see install()).
-maclib::microsoftskypeforbusiness::update() {
+maclib::communication::microsoftskypeforbusiness::update() {
   local tool
   tool='/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/MacOS/msupdate'
   if [[ -x "$tool" ]]; then
@@ -76,11 +76,11 @@ maclib::microsoftskypeforbusiness::update() {
     msupdate --install --apps MSFB16 "$@"
     return $?
   fi
-  maclib::microsoftskypeforbusiness::install "$@"
+  maclib::communication::microsoftskypeforbusiness::install "$@"
 }
 
 # No clean uninstall (documented constraint).
-maclib::microsoftskypeforbusiness::uninstall() {
-  maclib::log::warn "microsoftskypeforbusiness::uninstall: no clean uninstall"
+maclib::communication::microsoftskypeforbusiness::uninstall() {
+  maclib::core::log::warn "microsoftskypeforbusiness::uninstall: no clean uninstall"
   return 1
 }

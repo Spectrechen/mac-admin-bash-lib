@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::amazoncorretto23jdk::suite_installer_url() {
+maclib::apps::a::amazoncorretto23jdk::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/amazoncorretto23jdk-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::amazoncorretto23jdk::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::amazoncorretto23jdk::latest_version() {
+maclib::apps::a::amazoncorretto23jdk::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/amazoncorretto23jdk-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::amazoncorretto23jdk::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::amazoncorretto23jdk::is_installed() {
+maclib::apps::a::amazoncorretto23jdk::is_installed() {
   [[ -d "/Applications/amazoncorretto23jdk.app" ]] || [[ -d "$HOME/Applications/amazoncorretto23jdk.app" ]]
 }
 
-maclib::amazoncorretto23jdk::installed_path() {
+maclib::apps::a::amazoncorretto23jdk::installed_path() {
   if [[ -d "/Applications/amazoncorretto23jdk.app" ]]; then
     printf '%s\n' "/Applications/amazoncorretto23jdk.app"
   elif [[ -d "$HOME/Applications/amazoncorretto23jdk.app" ]]; then
@@ -45,19 +45,19 @@ maclib::amazoncorretto23jdk::installed_path() {
   fi
 }
 
-maclib::amazoncorretto23jdk::install() {
+maclib::apps::a::amazoncorretto23jdk::install() {
   # No automated installer documented for "Amazon Corretto 23 JDK" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "amazoncorretto23jdk::install: no automated installer; deploy manually"
+  maclib::core::log::error "amazoncorretto23jdk::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::amazoncorretto23jdk::update() {
-  maclib::log::error "amazoncorretto23jdk::update: no update path"
+maclib::apps::a::amazoncorretto23jdk::update() {
+  maclib::core::log::error "amazoncorretto23jdk::update: no update path"
   return 127
 }
 
-maclib::amazoncorretto23jdk::uninstall() {
-  maclib::log::warn "amazoncorretto23jdk::uninstall: no clean uninstall"
+maclib::apps::a::amazoncorretto23jdk::uninstall() {
+  maclib::core::log::warn "amazoncorretto23jdk::uninstall: no clean uninstall"
   return 1
 }

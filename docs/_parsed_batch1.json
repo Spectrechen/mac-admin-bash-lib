@@ -1,0 +1,1327 @@
+{
+  "labels": [
+    {
+      "label": "cherryaudioharmonia",
+      "name": "Harmonia",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.HarmoniaPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/harmonia-macos-installer?file=Harmonia-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/harmonia/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiolowdown",
+      "name": "Lowdown",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.LowdownPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/lowdown-macos-installer?file=Lowdown-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/lowdown/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiomemorymode",
+      "name": "Memorymode",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.MemorymodePackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/memorymode-macos-installer?file=Memorymode-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/memorymode/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiomercury4",
+      "name": "Mercury-4",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.Mercury-4Package-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/mercury-4-macos-installer?file=Mercury-4-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/mercury-4/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiomercury6",
+      "name": "Mercury-6",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.Mercury-6Package-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/mercury-6-macos-installer?file=Mercury-6-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/mercury-6/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiominiverse",
+      "name": "Miniverse",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.MiniversePackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/miniverse-macos-installer?file=Miniverse-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/miniverse/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiomoduledesigner",
+      "name": "Voltage Module Designer",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.VoltageModuleDesigner",
+      "downloadURL": "https://store.cherryaudio.com/module-designer-mac/download?file=Voltage-Module-Designer-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/voltage-module-designer/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudionovachord",
+      "name": "Novachord",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.NovachordPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/novachord-macos-installer?file=Novachord-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/novachord-solovox/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiooctavecat",
+      "name": "Octave Cat",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.OctaveCatPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/octave-cat-macos-installer?file=Octave-Cat-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/octave-cat/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiopolymode",
+      "name": "Polymode Synthesizer",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.PolymodePackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/polymode-synthesizer-macos-installer?file=Polymode-Synthesizer-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/polymode-synthesizer/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudioprosoloist",
+      "name": "Pro Soloist",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.ProSoloistPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/pro-soloist-macos-installer?file=Pro-Soloist-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/pro-soloist/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiops20",
+      "name": "PS-20",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.PS-20Package-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/ps-20-macos-installer?file=PS-20-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/ps-20/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiops3300",
+      "name": "PS-3300",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.PS-3300Package-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/ps-3300-macos-installer?file=PS-3300-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/ps-3300/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudioquadra",
+      "name": "Quadra",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.QuadraPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/quadra-macos-installer?file=Quadra-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/quadra/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiorackmode",
+      "name": "Rackmode",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.RackmodePackage-StandAlone",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cherryaudiosines",
+      "name": "Sines",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.SinesPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/sines-macos-installer?file=Sines-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/sines/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiosolovox",
+      "name": "Solovox",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.SolovoxPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/solovox-macos-installer?file=Solovox-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs curl -fs https://cherryaudio.com/products/novachord-solovox/version-history | grep -E -o "
+    },
+    {
+      "label": "cherryaudiostardust201",
+      "name": "Stardust 201 Tape Echo",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.Stardust201Package-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/stardust-201-macos-installer?file=Stardust-201-Tape-Echo-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/stardust-201/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiosurrealisticmg1plus",
+      "name": "Surrealistic MG-1 Plus",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.MG-1PlusPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/surrealistic-mg-1-plus-macos-installer?file=Surrealistic-MG-1-Plus-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/surrealistic-mg-1-plus/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiosync",
+      "name": "Cherry Audio Sync",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.SyncPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/sync-macos-installer?file=Cherry-Audio-Sync-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/sync/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiosynthesizerexpander",
+      "name": "Synthesizer Expander Module",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.SynthesizerExpanderModulePackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/synthesizer-expander-module-macos-installer?file=Synthesizer-Expander-Module-Installer-macOS.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/synthesizer-expander-module/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiovoltagemodular",
+      "name": "Voltage Modular",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.VoltageModularPackageUniversal-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/voltage-mac/download?file=Voltage-Modular-Installer-macOS-Universal.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/voltage-modular/version-history | grep -A 6 "
+    },
+    {
+      "label": "cherryaudiowurlybird140b",
+      "name": "Wurlybird 140B",
+      "type": "pkg",
+      "packageID": "com.cherryaudio.pkg.Wurlybird140bPackage-StandAlone",
+      "downloadURL": "https://store.cherryaudio.com/downloads/wurlybird140b-macos-installer?file=Wurlybird140B.pkg",
+      "expectedTeamID": "A2XFV22B2X",
+      "appNewVersion": "$(curl -fs https://cherryaudio.com/products/wurlybird140b/version-history | grep -A 6 "
+    },
+    {
+      "label": "chronoagent",
+      "name": "ChronoAgent",
+      "type": "pkgInDmg",
+      "packageID": "com.econtechnologies.preference.chronoagent",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "chronosync",
+      "name": "ChronoSync",
+      "type": "pkgInDmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cisdemdocumentreader",
+      "name": "cisdem-documentreader",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "citrixworkspace",
+      "name": "Citrix Workspace",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "claudedesktop",
+      "name": "Claude",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cleartouchcollage",
+      "name": "Collage",
+      "type": "pkgInZip",
+      "packageID": "com.cvte.cleartouch.mac",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "clevershare2",
+      "name": "Clevershare",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "clickshare",
+      "name": "ClickShare",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "clickup",
+      "name": "ClickUp",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "clipgrab",
+      "name": "ClipGrab",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$( curl -s 'https://clipgrab.org' | tr '",
+      "expectedTeamID": "E8BJ3ZV5W8",
+      "appNewVersion": "$( echo "
+    },
+    {
+      "label": "clipy",
+      "name": "Clipy",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "closeio",
+      "name": "Close.io",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cloudflarewarp",
+      "name": "Cloudflare_WARP",
+      "type": "pkg",
+      "packageID": "com.cloudflare.1dot1dot1dot1.macos",
+      "downloadURL": "https://1111-releases.cloudflareclient.com/mac/latest",
+      "expectedTeamID": "68WVV388M8",
+      "appNewVersion": "$(curl -SLI ${downloadURL} | grep -i "
+    },
+    {
+      "label": "cloudya",
+      "name": "Cloudya",
+      "type": "appInDmgInZip",
+      "packageID": null,
+      "downloadURL": "$(curl -fsL https://www.nfon.com/de/service/downloads | grep -i -E -o ",
+      "expectedTeamID": "X26F74J8TH",
+      "appNewVersion": "$(curl -fsL https://www.nfon.com/de/service/downloads | grep -i -E -o "
+    },
+    {
+      "label": "clue",
+      "name": "Clue",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cluefull",
+      "name": "Clue",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cmake",
+      "name": "CMake",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cocoapods",
+      "name": "CocoaPods",
+      "type": "bz2",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit CocoaPods CocoaPods-app)",
+      "expectedTeamID": "AX2Q2BH2XR",
+      "appNewVersion": "$(versionFromGit CocoaPods CocoaPods-app)"
+    },
+    {
+      "label": "coconutbattery",
+      "name": "coconutBattery",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "colourcontrastanalyser",
+      "name": "Colour Contrast Analyser",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "conductor",
+      "name": "Conductor",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://cdn.crabnebula.app/download/melty/conductor/latest/platform/dmg-${cnArch}",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "connectfonts",
+      "name": "Connect Fonts",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://links.extensis.com/connect_fonts/cf_latest?language=en&platform=mac",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "container",
+      "name": "container",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit apple container)",
+      "expectedTeamID": "UPBK2H6LZM",
+      "appNewVersion": "$(versionFromGit apple container)"
+    },
+    {
+      "label": "cormorant",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "coteditor",
+      "name": "CotEditor",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit coteditor CotEditor)",
+      "expectedTeamID": "HT3Z3A72WZ",
+      "appNewVersion": "$(versionFromGit coteditor CotEditor)"
+    },
+    {
+      "label": "craftmanagerforsketch",
+      "name": "CraftManager",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "https://craft-assets.invisionapp.com/CraftManager/production/CraftManager.zip",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "crashplan",
+      "name": "CrashPlan",
+      "type": "pkgInDmg",
+      "packageID": null,
+      "downloadURL": "https://download.crashplan.com/installs/agent/latest-mac.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "crashplansmb",
+      "name": "CrashPlan",
+      "type": "pkgInDmg",
+      "packageID": null,
+      "downloadURL": "https://download.crashplan.com/installs/agent/latest-smb-mac.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "creativeforcehue",
+      "name": "Hue",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "$baseURL/Hue-$appNewVersion-mac-arm64.pkg",
+      "expectedTeamID": "Y5K3N5Y6PY",
+      "appNewVersion": "$(curl -s $baseURL/latest-mac.yml | awk '/version:/ { print $2 }')"
+    },
+    {
+      "label": "creativeforcekelvin",
+      "name": "Kelvin",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "$baseURL/Kelvin-$appNewVersion-mac-arm64.pkg",
+      "expectedTeamID": "Y5K3N5Y6PY",
+      "appNewVersion": "$(curl -s $baseURL/latest-mac.yml | awk '/version:/ { print $2 }')"
+    },
+    {
+      "label": "creativeforceluma",
+      "name": "Luma",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "$baseURL/Luma-$appNewVersion-mac-arm64.pkg",
+      "expectedTeamID": "Y5K3N5Y6PY",
+      "appNewVersion": "$(curl -s $baseURL/latest-mac.yml | awk '/version:/ { print $2 }')"
+    },
+    {
+      "label": "creativeforcetriad",
+      "name": "Triad",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "$baseURL/Triad-$appNewVersion-mac.pkg",
+      "expectedTeamID": "Y5K3N5Y6PY",
+      "appNewVersion": "$(curl -s $baseURL/latest-mac.yml | awk '/version:/ { print $2 }')"
+    },
+    {
+      "label": "cryptomator",
+      "name": "Cryptomator",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(curl -fs ",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "crystalfetch",
+      "name": "CrystalFetch",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cyberduck",
+      "name": "Cyberduck",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "cytoscape",
+      "name": "Cytoscape",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit cytoscape cytoscape)",
+      "expectedTeamID": null,
+      "appNewVersion": "$(versionFromGit cytoscape cytoscape)"
+    },
+    {
+      "label": "daisydisk",
+      "name": "DaisyDisk",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "https://daisydiskapp.com/downloads/DaisyDisk.zip",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dangerzone",
+      "name": "Dangerzone",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit freedomofpress dangerzone)",
+      "expectedTeamID": "94ZZGGGJ3W",
+      "appNewVersion": "$(versionFromGit freedomofpress dangerzone)"
+    },
+    {
+      "label": "darktable",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "daruma",
+      "name": "Daruma",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://delivery.kadomaru.app/daruma/Daruma.dmg",
+      "expectedTeamID": "TRLMQKJQ97",
+      "appNewVersion": "$(curl -fs https://delivery.kadomaru.app/daruma/appcast.xml | xpath 'string(//item[1]/sparkle:shortVersionString')"
+    },
+    {
+      "label": "daylite",
+      "name": "Daylite",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "https://www.marketcircle.com/downloads/latest-daylite",
+      "expectedTeamID": "GR26KTJYTV",
+      "appNewVersion": "$(curl -fs https://www.marketcircle.com/appcasts/daylite.xml | xpath '(//rss/channel/item/enclosure/@sparkle:shortVersionString)[1]' 2>/dev/null | cut -d '"
+    },
+    {
+      "label": "dbeaverce",
+      "name": "DBeaver",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://dbeaver.io/files/dbeaver-ce-latest-macos-aarch64.dmg",
+      "expectedTeamID": "42B6MDKMW8",
+      "appNewVersion": "$(curl -fsIL "
+    },
+    {
+      "label": "dbvisualizer",
+      "name": "DbVisualizer",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "debookee",
+      "name": "Debookee",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dedoose",
+      "name": "Dedoose",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://downloads.dedoose.com/dedoose-app-releases/Dedoose-Mac.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "deepl",
+      "name": "DeepL",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://appdownload.deepl.com/macos/$(curl -fs https://appdownload.deepl.com/macos/ | grep -o ",
+      "expectedTeamID": "4N8BGCG336",
+      "appNewVersion": "$(curl -fs https://appdownload.deepl.com/macos/ | grep -o "
+    },
+    {
+      "label": "deezer",
+      "name": "Deezer",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://www.deezer.com/desktop/download?platform=darwin&architecture=x64&platformVersion=9999",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "defaultfolderx",
+      "name": "Default Folder X",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(echo $sparkleFeed | xpath 'string(//rss/channel/item/enclosure/@url)' 2>/dev/null)",
+      "expectedTeamID": "7HK42V8R9D",
+      "appNewVersion": "$(echo $sparkleFeed | xpath 'string(//rss/channel/item/enclosure/@sparkle:shortVersionString)' 2>/dev/null)"
+    },
+    {
+      "label": "deon-cloud",
+      "name": "Deon",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "deon-onprem",
+      "name": "Deon",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "depnotify",
+      "name": "DEPNotify",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "https://files.jamfconnect.com/DEPNotify.pkg",
+      "expectedTeamID": "VRPY9KHGX6",
+      "appNewVersion": null
+    },
+    {
+      "label": "deskpad",
+      "name": "DeskPad",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit Stengo DeskPad)",
+      "expectedTeamID": "TYPC962S4N",
+      "appNewVersion": "$(versionFromGit Stengo DeskPad)"
+    },
+    {
+      "label": "desktoppr",
+      "name": "desktoppr",
+      "type": "pkg",
+      "packageID": "com.scriptingosx.desktoppr",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "detectxswift",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "determinate",
+      "name": "Determinate",
+      "type": "pkg",
+      "packageID": "systems.determinate.Determinate",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "devin",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "devonthink",
+      "name": "DEVONthink",
+      "type": "appInDmgInZip",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dialog",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dialpad",
+      "name": "Dialpad",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://storage.googleapis.com/dialpad_native/osx/arm64/Dialpad.dmg",
+      "expectedTeamID": "9V29MQSZ9M",
+      "appNewVersion": null
+    },
+    {
+      "label": "digiexam",
+      "name": "Digiexam",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://www.digiexam.com/hubfs/client/Digiexam_Mac.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "diskdrill",
+      "name": "Disk Drill",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://dl.cleverfiles.com/diskdrill.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "diskspace",
+      "name": "diskspace",
+      "type": "pkg",
+      "packageID": "com.scriptingosx.diskspace",
+      "downloadURL": "$(downloadURLFromGit scriptingosx diskspace)",
+      "expectedTeamID": "JME5BW3F3R",
+      "appNewVersion": "$(versionFromGit scriptingosx diskspace)"
+    },
+    {
+      "label": "displaylinkmanager",
+      "name": "DisplayLink Manager",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dockutil",
+      "name": "dockutil",
+      "type": "pkg",
+      "packageID": "dockutil.cli.tool",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "doctolib",
+      "name": "Doctolib",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://ddv-install.doctolib.fr/DoctolibProDesktop-latest-arm64.dmg",
+      "expectedTeamID": "84K7XVJ72Q",
+      "appNewVersion": ""
+    },
+    {
+      "label": "domzilla-caffeine",
+      "name": "Caffeine",
+      "type": "zip",
+      "packageID": "net.domzilla.caffeine",
+      "downloadURL": "$(downloadURLFromGit domzilla caffeine)",
+      "expectedTeamID": "568T6RKXH7",
+      "appNewVersion": "$(versionFromGit domzilla caffeine)"
+    },
+    {
+      "label": "dracoon",
+      "name": "Dracoon",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "$(curl -fs $feedURL | xpath '(//rss/channel/item/enclosure/@url)[1]' 2>/dev/null | cut -d '",
+      "expectedTeamID": "G69SCX94XU",
+      "appNewVersion": "$(curl -fs $feedURL | xpath '(//rss/channel/item/enclosure/@sparkle:shortVersionString)[1]' 2>/dev/null | cut -d '"
+    },
+    {
+      "label": "dragonframe2024",
+      "name": "DragonFrame 2024",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dragonframe2025",
+      "name": "DragonFrame 2025",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dragonframe5",
+      "name": "DragonFrame 5",
+      "type": "pkg",
+      "packageID": "com.dzed.Dragonframe5",
+      "downloadURL": null,
+      "expectedTeamID": "PG7SM8SD8M",
+      "appNewVersion": null
+    },
+    {
+      "label": "drawio",
+      "name": "draw.io",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit jgraph drawio-desktop)",
+      "expectedTeamID": "UZEUFB4N53",
+      "appNewVersion": "$(versionFromGit jgraph drawio-desktop)"
+    },
+    {
+      "label": "drift",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "droplr",
+      "name": "Droplr",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit Droplr droplr-desktop-releases)",
+      "expectedTeamID": "MZ25PHMY7Y",
+      "appNewVersion": "$(versionFromGit Droplr droplr-desktop-releases)"
+    },
+    {
+      "label": "drracket",
+      "name": "DrRacket",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "druvainsync",
+      "name": "Druva inSync",
+      "type": "pkgInDmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dstny",
+      "name": "Dstny",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://soft.dstny.se/dstny_mac.dmg",
+      "expectedTeamID": "5RLWBLKGL2",
+      "appNewVersion": ""
+    },
+    {
+      "label": "duckduckgo",
+      "name": "DuckDuckGo",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "duet",
+      "name": "duet",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "duodesktop",
+      "name": "Duo Desktop",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "https://dl.duosecurity.com/DuoDesktop-latest.pkg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "duodevicehealth",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dymoconnectdesktop",
+      "name": "DYMO Connect",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "dynalist",
+      "name": "Dynalist",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://dynalist.io/standalone/download?file=Dynalist.dmg",
+      "expectedTeamID": "6JSW4SJWN9",
+      "appNewVersion": ""
+    },
+    {
+      "label": "easeusdatarecoverywizard",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eastwestinstallationcenter",
+      "name": "EW Installation Center",
+      "type": "pkgInZip",
+      "packageID": "com.eastwest.pkg.installationcenter",
+      "downloadURL": "$(echo ",
+      "expectedTeamID": "TWK4WE76V9",
+      "appNewVersion": "$(echo "
+    },
+    {
+      "label": "eastwestopus",
+      "name": "Opus",
+      "type": "pkgInZip",
+      "packageID": "com.eastwest.pkg.OpusInstaller",
+      "downloadURL": "$(echo ",
+      "expectedTeamID": "TWK4WE76V9",
+      "appNewVersion": "$(echo "
+    },
+    {
+      "label": "eastwestplay",
+      "name": "Play",
+      "type": "pkgInZip",
+      "packageID": null,
+      "downloadURL": "$(echo ",
+      "expectedTeamID": "TWK4WE76V9",
+      "appNewVersion": "$(echo "
+    },
+    {
+      "label": "easyfind",
+      "name": "EasyFind",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "$(curl -fs ",
+      "expectedTeamID": "679S2QUWR8",
+      "appNewVersion": "$(echo $downloadURL | sed -E 's/.*\\/([0-9.]*)\\/.*/\\1/g')"
+    },
+    {
+      "label": "eclipseideforjavadevelopers",
+      "name": "Eclipse",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eclipsetemurin11",
+      "name": "Temurin 11",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eclipsetemurin17",
+      "name": "Temurin 17",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eclipsetemurin21",
+      "name": "Temurin 21",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eclipsetemurin25",
+      "name": "Temurin 25",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eclipsetemurin8",
+      "name": "Temurin 8",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "ecosiabrowser",
+      "name": "Ecosia Browser",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "editshare-connect",
+      "name": "EditShare Connect",
+      "type": "pkg",
+      "packageID": "com.editshare.connect\ncom.editshare.permsui",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "editshare-flowstory",
+      "name": "FLOW Story",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "egnyte",
+      "name": "Egnyte Connect",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "https://egnyte-cdn.egnyte.com/egnytedrive/mac/en-us/latest/EgnyteConnectMac.pkg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "egnytecore",
+      "name": "Egnyte Core",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "egnytewebedit",
+      "name": "EgnyteWebEdit",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "https://egnyte-cdn.egnyte.com/webedit/mac/en-us/latest/EgnyteWebEdit.pkg",
+      "expectedTeamID": "FELUD555VC",
+      "appNewVersion": null
+    },
+    {
+      "label": "elan",
+      "name": "ELAN_${appNewVersion}",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://www.mpi.nl/tools/elan/ELAN_${elanVersion}_M1_mac.dmg\n    else\n        archiveName=\"ELAN_$(elanVersion)_mac.dmg\"\n        downloadURL=https://www.mpi.nl/tools/elan/ELAN_${elanVersion}_mac.dmg\n    fi",
+      "expectedTeamID": "P7N398ZW7F",
+      "appNewVersion": "${elanVersion:0:1}.${elanVersion:2:1}"
+    },
+    {
+      "label": "elasticvue",
+      "name": "elasticvue",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit cars10 elasticvue)",
+      "expectedTeamID": "9L4YGY6JVY",
+      "appNewVersion": "$(versionFromGit cars10 elasticvue)"
+    },
+    {
+      "label": "element",
+      "name": "Element",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://packages.element.io/desktop/install/macos/Element.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "elevate24",
+      "name": "Elevate24",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit Jigsaw24 Elevate24)",
+      "expectedTeamID": "BVDW99KYDU",
+      "appNewVersion": "$(versionFromGit Jigsaw24 Elevate24)"
+    },
+    {
+      "label": "elgatocamerahub",
+      "name": "Elgato Camera Hub",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "elgatostreamdeck",
+      "name": "Elgato Stream Deck",
+      "type": "pkg",
+      "packageID": "com.elgato.StreamDeck",
+      "downloadURL": "https://gc-updates.elgato.com/mac/sd-update/final/download-website.php",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "enpass",
+      "name": "Enpass",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "https://www.enpass.io/download/macos/website/stable",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "enteauth",
+      "name": "Ente Auth",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://github.com/ente-io/ente/releases/download/auth-v${appNewVersion}/ente-auth-v${appNewVersion}.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": "$(curl -sfL https://ente.io/release-info/auth-independent.json | grep '"
+    },
+    {
+      "label": "epicgameslauncher",
+      "name": "Epic Games Launcher",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncher.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eposconnect",
+      "name": "EPOS Connect",
+      "type": "pkg",
+      "packageID": "com.DSEA.pkg.DSEASDKM1",
+      "downloadURL": "https://www.eposaudio.com/globalassets/___image-library/_enterprise/files/english/epos-connect/epos-connect-7.7.0/eposconnect_7.7.0.44457.pkg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "epsonprintlayout",
+      "name": "Epson Print Layout",
+      "type": "pkgInDmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "escrowbuddy",
+      "name": "Escrow Buddy",
+      "type": "pkg",
+      "packageID": "com.netflix.Escrow-Buddy",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "eshareosx",
+      "name": "e-Share",
+      "type": "pkg",
+      "packageID": "com.ncryptedcloud.e-Share.pkg",
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "espanso",
+      "name": "Espanso",
+      "type": "appInDmgInZip",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit espanso espanso)",
+      "expectedTeamID": "6424323YUH",
+      "appNewVersion": "$(versionFromGit espanso espanso)"
+    },
+    {
+      "label": "etrecheck",
+      "name": "EtreCheckPro",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "https://cdn.etrecheck.com/EtreCheckPro.zip",
+      "expectedTeamID": "U87NE528LC",
+      "appNewVersion": null
+    },
+    {
+      "label": "etssecurebrowser",
+      "name": "ETS Secure Browser",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://ibtprod-rp.ets.org/SoftwareDistribution/rp/PROD/mac/ETS-RP-PROD.dmg",
+      "expectedTeamID": "WGC236CZU9",
+      "appNewVersion": null
+    },
+    {
+      "label": "eul",
+      "name": "eul",
+      "type": "zip",
+      "packageID": null,
+      "downloadURL": "$(downloadURLFromGit gao-sun eul)",
+      "expectedTeamID": "M8G2RFZVFV",
+      "appNewVersion": "$(versionFromGit gao-sun eul)"
+    },
+    {
+      "label": "evercast",
+      "name": "Evercast",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "https://s3.amazonaws.com/files.evercast.us/Evercast.pkg",
+      "expectedTeamID": "H2J9VR2HM2",
+      "appNewVersion": null
+    },
+    {
+      "label": "evernote",
+      "name": "Evernote",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "$(curl -fs 'https://public.evernote.com/ddl-updater/updater/mac/public/latest-mac.yml' -H 'x-app-version: 11.00.0' -H 'x-os-release: 26.0.0' | awk -F'url:[[:space:]]*' '/url:[[:space:]]*.*\\.dmg$/ { print $2 }')",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "everweb",
+      "name": "EverWeb",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://www.ragesw.com/downloads/everweb/everweb.dmg",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "examplify",
+      "name": "Examplify",
+      "type": "pkgInDmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "exelbanstats",
+      "name": "",
+      "type": null,
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "exifrenamer",
+      "name": "ExifRenamer",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": null,
+      "expectedTeamID": null,
+      "appNewVersion": null
+    },
+    {
+      "label": "expressvpn",
+      "name": "ExpressVPN",
+      "type": "pkg",
+      "packageID": null,
+      "downloadURL": "https://www.expressvpn.com/clients/latest/mac",
+      "expectedTeamID": "TC292Y5427",
+      "appNewVersion": "$(curl -fsIL "
+    },
+    {
+      "label": "extensisconnect",
+      "name": "Extensis Connect",
+      "type": "dmg",
+      "packageID": null,
+      "downloadURL": "https://links.extensis.com/extensis_connect/ec_latest?language=en&platform=mac",
+      "expectedTeamID": null,
+      "appNewVersion": null
+    }
+  ]
+}

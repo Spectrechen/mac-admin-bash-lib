@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::adobecreativeclouddesktop::suite_installer_url() {
+maclib::apps::a::adobecreativeclouddesktop::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/adobecreativeclouddesktop-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::adobecreativeclouddesktop::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::adobecreativeclouddesktop::latest_version() {
+maclib::apps::a::adobecreativeclouddesktop::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/adobecreativeclouddesktop-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::adobecreativeclouddesktop::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::adobecreativeclouddesktop::is_installed() {
+maclib::apps::a::adobecreativeclouddesktop::is_installed() {
   [[ -d "/Applications/adobecreativeclouddesktop.app" ]] || [[ -d "$HOME/Applications/adobecreativeclouddesktop.app" ]]
 }
 
-maclib::adobecreativeclouddesktop::installed_path() {
+maclib::apps::a::adobecreativeclouddesktop::installed_path() {
   if [[ -d "/Applications/adobecreativeclouddesktop.app" ]]; then
     printf '%s\n' "/Applications/adobecreativeclouddesktop.app"
   elif [[ -d "$HOME/Applications/adobecreativeclouddesktop.app" ]]; then
@@ -45,19 +45,19 @@ maclib::adobecreativeclouddesktop::installed_path() {
   fi
 }
 
-maclib::adobecreativeclouddesktop::install() {
+maclib::apps::a::adobecreativeclouddesktop::install() {
   # No automated installer documented for "Adobe Creative Cloud" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "adobecreativeclouddesktop::install: no automated installer; deploy manually"
+  maclib::core::log::error "adobecreativeclouddesktop::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::adobecreativeclouddesktop::update() {
-  maclib::log::error "adobecreativeclouddesktop::update: no update path"
+maclib::apps::a::adobecreativeclouddesktop::update() {
+  maclib::core::log::error "adobecreativeclouddesktop::update: no update path"
   return 127
 }
 
-maclib::adobecreativeclouddesktop::uninstall() {
-  maclib::log::warn "adobecreativeclouddesktop::uninstall: no clean uninstall"
+maclib::apps::a::adobecreativeclouddesktop::uninstall() {
+  maclib::core::log::warn "adobecreativeclouddesktop::uninstall: no clean uninstall"
   return 1
 }

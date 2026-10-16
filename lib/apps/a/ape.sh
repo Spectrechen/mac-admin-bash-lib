@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::ape::suite_installer_url() {
+maclib::apps::a::ape::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/ape-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::ape::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::ape::latest_version() {
+maclib::apps::a::ape::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/ape-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::ape::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::ape::is_installed() {
+maclib::apps::a::ape::is_installed() {
   [[ -d "/Applications/ape.app" ]] || [[ -d "$HOME/Applications/ape.app" ]]
 }
 
-maclib::ape::installed_path() {
+maclib::apps::a::ape::installed_path() {
   if [[ -d "/Applications/ape.app" ]]; then
     printf '%s\n' "/Applications/ape.app"
   elif [[ -d "$HOME/Applications/ape.app" ]]; then
@@ -45,19 +45,19 @@ maclib::ape::installed_path() {
   fi
 }
 
-maclib::ape::install() {
+maclib::apps::a::ape::install() {
   # No automated installer documented for "ApE" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "ape::install: no automated installer; deploy manually"
+  maclib::core::log::error "ape::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::ape::update() {
-  maclib::log::error "ape::update: no update path"
+maclib::apps::a::ape::update() {
+  maclib::core::log::error "ape::update: no update path"
   return 127
 }
 
-maclib::ape::uninstall() {
-  maclib::log::warn "ape::uninstall: no clean uninstall"
+maclib::apps::a::ape::uninstall() {
+  maclib::core::log::warn "ape::uninstall: no clean uninstall"
   return 1
 }

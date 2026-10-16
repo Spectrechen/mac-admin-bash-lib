@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::abletonlive12standard::suite_installer_url() {
+maclib::apps::a::abletonlive12standard::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/abletonlive12standard-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::abletonlive12standard::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::abletonlive12standard::latest_version() {
+maclib::apps::a::abletonlive12standard::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/abletonlive12standard-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::abletonlive12standard::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::abletonlive12standard::is_installed() {
+maclib::apps::a::abletonlive12standard::is_installed() {
   [[ -d "/Applications/abletonlive12standard.app" ]] || [[ -d "$HOME/Applications/abletonlive12standard.app" ]]
 }
 
-maclib::abletonlive12standard::installed_path() {
+maclib::apps::a::abletonlive12standard::installed_path() {
   if [[ -d "/Applications/abletonlive12standard.app" ]]; then
     printf '%s\n' "/Applications/abletonlive12standard.app"
   elif [[ -d "$HOME/Applications/abletonlive12standard.app" ]]; then
@@ -45,19 +45,19 @@ maclib::abletonlive12standard::installed_path() {
   fi
 }
 
-maclib::abletonlive12standard::install() {
+maclib::apps::a::abletonlive12standard::install() {
   # No automated installer documented for "Ableton Live 12 Standard" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "abletonlive12standard::install: no automated installer; deploy manually"
+  maclib::core::log::error "abletonlive12standard::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::abletonlive12standard::update() {
-  maclib::log::error "abletonlive12standard::update: no update path"
+maclib::apps::a::abletonlive12standard::update() {
+  maclib::core::log::error "abletonlive12standard::update: no update path"
   return 127
 }
 
-maclib::abletonlive12standard::uninstall() {
-  maclib::log::warn "abletonlive12standard::uninstall: no clean uninstall"
+maclib::apps::a::abletonlive12standard::uninstall() {
+  maclib::core::log::warn "abletonlive12standard::uninstall: no clean uninstall"
   return 1
 }

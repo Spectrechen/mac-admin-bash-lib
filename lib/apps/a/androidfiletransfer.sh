@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::androidfiletransfer::suite_installer_url() {
+maclib::apps::a::androidfiletransfer::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/androidfiletransfer-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::androidfiletransfer::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::androidfiletransfer::latest_version() {
+maclib::apps::a::androidfiletransfer::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/androidfiletransfer-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::androidfiletransfer::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::androidfiletransfer::is_installed() {
+maclib::apps::a::androidfiletransfer::is_installed() {
   [[ -d "/Applications/androidfiletransfer.app" ]] || [[ -d "$HOME/Applications/androidfiletransfer.app" ]]
 }
 
-maclib::androidfiletransfer::installed_path() {
+maclib::apps::a::androidfiletransfer::installed_path() {
   if [[ -d "/Applications/androidfiletransfer.app" ]]; then
     printf '%s\n' "/Applications/androidfiletransfer.app"
   elif [[ -d "$HOME/Applications/androidfiletransfer.app" ]]; then
@@ -45,19 +45,19 @@ maclib::androidfiletransfer::installed_path() {
   fi
 }
 
-maclib::androidfiletransfer::install() {
+maclib::apps::a::androidfiletransfer::install() {
   # No automated installer documented for "Android File Transfer" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "androidfiletransfer::install: no automated installer; deploy manually"
+  maclib::core::log::error "androidfiletransfer::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::androidfiletransfer::update() {
-  maclib::log::error "androidfiletransfer::update: no update path"
+maclib::apps::a::androidfiletransfer::update() {
+  maclib::core::log::error "androidfiletransfer::update: no update path"
   return 127
 }
 
-maclib::androidfiletransfer::uninstall() {
-  maclib::log::warn "androidfiletransfer::uninstall: no clean uninstall"
+maclib::apps::a::androidfiletransfer::uninstall() {
+  maclib::core::log::warn "androidfiletransfer::uninstall: no clean uninstall"
   return 1
 }

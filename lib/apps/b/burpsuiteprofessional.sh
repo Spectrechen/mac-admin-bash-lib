@@ -8,22 +8,22 @@
 # Installer type: macosx".
 #
 
-maclib::burpsuiteprofessional::suite_installer_url() {
+maclib::apps::b::burpsuiteprofessional::suite_installer_url() {
   https://portswigger.net/burp/releases/startdownload/?product=pro &
   version &
   ="$appNewVersion" &
   type=macosx
 }
 
-maclib::burpsuiteprofessional::latest_version() {
+maclib::apps::b::burpsuiteprofessional::latest_version() {
   curl -s https://portswigger.net/burp/releases | grep 'releases/professional-community' | head -n 1 | sed 's/.*href="//' | sed 's/".*//' | cut -d '/' -f4 | cut -d '-' -f3-6 | sed -r 's/-/./g'
 }
 
-maclib::burpsuiteprofessional::is_installed() {
+maclib::apps::b::burpsuiteprofessional::is_installed() {
   [[ -d "/Applications/BurpSuiteProfessional.app" ]] || [[ -d "$HOME/Applications/BurpSuiteProfessional.app" ]]
 }
 
-maclib::burpsuiteprofessional::installed_path() {
+maclib::apps::b::burpsuiteprofessional::installed_path() {
   if [[ -d "/Applications/BurpSuiteProfessional.app" ]]; then
     printf "%s\n" "/Applications/BurpSuiteProfessional.app"
   elif [[ -d "$HOME/Applications/BurpSuiteProfessional.app" ]]; then
@@ -31,13 +31,13 @@ maclib::burpsuiteprofessional::installed_path() {
   fi
 }
 
-maclib::burpsuiteprofessional::install() {
+maclib::apps::b::burpsuiteprofessional::install() {
   local url tmp
-  url="$(maclib::burpsuiteprofessional::suite_installer_url)"
+  url="$(maclib::apps::b::burpsuiteprofessional::suite_installer_url)"
   tmp="$(mktemp -d -t "burpsuiteprofessional.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "burpsuiteprofessional::install: download failed"
+    maclib::core::log::error "burpsuiteprofessional::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -52,14 +52,14 @@ maclib::burpsuiteprofessional::install() {
   return "$rc"
 }
 
-maclib::burpsuiteprofessional::update() {
+maclib::apps::b::burpsuiteprofessional::update() {
   # No vendor update path documented for "Burp Suite Professional".
-  maclib::log::error "burpsuiteprofessional::update: no update path"
+  maclib::core::log::error "burpsuiteprofessional::update: no update path"
   return 127
 }
 
-maclib::burpsuiteprofessional::uninstall() {
+maclib::apps::b::burpsuiteprofessional::uninstall() {
   # No clean uninstall for "Burp Suite Professional" (documented constraint).
-  maclib::log::error "burpsuiteprofessional::uninstall: no clean uninstall"
+  maclib::core::log::error "burpsuiteprofessional::uninstall: no clean uninstall"
   return 1
 }

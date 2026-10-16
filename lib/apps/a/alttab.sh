@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::alttab::suite_installer_url() {
+maclib::apps::a::alttab::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/alttab-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::alttab::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::alttab::latest_version() {
+maclib::apps::a::alttab::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/alttab-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::alttab::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::alttab::is_installed() {
+maclib::apps::a::alttab::is_installed() {
   [[ -d "/Applications/alttab.app" ]] || [[ -d "$HOME/Applications/alttab.app" ]]
 }
 
-maclib::alttab::installed_path() {
+maclib::apps::a::alttab::installed_path() {
   if [[ -d "/Applications/alttab.app" ]]; then
     printf '%s\n' "/Applications/alttab.app"
   elif [[ -d "$HOME/Applications/alttab.app" ]]; then
@@ -45,19 +45,19 @@ maclib::alttab::installed_path() {
   fi
 }
 
-maclib::alttab::install() {
+maclib::apps::a::alttab::install() {
   # No automated installer documented for "AltTab" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "alttab::install: no automated installer; deploy manually"
+  maclib::core::log::error "alttab::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::alttab::update() {
-  maclib::log::error "alttab::update: no update path"
+maclib::apps::a::alttab::update() {
+  maclib::core::log::error "alttab::update: no update path"
   return 127
 }
 
-maclib::alttab::uninstall() {
-  maclib::log::warn "alttab::uninstall: no clean uninstall"
+maclib::apps::a::alttab::uninstall() {
+  maclib::core::log::warn "alttab::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bambustudio::suite_installer_url() {
+maclib::apps::b::bambustudio::suite_installer_url() {
   downloadURLFromGit "bambulab" "BambuStudio"
 }
 
-maclib::bambustudio::latest_version() {
+maclib::apps::b::bambustudio::latest_version() {
   versionFromGit "bambulab" "BambuStudio"
 }
 
-maclib::bambustudio::is_installed() {
+maclib::apps::b::bambustudio::is_installed() {
   [[ -d "/Applications/BambuStudio.app" ]] || [[ -d "$HOME/Applications/BambuStudio.app" ]]
 }
 
-maclib::bambustudio::installed_path() {
+maclib::apps::b::bambustudio::installed_path() {
   if [[ -d "/Applications/BambuStudio.app" ]]; then
     printf "%s\n" "/Applications/BambuStudio.app"
   elif [[ -d "$HOME/Applications/BambuStudio.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bambustudio::installed_path() {
   fi
 }
 
-maclib::bambustudio::install() {
+maclib::apps::b::bambustudio::install() {
   local url tmp
-  url="$(maclib::bambustudio::suite_installer_url)"
+  url="$(maclib::apps::b::bambustudio::suite_installer_url)"
   tmp="$(mktemp -d -t "bambustudio.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bambustudio::install: download failed"
+    maclib::core::log::error "bambustudio::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bambustudio::install() {
   return "$rc"
 }
 
-maclib::bambustudio::update() {
+maclib::apps::b::bambustudio::update() {
   # No vendor update path documented for "BambuStudio".
-  maclib::log::error "bambustudio::update: no update path"
+  maclib::core::log::error "bambustudio::update: no update path"
   return 127
 }
 
-maclib::bambustudio::uninstall() {
+maclib::apps::b::bambustudio::uninstall() {
   # No clean uninstall for "BambuStudio" (documented constraint).
-  maclib::log::error "bambustudio::uninstall: no clean uninstall"
+  maclib::core::log::error "bambustudio::uninstall: no clean uninstall"
   return 1
 }

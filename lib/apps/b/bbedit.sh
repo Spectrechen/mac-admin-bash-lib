@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bbedit::suite_installer_url() {
+maclib::apps::b::bbedit::suite_installer_url() {
   curl -s https://versioncheck.barebones.com/BBEdit.xml | grep dmg | sort | tail -n1 | cut -d">" -f2 | cut -d"<" -f1
 }
 
-maclib::bbedit::latest_version() {
+maclib::apps::b::bbedit::latest_version() {
   curl -s https://versioncheck.barebones.com/BBEdit.xml | grep dmg | sort | tail -n1 | sed -E 's/.*BBEdit_([0-9 .]*)\.dmg.*/\1/'
 }
 
-maclib::bbedit::is_installed() {
+maclib::apps::b::bbedit::is_installed() {
   [[ -d "/Applications/BBEdit.app" ]] || [[ -d "$HOME/Applications/BBEdit.app" ]]
 }
 
-maclib::bbedit::installed_path() {
+maclib::apps::b::bbedit::installed_path() {
   if [[ -d "/Applications/BBEdit.app" ]]; then
     printf "%s\n" "/Applications/BBEdit.app"
   elif [[ -d "$HOME/Applications/BBEdit.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bbedit::installed_path() {
   fi
 }
 
-maclib::bbedit::install() {
+maclib::apps::b::bbedit::install() {
   local url tmp
-  url="$(maclib::bbedit::suite_installer_url)"
+  url="$(maclib::apps::b::bbedit::suite_installer_url)"
   tmp="$(mktemp -d -t "bbedit.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bbedit::install: download failed"
+    maclib::core::log::error "bbedit::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bbedit::install() {
   return "$rc"
 }
 
-maclib::bbedit::update() {
+maclib::apps::b::bbedit::update() {
   # No vendor update path documented for "BBEdit".
-  maclib::log::error "bbedit::update: no update path"
+  maclib::core::log::error "bbedit::update: no update path"
   return 127
 }
 
-maclib::bbedit::uninstall() {
+maclib::apps::b::bbedit::uninstall() {
   # No clean uninstall for "BBEdit" (documented constraint).
-  maclib::log::error "bbedit::uninstall: no clean uninstall"
+  maclib::core::log::error "bbedit::uninstall: no clean uninstall"
   return 1
 }

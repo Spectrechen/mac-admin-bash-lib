@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::calibre::suite_installer_url() {
+maclib::apps::c::calibre::suite_installer_url() {
   downloadURLFromGit kovidgoyal calibre
 }
 
-maclib::calibre::latest_version() {
+maclib::apps::c::calibre::latest_version() {
   versionFromGit kovidgoyal calibre
 }
 
-maclib::calibre::is_installed() {
+maclib::apps::c::calibre::is_installed() {
   [[ -d "/Applications/calibre.app" ]] || [[ -d "$HOME/Applications/calibre.app" ]]
 }
 
-maclib::calibre::installed_path() {
+maclib::apps::c::calibre::installed_path() {
   if [[ -d "/Applications/calibre.app" ]]; then
     printf "%s\n" "/Applications/calibre.app"
   elif [[ -d "$HOME/Applications/calibre.app" ]]; then
@@ -28,13 +28,13 @@ maclib::calibre::installed_path() {
   fi
 }
 
-maclib::calibre::install() {
+maclib::apps::c::calibre::install() {
   local url tmp
-  url="$(maclib::calibre::suite_installer_url)"
+  url="$(maclib::apps::c::calibre::suite_installer_url)"
   tmp="$(mktemp -d -t "calibre.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "calibre::install: download failed"
+    maclib::core::log::error "calibre::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::calibre::install() {
   return "$rc"
 }
 
-maclib::calibre::update() {
+maclib::apps::c::calibre::update() {
   # No vendor update path documented for "calibre".
-  maclib::log::error "calibre::update: no update path"
+  maclib::core::log::error "calibre::update: no update path"
   return 127
 }
 
-maclib::calibre::uninstall() {
+maclib::apps::c::calibre::uninstall() {
   # No clean uninstall for "calibre" (documented constraint).
-  maclib::log::error "calibre::uninstall: no clean uninstall"
+  maclib::core::log::error "calibre::uninstall: no clean uninstall"
   return 1
 }

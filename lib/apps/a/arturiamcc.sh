@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::arturiamcc::suite_installer_url() {
+maclib::apps::a::arturiamcc::suite_installer_url() {
   getJSONValue "$arturiaDetails" "[$arturiaCount].permalink"
 }
 
-maclib::arturiamcc::latest_version() {
+maclib::apps::a::arturiamcc::latest_version() {
   getJSONValue "$arturiaDetails" "[$arturiaCount].version"
 }
 
-maclib::arturiamcc::is_installed() {
+maclib::apps::a::arturiamcc::is_installed() {
   [[ -d "/Applications/MIDIControlCenter.app" ]] || [[ -d "$HOME/Applications/MIDIControlCenter.app" ]]
 }
 
-maclib::arturiamcc::installed_path() {
+maclib::apps::a::arturiamcc::installed_path() {
   if [[ -d "/Applications/MIDIControlCenter.app" ]]; then
     printf "%s\n" "/Applications/MIDIControlCenter.app"
   elif [[ -d "$HOME/Applications/MIDIControlCenter.app" ]]; then
@@ -28,13 +28,13 @@ maclib::arturiamcc::installed_path() {
   fi
 }
 
-maclib::arturiamcc::install() {
+maclib::apps::a::arturiamcc::install() {
   local url tmp
-  url="$(maclib::arturiamcc::suite_installer_url)"
+  url="$(maclib::apps::a::arturiamcc::suite_installer_url)"
   tmp="$(mktemp -d -t "arturiamcc.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "arturiamcc::install: download failed"
+    maclib::core::log::error "arturiamcc::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::arturiamcc::install() {
   return "$rc"
 }
 
-maclib::arturiamcc::update() {
+maclib::apps::a::arturiamcc::update() {
   # No vendor update path documented for "MIDI Control Center".
-  maclib::log::error "arturiamcc::update: no update path"
+  maclib::core::log::error "arturiamcc::update: no update path"
   return 127
 }
 
-maclib::arturiamcc::uninstall() {
+maclib::apps::a::arturiamcc::uninstall() {
   # No clean uninstall for "MIDI Control Center" (documented constraint).
-  maclib::log::error "arturiamcc::uninstall: no clean uninstall"
+  maclib::core::log::error "arturiamcc::uninstall: no clean uninstall"
   return 1
 }

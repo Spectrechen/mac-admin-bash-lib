@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::applesfmono::suite_installer_url() {
+maclib::apps::a::applesfmono::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/applesfmono-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::applesfmono::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::applesfmono::latest_version() {
+maclib::apps::a::applesfmono::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/applesfmono-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::applesfmono::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::applesfmono::is_installed() {
+maclib::apps::a::applesfmono::is_installed() {
   [[ -d "/Applications/applesfmono.app" ]] || [[ -d "$HOME/Applications/applesfmono.app" ]]
 }
 
-maclib::applesfmono::installed_path() {
+maclib::apps::a::applesfmono::installed_path() {
   if [[ -d "/Applications/applesfmono.app" ]]; then
     printf '%s\n' "/Applications/applesfmono.app"
   elif [[ -d "$HOME/Applications/applesfmono.app" ]]; then
@@ -45,19 +45,19 @@ maclib::applesfmono::installed_path() {
   fi
 }
 
-maclib::applesfmono::install() {
+maclib::apps::a::applesfmono::install() {
   # No automated installer documented for "San Francisco Mono" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "applesfmono::install: no automated installer; deploy manually"
+  maclib::core::log::error "applesfmono::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::applesfmono::update() {
-  maclib::log::error "applesfmono::update: no update path"
+maclib::apps::a::applesfmono::update() {
+  maclib::core::log::error "applesfmono::update: no update path"
   return 127
 }
 
-maclib::applesfmono::uninstall() {
-  maclib::log::warn "applesfmono::uninstall: no clean uninstall"
+maclib::apps::a::applesfmono::uninstall() {
+  maclib::core::log::warn "applesfmono::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bitrix24::suite_installer_url() {
+maclib::apps::b::bitrix24::suite_installer_url() {
   https://dl.bitrix24.com/b24/bitrix24_desktop.dmg
 }
 
-maclib::bitrix24::latest_version() {
+maclib::apps::b::bitrix24::latest_version() {
   curl -fs "https://www.bitrix24.com/osx_version.php" | xpath 'string(//rss/channel/item/title)' 2>/dev/null
 }
 
-maclib::bitrix24::is_installed() {
+maclib::apps::b::bitrix24::is_installed() {
   [[ -d "/Applications/Bitrix24.app" ]] || [[ -d "$HOME/Applications/Bitrix24.app" ]]
 }
 
-maclib::bitrix24::installed_path() {
+maclib::apps::b::bitrix24::installed_path() {
   if [[ -d "/Applications/Bitrix24.app" ]]; then
     printf "%s\n" "/Applications/Bitrix24.app"
   elif [[ -d "$HOME/Applications/Bitrix24.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bitrix24::installed_path() {
   fi
 }
 
-maclib::bitrix24::install() {
+maclib::apps::b::bitrix24::install() {
   local url tmp
-  url="$(maclib::bitrix24::suite_installer_url)"
+  url="$(maclib::apps::b::bitrix24::suite_installer_url)"
   tmp="$(mktemp -d -t "bitrix24.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bitrix24::install: download failed"
+    maclib::core::log::error "bitrix24::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bitrix24::install() {
   return "$rc"
 }
 
-maclib::bitrix24::update() {
+maclib::apps::b::bitrix24::update() {
   # No vendor update path documented for "Bitrix24".
-  maclib::log::error "bitrix24::update: no update path"
+  maclib::core::log::error "bitrix24::update: no update path"
   return 127
 }
 
-maclib::bitrix24::uninstall() {
+maclib::apps::b::bitrix24::uninstall() {
   # No clean uninstall for "Bitrix24" (documented constraint).
-  maclib::log::error "bitrix24::uninstall: no clean uninstall"
+  maclib::core::log::error "bitrix24::uninstall: no clean uninstall"
   return 1
 }

@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::appsanywhere::suite_installer_url() {
+maclib::apps::a::appsanywhere::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/appsanywhere-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::appsanywhere::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::appsanywhere::latest_version() {
+maclib::apps::a::appsanywhere::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/appsanywhere-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::appsanywhere::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::appsanywhere::is_installed() {
+maclib::apps::a::appsanywhere::is_installed() {
   [[ -d "/Applications/appsanywhere.app" ]] || [[ -d "$HOME/Applications/appsanywhere.app" ]]
 }
 
-maclib::appsanywhere::installed_path() {
+maclib::apps::a::appsanywhere::installed_path() {
   if [[ -d "/Applications/appsanywhere.app" ]]; then
     printf '%s\n' "/Applications/appsanywhere.app"
   elif [[ -d "$HOME/Applications/appsanywhere.app" ]]; then
@@ -45,19 +45,19 @@ maclib::appsanywhere::installed_path() {
   fi
 }
 
-maclib::appsanywhere::install() {
+maclib::apps::a::appsanywhere::install() {
   # No automated installer documented for "AppsAnywhere Client (macOS)" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "appsanywhere::install: no automated installer; deploy manually"
+  maclib::core::log::error "appsanywhere::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::appsanywhere::update() {
-  maclib::log::error "appsanywhere::update: no update path"
+maclib::apps::a::appsanywhere::update() {
+  maclib::core::log::error "appsanywhere::update: no update path"
   return 127
 }
 
-maclib::appsanywhere::uninstall() {
-  maclib::log::warn "appsanywhere::uninstall: no clean uninstall"
+maclib::apps::a::appsanywhere::uninstall() {
+  maclib::core::log::warn "appsanywhere::uninstall: no clean uninstall"
   return 1
 }

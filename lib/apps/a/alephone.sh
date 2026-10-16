@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::alephone::suite_installer_url() {
+maclib::apps::a::alephone::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/alephone-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::alephone::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::alephone::latest_version() {
+maclib::apps::a::alephone::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/alephone-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::alephone::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::alephone::is_installed() {
+maclib::apps::a::alephone::is_installed() {
   [[ -d "/Applications/alephone.app" ]] || [[ -d "$HOME/Applications/alephone.app" ]]
 }
 
-maclib::alephone::installed_path() {
+maclib::apps::a::alephone::installed_path() {
   if [[ -d "/Applications/alephone.app" ]]; then
     printf '%s\n' "/Applications/alephone.app"
   elif [[ -d "$HOME/Applications/alephone.app" ]]; then
@@ -45,19 +45,19 @@ maclib::alephone::installed_path() {
   fi
 }
 
-maclib::alephone::install() {
+maclib::apps::a::alephone::install() {
   # No automated installer documented for "Aleph One" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "alephone::install: no automated installer; deploy manually"
+  maclib::core::log::error "alephone::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::alephone::update() {
-  maclib::log::error "alephone::update: no update path"
+maclib::apps::a::alephone::update() {
+  maclib::core::log::error "alephone::update: no update path"
   return 127
 }
 
-maclib::alephone::uninstall() {
-  maclib::log::warn "alephone::uninstall: no clean uninstall"
+maclib::apps::a::alephone::uninstall() {
+  maclib::core::log::warn "alephone::uninstall: no clean uninstall"
   return 1
 }

@@ -8,21 +8,21 @@
 # Installer type: "dmg".
 #
 
-maclib::bitwarden::suite_installer_url() {
+maclib::apps::b::bitwarden::suite_installer_url() {
   local appNewVersion
   appNewVersion=curl -s "https://github.com/bitwarden/clients/releases?q\=desktop" | xmllint --html --xpath 'substring-after(string(//h2[starts-with(text(),"Desktop v")]), " v")' - 2>/dev/null
   https://github.com/bitwarden/clients/releases/download/desktop-v${appNewVersion}/Bitwarden-${appNewVersion}-universal.dmg
 }
 
-maclib::bitwarden::latest_version() {
+maclib::apps::b::bitwarden::latest_version() {
   curl -s "https://github.com/bitwarden/clients/releases?q\=desktop" | xmllint --html --xpath 'substring-after(string(//h2[starts-with(text(),"Desktop v")]), " v")' - 2>/dev/null
 }
 
-maclib::bitwarden::is_installed() {
+maclib::apps::b::bitwarden::is_installed() {
   [[ -d "/Applications/Bitwarden.app" ]] || [[ -d "$HOME/Applications/Bitwarden.app" ]]
 }
 
-maclib::bitwarden::installed_path() {
+maclib::apps::b::bitwarden::installed_path() {
   if [[ -d "/Applications/Bitwarden.app" ]]; then
     printf "%s\n" "/Applications/Bitwarden.app"
   elif [[ -d "$HOME/Applications/Bitwarden.app" ]]; then
@@ -30,13 +30,13 @@ maclib::bitwarden::installed_path() {
   fi
 }
 
-maclib::bitwarden::install() {
+maclib::apps::b::bitwarden::install() {
   local url tmp
-  url="$(maclib::bitwarden::suite_installer_url)"
+  url="$(maclib::apps::b::bitwarden::suite_installer_url)"
   tmp="$(mktemp -d -t "bitwarden.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bitwarden::install: download failed"
+    maclib::core::log::error "bitwarden::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -51,14 +51,14 @@ maclib::bitwarden::install() {
   return "$rc"
 }
 
-maclib::bitwarden::update() {
+maclib::apps::b::bitwarden::update() {
   # No vendor update path documented for "Bitwarden".
-  maclib::log::error "bitwarden::update: no update path"
+  maclib::core::log::error "bitwarden::update: no update path"
   return 127
 }
 
-maclib::bitwarden::uninstall() {
+maclib::apps::b::bitwarden::uninstall() {
   # No clean uninstall for "Bitwarden" (documented constraint).
-  maclib::log::error "bitwarden::uninstall: no clean uninstall"
+  maclib::core::log::error "bitwarden::uninstall: no clean uninstall"
   return 1
 }

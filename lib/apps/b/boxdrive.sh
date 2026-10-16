@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::boxdrive::suite_installer_url() {
+maclib::apps::b::boxdrive::suite_installer_url() {
   getJSONValue "$macDetails" '["download-url"]'
 }
 
-maclib::boxdrive::latest_version() {
+maclib::apps::b::boxdrive::latest_version() {
   getJSONValue "$macDetails" "version"
 }
 
-maclib::boxdrive::is_installed() {
+maclib::apps::b::boxdrive::is_installed() {
   [[ -d "/Applications/Box.app" ]] || [[ -d "$HOME/Applications/Box.app" ]]
 }
 
-maclib::boxdrive::installed_path() {
+maclib::apps::b::boxdrive::installed_path() {
   if [[ -d "/Applications/Box.app" ]]; then
     printf "%s\n" "/Applications/Box.app"
   elif [[ -d "$HOME/Applications/Box.app" ]]; then
@@ -28,13 +28,13 @@ maclib::boxdrive::installed_path() {
   fi
 }
 
-maclib::boxdrive::install() {
+maclib::apps::b::boxdrive::install() {
   local url tmp
-  url="$(maclib::boxdrive::suite_installer_url)"
+  url="$(maclib::apps::b::boxdrive::suite_installer_url)"
   tmp="$(mktemp -d -t "boxdrive.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "boxdrive::install: download failed"
+    maclib::core::log::error "boxdrive::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::boxdrive::install() {
   return "$rc"
 }
 
-maclib::boxdrive::update() {
+maclib::apps::b::boxdrive::update() {
   # No vendor update path documented for "Box".
-  maclib::log::error "boxdrive::update: no update path"
+  maclib::core::log::error "boxdrive::update: no update path"
   return 127
 }
 
-maclib::boxdrive::uninstall() {
+maclib::apps::b::boxdrive::uninstall() {
   # No clean uninstall for "Box" (documented constraint).
-  maclib::log::error "boxdrive::uninstall: no clean uninstall"
+  maclib::core::log::error "boxdrive::uninstall: no clean uninstall"
   return 1
 }

@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 # os.sh - macOS detection helpers
 
-maclib::os::is_macos() {
+maclib::core::os::is_macos() {
   [[ "$(uname -s)" == "Darwin" ]]
 }
 
-maclib::os::version() {
+maclib::core::os::version() {
   # Outputs e.g. 14.4.1
-  if ! maclib::os::is_macos; then
-    printf 'maclib::os::version: not macOS
+  if ! maclib::core::os::is_macos; then
+    printf 'maclib::core::os::version: not macOS
 ' >&2
     return 1
   fi
   /usr/bin/sw_vers -productVersion
 }
 
-maclib::os::major_minor() {
+maclib::core::os::major_minor() {
   local v
-  v="$(maclib::os::version)"
+  v="$(maclib::core::os::version)"
   # Keep first two components
   local major minor rest
   IFS='.' read -r major minor rest <<<"$v"
@@ -25,6 +25,6 @@ maclib::os::major_minor() {
 ' "$major" "$minor"
 }
 
-maclib::os::arch() {
+maclib::core::os::arch() {
   uname -m
 }

@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::bettertouchtool::suite_installer_url() {
+maclib::apps::b::bettertouchtool::suite_installer_url() {
   https://folivora.ai/releases/BetterTouchTool.zip
 }
 
-maclib::bettertouchtool::latest_version() {
+maclib::apps::b::bettertouchtool::latest_version() {
   curl -fs https://updates.folivora.ai/bettertouchtool_release_notes.html | grep BetterTouchTool | head -n 2 | tail -n 1 | sed -E 's/.* ([0-9\.]*) .*/\1/g'
 }
 
-maclib::bettertouchtool::is_installed() {
+maclib::apps::b::bettertouchtool::is_installed() {
   [[ -d "/Applications/BetterTouchTool.app" ]] || [[ -d "$HOME/Applications/BetterTouchTool.app" ]]
 }
 
-maclib::bettertouchtool::installed_path() {
+maclib::apps::b::bettertouchtool::installed_path() {
   if [[ -d "/Applications/BetterTouchTool.app" ]]; then
     printf "%s\n" "/Applications/BetterTouchTool.app"
   elif [[ -d "$HOME/Applications/BetterTouchTool.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bettertouchtool::installed_path() {
   fi
 }
 
-maclib::bettertouchtool::install() {
+maclib::apps::b::bettertouchtool::install() {
   local url tmp
-  url="$(maclib::bettertouchtool::suite_installer_url)"
+  url="$(maclib::apps::b::bettertouchtool::suite_installer_url)"
   tmp="$(mktemp -d -t "bettertouchtool.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bettertouchtool::install: download failed"
+    maclib::core::log::error "bettertouchtool::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bettertouchtool::install() {
   return "$rc"
 }
 
-maclib::bettertouchtool::update() {
+maclib::apps::b::bettertouchtool::update() {
   # No vendor update path documented for "BetterTouchTool".
-  maclib::log::error "bettertouchtool::update: no update path"
+  maclib::core::log::error "bettertouchtool::update: no update path"
   return 127
 }
 
-maclib::bettertouchtool::uninstall() {
+maclib::apps::b::bettertouchtool::uninstall() {
   # No clean uninstall for "BetterTouchTool" (documented constraint).
-  maclib::log::error "bettertouchtool::uninstall: no clean uninstall"
+  maclib::core::log::error "bettertouchtool::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bracketsio::suite_installer_url() {
+maclib::apps::b::bracketsio::suite_installer_url() {
   downloadURLFromGit brackets-cont brackets
 }
 
-maclib::bracketsio::latest_version() {
+maclib::apps::b::bracketsio::latest_version() {
   versionFromGit brackets-cont brackets
 }
 
-maclib::bracketsio::is_installed() {
+maclib::apps::b::bracketsio::is_installed() {
   [[ -d "/Applications/Brackets.app" ]] || [[ -d "$HOME/Applications/Brackets.app" ]]
 }
 
-maclib::bracketsio::installed_path() {
+maclib::apps::b::bracketsio::installed_path() {
   if [[ -d "/Applications/Brackets.app" ]]; then
     printf "%s\n" "/Applications/Brackets.app"
   elif [[ -d "$HOME/Applications/Brackets.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bracketsio::installed_path() {
   fi
 }
 
-maclib::bracketsio::install() {
+maclib::apps::b::bracketsio::install() {
   local url tmp
-  url="$(maclib::bracketsio::suite_installer_url)"
+  url="$(maclib::apps::b::bracketsio::suite_installer_url)"
   tmp="$(mktemp -d -t "bracketsio.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bracketsio::install: download failed"
+    maclib::core::log::error "bracketsio::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bracketsio::install() {
   return "$rc"
 }
 
-maclib::bracketsio::update() {
+maclib::apps::b::bracketsio::update() {
   # No vendor update path documented for "Brackets".
-  maclib::log::error "bracketsio::update: no update path"
+  maclib::core::log::error "bracketsio::update: no update path"
   return 127
 }
 
-maclib::bracketsio::uninstall() {
+maclib::apps::b::bracketsio::uninstall() {
   # No clean uninstall for "Brackets" (documented constraint).
-  maclib::log::error "bracketsio::uninstall: no clean uninstall"
+  maclib::core::log::error "bracketsio::uninstall: no clean uninstall"
   return 1
 }

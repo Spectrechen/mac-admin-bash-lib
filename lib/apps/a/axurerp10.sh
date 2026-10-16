@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::axurerp10::suite_installer_url() {
+maclib::apps::a::axurerp10::suite_installer_url() {
   curl -s https://www.axure.com/release-history/rp10 | grep -oE 'https://[^ ]+.dmg' | grep -v arm64 | head -n 1
 }
 
-maclib::axurerp10::latest_version() {
+maclib::apps::a::axurerp10::latest_version() {
   curl -sL https://www.axure.com/release-history/rp10 | grep -oE '[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}' | head -n 1
 }
 
-maclib::axurerp10::is_installed() {
+maclib::apps::a::axurerp10::is_installed() {
   [[ -d "/Applications/AxureRP10.app" ]] || [[ -d "$HOME/Applications/AxureRP10.app" ]]
 }
 
-maclib::axurerp10::installed_path() {
+maclib::apps::a::axurerp10::installed_path() {
   if [[ -d "/Applications/AxureRP10.app" ]]; then
     printf "%s\n" "/Applications/AxureRP10.app"
   elif [[ -d "$HOME/Applications/AxureRP10.app" ]]; then
@@ -28,13 +28,13 @@ maclib::axurerp10::installed_path() {
   fi
 }
 
-maclib::axurerp10::install() {
+maclib::apps::a::axurerp10::install() {
   local url tmp
-  url="$(maclib::axurerp10::suite_installer_url)"
+  url="$(maclib::apps::a::axurerp10::suite_installer_url)"
   tmp="$(mktemp -d -t "axurerp10.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "axurerp10::install: download failed"
+    maclib::core::log::error "axurerp10::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::axurerp10::install() {
   return "$rc"
 }
 
-maclib::axurerp10::update() {
+maclib::apps::a::axurerp10::update() {
   # No vendor update path documented for "Axure RP 10".
-  maclib::log::error "axurerp10::update: no update path"
+  maclib::core::log::error "axurerp10::update: no update path"
   return 127
 }
 
-maclib::axurerp10::uninstall() {
+maclib::apps::a::axurerp10::uninstall() {
   # No clean uninstall for "Axure RP 10" (documented constraint).
-  maclib::log::error "axurerp10::uninstall: no clean uninstall"
+  maclib::core::log::error "axurerp10::uninstall: no clean uninstall"
   return 1
 }

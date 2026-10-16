@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::automounter::suite_installer_url() {
+maclib::apps::a::automounter::suite_installer_url() {
   https://www.pixeleyes.co.nz/automounter/AutoMounter.dmg
 }
 
-maclib::automounter::latest_version() {
+maclib::apps::a::automounter::latest_version() {
   curl -fs https://www.pixeleyes.co.nz/automounter/version
 }
 
-maclib::automounter::is_installed() {
+maclib::apps::a::automounter::is_installed() {
   [[ -d "/Applications/AutoMounter.app" ]] || [[ -d "$HOME/Applications/AutoMounter.app" ]]
 }
 
-maclib::automounter::installed_path() {
+maclib::apps::a::automounter::installed_path() {
   if [[ -d "/Applications/AutoMounter.app" ]]; then
     printf "%s\n" "/Applications/AutoMounter.app"
   elif [[ -d "$HOME/Applications/AutoMounter.app" ]]; then
@@ -28,13 +28,13 @@ maclib::automounter::installed_path() {
   fi
 }
 
-maclib::automounter::install() {
+maclib::apps::a::automounter::install() {
   local url tmp
-  url="$(maclib::automounter::suite_installer_url)"
+  url="$(maclib::apps::a::automounter::suite_installer_url)"
   tmp="$(mktemp -d -t "automounter.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "automounter::install: download failed"
+    maclib::core::log::error "automounter::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::automounter::install() {
   return "$rc"
 }
 
-maclib::automounter::update() {
+maclib::apps::a::automounter::update() {
   # No vendor update path documented for "AutoMounter".
-  maclib::log::error "automounter::update: no update path"
+  maclib::core::log::error "automounter::update: no update path"
   return 127
 }
 
-maclib::automounter::uninstall() {
+maclib::apps::a::automounter::uninstall() {
   # No clean uninstall for "AutoMounter" (documented constraint).
-  maclib::log::error "automounter::uninstall: no clean uninstall"
+  maclib::core::log::error "automounter::uninstall: no clean uninstall"
   return 1
 }

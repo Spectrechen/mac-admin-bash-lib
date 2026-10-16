@@ -9,16 +9,16 @@
 #   Source: Installomator `zoom` label.
 
 # Print the Zoom installer package URL.
-maclib::zoom::url() {
+maclib::communication::zoom::url() {
   printf '%s\n' 'https://zoom.us/client/latest/ZoomInstallerIT.pkg'
 }
 
 # Print the current Zoom build version.
 # Installomator parses the version from the redirect Location header of the
 # installer URL (cut -d "/" -f5).
-maclib::zoom::latest_version() {
+maclib::communication::zoom::latest_version() {
   local url location version
-  url="$(maclib::zoom::url)"
+  url="$(maclib::communication::zoom::url)"
   location="$(curl -fsIL "$url" 2>/dev/null | grep -i '^location:' | tail -n1 | sed -E 's/^[Ll]ocation:[[:space:]]*//')"
   [[ -n "$location" ]] || return 1
   # Version is the dotted number embedded in the redirect Location.
@@ -28,12 +28,12 @@ maclib::zoom::latest_version() {
 }
 
 # Return 0 if the Zoom app bundle is installed.
-maclib::zoom::is_installed() {
+maclib::communication::zoom::is_installed() {
   [[ -d "/Applications/Zoom.app" ]] || [[ -d "$HOME/Applications/Zoom.app" ]]
 }
 
 # Print the path to the Zoom app bundle if present.
-maclib::zoom::installed_path() {
+maclib::communication::zoom::installed_path() {
   if [[ -d "/Applications/Zoom.app" ]]; then
     printf '%s\n' "/Applications/Zoom.app"
   elif [[ -d "$HOME/Applications/Zoom.app" ]]; then
@@ -42,13 +42,13 @@ maclib::zoom::installed_path() {
 }
 
 # Download the Zoom installer package and install it (requires root).
-maclib::zoom::install() {
+maclib::communication::zoom::install() {
   local url tmp
-  url="$(maclib::zoom::url)"
+  url="$(maclib::communication::zoom::url)"
   tmp="$(mktemp -t "zoom_install.XXXXXX.pkg")" || return 1
   trap 'rm -f "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp" 2>/dev/null; then
-    maclib::log::error "zoom::install: failed to download installer"
+    maclib::core::log::error "zoom::install: failed to download installer"
     rm -f "$tmp"
     return 1
   fi

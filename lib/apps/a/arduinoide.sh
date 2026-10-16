@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::arduinoide::suite_installer_url() {
+maclib::apps::a::arduinoide::suite_installer_url() {
   downloadURLFromGit arduino arduino-ide
 }
 
-maclib::arduinoide::latest_version() {
+maclib::apps::a::arduinoide::latest_version() {
   versionFromGit arduino arduino-ide
 }
 
-maclib::arduinoide::is_installed() {
+maclib::apps::a::arduinoide::is_installed() {
   [[ -d "/Applications/ArduinoIDE.app" ]] || [[ -d "$HOME/Applications/ArduinoIDE.app" ]]
 }
 
-maclib::arduinoide::installed_path() {
+maclib::apps::a::arduinoide::installed_path() {
   if [[ -d "/Applications/ArduinoIDE.app" ]]; then
     printf "%s\n" "/Applications/ArduinoIDE.app"
   elif [[ -d "$HOME/Applications/ArduinoIDE.app" ]]; then
@@ -28,13 +28,13 @@ maclib::arduinoide::installed_path() {
   fi
 }
 
-maclib::arduinoide::install() {
+maclib::apps::a::arduinoide::install() {
   local url tmp
-  url="$(maclib::arduinoide::suite_installer_url)"
+  url="$(maclib::apps::a::arduinoide::suite_installer_url)"
   tmp="$(mktemp -d -t "arduinoide.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "arduinoide::install: download failed"
+    maclib::core::log::error "arduinoide::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::arduinoide::install() {
   return "$rc"
 }
 
-maclib::arduinoide::update() {
+maclib::apps::a::arduinoide::update() {
   # No vendor update path documented for "Arduino IDE".
-  maclib::log::error "arduinoide::update: no update path"
+  maclib::core::log::error "arduinoide::update: no update path"
   return 127
 }
 
-maclib::arduinoide::uninstall() {
+maclib::apps::a::arduinoide::uninstall() {
   # No clean uninstall for "Arduino IDE" (documented constraint).
-  maclib::log::error "arduinoide::uninstall: no clean uninstall"
+  maclib::core::log::error "arduinoide::uninstall: no clean uninstall"
   return 1
 }

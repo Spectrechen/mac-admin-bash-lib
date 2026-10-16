@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::abetterfinderattributes7::suite_installer_url() {
+maclib::apps::a::abetterfinderattributes7::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/abetterfinderattributes7-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::abetterfinderattributes7::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::abetterfinderattributes7::latest_version() {
+maclib::apps::a::abetterfinderattributes7::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/abetterfinderattributes7-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::abetterfinderattributes7::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::abetterfinderattributes7::is_installed() {
+maclib::apps::a::abetterfinderattributes7::is_installed() {
   [[ -d "/Applications/abetterfinderattributes7.app" ]] || [[ -d "$HOME/Applications/abetterfinderattributes7.app" ]]
 }
 
-maclib::abetterfinderattributes7::installed_path() {
+maclib::apps::a::abetterfinderattributes7::installed_path() {
   if [[ -d "/Applications/abetterfinderattributes7.app" ]]; then
     printf '%s\n' "/Applications/abetterfinderattributes7.app"
   elif [[ -d "$HOME/Applications/abetterfinderattributes7.app" ]]; then
@@ -45,19 +45,19 @@ maclib::abetterfinderattributes7::installed_path() {
   fi
 }
 
-maclib::abetterfinderattributes7::install() {
+maclib::apps::a::abetterfinderattributes7::install() {
   # No automated installer documented for "A Better Finder Attributes 7" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "abetterfinderattributes7::install: no automated installer; deploy manually"
+  maclib::core::log::error "abetterfinderattributes7::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::abetterfinderattributes7::update() {
-  maclib::log::error "abetterfinderattributes7::update: no update path"
+maclib::apps::a::abetterfinderattributes7::update() {
+  maclib::core::log::error "abetterfinderattributes7::update: no update path"
   return 127
 }
 
-maclib::abetterfinderattributes7::uninstall() {
-  maclib::log::warn "abetterfinderattributes7::uninstall: no clean uninstall"
+maclib::apps::a::abetterfinderattributes7::uninstall() {
+  maclib::core::log::warn "abetterfinderattributes7::uninstall: no clean uninstall"
   return 1
 }

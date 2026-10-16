@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::blitzit::suite_installer_url() {
+maclib::apps::b::blitzit::suite_installer_url() {
   downloadURLFromGit blitzit-hq desktop-releases
 }
 
-maclib::blitzit::latest_version() {
+maclib::apps::b::blitzit::latest_version() {
   versionFromGit blitzit-hq desktop-releases
 }
 
-maclib::blitzit::is_installed() {
+maclib::apps::b::blitzit::is_installed() {
   [[ -d "/Applications/Blitzit.app" ]] || [[ -d "$HOME/Applications/Blitzit.app" ]]
 }
 
-maclib::blitzit::installed_path() {
+maclib::apps::b::blitzit::installed_path() {
   if [[ -d "/Applications/Blitzit.app" ]]; then
     printf "%s\n" "/Applications/Blitzit.app"
   elif [[ -d "$HOME/Applications/Blitzit.app" ]]; then
@@ -28,13 +28,13 @@ maclib::blitzit::installed_path() {
   fi
 }
 
-maclib::blitzit::install() {
+maclib::apps::b::blitzit::install() {
   local url tmp
-  url="$(maclib::blitzit::suite_installer_url)"
+  url="$(maclib::apps::b::blitzit::suite_installer_url)"
   tmp="$(mktemp -d -t "blitzit.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "blitzit::install: download failed"
+    maclib::core::log::error "blitzit::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::blitzit::install() {
   return "$rc"
 }
 
-maclib::blitzit::update() {
+maclib::apps::b::blitzit::update() {
   # No vendor update path documented for "Blitzit".
-  maclib::log::error "blitzit::update: no update path"
+  maclib::core::log::error "blitzit::update: no update path"
   return 127
 }
 
-maclib::blitzit::uninstall() {
+maclib::apps::b::blitzit::uninstall() {
   # No clean uninstall for "Blitzit" (documented constraint).
-  maclib::log::error "blitzit::uninstall: no clean uninstall"
+  maclib::core::log::error "blitzit::uninstall: no clean uninstall"
   return 1
 }

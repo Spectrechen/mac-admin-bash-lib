@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::applesfpro::suite_installer_url() {
+maclib::apps::a::applesfpro::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/applesfpro-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::applesfpro::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::applesfpro::latest_version() {
+maclib::apps::a::applesfpro::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/applesfpro-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::applesfpro::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::applesfpro::is_installed() {
+maclib::apps::a::applesfpro::is_installed() {
   [[ -d "/Applications/applesfpro.app" ]] || [[ -d "$HOME/Applications/applesfpro.app" ]]
 }
 
-maclib::applesfpro::installed_path() {
+maclib::apps::a::applesfpro::installed_path() {
   if [[ -d "/Applications/applesfpro.app" ]]; then
     printf '%s\n' "/Applications/applesfpro.app"
   elif [[ -d "$HOME/Applications/applesfpro.app" ]]; then
@@ -45,19 +45,19 @@ maclib::applesfpro::installed_path() {
   fi
 }
 
-maclib::applesfpro::install() {
+maclib::apps::a::applesfpro::install() {
   # No automated installer documented for "San Francisco Pro" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "applesfpro::install: no automated installer; deploy manually"
+  maclib::core::log::error "applesfpro::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::applesfpro::update() {
-  maclib::log::error "applesfpro::update: no update path"
+maclib::apps::a::applesfpro::update() {
+  maclib::core::log::error "applesfpro::update: no update path"
   return 127
 }
 
-maclib::applesfpro::uninstall() {
-  maclib::log::warn "applesfpro::uninstall: no clean uninstall"
+maclib::apps::a::applesfpro::uninstall() {
+  maclib::core::log::warn "applesfpro::uninstall: no clean uninstall"
   return 1
 }

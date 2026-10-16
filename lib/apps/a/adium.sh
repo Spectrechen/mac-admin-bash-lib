@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::adium::suite_installer_url() {
+maclib::apps::a::adium::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/adium-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::adium::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::adium::latest_version() {
+maclib::apps::a::adium::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/adium-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::adium::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::adium::is_installed() {
+maclib::apps::a::adium::is_installed() {
   [[ -d "/Applications/adium.app" ]] || [[ -d "$HOME/Applications/adium.app" ]]
 }
 
-maclib::adium::installed_path() {
+maclib::apps::a::adium::installed_path() {
   if [[ -d "/Applications/adium.app" ]]; then
     printf '%s\n' "/Applications/adium.app"
   elif [[ -d "$HOME/Applications/adium.app" ]]; then
@@ -45,19 +45,19 @@ maclib::adium::installed_path() {
   fi
 }
 
-maclib::adium::install() {
+maclib::apps::a::adium::install() {
   # No automated installer documented for "Adium" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "adium::install: no automated installer; deploy manually"
+  maclib::core::log::error "adium::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::adium::update() {
-  maclib::log::error "adium::update: no update path"
+maclib::apps::a::adium::update() {
+  maclib::core::log::error "adium::update: no update path"
   return 127
 }
 
-maclib::adium::uninstall() {
-  maclib::log::warn "adium::uninstall: no clean uninstall"
+maclib::apps::a::adium::uninstall() {
+  maclib::core::log::warn "adium::uninstall: no clean uninstall"
   return 1
 }

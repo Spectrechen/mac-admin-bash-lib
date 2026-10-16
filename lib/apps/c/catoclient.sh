@@ -8,21 +8,21 @@
 # Installer type: "pkg".
 #
 
-maclib::catoclient::suite_installer_url() {
+maclib::apps::c::catoclient::suite_installer_url() {
   https://clientdownload.catonetworks.com/public/clients/CatoClient.pkg
 }
 
-maclib::catoclient::latest_version() {
+maclib::apps::c::catoclient::latest_version() {
   local downloadURL
   downloadURL="$(https://clientdownload.catonetworks.com/public/clients/CatoClient.pkg)"
   curl -Ls -o /dev/null -w %{url_effective} "${downloadURL}" | sed -E 's/.*\/([0-9.]*)\/.*/\1/g' | awk -F '.' '{print $1 "." $2 "." $3}'
 }
 
-maclib::catoclient::is_installed() {
+maclib::apps::c::catoclient::is_installed() {
   [[ -d "/Applications/CatoClient.app" ]] || [[ -d "$HOME/Applications/CatoClient.app" ]]
 }
 
-maclib::catoclient::installed_path() {
+maclib::apps::c::catoclient::installed_path() {
   if [[ -d "/Applications/CatoClient.app" ]]; then
     printf "%s\n" "/Applications/CatoClient.app"
   elif [[ -d "$HOME/Applications/CatoClient.app" ]]; then
@@ -30,13 +30,13 @@ maclib::catoclient::installed_path() {
   fi
 }
 
-maclib::catoclient::install() {
+maclib::apps::c::catoclient::install() {
   local url tmp
-  url="$(maclib::catoclient::suite_installer_url)"
+  url="$(maclib::apps::c::catoclient::suite_installer_url)"
   tmp="$(mktemp -d -t "catoclient.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "catoclient::install: download failed"
+    maclib::core::log::error "catoclient::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -51,14 +51,14 @@ maclib::catoclient::install() {
   return "$rc"
 }
 
-maclib::catoclient::update() {
+maclib::apps::c::catoclient::update() {
   # No vendor update path documented for "CatoClient".
-  maclib::log::error "catoclient::update: no update path"
+  maclib::core::log::error "catoclient::update: no update path"
   return 127
 }
 
-maclib::catoclient::uninstall() {
+maclib::apps::c::catoclient::uninstall() {
   # No clean uninstall for "CatoClient" (documented constraint).
-  maclib::log::error "catoclient::uninstall: no clean uninstall"
+  maclib::core::log::error "catoclient::uninstall: no clean uninstall"
   return 1
 }

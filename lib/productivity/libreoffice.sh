@@ -9,9 +9,9 @@
 #   Source: Installomator `libreoffice` label.
 
 # Print the LibreOffice installer disk-image URL (arch-aware).
-maclib::libreoffice::url() {
+maclib::productivity::libreoffice::url() {
   local version arch url
-  version="$(maclib::libreoffice::latest_version)"
+  version="$(maclib::productivity::libreoffice::latest_version)"
   [[ -n "$version" ]] || return 1
   if [[ "$(arch)" == "arm64" ]]; then
     arch="aarch64"
@@ -24,7 +24,7 @@ maclib::libreoffice::url() {
 
 # Print the current LibreOffice build version (e.g. 7.6.7).
 # Reads the latest stable version from the download directory listing.
-maclib::libreoffice::latest_version() {
+maclib::productivity::libreoffice::latest_version() {
   local html version
   html="$(curl -fs 'https://download.documentfoundation.org/libreoffice/stable/' 2>/dev/null)"
   [[ -n "$html" ]] || return 1
@@ -34,12 +34,12 @@ maclib::libreoffice::latest_version() {
 }
 
 # Return 0 if the LibreOffice app bundle is installed.
-maclib::libreoffice::is_installed() {
+maclib::productivity::libreoffice::is_installed() {
   [[ -d "/Applications/LibreOffice.app" ]] || [[ -d "$HOME/Applications/LibreOffice.app" ]]
 }
 
 # Print the path to the LibreOffice app bundle if present.
-maclib::libreoffice::installed_path() {
+maclib::productivity::libreoffice::installed_path() {
   if [[ -d "/Applications/LibreOffice.app" ]]; then
     printf '%s\n' "/Applications/LibreOffice.app"
   elif [[ -d "$HOME/Applications/LibreOffice.app" ]]; then
@@ -49,9 +49,9 @@ maclib::libreoffice::installed_path() {
 
 # Download the LibreOffice disk image, mount it and copy the app bundle to
 # /Applications (requires root).
-maclib::libreoffice::install() {
+maclib::productivity::libreoffice::install() {
   local url dmg mount
-  url="$(maclib::libreoffice::url)"
+  url="$(maclib::productivity::libreoffice::url)"
   [[ -n "$url" ]] || return 1
   dmg="$(mktemp -t "libreoffice_install.XXXXXX.dmg")" || return 1
   mount="$(mktemp -d /tmp/libreoffice_dmg.XXXXXX)" || {
@@ -60,11 +60,11 @@ maclib::libreoffice::install() {
   }
   trap 'rm -f "$dmg"; rm -rf "$mount"' RETURN
   if ! curl -fsL "$url" -o "$dmg" 2>/dev/null; then
-    maclib::log::error "libreoffice::install: failed to download disk image"
+    maclib::core::log::error "libreoffice::install: failed to download disk image"
     return 1
   fi
   if ! hdiutil attach "$dmg" -nobrowse -mountpoint "$mount" 2>/dev/null; then
-    maclib::log::error "libreoffice::install: failed to mount disk image"
+    maclib::core::log::error "libreoffice::install: failed to mount disk image"
     return 1
   fi
   local app
@@ -76,7 +76,7 @@ maclib::libreoffice::install() {
     return "$rc"
   fi
   hdiutil detach "$mount" >/dev/null 2>&1
-  maclib::log::error "libreoffice::install: no .app found in disk image"
+  maclib::core::log::error "libreoffice::install: no .app found in disk image"
   return 1
 }
 

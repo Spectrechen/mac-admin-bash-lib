@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::cakebrew::suite_installer_url() {
+maclib::apps::c::cakebrew::suite_installer_url() {
   curl -fsL "https://www.cakebrew.com/appcast/profileInfo.php" | xpath '//rss/channel/item[1]/enclosure/@url' 2>/dev/null | cut -d '"' -f 2
 }
 
-maclib::cakebrew::latest_version() {
+maclib::apps::c::cakebrew::latest_version() {
   curl -fsL "https://www.cakebrew.com/appcast/profileInfo.php" | xpath '//rss/channel/item[1]/enclosure/@sparkle:shortVersionString' 2>/dev/null | cut -d '"' -f 2
 }
 
-maclib::cakebrew::is_installed() {
+maclib::apps::c::cakebrew::is_installed() {
   [[ -d "/Applications/Cakebrew.app" ]] || [[ -d "$HOME/Applications/Cakebrew.app" ]]
 }
 
-maclib::cakebrew::installed_path() {
+maclib::apps::c::cakebrew::installed_path() {
   if [[ -d "/Applications/Cakebrew.app" ]]; then
     printf "%s\n" "/Applications/Cakebrew.app"
   elif [[ -d "$HOME/Applications/Cakebrew.app" ]]; then
@@ -28,13 +28,13 @@ maclib::cakebrew::installed_path() {
   fi
 }
 
-maclib::cakebrew::install() {
+maclib::apps::c::cakebrew::install() {
   local url tmp
-  url="$(maclib::cakebrew::suite_installer_url)"
+  url="$(maclib::apps::c::cakebrew::suite_installer_url)"
   tmp="$(mktemp -d -t "cakebrew.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "cakebrew::install: download failed"
+    maclib::core::log::error "cakebrew::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::cakebrew::install() {
   return "$rc"
 }
 
-maclib::cakebrew::update() {
+maclib::apps::c::cakebrew::update() {
   # No vendor update path documented for "Cakebrew".
-  maclib::log::error "cakebrew::update: no update path"
+  maclib::core::log::error "cakebrew::update: no update path"
   return 127
 }
 
-maclib::cakebrew::uninstall() {
+maclib::apps::c::cakebrew::uninstall() {
   # No clean uninstall for "Cakebrew" (documented constraint).
-  maclib::log::error "cakebrew::uninstall: no clean uninstall"
+  maclib::core::log::error "cakebrew::uninstall: no clean uninstall"
   return 1
 }

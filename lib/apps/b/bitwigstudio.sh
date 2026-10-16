@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bitwigstudio::suite_installer_url() {
+maclib::apps::b::bitwigstudio::suite_installer_url() {
   echo $bitwigDetails | grep -o 'https://[^"]*'
 }
 
-maclib::bitwigstudio::latest_version() {
+maclib::apps::b::bitwigstudio::latest_version() {
   echo $bitwigDetails | grep -o 'Studio/[^/]*/installer' | awk -F'/' '{print $2}'
 }
 
-maclib::bitwigstudio::is_installed() {
+maclib::apps::b::bitwigstudio::is_installed() {
   [[ -d "/Applications/BitwigStudio.app" ]] || [[ -d "$HOME/Applications/BitwigStudio.app" ]]
 }
 
-maclib::bitwigstudio::installed_path() {
+maclib::apps::b::bitwigstudio::installed_path() {
   if [[ -d "/Applications/BitwigStudio.app" ]]; then
     printf "%s\n" "/Applications/BitwigStudio.app"
   elif [[ -d "$HOME/Applications/BitwigStudio.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bitwigstudio::installed_path() {
   fi
 }
 
-maclib::bitwigstudio::install() {
+maclib::apps::b::bitwigstudio::install() {
   local url tmp
-  url="$(maclib::bitwigstudio::suite_installer_url)"
+  url="$(maclib::apps::b::bitwigstudio::suite_installer_url)"
   tmp="$(mktemp -d -t "bitwigstudio.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bitwigstudio::install: download failed"
+    maclib::core::log::error "bitwigstudio::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bitwigstudio::install() {
   return "$rc"
 }
 
-maclib::bitwigstudio::update() {
+maclib::apps::b::bitwigstudio::update() {
   # No vendor update path documented for "Bitwig Studio".
-  maclib::log::error "bitwigstudio::update: no update path"
+  maclib::core::log::error "bitwigstudio::update: no update path"
   return 127
 }
 
-maclib::bitwigstudio::uninstall() {
+maclib::apps::b::bitwigstudio::uninstall() {
   # No clean uninstall for "Bitwig Studio" (documented constraint).
-  maclib::log::error "bitwigstudio::uninstall: no clean uninstall"
+  maclib::core::log::error "bitwigstudio::uninstall: no clean uninstall"
   return 1
 }

@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::amazonq::suite_installer_url() {
+maclib::apps::a::amazonq::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/amazonq-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::amazonq::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::amazonq::latest_version() {
+maclib::apps::a::amazonq::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/amazonq-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::amazonq::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::amazonq::is_installed() {
+maclib::apps::a::amazonq::is_installed() {
   [[ -d "/Applications/amazonq.app" ]] || [[ -d "$HOME/Applications/amazonq.app" ]]
 }
 
-maclib::amazonq::installed_path() {
+maclib::apps::a::amazonq::installed_path() {
   if [[ -d "/Applications/amazonq.app" ]]; then
     printf '%s\n' "/Applications/amazonq.app"
   elif [[ -d "$HOME/Applications/amazonq.app" ]]; then
@@ -45,19 +45,19 @@ maclib::amazonq::installed_path() {
   fi
 }
 
-maclib::amazonq::install() {
+maclib::apps::a::amazonq::install() {
   # No automated installer documented for "Amazon Q" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "amazonq::install: no automated installer; deploy manually"
+  maclib::core::log::error "amazonq::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::amazonq::update() {
-  maclib::log::error "amazonq::update: no update path"
+maclib::apps::a::amazonq::update() {
+  maclib::core::log::error "amazonq::update: no update path"
   return 127
 }
 
-maclib::amazonq::uninstall() {
-  maclib::log::warn "amazonq::uninstall: no clean uninstall"
+maclib::apps::a::amazonq::uninstall() {
+  maclib::core::log::warn "amazonq::uninstall: no clean uninstall"
   return 1
 }

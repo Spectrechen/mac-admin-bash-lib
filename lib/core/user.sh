@@ -2,29 +2,29 @@
 # user.sh - macOS user account helpers
 
 # Return 0 if the current process runs as root (uid 0).
-maclib::user::is_root() {
+maclib::core::user::is_root() {
   [[ "$(id -u)" -eq 0 ]]
 }
 
 # Print the short name of the user running the current shell.
-maclib::user::current_user() {
+maclib::core::user::current_user() {
   whoami
 }
 
 # Print the short name of the user running the current shell.
-maclib::user::whoami() {
+maclib::core::user::whoami() {
   whoami
 }
 
 # Print the home directory of the given user (default: current user).
 # Uses dscl on macOS; falls back to a /etc/passwd lookup on other systems.
-maclib::user::home_dir() {
+maclib::core::user::home_dir() {
   local name="${1:-}"
   if [[ -z "$name" ]]; then
-    name="$(maclib::user::whoami)"
+    name="$(maclib::core::user::whoami)"
   fi
 
-  if maclib::os::is_macos; then
+  if maclib::core::os::is_macos; then
     local home
     home="$(dscl . -read "/Users/$name" NFSHomeDirectory 2>/dev/null || true)"
     # Strip "NFSHomeDirectory:" prefix and surrounding whitespace.
@@ -45,12 +45,12 @@ maclib::user::home_dir() {
 }
 
 # Print the full home directory of the given user (default: current user).
-maclib::user::home_dir_full() {
+maclib::core::user::home_dir_full() {
   local name="${1:-}"
   if [[ -z "$name" ]]; then
-    name="$(maclib::user::whoami)"
+    name="$(maclib::core::user::whoami)"
   fi
   local home
-  home="$(maclib::user::home_dir "$name")" || return $?
+  home="$(maclib::core::user::home_dir "$name")" || return $?
   printf '%s\n' "$home"
 }

@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::autodmg::suite_installer_url() {
+maclib::apps::a::autodmg::suite_installer_url() {
   downloadURLFromGit MagerValp AutoDMG
 }
 
-maclib::autodmg::latest_version() {
+maclib::apps::a::autodmg::latest_version() {
   versionFromGit MagerValp AutoDMG
 }
 
-maclib::autodmg::is_installed() {
+maclib::apps::a::autodmg::is_installed() {
   [[ -d "/Applications/AutoDMG.app" ]] || [[ -d "$HOME/Applications/AutoDMG.app" ]]
 }
 
-maclib::autodmg::installed_path() {
+maclib::apps::a::autodmg::installed_path() {
   if [[ -d "/Applications/AutoDMG.app" ]]; then
     printf "%s\n" "/Applications/AutoDMG.app"
   elif [[ -d "$HOME/Applications/AutoDMG.app" ]]; then
@@ -28,13 +28,13 @@ maclib::autodmg::installed_path() {
   fi
 }
 
-maclib::autodmg::install() {
+maclib::apps::a::autodmg::install() {
   local url tmp
-  url="$(maclib::autodmg::suite_installer_url)"
+  url="$(maclib::apps::a::autodmg::suite_installer_url)"
   tmp="$(mktemp -d -t "autodmg.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "autodmg::install: download failed"
+    maclib::core::log::error "autodmg::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::autodmg::install() {
   return "$rc"
 }
 
-maclib::autodmg::update() {
+maclib::apps::a::autodmg::update() {
   # No vendor update path documented for "AutoDMG".
-  maclib::log::error "autodmg::update: no update path"
+  maclib::core::log::error "autodmg::update: no update path"
   return 127
 }
 
-maclib::autodmg::uninstall() {
+maclib::apps::a::autodmg::uninstall() {
   # No clean uninstall for "AutoDMG" (documented constraint).
-  maclib::log::error "autodmg::uninstall: no clean uninstall"
+  maclib::core::log::error "autodmg::uninstall: no clean uninstall"
   return 1
 }

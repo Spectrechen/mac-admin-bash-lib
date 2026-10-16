@@ -4,60 +4,71 @@
 #
 # Vendor source: Installomator label archimate
 #   github.com/Installomator/Installomator (Installomator.sh).
-# Apple Developer Team ID: "n/a" (verify against vendor).
+# Apple Developer Team ID: "n/a" (open source — ArchiMate Tool community).
 # Installer type: "dmg".
-# Installer URL: https://example.com/archimate-1.0.0.dmg  (PLACEHOLDER — replace with the real vendor installer URL
-#   during the follow-up vendor-research pass; see docs/misc_batch_0-vendor-notes.md).
+# Installer URL: https://www.archimatetool.com/archi/Archi-latest.dmg (latest DMG).
 # Update: no documented automatic update path (re-run install).
 # Uninstall: no clean uninstall (documented constraint).
 #
+# Sources:
+#   https://www.archimatetool.com/download/
+#   https://github.com/archimatetool/archi
 
-maclib::archimate::suite_installer_url() {
-  # Return the live installer URL when reachable, else the placeholder.
-  local live
-  live="$(curl -fsL "https://example.com/archimate-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
-  [[ -n "$live" ]] || live="https://example.com/archimate-1.0.0.dmg"
-  printf '%%s\n' "$live"
+maclib::apps::a::archimate::suite_installer_url() {
+  printf '%s\n' "https://www.archimatetool.com/archi/Archi-latest.dmg"
 }
 
-maclib::archimate::latest_version() {
-  local url ver
-  url="$(curl -fsL "https://example.com/archimate-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
-  if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
+maclib::apps::a::archimate::latest_version() {
+  local html ver
+  html="$(curl -fsL "https://github.com/archimatetool/archi/releases" 2>/dev/null)"
+  if [[ "$html" =~ tag/v([0-9]+\.[0-9]+\.[0-9]+) ]]; then
     ver="${BASH_REMATCH[1]}"
   else
-    ver="1.0.0"
+    ver="5.9.0"
   fi
-  printf '%%s\n' "$ver"
+  printf '%s\n' "$ver"
 }
 
-maclib::archimate::is_installed() {
-  [[ -d "/Applications/archimate.app" ]] || [[ -d "$HOME/Applications/archimate.app" ]]
+maclib::apps::a::archimate::is_installed() {
+  [[ -d "/Applications/Archi.app" ]] || [[ -d "$HOME/Applications/Archi.app" ]]
 }
 
-maclib::archimate::installed_path() {
-  if [[ -d "/Applications/archimate.app" ]]; then
-    printf '%s\n' "/Applications/archimate.app"
-  elif [[ -d "$HOME/Applications/archimate.app" ]]; then
-    printf '%s\n' "$HOME/Applications/archimate.app"
+maclib::apps::a::archimate::installed_path() {
+  if [[ -d "/Applications/Archi.app" ]]; then
+    printf '%s\n' "/Applications/Archi.app"
+  elif [[ -d "$HOME/Applications/Archi.app" ]]; then
+    printf '%s\n' "$HOME/Applications/Archi.app"
   else
     return 1
   fi
 }
 
-maclib::archimate::install() {
-  # No automated installer documented for "Archi" (placeholder URL — see vendor notes).
-  # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "archimate::install: no automated installer; deploy manually"
-  return 1
+maclib::apps::a::archimate::install() {
+  local url tmp
+  url="$(maclib::apps::a::archimate::suite_installer_url)"
+  tmp="$(mktemp -d -t "archimate.XXXXXX")" || return 1
+  trap 'rm -rf "$tmp"' RETURN
+  if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
+    maclib::core::log::error "archimate::install: download failed"
+    rm -rf "$tmp"
+    return 1
+  fi
+  local mp="$tmp/mount"
+  mkdir -p "$mp"
+  hdiutil attach "$tmp/i.dmg" -mountpoint "$mp" -nobrowse >/dev/null 2>&1
+  local rc=0
+  local app
+  app="$(find "$mp" -name "*.app" | head -n1)"
+  [[ -n "$app" ]] && cp -R "$app" "/Applications/" || rc=1
+  hdiutil detach "$mp" >/dev/null 2>&1
+  return "$rc"
 }
 
-maclib::archimate::update() {
-  maclib::log::error "archimate::update: no update path"
-  return 127
+maclib::apps::a::archimate::update() {
+  maclib::apps::a::archimate::install
 }
 
-maclib::archimate::uninstall() {
-  maclib::log::warn "archimate::uninstall: no clean uninstall"
+maclib::apps::a::archimate::uninstall() {
+  maclib::core::log::warn "archimate::uninstall: no clean uninstall"
   return 1
 }

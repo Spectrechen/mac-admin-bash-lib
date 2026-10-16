@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::asymmetrickeygenerator::suite_installer_url() {
+maclib::apps::a::asymmetrickeygenerator::suite_installer_url() {
   downloadURLFromGit binance asymmetric-key-generator
 }
 
-maclib::asymmetrickeygenerator::latest_version() {
+maclib::apps::a::asymmetrickeygenerator::latest_version() {
   versionFromGit binance asymmetric-key-generator
 }
 
-maclib::asymmetrickeygenerator::is_installed() {
+maclib::apps::a::asymmetrickeygenerator::is_installed() {
   [[ -d "/Applications/AsymmetricKeyGenerator.app" ]] || [[ -d "$HOME/Applications/AsymmetricKeyGenerator.app" ]]
 }
 
-maclib::asymmetrickeygenerator::installed_path() {
+maclib::apps::a::asymmetrickeygenerator::installed_path() {
   if [[ -d "/Applications/AsymmetricKeyGenerator.app" ]]; then
     printf "%s\n" "/Applications/AsymmetricKeyGenerator.app"
   elif [[ -d "$HOME/Applications/AsymmetricKeyGenerator.app" ]]; then
@@ -28,13 +28,13 @@ maclib::asymmetrickeygenerator::installed_path() {
   fi
 }
 
-maclib::asymmetrickeygenerator::install() {
+maclib::apps::a::asymmetrickeygenerator::install() {
   local url tmp
-  url="$(maclib::asymmetrickeygenerator::suite_installer_url)"
+  url="$(maclib::apps::a::asymmetrickeygenerator::suite_installer_url)"
   tmp="$(mktemp -d -t "asymmetrickeygenerator.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "asymmetrickeygenerator::install: download failed"
+    maclib::core::log::error "asymmetrickeygenerator::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::asymmetrickeygenerator::install() {
   return "$rc"
 }
 
-maclib::asymmetrickeygenerator::update() {
+maclib::apps::a::asymmetrickeygenerator::update() {
   # No vendor update path documented for "AsymmetricKeyGenerator".
-  maclib::log::error "asymmetrickeygenerator::update: no update path"
+  maclib::core::log::error "asymmetrickeygenerator::update: no update path"
   return 127
 }
 
-maclib::asymmetrickeygenerator::uninstall() {
+maclib::apps::a::asymmetrickeygenerator::uninstall() {
   # No clean uninstall for "AsymmetricKeyGenerator" (documented constraint).
-  maclib::log::error "asymmetrickeygenerator::uninstall: no clean uninstall"
+  maclib::core::log::error "asymmetrickeygenerator::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::bravepkg::suite_installer_url() {
+maclib::apps::b::bravepkg::suite_installer_url() {
   "https://referrals.brave.com/latest/Brave-Browser.pkg" # Universal
 }
 
-maclib::bravepkg::latest_version() {
+maclib::apps::b::bravepkg::latest_version() {
   curl -fsL "https://updates.bravesoftware.com/sparkle/Brave-Browser/stable/appcast.xml" | xpath '//rss/channel/item[last()]/enclosure/@sparkle:version' 2>/dev/null | cut -d '"' -f 2
 }
 
-maclib::bravepkg::is_installed() {
+maclib::apps::b::bravepkg::is_installed() {
   [[ -d "/Applications/BraveBrowser.app" ]] || [[ -d "$HOME/Applications/BraveBrowser.app" ]]
 }
 
-maclib::bravepkg::installed_path() {
+maclib::apps::b::bravepkg::installed_path() {
   if [[ -d "/Applications/BraveBrowser.app" ]]; then
     printf "%s\n" "/Applications/BraveBrowser.app"
   elif [[ -d "$HOME/Applications/BraveBrowser.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bravepkg::installed_path() {
   fi
 }
 
-maclib::bravepkg::install() {
+maclib::apps::b::bravepkg::install() {
   local url tmp
-  url="$(maclib::bravepkg::suite_installer_url)"
+  url="$(maclib::apps::b::bravepkg::suite_installer_url)"
   tmp="$(mktemp -d -t "bravepkg.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bravepkg::install: download failed"
+    maclib::core::log::error "bravepkg::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bravepkg::install() {
   return "$rc"
 }
 
-maclib::bravepkg::update() {
+maclib::apps::b::bravepkg::update() {
   # No vendor update path documented for "Brave Browser".
-  maclib::log::error "bravepkg::update: no update path"
+  maclib::core::log::error "bravepkg::update: no update path"
   return 127
 }
 
-maclib::bravepkg::uninstall() {
+maclib::apps::b::bravepkg::uninstall() {
   # No clean uninstall for "Brave Browser" (documented constraint).
-  maclib::log::error "bravepkg::uninstall: no clean uninstall"
+  maclib::core::log::error "bravepkg::uninstall: no clean uninstall"
   return 1
 }

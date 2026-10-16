@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::busycal::suite_installer_url() {
+maclib::apps::b::busycal::suite_installer_url() {
   https://www.busymac.com/download/BusyCal.dmg
 }
 
-maclib::busycal::latest_version() {
+maclib::apps::b::busycal::latest_version() {
   curl -ILs "https://www.busymac.com/download/BusyCal.dmg" | grep -m 1 -i '^location' | sed 's/.*bcl-//' | sed 's/.dmg//'
 }
 
-maclib::busycal::is_installed() {
+maclib::apps::b::busycal::is_installed() {
   [[ -d "/Applications/BusyCal.app" ]] || [[ -d "$HOME/Applications/BusyCal.app" ]]
 }
 
-maclib::busycal::installed_path() {
+maclib::apps::b::busycal::installed_path() {
   if [[ -d "/Applications/BusyCal.app" ]]; then
     printf "%s\n" "/Applications/BusyCal.app"
   elif [[ -d "$HOME/Applications/BusyCal.app" ]]; then
@@ -28,13 +28,13 @@ maclib::busycal::installed_path() {
   fi
 }
 
-maclib::busycal::install() {
+maclib::apps::b::busycal::install() {
   local url tmp
-  url="$(maclib::busycal::suite_installer_url)"
+  url="$(maclib::apps::b::busycal::suite_installer_url)"
   tmp="$(mktemp -d -t "busycal.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "busycal::install: download failed"
+    maclib::core::log::error "busycal::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::busycal::install() {
   return "$rc"
 }
 
-maclib::busycal::update() {
+maclib::apps::b::busycal::update() {
   # No vendor update path documented for "BusyCal".
-  maclib::log::error "busycal::update: no update path"
+  maclib::core::log::error "busycal::update: no update path"
   return 127
 }
 
-maclib::busycal::uninstall() {
+maclib::apps::b::busycal::uninstall() {
   # No clean uninstall for "BusyCal" (documented constraint).
-  maclib::log::error "busycal::uninstall: no clean uninstall"
+  maclib::core::log::error "busycal::uninstall: no clean uninstall"
   return 1
 }

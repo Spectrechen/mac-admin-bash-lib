@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::altserver::suite_installer_url() {
+maclib::apps::a::altserver::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/altserver-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::altserver::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::altserver::latest_version() {
+maclib::apps::a::altserver::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/altserver-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::altserver::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::altserver::is_installed() {
+maclib::apps::a::altserver::is_installed() {
   [[ -d "/Applications/altserver.app" ]] || [[ -d "$HOME/Applications/altserver.app" ]]
 }
 
-maclib::altserver::installed_path() {
+maclib::apps::a::altserver::installed_path() {
   if [[ -d "/Applications/altserver.app" ]]; then
     printf '%s\n' "/Applications/altserver.app"
   elif [[ -d "$HOME/Applications/altserver.app" ]]; then
@@ -45,19 +45,19 @@ maclib::altserver::installed_path() {
   fi
 }
 
-maclib::altserver::install() {
+maclib::apps::a::altserver::install() {
   # No automated installer documented for "AltServer" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "altserver::install: no automated installer; deploy manually"
+  maclib::core::log::error "altserver::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::altserver::update() {
-  maclib::log::error "altserver::update: no update path"
+maclib::apps::a::altserver::update() {
+  maclib::core::log::error "altserver::update: no update path"
   return 127
 }
 
-maclib::altserver::uninstall() {
-  maclib::log::warn "altserver::uninstall: no clean uninstall"
+maclib::apps::a::altserver::uninstall() {
+  maclib::core::log::warn "altserver::uninstall: no clean uninstall"
   return 1
 }

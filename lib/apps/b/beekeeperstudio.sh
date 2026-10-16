@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::beekeeperstudio::suite_installer_url() {
+maclib::apps::b::beekeeperstudio::suite_installer_url() {
   downloadURLFromGit beekeeper-studio beekeeper-studio
 }
 
-maclib::beekeeperstudio::latest_version() {
+maclib::apps::b::beekeeperstudio::latest_version() {
   versionFromGit beekeeper-studio beekeeper-studio
 }
 
-maclib::beekeeperstudio::is_installed() {
+maclib::apps::b::beekeeperstudio::is_installed() {
   [[ -d "/Applications/BeekeeperStudio.app" ]] || [[ -d "$HOME/Applications/BeekeeperStudio.app" ]]
 }
 
-maclib::beekeeperstudio::installed_path() {
+maclib::apps::b::beekeeperstudio::installed_path() {
   if [[ -d "/Applications/BeekeeperStudio.app" ]]; then
     printf "%s\n" "/Applications/BeekeeperStudio.app"
   elif [[ -d "$HOME/Applications/BeekeeperStudio.app" ]]; then
@@ -28,13 +28,13 @@ maclib::beekeeperstudio::installed_path() {
   fi
 }
 
-maclib::beekeeperstudio::install() {
+maclib::apps::b::beekeeperstudio::install() {
   local url tmp
-  url="$(maclib::beekeeperstudio::suite_installer_url)"
+  url="$(maclib::apps::b::beekeeperstudio::suite_installer_url)"
   tmp="$(mktemp -d -t "beekeeperstudio.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "beekeeperstudio::install: download failed"
+    maclib::core::log::error "beekeeperstudio::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::beekeeperstudio::install() {
   return "$rc"
 }
 
-maclib::beekeeperstudio::update() {
+maclib::apps::b::beekeeperstudio::update() {
   # No vendor update path documented for "Beekeeper Studio".
-  maclib::log::error "beekeeperstudio::update: no update path"
+  maclib::core::log::error "beekeeperstudio::update: no update path"
   return 127
 }
 
-maclib::beekeeperstudio::uninstall() {
+maclib::apps::b::beekeeperstudio::uninstall() {
   # No clean uninstall for "Beekeeper Studio" (documented constraint).
-  maclib::log::error "beekeeperstudio::uninstall: no clean uninstall"
+  maclib::core::log::error "beekeeperstudio::uninstall: no clean uninstall"
   return 1
 }

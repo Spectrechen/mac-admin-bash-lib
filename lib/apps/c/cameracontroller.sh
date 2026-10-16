@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::cameracontroller::suite_installer_url() {
+maclib::apps::c::cameracontroller::suite_installer_url() {
   downloadURLFromGit Itaybre CameraController
 }
 
-maclib::cameracontroller::latest_version() {
+maclib::apps::c::cameracontroller::latest_version() {
   versionFromGit Itaybre CameraController
 }
 
-maclib::cameracontroller::is_installed() {
+maclib::apps::c::cameracontroller::is_installed() {
   [[ -d "/Applications/CameraController.app" ]] || [[ -d "$HOME/Applications/CameraController.app" ]]
 }
 
-maclib::cameracontroller::installed_path() {
+maclib::apps::c::cameracontroller::installed_path() {
   if [[ -d "/Applications/CameraController.app" ]]; then
     printf "%s\n" "/Applications/CameraController.app"
   elif [[ -d "$HOME/Applications/CameraController.app" ]]; then
@@ -28,13 +28,13 @@ maclib::cameracontroller::installed_path() {
   fi
 }
 
-maclib::cameracontroller::install() {
+maclib::apps::c::cameracontroller::install() {
   local url tmp
-  url="$(maclib::cameracontroller::suite_installer_url)"
+  url="$(maclib::apps::c::cameracontroller::suite_installer_url)"
   tmp="$(mktemp -d -t "cameracontroller.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "cameracontroller::install: download failed"
+    maclib::core::log::error "cameracontroller::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::cameracontroller::install() {
   return "$rc"
 }
 
-maclib::cameracontroller::update() {
+maclib::apps::c::cameracontroller::update() {
   # No vendor update path documented for "CameraController".
-  maclib::log::error "cameracontroller::update: no update path"
+  maclib::core::log::error "cameracontroller::update: no update path"
   return 127
 }
 
-maclib::cameracontroller::uninstall() {
+maclib::apps::c::cameracontroller::uninstall() {
   # No clean uninstall for "CameraController" (documented constraint).
-  maclib::log::error "cameracontroller::uninstall: no clean uninstall"
+  maclib::core::log::error "cameracontroller::uninstall: no clean uninstall"
   return 1
 }

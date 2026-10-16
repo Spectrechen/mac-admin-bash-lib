@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::adobeacrobatprodc::suite_installer_url() {
+maclib::apps::a::adobeacrobatprodc::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/adobeacrobatprodc-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::adobeacrobatprodc::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::adobeacrobatprodc::latest_version() {
+maclib::apps::a::adobeacrobatprodc::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/adobeacrobatprodc-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::adobeacrobatprodc::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::adobeacrobatprodc::is_installed() {
+maclib::apps::a::adobeacrobatprodc::is_installed() {
   [[ -d "/Applications/adobeacrobatprodc.app" ]] || [[ -d "$HOME/Applications/adobeacrobatprodc.app" ]]
 }
 
-maclib::adobeacrobatprodc::installed_path() {
+maclib::apps::a::adobeacrobatprodc::installed_path() {
   if [[ -d "/Applications/adobeacrobatprodc.app" ]]; then
     printf '%s\n' "/Applications/adobeacrobatprodc.app"
   elif [[ -d "$HOME/Applications/adobeacrobatprodc.app" ]]; then
@@ -45,19 +45,19 @@ maclib::adobeacrobatprodc::installed_path() {
   fi
 }
 
-maclib::adobeacrobatprodc::install() {
+maclib::apps::a::adobeacrobatprodc::install() {
   # No automated installer documented for "Adobe Acrobat Pro DC" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "adobeacrobatprodc::install: no automated installer; deploy manually"
+  maclib::core::log::error "adobeacrobatprodc::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::adobeacrobatprodc::update() {
-  maclib::log::error "adobeacrobatprodc::update: no update path"
+maclib::apps::a::adobeacrobatprodc::update() {
+  maclib::core::log::error "adobeacrobatprodc::update: no update path"
   return 127
 }
 
-maclib::adobeacrobatprodc::uninstall() {
-  maclib::log::warn "adobeacrobatprodc::uninstall: no clean uninstall"
+maclib::apps::a::adobeacrobatprodc::uninstall() {
+  maclib::core::log::warn "adobeacrobatprodc::uninstall: no clean uninstall"
   return 1
 }

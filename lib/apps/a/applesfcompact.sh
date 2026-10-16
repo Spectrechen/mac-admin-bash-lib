@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::applesfcompact::suite_installer_url() {
+maclib::apps::a::applesfcompact::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/applesfcompact-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::applesfcompact::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::applesfcompact::latest_version() {
+maclib::apps::a::applesfcompact::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/applesfcompact-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::applesfcompact::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::applesfcompact::is_installed() {
+maclib::apps::a::applesfcompact::is_installed() {
   [[ -d "/Applications/applesfcompact.app" ]] || [[ -d "$HOME/Applications/applesfcompact.app" ]]
 }
 
-maclib::applesfcompact::installed_path() {
+maclib::apps::a::applesfcompact::installed_path() {
   if [[ -d "/Applications/applesfcompact.app" ]]; then
     printf '%s\n' "/Applications/applesfcompact.app"
   elif [[ -d "$HOME/Applications/applesfcompact.app" ]]; then
@@ -45,19 +45,19 @@ maclib::applesfcompact::installed_path() {
   fi
 }
 
-maclib::applesfcompact::install() {
+maclib::apps::a::applesfcompact::install() {
   # No automated installer documented for "San Francisco Compact" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "applesfcompact::install: no automated installer; deploy manually"
+  maclib::core::log::error "applesfcompact::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::applesfcompact::update() {
-  maclib::log::error "applesfcompact::update: no update path"
+maclib::apps::a::applesfcompact::update() {
+  maclib::core::log::error "applesfcompact::update: no update path"
   return 127
 }
 
-maclib::applesfcompact::uninstall() {
-  maclib::log::warn "applesfcompact::uninstall: no clean uninstall"
+maclib::apps::a::applesfcompact::uninstall() {
+  maclib::core::log::warn "applesfcompact::uninstall: no clean uninstall"
   return 1
 }

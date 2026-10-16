@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::applesfarabic::suite_installer_url() {
+maclib::apps::a::applesfarabic::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/applesfarabic-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::applesfarabic::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::applesfarabic::latest_version() {
+maclib::apps::a::applesfarabic::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/applesfarabic-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::applesfarabic::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::applesfarabic::is_installed() {
+maclib::apps::a::applesfarabic::is_installed() {
   [[ -d "/Applications/applesfarabic.app" ]] || [[ -d "$HOME/Applications/applesfarabic.app" ]]
 }
 
-maclib::applesfarabic::installed_path() {
+maclib::apps::a::applesfarabic::installed_path() {
   if [[ -d "/Applications/applesfarabic.app" ]]; then
     printf '%s\n' "/Applications/applesfarabic.app"
   elif [[ -d "$HOME/Applications/applesfarabic.app" ]]; then
@@ -45,19 +45,19 @@ maclib::applesfarabic::installed_path() {
   fi
 }
 
-maclib::applesfarabic::install() {
+maclib::apps::a::applesfarabic::install() {
   # No automated installer documented for "San Francisco Arabic" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "applesfarabic::install: no automated installer; deploy manually"
+  maclib::core::log::error "applesfarabic::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::applesfarabic::update() {
-  maclib::log::error "applesfarabic::update: no update path"
+maclib::apps::a::applesfarabic::update() {
+  maclib::core::log::error "applesfarabic::update: no update path"
   return 127
 }
 
-maclib::applesfarabic::uninstall() {
-  maclib::log::warn "applesfarabic::uninstall: no clean uninstall"
+maclib::apps::a::applesfarabic::uninstall() {
+  maclib::core::log::warn "applesfarabic::uninstall: no clean uninstall"
   return 1
 }

@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::aquaskk::suite_installer_url() {
+maclib::apps::a::aquaskk::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/aquaskk-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::aquaskk::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::aquaskk::latest_version() {
+maclib::apps::a::aquaskk::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/aquaskk-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::aquaskk::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::aquaskk::is_installed() {
+maclib::apps::a::aquaskk::is_installed() {
   [[ -d "/Applications/aquaskk.app" ]] || [[ -d "$HOME/Applications/aquaskk.app" ]]
 }
 
-maclib::aquaskk::installed_path() {
+maclib::apps::a::aquaskk::installed_path() {
   if [[ -d "/Applications/aquaskk.app" ]]; then
     printf '%s\n' "/Applications/aquaskk.app"
   elif [[ -d "$HOME/Applications/aquaskk.app" ]]; then
@@ -45,19 +45,19 @@ maclib::aquaskk::installed_path() {
   fi
 }
 
-maclib::aquaskk::install() {
+maclib::apps::a::aquaskk::install() {
   # No automated installer documented for "aquaskk" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "aquaskk::install: no automated installer; deploy manually"
+  maclib::core::log::error "aquaskk::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::aquaskk::update() {
-  maclib::log::error "aquaskk::update: no update path"
+maclib::apps::a::aquaskk::update() {
+  maclib::core::log::error "aquaskk::update: no update path"
   return 127
 }
 
-maclib::aquaskk::uninstall() {
-  maclib::log::warn "aquaskk::uninstall: no clean uninstall"
+maclib::apps::a::aquaskk::uninstall() {
+  maclib::core::log::warn "aquaskk::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::aviatrix::suite_installer_url() {
+maclib::apps::a::aviatrix::suite_installer_url() {
   printf '%s\n' 'https://s3-us-west-2.amazonaws.com/aviatrix-download/AviatrixVPNClient/AVPNC_mac.pkg'
 }
 
-maclib::aviatrix::latest_version() {
+maclib::apps::a::aviatrix::latest_version() {
   printf '%s\n' ''
 }
 
-maclib::aviatrix::is_installed() {
+maclib::apps::a::aviatrix::is_installed() {
   [[ -d "/Applications/AviatrixVPNClient.app" ]] || [[ -d "$HOME/Applications/AviatrixVPNClient.app" ]]
 }
 
-maclib::aviatrix::installed_path() {
+maclib::apps::a::aviatrix::installed_path() {
   if [[ -d "/Applications/AviatrixVPNClient.app" ]]; then
     printf "%s\n" "/Applications/AviatrixVPNClient.app"
   elif [[ -d "$HOME/Applications/AviatrixVPNClient.app" ]]; then
@@ -28,13 +28,13 @@ maclib::aviatrix::installed_path() {
   fi
 }
 
-maclib::aviatrix::install() {
+maclib::apps::a::aviatrix::install() {
   local url tmp
-  url="$(maclib::aviatrix::suite_installer_url)"
+  url="$(maclib::apps::a::aviatrix::suite_installer_url)"
   tmp="$(mktemp -d -t "aviatrix.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "aviatrix::install: download failed"
+    maclib::core::log::error "aviatrix::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::aviatrix::install() {
   return "$rc"
 }
 
-maclib::aviatrix::update() {
+maclib::apps::a::aviatrix::update() {
   # No vendor update path documented for "Aviatrix VPN Client".
-  maclib::log::error "aviatrix::update: no update path"
+  maclib::core::log::error "aviatrix::update: no update path"
   return 127
 }
 
-maclib::aviatrix::uninstall() {
+maclib::apps::a::aviatrix::uninstall() {
   # No clean uninstall for "Aviatrix VPN Client" (documented constraint).
-  maclib::log::error "aviatrix::uninstall: no clean uninstall"
+  maclib::core::log::error "aviatrix::uninstall: no clean uninstall"
   return 1
 }

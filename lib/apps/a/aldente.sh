@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::aldente::suite_installer_url() {
+maclib::apps::a::aldente::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/aldente-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::aldente::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::aldente::latest_version() {
+maclib::apps::a::aldente::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/aldente-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::aldente::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::aldente::is_installed() {
+maclib::apps::a::aldente::is_installed() {
   [[ -d "/Applications/aldente.app" ]] || [[ -d "$HOME/Applications/aldente.app" ]]
 }
 
-maclib::aldente::installed_path() {
+maclib::apps::a::aldente::installed_path() {
   if [[ -d "/Applications/aldente.app" ]]; then
     printf '%s\n' "/Applications/aldente.app"
   elif [[ -d "$HOME/Applications/aldente.app" ]]; then
@@ -45,19 +45,19 @@ maclib::aldente::installed_path() {
   fi
 }
 
-maclib::aldente::install() {
+maclib::apps::a::aldente::install() {
   # No automated installer documented for "AlDente" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "aldente::install: no automated installer; deploy manually"
+  maclib::core::log::error "aldente::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::aldente::update() {
-  maclib::log::error "aldente::update: no update path"
+maclib::apps::a::aldente::update() {
+  maclib::core::log::error "aldente::update: no update path"
   return 127
 }
 
-maclib::aldente::uninstall() {
-  maclib::log::warn "aldente::uninstall: no clean uninstall"
+maclib::apps::a::aldente::uninstall() {
+  maclib::core::log::warn "aldente::uninstall: no clean uninstall"
   return 1
 }

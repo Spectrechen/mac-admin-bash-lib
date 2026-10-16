@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::browserosaurus::suite_installer_url() {
+maclib::apps::b::browserosaurus::suite_installer_url() {
   downloadURLFromGit will-stone browserosaurus
 }
 
-maclib::browserosaurus::latest_version() {
+maclib::apps::b::browserosaurus::latest_version() {
   versionFromGit will-stone browserosaurus
 }
 
-maclib::browserosaurus::is_installed() {
+maclib::apps::b::browserosaurus::is_installed() {
   [[ -d "/Applications/Browserosaurus.app" ]] || [[ -d "$HOME/Applications/Browserosaurus.app" ]]
 }
 
-maclib::browserosaurus::installed_path() {
+maclib::apps::b::browserosaurus::installed_path() {
   if [[ -d "/Applications/Browserosaurus.app" ]]; then
     printf "%s\n" "/Applications/Browserosaurus.app"
   elif [[ -d "$HOME/Applications/Browserosaurus.app" ]]; then
@@ -28,13 +28,13 @@ maclib::browserosaurus::installed_path() {
   fi
 }
 
-maclib::browserosaurus::install() {
+maclib::apps::b::browserosaurus::install() {
   local url tmp
-  url="$(maclib::browserosaurus::suite_installer_url)"
+  url="$(maclib::apps::b::browserosaurus::suite_installer_url)"
   tmp="$(mktemp -d -t "browserosaurus.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "browserosaurus::install: download failed"
+    maclib::core::log::error "browserosaurus::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::browserosaurus::install() {
   return "$rc"
 }
 
-maclib::browserosaurus::update() {
+maclib::apps::b::browserosaurus::update() {
   # No vendor update path documented for "Browserosaurus".
-  maclib::log::error "browserosaurus::update: no update path"
+  maclib::core::log::error "browserosaurus::update: no update path"
   return 127
 }
 
-maclib::browserosaurus::uninstall() {
+maclib::apps::b::browserosaurus::uninstall() {
   # No clean uninstall for "Browserosaurus" (documented constraint).
-  maclib::log::error "browserosaurus::uninstall: no clean uninstall"
+  maclib::core::log::error "browserosaurus::uninstall: no clean uninstall"
   return 1
 }

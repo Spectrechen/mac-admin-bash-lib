@@ -12,19 +12,19 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::acroniscyberprotectconnect::suite_installer_url() {
+maclib::apps::a::acroniscyberprotectconnect::suite_installer_url() {
   printf '%s\n' "https://example.com/acroniscyberprotectconnect-1.0.0.dmg"
 }
 
-maclib::acroniscyberprotectconnect::latest_version() {
+maclib::apps::a::acroniscyberprotectconnect::latest_version() {
   printf '%%s\n' "1.0.0"
 }
 
-maclib::acroniscyberprotectconnect::is_installed() {
+maclib::apps::a::acroniscyberprotectconnect::is_installed() {
   [[ -d "/Applications/acroniscyberprotectconnect.app" ]] || [[ -d "$HOME/Applications/acroniscyberprotectconnect.app" ]]
 }
 
-maclib::acroniscyberprotectconnect::installed_path() {
+maclib::apps::a::acroniscyberprotectconnect::installed_path() {
   if [[ -d "/Applications/acroniscyberprotectconnect.app" ]]; then
     printf '%s\n' "/Applications/acroniscyberprotectconnect.app"
   elif [[ -d "$HOME/Applications/acroniscyberprotectconnect.app" ]]; then
@@ -34,19 +34,19 @@ maclib::acroniscyberprotectconnect::installed_path() {
   fi
 }
 
-maclib::acroniscyberprotectconnect::install() {
+maclib::apps::a::acroniscyberprotectconnect::install() {
   # No automated installer documented for "None" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "acroniscyberprotectconnect::install: no automated installer; deploy manually"
+  maclib::core::log::error "acroniscyberprotectconnect::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::acroniscyberprotectconnect::update() {
-  maclib::log::error "acroniscyberprotectconnect::update: no update path"
+maclib::apps::a::acroniscyberprotectconnect::update() {
+  maclib::core::log::error "acroniscyberprotectconnect::update: no update path"
   return 127
 }
 
-maclib::acroniscyberprotectconnect::uninstall() {
-  maclib::log::warn "acroniscyberprotectconnect::uninstall: no clean uninstall"
+maclib::apps::a::acroniscyberprotectconnect::uninstall() {
+  maclib::core::log::warn "acroniscyberprotectconnect::uninstall: no clean uninstall"
   return 1
 }

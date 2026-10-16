@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::acorn::suite_installer_url() {
+maclib::apps::a::acorn::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/acorn-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::acorn::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::acorn::latest_version() {
+maclib::apps::a::acorn::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/acorn-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::acorn::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::acorn::is_installed() {
+maclib::apps::a::acorn::is_installed() {
   [[ -d "/Applications/acorn.app" ]] || [[ -d "$HOME/Applications/acorn.app" ]]
 }
 
-maclib::acorn::installed_path() {
+maclib::apps::a::acorn::installed_path() {
   if [[ -d "/Applications/acorn.app" ]]; then
     printf '%s\n' "/Applications/acorn.app"
   elif [[ -d "$HOME/Applications/acorn.app" ]]; then
@@ -45,19 +45,19 @@ maclib::acorn::installed_path() {
   fi
 }
 
-maclib::acorn::install() {
+maclib::apps::a::acorn::install() {
   # No automated installer documented for "Acorn" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "acorn::install: no automated installer; deploy manually"
+  maclib::core::log::error "acorn::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::acorn::update() {
-  maclib::log::error "acorn::update: no update path"
+maclib::apps::a::acorn::update() {
+  maclib::core::log::error "acorn::update: no update path"
   return 127
 }
 
-maclib::acorn::uninstall() {
-  maclib::log::warn "acorn::uninstall: no clean uninstall"
+maclib::apps::a::acorn::uninstall() {
+  maclib::core::log::warn "acorn::uninstall: no clean uninstall"
   return 1
 }

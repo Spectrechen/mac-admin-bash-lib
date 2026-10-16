@@ -8,16 +8,16 @@
 #   Source: Installomator `vlc` label.
 
 # Print the VLC installer disk-image URL for the current version.
-maclib::vlc::url() {
+maclib::media::vlc::url() {
   local version
-  version="$(maclib::vlc::latest_version)"
+  version="$(maclib::media::vlc::latest_version)"
   [[ -n "$version" ]] || return 1
   printf '%s\n' "https://get.videolan.org/vlc/${version}/macosx/vlc-${version}-universal.dmg"
 }
 
 # Print the current VLC build version.
 # Reads the latest version from the VLC download page.
-maclib::vlc::latest_version() {
+maclib::media::vlc::latest_version() {
   local html version
   html="$(curl -fsL 'https://www.videolan.org/vlc/' 2>/dev/null)"
   [[ -n "$html" ]] || return 1
@@ -27,12 +27,12 @@ maclib::vlc::latest_version() {
 }
 
 # Return 0 if the VLC app bundle is installed.
-maclib::vlc::is_installed() {
+maclib::media::vlc::is_installed() {
   [[ -d "/Applications/VLC.app" ]] || [[ -d "$HOME/Applications/VLC.app" ]]
 }
 
 # Print the path to the VLC app bundle if present.
-maclib::vlc::installed_path() {
+maclib::media::vlc::installed_path() {
   if [[ -d "/Applications/VLC.app" ]]; then
     printf '%s\n' "/Applications/VLC.app"
   elif [[ -d "$HOME/Applications/VLC.app" ]]; then
@@ -42,9 +42,9 @@ maclib::vlc::installed_path() {
 
 # Download the VLC disk image, mount it and copy the app bundle to /Applications
 # (requires root).
-maclib::vlc::install() {
+maclib::media::vlc::install() {
   local url dmg mount
-  url="$(maclib::vlc::url)"
+  url="$(maclib::media::vlc::url)"
   [[ -n "$url" ]] || return 1
   dmg="$(mktemp -t "vlc_install.XXXXXX.dmg")" || return 1
   mount="$(mktemp -d /tmp/vlc_dmg.XXXXXX)" || {
@@ -53,11 +53,11 @@ maclib::vlc::install() {
   }
   trap 'rm -f "$dmg"; rm -rf "$mount"' RETURN
   if ! curl -fsL "$url" -o "$dmg" 2>/dev/null; then
-    maclib::log::error "vlc::install: failed to download disk image"
+    maclib::core::log::error "vlc::install: failed to download disk image"
     return 1
   fi
   if ! hdiutil attach "$dmg" -nobrowse -mountpoint "$mount" 2>/dev/null; then
-    maclib::log::error "vlc::install: failed to mount disk image"
+    maclib::core::log::error "vlc::install: failed to mount disk image"
     return 1
   fi
   local app
@@ -69,7 +69,7 @@ maclib::vlc::install() {
     return "$rc"
   fi
   hdiutil detach "$mount" >/dev/null 2>&1
-  maclib::log::error "vlc::install: no .app found in disk image"
+  maclib::core::log::error "vlc::install: no .app found in disk image"
   return 1
 }
 

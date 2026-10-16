@@ -9,32 +9,32 @@
 # Installer type: "pkg".
 #
 
-maclib::cherryaudiogalacticreverb::suite_installer_url() {
+maclib::apps::c::cherryaudiogalacticreverb::suite_installer_url() {
   https://store.cherryaudio.com/downloads/galactic-reverb-macos-installer?file=Galactic-Reverb-Installer-macOS.pkg
 }
 
-maclib::cherryaudiogalacticreverb::latest_version() {
+maclib::apps::c::cherryaudiogalacticreverb::latest_version() {
   curl -fs https://cherryaudio.com/products/galactic-reverb/version-history | grep -A 6 "info" | grep -Eo "([0-9]+(\.[0-9]+)+)" | head -1 | xargs
 }
 
-maclib::cherryaudiogalacticreverb::is_installed() {
+maclib::apps::c::cherryaudiogalacticreverb::is_installed() {
   pkgutil --pkg-info ""com.cherryaudio.pkg.GalacticPackage-StandAlone"" >/dev/null 2>&1
 }
 
-maclib::cherryaudiogalacticreverb::installed_path() {
+maclib::apps::c::cherryaudiogalacticreverb::installed_path() {
   local p
   p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.GalacticPackage-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
 
-maclib::cherryaudiogalacticreverb::install() {
+maclib::apps::c::cherryaudiogalacticreverb::install() {
   local url tmp
-  url="$(maclib::cherryaudiogalacticreverb::suite_installer_url)"
+  url="$(maclib::apps::c::cherryaudiogalacticreverb::suite_installer_url)"
   tmp="$(mktemp -d -t "cherryaudiogalacticreverb.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "cherryaudiogalacticreverb::install: download failed"
+    maclib::core::log::error "cherryaudiogalacticreverb::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,13 +49,13 @@ maclib::cherryaudiogalacticreverb::install() {
   return "$rc"
 }
 
-maclib::cherryaudiogalacticreverb::update() {
+maclib::apps::c::cherryaudiogalacticreverb::update() {
   # No vendor update path documented for "Galactic Reverb".
-  maclib::log::error "cherryaudiogalacticreverb::update: no update path"
+  maclib::core::log::error "cherryaudiogalacticreverb::update: no update path"
   return 127
 }
 
-maclib::cherryaudiogalacticreverb::uninstall() {
+maclib::apps::c::cherryaudiogalacticreverb::uninstall() {
   # No clean uninstall for "Galactic Reverb"; removing package receipt ""com.cherryaudio.pkg.GalacticPackage-StandAlone"".
   pkgutil --forget ""com.cherryaudio.pkg.GalacticPackage-StandAlone""
   return $?

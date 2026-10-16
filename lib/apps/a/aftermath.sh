@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::aftermath::suite_installer_url() {
+maclib::apps::a::aftermath::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/aftermath-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::aftermath::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::aftermath::latest_version() {
+maclib::apps::a::aftermath::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/aftermath-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::aftermath::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::aftermath::is_installed() {
+maclib::apps::a::aftermath::is_installed() {
   [[ -d "/Applications/aftermath.app" ]] || [[ -d "$HOME/Applications/aftermath.app" ]]
 }
 
-maclib::aftermath::installed_path() {
+maclib::apps::a::aftermath::installed_path() {
   if [[ -d "/Applications/aftermath.app" ]]; then
     printf '%s\n' "/Applications/aftermath.app"
   elif [[ -d "$HOME/Applications/aftermath.app" ]]; then
@@ -45,19 +45,19 @@ maclib::aftermath::installed_path() {
   fi
 }
 
-maclib::aftermath::install() {
+maclib::apps::a::aftermath::install() {
   # No automated installer documented for "Aftermath" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "aftermath::install: no automated installer; deploy manually"
+  maclib::core::log::error "aftermath::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::aftermath::update() {
-  maclib::log::error "aftermath::update: no update path"
+maclib::apps::a::aftermath::update() {
+  maclib::core::log::error "aftermath::update: no update path"
   return 127
 }
 
-maclib::aftermath::uninstall() {
-  maclib::log::warn "aftermath::uninstall: no clean uninstall"
+maclib::apps::a::aftermath::uninstall() {
+  maclib::core::log::warn "aftermath::uninstall: no clean uninstall"
   return 1
 }

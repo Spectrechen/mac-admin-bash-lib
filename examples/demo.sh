@@ -4,11 +4,11 @@ set -euo pipefail
 # shellcheck source=lib/maclib.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/maclib.sh"
 
-maclib::log::set_level info
-maclib::log::info "macOS? $(maclib::os::is_macos && echo yes || echo no)"
-maclib::log::info "Arch: $(maclib::os::arch)"
+maclib::core::log::set_level info
+maclib::core::log::info "macOS? $(maclib::core::os::is_macos && echo yes || echo no)"
+maclib::core::log::info "Arch: $(maclib::core::os::arch)"
 
-if maclib::os::is_macos; then
-  maclib::log::info "Version: $(maclib::os::version)"
-  maclib::log::info "Major.Minor: $(maclib::os::major_minor)"
+if maclib::core::os::is_macos; then
+  maclib::core::log::info "Version: $(maclib::core::os::version)"
+  maclib::core::log::info "Major.Minor: $(maclib::core::os::major_minor)"
 fi

@@ -9,32 +9,32 @@
 # Installer type: "pkg".
 #
 
-maclib::boxtools::suite_installer_url() {
+maclib::apps::b::boxtools::suite_installer_url() {
   printf '%s\n' 'https://box-installers.s3.amazonaws.com/boxedit/mac/currentrelease/BoxToolsInstaller.pkg'
 }
 
-maclib::boxtools::latest_version() {
+maclib::apps::b::boxtools::latest_version() {
   printf '%s\n' ''
 }
 
-maclib::boxtools::is_installed() {
+maclib::apps::b::boxtools::is_installed() {
   pkgutil --pkg-info ""com.box.boxtools.installer.boxedit"" >/dev/null 2>&1
 }
 
-maclib::boxtools::installed_path() {
+maclib::apps::b::boxtools::installed_path() {
   local p
   p="$(pkgutil --pkg-info ""com.box.boxtools.installer.boxedit"" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
 
-maclib::boxtools::install() {
+maclib::apps::b::boxtools::install() {
   local url tmp
-  url="$(maclib::boxtools::suite_installer_url)"
+  url="$(maclib::apps::b::boxtools::suite_installer_url)"
   tmp="$(mktemp -d -t "boxtools.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "boxtools::install: download failed"
+    maclib::core::log::error "boxtools::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,13 +49,13 @@ maclib::boxtools::install() {
   return "$rc"
 }
 
-maclib::boxtools::update() {
+maclib::apps::b::boxtools::update() {
   # No vendor update path documented for "Box Tools".
-  maclib::log::error "boxtools::update: no update path"
+  maclib::core::log::error "boxtools::update: no update path"
   return 127
 }
 
-maclib::boxtools::uninstall() {
+maclib::apps::b::boxtools::uninstall() {
   # No clean uninstall for "Box Tools"; removing package receipt ""com.box.boxtools.installer.boxedit"".
   pkgutil --forget ""com.box.boxtools.installer.boxedit""
   return $?

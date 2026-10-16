@@ -9,32 +9,32 @@
 # Installer type: "pkg".
 #
 
-maclib::arturiasoftwarecenter::suite_installer_url() {
+maclib::apps::a::arturiasoftwarecenter::suite_installer_url() {
   getJSONValue "$arturiaDetails" "[$arturiaCount].permalink"
 }
 
-maclib::arturiasoftwarecenter::latest_version() {
+maclib::apps::a::arturiasoftwarecenter::latest_version() {
   getJSONValue "$arturiaDetails" "[$arturiaCount].version"
 }
 
-maclib::arturiasoftwarecenter::is_installed() {
+maclib::apps::a::arturiasoftwarecenter::is_installed() {
   pkgutil --pkg-info ""com.Arturia.ArturiaSoftwareCenter.resources"" >/dev/null 2>&1
 }
 
-maclib::arturiasoftwarecenter::installed_path() {
+maclib::apps::a::arturiasoftwarecenter::installed_path() {
   local p
   p="$(pkgutil --pkg-info ""com.Arturia.ArturiaSoftwareCenter.resources"" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
 
-maclib::arturiasoftwarecenter::install() {
+maclib::apps::a::arturiasoftwarecenter::install() {
   local url tmp
-  url="$(maclib::arturiasoftwarecenter::suite_installer_url)"
+  url="$(maclib::apps::a::arturiasoftwarecenter::suite_installer_url)"
   tmp="$(mktemp -d -t "arturiasoftwarecenter.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "arturiasoftwarecenter::install: download failed"
+    maclib::core::log::error "arturiasoftwarecenter::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,13 +49,13 @@ maclib::arturiasoftwarecenter::install() {
   return "$rc"
 }
 
-maclib::arturiasoftwarecenter::update() {
+maclib::apps::a::arturiasoftwarecenter::update() {
   # No vendor update path documented for "Arturia Software Center".
-  maclib::log::error "arturiasoftwarecenter::update: no update path"
+  maclib::core::log::error "arturiasoftwarecenter::update: no update path"
   return 127
 }
 
-maclib::arturiasoftwarecenter::uninstall() {
+maclib::apps::a::arturiasoftwarecenter::uninstall() {
   # No clean uninstall for "Arturia Software Center"; removing package receipt ""com.Arturia.ArturiaSoftwareCenter.resources"".
   pkgutil --forget ""com.Arturia.ArturiaSoftwareCenter.resources""
   return $?

@@ -24,20 +24,20 @@ setup() {
   __MACLIB_SECURITY_PASS=5
   __MACLIB_SECURITY_FAIL=3
   __MACLIB_SECURITY_WARN=2
-  maclib::security::reset
-  maclib::security::pass "test control"
+  maclib::security::security::reset
+  maclib::security::security::pass "test control"
   [ "$__MACLIB_SECURITY_PASS" -eq 1 ]
   [ "$__MACLIB_SECURITY_FAIL" -eq 0 ]
 }
 
 @test "security::fail increments FAIL_COUNT and prints to stderr" {
-  maclib::security::reset
+  maclib::security::security::reset
   # Call fail directly (NOT inside command substitution, which would run in a
   # subshell and drop the counter increment). Capture stderr to a temp file so
   # the counter increment persists in the current shell.
   local errfile err
   errfile="$(mktemp)"
-  maclib::security::fail "bad control" 2>"$errfile"
+  maclib::security::security::fail "bad control" 2>"$errfile"
   err="$(cat "$errfile")"
   rm -f "$errfile"
   [ "$__MACLIB_SECURITY_FAIL" -eq 1 ]
@@ -45,17 +45,17 @@ setup() {
 }
 
 @test "security::report returns non-zero when a control failed" {
-  maclib::security::reset
-  maclib::security::pass "ok"
-  maclib::security::fail "bad"
+  maclib::security::security::reset
+  maclib::security::security::pass "ok"
+  maclib::security::security::fail "bad"
   local out rc
   # Capture the summary output via command substitution. report() returns
   # non-zero when a control failed, so append `|| true` to avoid failing the
   # test on that exit code (the output is still captured).
-  out="$(maclib::security::report 2>&1)" || true
+  out="$(maclib::security::security::report 2>&1)" || true
   # Capture the return code WITHOUT letting the non-zero exit fail the test:
   # `report` returns non-zero when a control failed, so wrap it in an `if`.
-  if maclib::security::report >/dev/null 2>&1; then
+  if maclib::security::security::report >/dev/null 2>&1; then
     rc=0
   else
     rc=1
@@ -66,11 +66,11 @@ setup() {
 }
 
 @test "security::report returns 0 when no control failed" {
-  maclib::security::reset
-  maclib::security::pass "ok1"
-  maclib::security::pass "ok2"
+  maclib::security::security::reset
+  maclib::security::security::pass "ok1"
+  maclib::security::security::pass "ok2"
   local out
-  out="$(maclib::security::report)"
+  out="$(maclib::security::security::report)"
   [ "$?" -eq 0 ]
   [[ "$out" == *"2 passed"* ]]
   [[ "$out" == *"0 failed"* ]]
@@ -82,37 +82,37 @@ setup() {
 
 @test "security::gatekeeper_state parses 'assessments enabled' -> enabled" {
   spctl() { echo "assessments enabled"; }
-  run maclib::security::gatekeeper_state
+  run maclib::security::security::gatekeeper_state
   [ "$status" -eq 0 ]
   [ "$output" == "enabled" ]
 }
 
 @test "security::gatekeeper_state parses disabled -> disabled" {
   spctl() { echo "assessments disabled"; }
-  run maclib::security::gatekeeper_state
+  run maclib::security::security::gatekeeper_state
   [ "$output" == "disabled" ]
 }
 
 @test "security::is_gatekeeper_enforced returns 0 when enforced" {
   spctl() { echo "assessments enabled"; }
-  run maclib::security::is_gatekeeper_enforced
+  run maclib::security::security::is_gatekeeper_enforced
   [ "$status" -eq 0 ]
 }
 
 @test "security::is_gatekeeper_enforced returns 1 when not enforced" {
   spctl() { echo "assessments disabled"; }
-  run maclib::security::is_gatekeeper_enforced
+  run maclib::security::security::is_gatekeeper_enforced
   [ "$status" -ne 0 ]
 }
 
 @test "security::gatekeeper_state returns 127 when spctl is absent" {
   spctl() { return 127; }
-  run -127 maclib::security::gatekeeper_state
+  run -127 maclib::security::security::gatekeeper_state
 }
 
 @test "security::remediate_gatekeeper calls spctl --master enable" {
   spctl() { echo "ARGS:$*"; }
-  run maclib::security::remediate_gatekeeper
+  run maclib::security::security::remediate_gatekeeper
   [[ "$output" == *"--master enable"* ]]
 }
 
@@ -122,26 +122,26 @@ setup() {
 
 @test "security::firewall_state returns 'On' when firewall binary present" {
   firewall() { echo "On"; }
-  run maclib::security::firewall_state
+  run maclib::security::security::firewall_state
   [ "$status" -eq 0 ]
   [ "$output" == "On" ]
 }
 
 @test "security::is_application_firewall_enabled returns 0 when On" {
   firewall() { echo "On"; }
-  run maclib::security::is_application_firewall_enabled
+  run maclib::security::security::is_application_firewall_enabled
   [ "$status" -eq 0 ]
 }
 
 @test "security::is_application_firewall_enabled returns 1 when Off" {
   firewall() { echo "Off"; }
-  run maclib::security::is_application_firewall_enabled
+  run maclib::security::security::is_application_firewall_enabled
   [ "$status" -ne 0 ]
 }
 
 @test "security::firewall_state returns 127 when firewall binary absent" {
   # No firewall() function defined; the real binary is absent on this box.
-  run -127 maclib::security::firewall_state
+  run -127 maclib::security::security::firewall_state
 }
 
 # ---------------------------------------------------------------------------
@@ -154,7 +154,7 @@ setup() {
       echo '"state" : "active"'
     fi
   }
-  run maclib::security::is_ssh_disabled
+  run maclib::security::security::is_ssh_disabled
   [ "$status" -ne 0 ]
 }
 
@@ -164,13 +164,13 @@ setup() {
       echo '"state" : "stopped"'
     fi
   }
-  run maclib::security::is_ssh_disabled
+  run maclib::security::security::is_ssh_disabled
   [ "$status" -eq 0 ]
 }
 
 @test "security::is_ssh_disabled returns 0 when sshd service absent" {
   launchctl() { return 127; }
-  run maclib::security::is_ssh_disabled
+  run maclib::security::security::is_ssh_disabled
   [ "$status" -eq 0 ]
 }
 
@@ -186,7 +186,7 @@ setup() {
       echo '"state" : "stopped"'
     fi
   }
-  run maclib::security::audit
+  run maclib::security::security::audit
   [ "$status" -eq 0 ]
   [[ "$output" == *"0 failed"* ]]
 }
@@ -228,7 +228,7 @@ setup() {
 # ---------------------------------------------------------------------------
 
 # Helper: create a fake app bundle directory at <bundle>.app/Contents/Info.plist
-# and point maclib::app::path at it (so the -f "<path>/Contents/Info.plist" guard
+# and point maclib::core::app::path at it (so the -f "<path>/Contents/Info.plist" guard
 # in label_detect_version passes). First argument is the bundle name, second is
 # the plist content.
 __make_bundle() {
@@ -243,7 +243,7 @@ __make_bundle() {
 @test "packages::label_detect_version reads CFBundleShortVersionString" {
   local dir
   dir="$(__make_bundle Finder 'CFBundleShortVersionString = "27.0";')"
-  maclib::app::path() { printf '%s\n' "$dir"; }
+  maclib::core::app::path() { printf '%s\n' "$dir"; }
   PlistBuddy() { echo "27.0"; }
   run maclib::packages::label_detect_version Finder
   [ "$status" -eq 0 ]
@@ -265,14 +265,14 @@ __make_bundle() {
 @test "packages::label_verify_installed returns 0 when installed" {
   local dir
   dir="$(__make_bundle Finder 'x')"
-  maclib::app::path() { printf '%s\n' "$dir"; }
+  maclib::core::app::path() { printf '%s\n' "$dir"; }
   run maclib::packages::label_verify_installed Finder
   [ "$status" -eq 0 ]
   rm -rf "${dir%/*}"
 }
 
 @test "packages::label_verify_installed returns 1 when not installed" {
-  maclib::app::path() { return 1; }
+  maclib::core::app::path() { return 1; }
   run maclib::packages::label_verify_installed NonexistentApp
   [ "$status" -ne 0 ]
 }
@@ -280,7 +280,7 @@ __make_bundle() {
 @test "packages::verify_after_install returns 1 when installed build older than expected" {
   local dir
   dir="$(__make_bundle Finder 'x')"
-  maclib::app::path() { printf '%s\n' "$dir"; }
+  maclib::core::app::path() { printf '%s\n' "$dir"; }
   PlistBuddy() { echo "26.0"; }
   run maclib::packages::verify_after_install Finder 27.0
   [ "$status" -ne 0 ]
@@ -290,7 +290,7 @@ __make_bundle() {
 @test "packages::verify_after_install returns 0 when installed build >= expected" {
   local dir
   dir="$(__make_bundle Finder 'x')"
-  maclib::app::path() { printf '%s\n' "$dir"; }
+  maclib::core::app::path() { printf '%s\n' "$dir"; }
   PlistBuddy() { echo "27.0"; }
   run maclib::packages::verify_after_install Finder 26.0
   [ "$status" -eq 0 ]
@@ -341,7 +341,7 @@ __make_bundle() {
   # Compute the next major from the *current* OS so the test is robust to the
   # host's macOS version. The mock then advertises exactly next_major.0.
   local cur_major next_major
-  cur_major="$(maclib::os::major_minor | cut -d. -f1)"
+  cur_major="$(maclib::core::os::major_minor | cut -d. -f1)"
   next_major=$((cur_major + 1))
   softwareupdate() {
     echo "No new software available."

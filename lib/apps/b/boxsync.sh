@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::boxsync::suite_installer_url() {
+maclib::apps::b::boxsync::suite_installer_url() {
   printf '%s\n' 'https://e3.boxcdn.net/box-installers/sync/Sync+4+External/Box%20Sync%20Installer.dmg'
 }
 
-maclib::boxsync::latest_version() {
+maclib::apps::b::boxsync::latest_version() {
   printf '%s\n' ''
 }
 
-maclib::boxsync::is_installed() {
+maclib::apps::b::boxsync::is_installed() {
   [[ -d "/Applications/BoxSync.app" ]] || [[ -d "$HOME/Applications/BoxSync.app" ]]
 }
 
-maclib::boxsync::installed_path() {
+maclib::apps::b::boxsync::installed_path() {
   if [[ -d "/Applications/BoxSync.app" ]]; then
     printf "%s\n" "/Applications/BoxSync.app"
   elif [[ -d "$HOME/Applications/BoxSync.app" ]]; then
@@ -28,13 +28,13 @@ maclib::boxsync::installed_path() {
   fi
 }
 
-maclib::boxsync::install() {
+maclib::apps::b::boxsync::install() {
   local url tmp
-  url="$(maclib::boxsync::suite_installer_url)"
+  url="$(maclib::apps::b::boxsync::suite_installer_url)"
   tmp="$(mktemp -d -t "boxsync.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "boxsync::install: download failed"
+    maclib::core::log::error "boxsync::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::boxsync::install() {
   return "$rc"
 }
 
-maclib::boxsync::update() {
+maclib::apps::b::boxsync::update() {
   # No vendor update path documented for "Box Sync".
-  maclib::log::error "boxsync::update: no update path"
+  maclib::core::log::error "boxsync::update: no update path"
   return 127
 }
 
-maclib::boxsync::uninstall() {
+maclib::apps::b::boxsync::uninstall() {
   # No clean uninstall for "Box Sync" (documented constraint).
-  maclib::log::error "boxsync::uninstall: no clean uninstall"
+  maclib::core::log::error "boxsync::uninstall: no clean uninstall"
   return 1
 }

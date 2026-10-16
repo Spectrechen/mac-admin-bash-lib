@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::antconc::suite_installer_url() {
+maclib::apps::a::antconc::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/antconc-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::antconc::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::antconc::latest_version() {
+maclib::apps::a::antconc::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/antconc-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::antconc::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::antconc::is_installed() {
+maclib::apps::a::antconc::is_installed() {
   [[ -d "/Applications/antconc.app" ]] || [[ -d "$HOME/Applications/antconc.app" ]]
 }
 
-maclib::antconc::installed_path() {
+maclib::apps::a::antconc::installed_path() {
   if [[ -d "/Applications/antconc.app" ]]; then
     printf '%s\n' "/Applications/antconc.app"
   elif [[ -d "$HOME/Applications/antconc.app" ]]; then
@@ -45,19 +45,19 @@ maclib::antconc::installed_path() {
   fi
 }
 
-maclib::antconc::install() {
+maclib::apps::a::antconc::install() {
   # No automated installer documented for "AntConc" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "antconc::install: no automated installer; deploy manually"
+  maclib::core::log::error "antconc::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::antconc::update() {
-  maclib::log::error "antconc::update: no update path"
+maclib::apps::a::antconc::update() {
+  maclib::core::log::error "antconc::update: no update path"
   return 127
 }
 
-maclib::antconc::uninstall() {
-  maclib::log::warn "antconc::uninstall: no clean uninstall"
+maclib::apps::a::antconc::uninstall() {
+  maclib::core::log::warn "antconc::uninstall: no clean uninstall"
   return 1
 }

@@ -8,21 +8,21 @@
 # Installer type: "pkg".
 #
 
-maclib::awsvpnclient::suite_installer_url() {
+maclib::apps::a::awsvpnclient::suite_installer_url() {
   local appNewVersion
   appNewVersion=curl -s "https://docs.aws.amazon.com/vpn/latest/clientvpn-user/client-vpn-user-guide.rss" | grep -o 'AWS provided client ([0-9]*\.[0-9]*\.[0-9]*) for macOS' | head -1 | grep -o '[0-9]*\.[0-9]*\.[0-9]*'
   ${baseURL}/${appNewVersion}/AWS_VPN_Client.pkg
 }
 
-maclib::awsvpnclient::latest_version() {
+maclib::apps::a::awsvpnclient::latest_version() {
   curl -s "https://docs.aws.amazon.com/vpn/latest/clientvpn-user/client-vpn-user-guide.rss" | grep -o 'AWS provided client ([0-9]*\.[0-9]*\.[0-9]*) for macOS' | head -1 | grep -o '[0-9]*\.[0-9]*\.[0-9]*'
 }
 
-maclib::awsvpnclient::is_installed() {
+maclib::apps::a::awsvpnclient::is_installed() {
   [[ -d "/Applications/AWSVPNClient.app" ]] || [[ -d "$HOME/Applications/AWSVPNClient.app" ]]
 }
 
-maclib::awsvpnclient::installed_path() {
+maclib::apps::a::awsvpnclient::installed_path() {
   if [[ -d "/Applications/AWSVPNClient.app" ]]; then
     printf "%s\n" "/Applications/AWSVPNClient.app"
   elif [[ -d "$HOME/Applications/AWSVPNClient.app" ]]; then
@@ -30,13 +30,13 @@ maclib::awsvpnclient::installed_path() {
   fi
 }
 
-maclib::awsvpnclient::install() {
+maclib::apps::a::awsvpnclient::install() {
   local url tmp
-  url="$(maclib::awsvpnclient::suite_installer_url)"
+  url="$(maclib::apps::a::awsvpnclient::suite_installer_url)"
   tmp="$(mktemp -d -t "awsvpnclient.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "awsvpnclient::install: download failed"
+    maclib::core::log::error "awsvpnclient::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -51,14 +51,14 @@ maclib::awsvpnclient::install() {
   return "$rc"
 }
 
-maclib::awsvpnclient::update() {
+maclib::apps::a::awsvpnclient::update() {
   # No vendor update path documented for "AWS VPN Client".
-  maclib::log::error "awsvpnclient::update: no update path"
+  maclib::core::log::error "awsvpnclient::update: no update path"
   return 127
 }
 
-maclib::awsvpnclient::uninstall() {
+maclib::apps::a::awsvpnclient::uninstall() {
   # No clean uninstall for "AWS VPN Client" (documented constraint).
-  maclib::log::error "awsvpnclient::uninstall: no clean uninstall"
+  maclib::core::log::error "awsvpnclient::uninstall: no clean uninstall"
   return 1
 }

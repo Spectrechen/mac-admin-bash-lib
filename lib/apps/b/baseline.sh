@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::baseline::suite_installer_url() {
+maclib::apps::b::baseline::suite_installer_url() {
   downloadURLFromGit secondsonconsulting Baseline
 }
 
-maclib::baseline::latest_version() {
+maclib::apps::b::baseline::latest_version() {
   printf '%s\n' 'https://github.com/secondsonconsulting/Baseline/releases/latest/download/Baseline.pkg'
 }
 
-maclib::baseline::is_installed() {
+maclib::apps::b::baseline::is_installed() {
   [[ -d "/Applications/Baseline.app" ]] || [[ -d "$HOME/Applications/Baseline.app" ]]
 }
 
-maclib::baseline::installed_path() {
+maclib::apps::b::baseline::installed_path() {
   if [[ -d "/Applications/Baseline.app" ]]; then
     printf "%s\n" "/Applications/Baseline.app"
   elif [[ -d "$HOME/Applications/Baseline.app" ]]; then
@@ -28,13 +28,13 @@ maclib::baseline::installed_path() {
   fi
 }
 
-maclib::baseline::install() {
+maclib::apps::b::baseline::install() {
   local url tmp
-  url="$(maclib::baseline::suite_installer_url)"
+  url="$(maclib::apps::b::baseline::suite_installer_url)"
   tmp="$(mktemp -d -t "baseline.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "baseline::install: download failed"
+    maclib::core::log::error "baseline::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::baseline::install() {
   return "$rc"
 }
 
-maclib::baseline::update() {
+maclib::apps::b::baseline::update() {
   # No vendor update path documented for "Baseline".
-  maclib::log::error "baseline::update: no update path"
+  maclib::core::log::error "baseline::update: no update path"
   return 127
 }
 
-maclib::baseline::uninstall() {
+maclib::apps::b::baseline::uninstall() {
   # No clean uninstall for "Baseline" (documented constraint).
-  maclib::log::error "baseline::uninstall: no clean uninstall"
+  maclib::core::log::error "baseline::uninstall: no clean uninstall"
   return 1
 }

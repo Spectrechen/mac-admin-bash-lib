@@ -12,19 +12,19 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::acroniscyberprotectconnectagent::suite_installer_url() {
+maclib::apps::a::acroniscyberprotectconnectagent::suite_installer_url() {
   printf '%s\n' "https://example.com/acroniscyberprotectconnectagent-1.0.0.dmg"
 }
 
-maclib::acroniscyberprotectconnectagent::latest_version() {
+maclib::apps::a::acroniscyberprotectconnectagent::latest_version() {
   printf '%%s\n' "1.0.0"
 }
 
-maclib::acroniscyberprotectconnectagent::is_installed() {
+maclib::apps::a::acroniscyberprotectconnectagent::is_installed() {
   [[ -d "/Applications/acroniscyberprotectconnectagent.app" ]] || [[ -d "$HOME/Applications/acroniscyberprotectconnectagent.app" ]]
 }
 
-maclib::acroniscyberprotectconnectagent::installed_path() {
+maclib::apps::a::acroniscyberprotectconnectagent::installed_path() {
   if [[ -d "/Applications/acroniscyberprotectconnectagent.app" ]]; then
     printf '%s\n' "/Applications/acroniscyberprotectconnectagent.app"
   elif [[ -d "$HOME/Applications/acroniscyberprotectconnectagent.app" ]]; then
@@ -34,19 +34,19 @@ maclib::acroniscyberprotectconnectagent::installed_path() {
   fi
 }
 
-maclib::acroniscyberprotectconnectagent::install() {
+maclib::apps::a::acroniscyberprotectconnectagent::install() {
   # No automated installer documented for "None" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "acroniscyberprotectconnectagent::install: no automated installer; deploy manually"
+  maclib::core::log::error "acroniscyberprotectconnectagent::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::acroniscyberprotectconnectagent::update() {
-  maclib::log::error "acroniscyberprotectconnectagent::update: no update path"
+maclib::apps::a::acroniscyberprotectconnectagent::update() {
+  maclib::core::log::error "acroniscyberprotectconnectagent::update: no update path"
   return 127
 }
 
-maclib::acroniscyberprotectconnectagent::uninstall() {
-  maclib::log::warn "acroniscyberprotectconnectagent::uninstall: no clean uninstall"
+maclib::apps::a::acroniscyberprotectconnectagent::uninstall() {
+  maclib::core::log::warn "acroniscyberprotectconnectagent::uninstall: no clean uninstall"
   return 1
 }

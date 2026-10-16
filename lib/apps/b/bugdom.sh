@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bugdom::suite_installer_url() {
+maclib::apps::b::bugdom::suite_installer_url() {
   downloadURLFromGit jorio Bugdom
 }
 
-maclib::bugdom::latest_version() {
+maclib::apps::b::bugdom::latest_version() {
   versionFromGit jorio Bugdom
 }
 
-maclib::bugdom::is_installed() {
+maclib::apps::b::bugdom::is_installed() {
   [[ -d "/Applications/Bugdom.app" ]] || [[ -d "$HOME/Applications/Bugdom.app" ]]
 }
 
-maclib::bugdom::installed_path() {
+maclib::apps::b::bugdom::installed_path() {
   if [[ -d "/Applications/Bugdom.app" ]]; then
     printf "%s\n" "/Applications/Bugdom.app"
   elif [[ -d "$HOME/Applications/Bugdom.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bugdom::installed_path() {
   fi
 }
 
-maclib::bugdom::install() {
+maclib::apps::b::bugdom::install() {
   local url tmp
-  url="$(maclib::bugdom::suite_installer_url)"
+  url="$(maclib::apps::b::bugdom::suite_installer_url)"
   tmp="$(mktemp -d -t "bugdom.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bugdom::install: download failed"
+    maclib::core::log::error "bugdom::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bugdom::install() {
   return "$rc"
 }
 
-maclib::bugdom::update() {
+maclib::apps::b::bugdom::update() {
   # No vendor update path documented for "Bugdom".
-  maclib::log::error "bugdom::update: no update path"
+  maclib::core::log::error "bugdom::update: no update path"
   return 127
 }
 
-maclib::bugdom::uninstall() {
+maclib::apps::b::bugdom::uninstall() {
   # No clean uninstall for "Bugdom" (documented constraint).
-  maclib::log::error "bugdom::uninstall: no clean uninstall"
+  maclib::core::log::error "bugdom::uninstall: no clean uninstall"
   return 1
 }

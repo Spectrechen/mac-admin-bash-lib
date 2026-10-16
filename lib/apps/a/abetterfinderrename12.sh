@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::abetterfinderrename12::suite_installer_url() {
+maclib::apps::a::abetterfinderrename12::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/abetterfinderrename12-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::abetterfinderrename12::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::abetterfinderrename12::latest_version() {
+maclib::apps::a::abetterfinderrename12::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/abetterfinderrename12-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::abetterfinderrename12::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::abetterfinderrename12::is_installed() {
+maclib::apps::a::abetterfinderrename12::is_installed() {
   [[ -d "/Applications/abetterfinderrename12.app" ]] || [[ -d "$HOME/Applications/abetterfinderrename12.app" ]]
 }
 
-maclib::abetterfinderrename12::installed_path() {
+maclib::apps::a::abetterfinderrename12::installed_path() {
   if [[ -d "/Applications/abetterfinderrename12.app" ]]; then
     printf '%s\n' "/Applications/abetterfinderrename12.app"
   elif [[ -d "$HOME/Applications/abetterfinderrename12.app" ]]; then
@@ -45,19 +45,19 @@ maclib::abetterfinderrename12::installed_path() {
   fi
 }
 
-maclib::abetterfinderrename12::install() {
+maclib::apps::a::abetterfinderrename12::install() {
   # No automated installer documented for "A Better Finder Rename 12" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "abetterfinderrename12::install: no automated installer; deploy manually"
+  maclib::core::log::error "abetterfinderrename12::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::abetterfinderrename12::update() {
-  maclib::log::error "abetterfinderrename12::update: no update path"
+maclib::apps::a::abetterfinderrename12::update() {
+  maclib::core::log::error "abetterfinderrename12::update: no update path"
   return 127
 }
 
-maclib::abetterfinderrename12::uninstall() {
-  maclib::log::warn "abetterfinderrename12::uninstall: no clean uninstall"
+maclib::apps::a::abetterfinderrename12::uninstall() {
+  maclib::core::log::warn "abetterfinderrename12::uninstall: no clean uninstall"
   return 1
 }

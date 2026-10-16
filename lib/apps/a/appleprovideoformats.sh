@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::appleprovideoformats::suite_installer_url() {
+maclib::apps::a::appleprovideoformats::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/appleprovideoformats-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::appleprovideoformats::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::appleprovideoformats::latest_version() {
+maclib::apps::a::appleprovideoformats::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/appleprovideoformats-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::appleprovideoformats::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::appleprovideoformats::is_installed() {
+maclib::apps::a::appleprovideoformats::is_installed() {
   [[ -d "/Applications/appleprovideoformats.app" ]] || [[ -d "$HOME/Applications/appleprovideoformats.app" ]]
 }
 
-maclib::appleprovideoformats::installed_path() {
+maclib::apps::a::appleprovideoformats::installed_path() {
   if [[ -d "/Applications/appleprovideoformats.app" ]]; then
     printf '%s\n' "/Applications/appleprovideoformats.app"
   elif [[ -d "$HOME/Applications/appleprovideoformats.app" ]]; then
@@ -45,19 +45,19 @@ maclib::appleprovideoformats::installed_path() {
   fi
 }
 
-maclib::appleprovideoformats::install() {
+maclib::apps::a::appleprovideoformats::install() {
   # No automated installer documented for "ProVideoFormats" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "appleprovideoformats::install: no automated installer; deploy manually"
+  maclib::core::log::error "appleprovideoformats::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::appleprovideoformats::update() {
-  maclib::log::error "appleprovideoformats::update: no update path"
+maclib::apps::a::appleprovideoformats::update() {
+  maclib::core::log::error "appleprovideoformats::update: no update path"
   return 127
 }
 
-maclib::appleprovideoformats::uninstall() {
-  maclib::log::warn "appleprovideoformats::uninstall: no clean uninstall"
+maclib::apps::a::appleprovideoformats::uninstall() {
+  maclib::core::log::warn "appleprovideoformats::uninstall: no clean uninstall"
   return 1
 }

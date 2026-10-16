@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::apachedirectorystudio::suite_installer_url() {
+maclib::apps::a::apachedirectorystudio::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/apachedirectorystudio-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::apachedirectorystudio::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::apachedirectorystudio::latest_version() {
+maclib::apps::a::apachedirectorystudio::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/apachedirectorystudio-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::apachedirectorystudio::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::apachedirectorystudio::is_installed() {
+maclib::apps::a::apachedirectorystudio::is_installed() {
   [[ -d "/Applications/apachedirectorystudio.app" ]] || [[ -d "$HOME/Applications/apachedirectorystudio.app" ]]
 }
 
-maclib::apachedirectorystudio::installed_path() {
+maclib::apps::a::apachedirectorystudio::installed_path() {
   if [[ -d "/Applications/apachedirectorystudio.app" ]]; then
     printf '%s\n' "/Applications/apachedirectorystudio.app"
   elif [[ -d "$HOME/Applications/apachedirectorystudio.app" ]]; then
@@ -45,19 +45,19 @@ maclib::apachedirectorystudio::installed_path() {
   fi
 }
 
-maclib::apachedirectorystudio::install() {
+maclib::apps::a::apachedirectorystudio::install() {
   # No automated installer documented for "ApacheDirectoryStudio" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "apachedirectorystudio::install: no automated installer; deploy manually"
+  maclib::core::log::error "apachedirectorystudio::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::apachedirectorystudio::update() {
-  maclib::log::error "apachedirectorystudio::update: no update path"
+maclib::apps::a::apachedirectorystudio::update() {
+  maclib::core::log::error "apachedirectorystudio::update: no update path"
   return 127
 }
 
-maclib::apachedirectorystudio::uninstall() {
-  maclib::log::warn "apachedirectorystudio::uninstall: no clean uninstall"
+maclib::apps::a::apachedirectorystudio::uninstall() {
+  maclib::core::log::warn "apachedirectorystudio::uninstall: no clean uninstall"
   return 1
 }

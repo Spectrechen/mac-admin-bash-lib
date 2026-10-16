@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::busycontacts::suite_installer_url() {
+maclib::apps::b::busycontacts::suite_installer_url() {
   https://www.busymac.com/download/BusyContacts.dmg
 }
 
-maclib::busycontacts::latest_version() {
+maclib::apps::b::busycontacts::latest_version() {
   curl -ILs "https://www.busymac.com/download/BusyContacts.dmg" | grep -m 1 -i '^location' | sed 's/.*bct-//' | sed 's/.dmg//'
 }
 
-maclib::busycontacts::is_installed() {
+maclib::apps::b::busycontacts::is_installed() {
   [[ -d "/Applications/BusyContacts.app" ]] || [[ -d "$HOME/Applications/BusyContacts.app" ]]
 }
 
-maclib::busycontacts::installed_path() {
+maclib::apps::b::busycontacts::installed_path() {
   if [[ -d "/Applications/BusyContacts.app" ]]; then
     printf "%s\n" "/Applications/BusyContacts.app"
   elif [[ -d "$HOME/Applications/BusyContacts.app" ]]; then
@@ -28,13 +28,13 @@ maclib::busycontacts::installed_path() {
   fi
 }
 
-maclib::busycontacts::install() {
+maclib::apps::b::busycontacts::install() {
   local url tmp
-  url="$(maclib::busycontacts::suite_installer_url)"
+  url="$(maclib::apps::b::busycontacts::suite_installer_url)"
   tmp="$(mktemp -d -t "busycontacts.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "busycontacts::install: download failed"
+    maclib::core::log::error "busycontacts::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::busycontacts::install() {
   return "$rc"
 }
 
-maclib::busycontacts::update() {
+maclib::apps::b::busycontacts::update() {
   # No vendor update path documented for "BusyContacts".
-  maclib::log::error "busycontacts::update: no update path"
+  maclib::core::log::error "busycontacts::update: no update path"
   return 127
 }
 
-maclib::busycontacts::uninstall() {
+maclib::apps::b::busycontacts::uninstall() {
   # No clean uninstall for "BusyContacts" (documented constraint).
-  maclib::log::error "busycontacts::uninstall: no clean uninstall"
+  maclib::core::log::error "busycontacts::uninstall: no clean uninstall"
   return 1
 }

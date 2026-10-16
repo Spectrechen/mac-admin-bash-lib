@@ -12,19 +12,19 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::adobereaderdc::suite_installer_url() {
+maclib::apps::a::adobereaderdc::suite_installer_url() {
   printf '%s\n' "https://example.com/adobereaderdc-1.0.0.dmg"
 }
 
-maclib::adobereaderdc::latest_version() {
+maclib::apps::a::adobereaderdc::latest_version() {
   printf '%%s\n' "1.0.0"
 }
 
-maclib::adobereaderdc::is_installed() {
+maclib::apps::a::adobereaderdc::is_installed() {
   [[ -d "/Applications/adobereaderdc.app" ]] || [[ -d "$HOME/Applications/adobereaderdc.app" ]]
 }
 
-maclib::adobereaderdc::installed_path() {
+maclib::apps::a::adobereaderdc::installed_path() {
   if [[ -d "/Applications/adobereaderdc.app" ]]; then
     printf '%s\n' "/Applications/adobereaderdc.app"
   elif [[ -d "$HOME/Applications/adobereaderdc.app" ]]; then
@@ -34,19 +34,19 @@ maclib::adobereaderdc::installed_path() {
   fi
 }
 
-maclib::adobereaderdc::install() {
+maclib::apps::a::adobereaderdc::install() {
   # No automated installer documented for "None" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "adobereaderdc::install: no automated installer; deploy manually"
+  maclib::core::log::error "adobereaderdc::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::adobereaderdc::update() {
-  maclib::log::error "adobereaderdc::update: no update path"
+maclib::apps::a::adobereaderdc::update() {
+  maclib::core::log::error "adobereaderdc::update: no update path"
   return 127
 }
 
-maclib::adobereaderdc::uninstall() {
-  maclib::log::warn "adobereaderdc::uninstall: no clean uninstall"
+maclib::apps::a::adobereaderdc::uninstall() {
+  maclib::core::log::warn "adobereaderdc::uninstall: no clean uninstall"
   return 1
 }

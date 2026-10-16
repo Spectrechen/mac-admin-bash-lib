@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::adobeconnect::suite_installer_url() {
+maclib::apps::a::adobeconnect::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/adobeconnect-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::adobeconnect::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::adobeconnect::latest_version() {
+maclib::apps::a::adobeconnect::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/adobeconnect-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::adobeconnect::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::adobeconnect::is_installed() {
+maclib::apps::a::adobeconnect::is_installed() {
   [[ -d "/Applications/adobeconnect.app" ]] || [[ -d "$HOME/Applications/adobeconnect.app" ]]
 }
 
-maclib::adobeconnect::installed_path() {
+maclib::apps::a::adobeconnect::installed_path() {
   if [[ -d "/Applications/adobeconnect.app" ]]; then
     printf '%s\n' "/Applications/adobeconnect.app"
   elif [[ -d "$HOME/Applications/adobeconnect.app" ]]; then
@@ -45,19 +45,19 @@ maclib::adobeconnect::installed_path() {
   fi
 }
 
-maclib::adobeconnect::install() {
+maclib::apps::a::adobeconnect::install() {
   # No automated installer documented for "AdobeConnectInstaller" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "adobeconnect::install: no automated installer; deploy manually"
+  maclib::core::log::error "adobeconnect::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::adobeconnect::update() {
-  maclib::log::error "adobeconnect::update: no update path"
+maclib::apps::a::adobeconnect::update() {
+  maclib::core::log::error "adobeconnect::update: no update path"
   return 127
 }
 
-maclib::adobeconnect::uninstall() {
-  maclib::log::warn "adobeconnect::uninstall: no clean uninstall"
+maclib::apps::a::adobeconnect::uninstall() {
+  maclib::core::log::warn "adobeconnect::uninstall: no clean uninstall"
   return 1
 }

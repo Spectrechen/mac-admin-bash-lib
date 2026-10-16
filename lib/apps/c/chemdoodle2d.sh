@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::chemdoodle2d::suite_installer_url() {
+maclib::apps::c::chemdoodle2d::suite_installer_url() {
   https://www.ichemlabs.com$(curl -s -L https://www.ichemlabs.com/download | grep -oE '[^"]*Doodle-[^"]*'$cpu_arch'[^"]*\.dmg' | head -1)
 }
 
-maclib::chemdoodle2d::latest_version() {
+maclib::apps::c::chemdoodle2d::latest_version() {
   sed -E 's/.*-(.*).dmg/\1/g' <<<$downloadURL
 }
 
-maclib::chemdoodle2d::is_installed() {
+maclib::apps::c::chemdoodle2d::is_installed() {
   [[ -d "/Applications/ChemDoodle.app" ]] || [[ -d "$HOME/Applications/ChemDoodle.app" ]]
 }
 
-maclib::chemdoodle2d::installed_path() {
+maclib::apps::c::chemdoodle2d::installed_path() {
   if [[ -d "/Applications/ChemDoodle.app" ]]; then
     printf "%s\n" "/Applications/ChemDoodle.app"
   elif [[ -d "$HOME/Applications/ChemDoodle.app" ]]; then
@@ -28,13 +28,13 @@ maclib::chemdoodle2d::installed_path() {
   fi
 }
 
-maclib::chemdoodle2d::install() {
+maclib::apps::c::chemdoodle2d::install() {
   local url tmp
-  url="$(maclib::chemdoodle2d::suite_installer_url)"
+  url="$(maclib::apps::c::chemdoodle2d::suite_installer_url)"
   tmp="$(mktemp -d -t "chemdoodle2d.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "chemdoodle2d::install: download failed"
+    maclib::core::log::error "chemdoodle2d::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::chemdoodle2d::install() {
   return "$rc"
 }
 
-maclib::chemdoodle2d::update() {
+maclib::apps::c::chemdoodle2d::update() {
   # No vendor update path documented for "ChemDoodle".
-  maclib::log::error "chemdoodle2d::update: no update path"
+  maclib::core::log::error "chemdoodle2d::update: no update path"
   return 127
 }
 
-maclib::chemdoodle2d::uninstall() {
+maclib::apps::c::chemdoodle2d::uninstall() {
   # No clean uninstall for "ChemDoodle" (documented constraint).
-  maclib::log::error "chemdoodle2d::uninstall: no clean uninstall"
+  maclib::core::log::error "chemdoodle2d::uninstall: no clean uninstall"
   return 1
 }

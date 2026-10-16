@@ -12,19 +12,19 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::adobebrackets::suite_installer_url() {
+maclib::apps::a::adobebrackets::suite_installer_url() {
   printf '%s\n' "https://example.com/adobebrackets-1.0.0.dmg"
 }
 
-maclib::adobebrackets::latest_version() {
+maclib::apps::a::adobebrackets::latest_version() {
   printf '%%s\n' "1.0.0"
 }
 
-maclib::adobebrackets::is_installed() {
+maclib::apps::a::adobebrackets::is_installed() {
   [[ -d "/Applications/adobebrackets.app" ]] || [[ -d "$HOME/Applications/adobebrackets.app" ]]
 }
 
-maclib::adobebrackets::installed_path() {
+maclib::apps::a::adobebrackets::installed_path() {
   if [[ -d "/Applications/adobebrackets.app" ]]; then
     printf '%s\n' "/Applications/adobebrackets.app"
   elif [[ -d "$HOME/Applications/adobebrackets.app" ]]; then
@@ -34,19 +34,19 @@ maclib::adobebrackets::installed_path() {
   fi
 }
 
-maclib::adobebrackets::install() {
+maclib::apps::a::adobebrackets::install() {
   # No automated installer documented for "None" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "adobebrackets::install: no automated installer; deploy manually"
+  maclib::core::log::error "adobebrackets::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::adobebrackets::update() {
-  maclib::log::error "adobebrackets::update: no update path"
+maclib::apps::a::adobebrackets::update() {
+  maclib::core::log::error "adobebrackets::update: no update path"
   return 127
 }
 
-maclib::adobebrackets::uninstall() {
-  maclib::log::warn "adobebrackets::uninstall: no clean uninstall"
+maclib::apps::a::adobebrackets::uninstall() {
+  maclib::core::log::warn "adobebrackets::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::azuredatastudio::suite_installer_url() {
+maclib::apps::a::azuredatastudio::suite_installer_url() {
   curl -sL https://github.com/microsoft/azuredatastudio/releases/latest | grep 'Universal' | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | head -1
 }
 
-maclib::azuredatastudio::latest_version() {
+maclib::apps::a::azuredatastudio::latest_version() {
   versionFromGit microsoft azuredatastudio
 }
 
-maclib::azuredatastudio::is_installed() {
+maclib::apps::a::azuredatastudio::is_installed() {
   [[ -d "/Applications/AzureDataStudio.app" ]] || [[ -d "$HOME/Applications/AzureDataStudio.app" ]]
 }
 
-maclib::azuredatastudio::installed_path() {
+maclib::apps::a::azuredatastudio::installed_path() {
   if [[ -d "/Applications/AzureDataStudio.app" ]]; then
     printf "%s\n" "/Applications/AzureDataStudio.app"
   elif [[ -d "$HOME/Applications/AzureDataStudio.app" ]]; then
@@ -28,13 +28,13 @@ maclib::azuredatastudio::installed_path() {
   fi
 }
 
-maclib::azuredatastudio::install() {
+maclib::apps::a::azuredatastudio::install() {
   local url tmp
-  url="$(maclib::azuredatastudio::suite_installer_url)"
+  url="$(maclib::apps::a::azuredatastudio::suite_installer_url)"
   tmp="$(mktemp -d -t "azuredatastudio.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "azuredatastudio::install: download failed"
+    maclib::core::log::error "azuredatastudio::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::azuredatastudio::install() {
   return "$rc"
 }
 
-maclib::azuredatastudio::update() {
+maclib::apps::a::azuredatastudio::update() {
   # No vendor update path documented for "Azure Data Studio".
-  maclib::log::error "azuredatastudio::update: no update path"
+  maclib::core::log::error "azuredatastudio::update: no update path"
   return 127
 }
 
-maclib::azuredatastudio::uninstall() {
+maclib::apps::a::azuredatastudio::uninstall() {
   # No clean uninstall for "Azure Data Studio" (documented constraint).
-  maclib::log::error "azuredatastudio::uninstall: no clean uninstall"
+  maclib::core::log::error "azuredatastudio::uninstall: no clean uninstall"
   return 1
 }

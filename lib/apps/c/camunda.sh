@@ -8,21 +8,21 @@
 # Installer type: "dmg".
 #
 
-maclib::camunda::suite_installer_url() {
+maclib::apps::c::camunda::suite_installer_url() {
   curl -fs https://camunda.com/download/modeler/ | sed -n 's/.*href="\([^"]*\)".*/\1/p' | grep x64.dmg
 }
 
-maclib::camunda::latest_version() {
+maclib::apps::c::camunda::latest_version() {
   local downloadURL
   downloadURL="$(curl -fs https://camunda.com/download/modeler/ | sed -n 's/.*href="\([^"]*\)".*/\1/p' | grep x64.dmg)"
   echo "${downloadURL}" | sed 's/.*release\/camunda-modeler\/\([^\/]*\)\/camunda-modeler-.*/\1/'
 }
 
-maclib::camunda::is_installed() {
+maclib::apps::c::camunda::is_installed() {
   [[ -d "/Applications/CamundaModeler.app" ]] || [[ -d "$HOME/Applications/CamundaModeler.app" ]]
 }
 
-maclib::camunda::installed_path() {
+maclib::apps::c::camunda::installed_path() {
   if [[ -d "/Applications/CamundaModeler.app" ]]; then
     printf "%s\n" "/Applications/CamundaModeler.app"
   elif [[ -d "$HOME/Applications/CamundaModeler.app" ]]; then
@@ -30,13 +30,13 @@ maclib::camunda::installed_path() {
   fi
 }
 
-maclib::camunda::install() {
+maclib::apps::c::camunda::install() {
   local url tmp
-  url="$(maclib::camunda::suite_installer_url)"
+  url="$(maclib::apps::c::camunda::suite_installer_url)"
   tmp="$(mktemp -d -t "camunda.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "camunda::install: download failed"
+    maclib::core::log::error "camunda::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -51,14 +51,14 @@ maclib::camunda::install() {
   return "$rc"
 }
 
-maclib::camunda::update() {
+maclib::apps::c::camunda::update() {
   # No vendor update path documented for "Camunda Modeler".
-  maclib::log::error "camunda::update: no update path"
+  maclib::core::log::error "camunda::update: no update path"
   return 127
 }
 
-maclib::camunda::uninstall() {
+maclib::apps::c::camunda::uninstall() {
   # No clean uninstall for "Camunda Modeler" (documented constraint).
-  maclib::log::error "camunda::uninstall: no clean uninstall"
+  maclib::core::log::error "camunda::uninstall: no clean uninstall"
   return 1
 }

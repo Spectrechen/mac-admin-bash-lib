@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::4kvideodownloaderplus::suite_installer_url() {
+maclib::apps::4::4kvideodownloaderplus::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/4kvideodownloaderplus-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::4kvideodownloaderplus::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::4kvideodownloaderplus::latest_version() {
+maclib::apps::4::4kvideodownloaderplus::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/4kvideodownloaderplus-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::4kvideodownloaderplus::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::4kvideodownloaderplus::is_installed() {
+maclib::apps::4::4kvideodownloaderplus::is_installed() {
   [[ -d "/Applications/4kvideodownloaderplus.app" ]] || [[ -d "$HOME/Applications/4kvideodownloaderplus.app" ]]
 }
 
-maclib::4kvideodownloaderplus::installed_path() {
+maclib::apps::4::4kvideodownloaderplus::installed_path() {
   if [[ -d "/Applications/4kvideodownloaderplus.app" ]]; then
     printf '%s\n' "/Applications/4kvideodownloaderplus.app"
   elif [[ -d "$HOME/Applications/4kvideodownloaderplus.app" ]]; then
@@ -45,19 +45,19 @@ maclib::4kvideodownloaderplus::installed_path() {
   fi
 }
 
-maclib::4kvideodownloaderplus::install() {
+maclib::apps::4::4kvideodownloaderplus::install() {
   # No automated installer documented for "4K Video Downloader+" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "4kvideodownloaderplus::install: no automated installer; deploy manually"
+  maclib::core::log::error "4kvideodownloaderplus::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::4kvideodownloaderplus::update() {
-  maclib::log::error "4kvideodownloaderplus::update: no update path"
+maclib::apps::4::4kvideodownloaderplus::update() {
+  maclib::core::log::error "4kvideodownloaderplus::update: no update path"
   return 127
 }
 
-maclib::4kvideodownloaderplus::uninstall() {
-  maclib::log::warn "4kvideodownloaderplus::uninstall: no clean uninstall"
+maclib::apps::4::4kvideodownloaderplus::uninstall() {
+  maclib::core::log::warn "4kvideodownloaderplus::uninstall: no clean uninstall"
   return 1
 }

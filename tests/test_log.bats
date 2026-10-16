@@ -6,13 +6,13 @@ setup() {
 }
 
 @test "log level filters debug when set to info" {
-  run bash -c 'source lib/core/log.sh; maclib::log::set_level info; maclib::log::debug "x"'
+  run bash -c 'source lib/core/log.sh; maclib::core::log::set_level info; maclib::core::log::debug "x"'
   [ "$status" -eq 0 ]
   [ -z "$output" ]
 }
 
 @test "warn goes to stderr" {
-  run bash -c 'source lib/core/log.sh; maclib::log::set_level debug; maclib::log::warn "hello" 2>&1 1>/dev/null'
+  run bash -c 'source lib/core/log.sh; maclib::core::log::set_level debug; maclib::core::log::warn "hello" 2>&1 1>/dev/null'
   [ "$status" -eq 0 ]
   [[ "$output" == *"[WARN] hello"* ]]
 }

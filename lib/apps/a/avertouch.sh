@@ -8,21 +8,21 @@
 # Installer type: "zip".
 #
 
-maclib::avertouch::suite_installer_url() {
+maclib::apps::a::avertouch::suite_installer_url() {
   local appNewVersion
   appNewVersion=curl -s "https://www.averusa.com/education/support/avertouch" | xmllint --html --xpath 'substring-after(string(//a[@class="dl-avertouch-mac"]/@href), "AVerTouch_mac_v")' - 2>/dev/null | sed 's/\.zip$//'
   https://www.averusa.com/education/downloads/AVerTouch_mac_v${appNewVersion}.zip
 }
 
-maclib::avertouch::latest_version() {
+maclib::apps::a::avertouch::latest_version() {
   curl -s "https://www.averusa.com/education/support/avertouch" | xmllint --html --xpath 'substring-after(string(//a[@class="dl-avertouch-mac"]/@href), "AVerTouch_mac_v")' - 2>/dev/null | sed 's/\.zip$//'
 }
 
-maclib::avertouch::is_installed() {
+maclib::apps::a::avertouch::is_installed() {
   [[ -d "/Applications/AverTouch.app" ]] || [[ -d "$HOME/Applications/AverTouch.app" ]]
 }
 
-maclib::avertouch::installed_path() {
+maclib::apps::a::avertouch::installed_path() {
   if [[ -d "/Applications/AverTouch.app" ]]; then
     printf "%s\n" "/Applications/AverTouch.app"
   elif [[ -d "$HOME/Applications/AverTouch.app" ]]; then
@@ -30,13 +30,13 @@ maclib::avertouch::installed_path() {
   fi
 }
 
-maclib::avertouch::install() {
+maclib::apps::a::avertouch::install() {
   local url tmp
-  url="$(maclib::avertouch::suite_installer_url)"
+  url="$(maclib::apps::a::avertouch::suite_installer_url)"
   tmp="$(mktemp -d -t "avertouch.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "avertouch::install: download failed"
+    maclib::core::log::error "avertouch::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -51,14 +51,14 @@ maclib::avertouch::install() {
   return "$rc"
 }
 
-maclib::avertouch::update() {
+maclib::apps::a::avertouch::update() {
   # No vendor update path documented for "AverTouch".
-  maclib::log::error "avertouch::update: no update path"
+  maclib::core::log::error "avertouch::update: no update path"
   return 127
 }
 
-maclib::avertouch::uninstall() {
+maclib::apps::a::avertouch::uninstall() {
   # No clean uninstall for "AverTouch" (documented constraint).
-  maclib::log::error "avertouch::uninstall: no clean uninstall"
+  maclib::core::log::error "avertouch::uninstall: no clean uninstall"
   return 1
 }

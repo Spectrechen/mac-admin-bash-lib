@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::baseline-nodaemon::suite_installer_url() {
+maclib::apps::b::baseline-nodaemon::suite_installer_url() {
   downloadURLFromGit secondsonconsulting Baseline
 }
 
-maclib::baseline-nodaemon::latest_version() {
+maclib::apps::b::baseline-nodaemon::latest_version() {
   printf '%s\n' 'https://github.com/secondsonconsulting/Baseline/releases/latest/download/Baseline.pkg'
 }
 
-maclib::baseline-nodaemon::is_installed() {
+maclib::apps::b::baseline-nodaemon::is_installed() {
   [[ -d "/Applications/Baseline.app" ]] || [[ -d "$HOME/Applications/Baseline.app" ]]
 }
 
-maclib::baseline-nodaemon::installed_path() {
+maclib::apps::b::baseline-nodaemon::installed_path() {
   if [[ -d "/Applications/Baseline.app" ]]; then
     printf "%s\n" "/Applications/Baseline.app"
   elif [[ -d "$HOME/Applications/Baseline.app" ]]; then
@@ -28,13 +28,13 @@ maclib::baseline-nodaemon::installed_path() {
   fi
 }
 
-maclib::baseline-nodaemon::install() {
+maclib::apps::b::baseline-nodaemon::install() {
   local url tmp
-  url="$(maclib::baseline-nodaemon::suite_installer_url)"
+  url="$(maclib::apps::b::baseline-nodaemon::suite_installer_url)"
   tmp="$(mktemp -d -t "baseline-nodaemon.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "baseline-nodaemon::install: download failed"
+    maclib::core::log::error "baseline-nodaemon::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::baseline-nodaemon::install() {
   return "$rc"
 }
 
-maclib::baseline-nodaemon::update() {
+maclib::apps::b::baseline-nodaemon::update() {
   # No vendor update path documented for "Baseline".
-  maclib::log::error "baseline-nodaemon::update: no update path"
+  maclib::core::log::error "baseline-nodaemon::update: no update path"
   return 127
 }
 
-maclib::baseline-nodaemon::uninstall() {
+maclib::apps::b::baseline-nodaemon::uninstall() {
   # No clean uninstall for "Baseline" (documented constraint).
-  maclib::log::error "baseline-nodaemon::uninstall: no clean uninstall"
+  maclib::core::log::error "baseline-nodaemon::uninstall: no clean uninstall"
   return 1
 }

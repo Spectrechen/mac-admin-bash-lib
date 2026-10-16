@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::anastasiysextensionmanager::suite_installer_url() {
+maclib::apps::a::anastasiysextensionmanager::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/anastasiysextensionmanager-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::anastasiysextensionmanager::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::anastasiysextensionmanager::latest_version() {
+maclib::apps::a::anastasiysextensionmanager::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/anastasiysextensionmanager-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::anastasiysextensionmanager::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::anastasiysextensionmanager::is_installed() {
+maclib::apps::a::anastasiysextensionmanager::is_installed() {
   [[ -d "/Applications/anastasiysextensionmanager.app" ]] || [[ -d "$HOME/Applications/anastasiysextensionmanager.app" ]]
 }
 
-maclib::anastasiysextensionmanager::installed_path() {
+maclib::apps::a::anastasiysextensionmanager::installed_path() {
   if [[ -d "/Applications/anastasiysextensionmanager.app" ]]; then
     printf '%s\n' "/Applications/anastasiysextensionmanager.app"
   elif [[ -d "$HOME/Applications/anastasiysextensionmanager.app" ]]; then
@@ -45,19 +45,19 @@ maclib::anastasiysextensionmanager::installed_path() {
   fi
 }
 
-maclib::anastasiysextensionmanager::install() {
+maclib::apps::a::anastasiysextensionmanager::install() {
   # No automated installer documented for "ExtensionManager" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "anastasiysextensionmanager::install: no automated installer; deploy manually"
+  maclib::core::log::error "anastasiysextensionmanager::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::anastasiysextensionmanager::update() {
-  maclib::log::error "anastasiysextensionmanager::update: no update path"
+maclib::apps::a::anastasiysextensionmanager::update() {
+  maclib::core::log::error "anastasiysextensionmanager::update: no update path"
   return 127
 }
 
-maclib::anastasiysextensionmanager::uninstall() {
-  maclib::log::warn "anastasiysextensionmanager::uninstall: no clean uninstall"
+maclib::apps::a::anastasiysextensionmanager::uninstall() {
+  maclib::core::log::warn "anastasiysextensionmanager::uninstall: no clean uninstall"
   return 1
 }

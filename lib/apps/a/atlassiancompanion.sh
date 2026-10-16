@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::atlassiancompanion::suite_installer_url() {
+maclib::apps::a::atlassiancompanion::suite_installer_url() {
   curl -fsL https://confluence.atlassian.com/display/DOC/Install+Atlassian+Companion | sed -nE 's/.*(https:.*\.dmg)\".*/\1/p'
 }
 
-maclib::atlassiancompanion::latest_version() {
+maclib::apps::a::atlassiancompanion::latest_version() {
   getJSONValue "$(curl -fsL https://update-nucleus.atlassian.com/Atlassian-Companion/291cb34fe2296e5fb82b83a04704c9b4/darwin/x64/RELEASES.json)" "currentRelease"
 }
 
-maclib::atlassiancompanion::is_installed() {
+maclib::apps::a::atlassiancompanion::is_installed() {
   [[ -d "/Applications/AtlassianCompanion.app" ]] || [[ -d "$HOME/Applications/AtlassianCompanion.app" ]]
 }
 
-maclib::atlassiancompanion::installed_path() {
+maclib::apps::a::atlassiancompanion::installed_path() {
   if [[ -d "/Applications/AtlassianCompanion.app" ]]; then
     printf "%s\n" "/Applications/AtlassianCompanion.app"
   elif [[ -d "$HOME/Applications/AtlassianCompanion.app" ]]; then
@@ -28,13 +28,13 @@ maclib::atlassiancompanion::installed_path() {
   fi
 }
 
-maclib::atlassiancompanion::install() {
+maclib::apps::a::atlassiancompanion::install() {
   local url tmp
-  url="$(maclib::atlassiancompanion::suite_installer_url)"
+  url="$(maclib::apps::a::atlassiancompanion::suite_installer_url)"
   tmp="$(mktemp -d -t "atlassiancompanion.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "atlassiancompanion::install: download failed"
+    maclib::core::log::error "atlassiancompanion::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::atlassiancompanion::install() {
   return "$rc"
 }
 
-maclib::atlassiancompanion::update() {
+maclib::apps::a::atlassiancompanion::update() {
   # No vendor update path documented for "Atlassian Companion".
-  maclib::log::error "atlassiancompanion::update: no update path"
+  maclib::core::log::error "atlassiancompanion::update: no update path"
   return 127
 }
 
-maclib::atlassiancompanion::uninstall() {
+maclib::apps::a::atlassiancompanion::uninstall() {
   # No clean uninstall for "Atlassian Companion" (documented constraint).
-  maclib::log::error "atlassiancompanion::uninstall: no clean uninstall"
+  maclib::core::log::error "atlassiancompanion::uninstall: no clean uninstall"
   return 1
 }

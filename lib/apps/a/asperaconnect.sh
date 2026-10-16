@@ -8,19 +8,19 @@
 # Installer type: "module"' | grep -o "/.*.js").
 #
 
-maclib::asperaconnect::suite_installer_url() {
+maclib::apps::a::asperaconnect::suite_installer_url() {
   ${downloadBaseUrl}/latest/$(echo ${appInfo} | jq -r '.entries.[] | select(.title == "Aspera Connect for macOS").links.[] | select(.rel == "enclosure-one-click").href')
 }
 
-maclib::asperaconnect::latest_version() {
+maclib::apps::a::asperaconnect::latest_version() {
   echo ${appInfo} | jq -r '.entries.[] | select(.title == "Aspera Connect for macOS") | .version' | awk -F "." '{print$1"."$2"."$3}'
 }
 
-maclib::asperaconnect::is_installed() {
+maclib::apps::a::asperaconnect::is_installed() {
   [[ -d "/Applications/AsperaConnect.app" ]] || [[ -d "$HOME/Applications/AsperaConnect.app" ]]
 }
 
-maclib::asperaconnect::installed_path() {
+maclib::apps::a::asperaconnect::installed_path() {
   if [[ -d "/Applications/AsperaConnect.app" ]]; then
     printf "%s\n" "/Applications/AsperaConnect.app"
   elif [[ -d "$HOME/Applications/AsperaConnect.app" ]]; then
@@ -28,13 +28,13 @@ maclib::asperaconnect::installed_path() {
   fi
 }
 
-maclib::asperaconnect::install() {
+maclib::apps::a::asperaconnect::install() {
   local url tmp
-  url="$(maclib::asperaconnect::suite_installer_url)"
+  url="$(maclib::apps::a::asperaconnect::suite_installer_url)"
   tmp="$(mktemp -d -t "asperaconnect.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "asperaconnect::install: download failed"
+    maclib::core::log::error "asperaconnect::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::asperaconnect::install() {
   return "$rc"
 }
 
-maclib::asperaconnect::update() {
+maclib::apps::a::asperaconnect::update() {
   # No vendor update path documented for "Aspera Connect".
-  maclib::log::error "asperaconnect::update: no update path"
+  maclib::core::log::error "asperaconnect::update: no update path"
   return 127
 }
 
-maclib::asperaconnect::uninstall() {
+maclib::apps::a::asperaconnect::uninstall() {
   # No clean uninstall for "Aspera Connect" (documented constraint).
-  maclib::log::error "asperaconnect::uninstall: no clean uninstall"
+  maclib::core::log::error "asperaconnect::uninstall: no clean uninstall"
   return 1
 }

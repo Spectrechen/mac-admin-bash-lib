@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::brosix::suite_installer_url() {
+maclib::apps::b::brosix::suite_installer_url() {
   printf '%s\n' 'https://www.brosix.com/downloads/builds/official/Brosix.pkg'
 }
 
-maclib::brosix::latest_version() {
+maclib::apps::b::brosix::latest_version() {
   printf '%s\n' ''
 }
 
-maclib::brosix::is_installed() {
+maclib::apps::b::brosix::is_installed() {
   [[ -d "/Applications/Brosix.app" ]] || [[ -d "$HOME/Applications/Brosix.app" ]]
 }
 
-maclib::brosix::installed_path() {
+maclib::apps::b::brosix::installed_path() {
   if [[ -d "/Applications/Brosix.app" ]]; then
     printf "%s\n" "/Applications/Brosix.app"
   elif [[ -d "$HOME/Applications/Brosix.app" ]]; then
@@ -28,13 +28,13 @@ maclib::brosix::installed_path() {
   fi
 }
 
-maclib::brosix::install() {
+maclib::apps::b::brosix::install() {
   local url tmp
-  url="$(maclib::brosix::suite_installer_url)"
+  url="$(maclib::apps::b::brosix::suite_installer_url)"
   tmp="$(mktemp -d -t "brosix.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "brosix::install: download failed"
+    maclib::core::log::error "brosix::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::brosix::install() {
   return "$rc"
 }
 
-maclib::brosix::update() {
+maclib::apps::b::brosix::update() {
   # No vendor update path documented for "Brosix".
-  maclib::log::error "brosix::update: no update path"
+  maclib::core::log::error "brosix::update: no update path"
   return 127
 }
 
-maclib::brosix::uninstall() {
+maclib::apps::b::brosix::uninstall() {
   # No clean uninstall for "Brosix" (documented constraint).
-  maclib::log::error "brosix::uninstall: no clean uninstall"
+  maclib::core::log::error "brosix::uninstall: no clean uninstall"
   return 1
 }

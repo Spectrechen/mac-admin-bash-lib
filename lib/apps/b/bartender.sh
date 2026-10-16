@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bartender::suite_installer_url() {
+maclib::apps::b::bartender::suite_installer_url() {
   printf '%s\n' 'https://www.macbartender.com/B2/updates/B4Latest/Bartender%204.dmg'
 }
 
-maclib::bartender::latest_version() {
+maclib::apps::b::bartender::latest_version() {
   printf '%s\n' ''
 }
 
-maclib::bartender::is_installed() {
+maclib::apps::b::bartender::is_installed() {
   [[ -d "/Applications/Bartender4.app" ]] || [[ -d "$HOME/Applications/Bartender4.app" ]]
 }
 
-maclib::bartender::installed_path() {
+maclib::apps::b::bartender::installed_path() {
   if [[ -d "/Applications/Bartender4.app" ]]; then
     printf "%s\n" "/Applications/Bartender4.app"
   elif [[ -d "$HOME/Applications/Bartender4.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bartender::installed_path() {
   fi
 }
 
-maclib::bartender::install() {
+maclib::apps::b::bartender::install() {
   local url tmp
-  url="$(maclib::bartender::suite_installer_url)"
+  url="$(maclib::apps::b::bartender::suite_installer_url)"
   tmp="$(mktemp -d -t "bartender.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bartender::install: download failed"
+    maclib::core::log::error "bartender::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bartender::install() {
   return "$rc"
 }
 
-maclib::bartender::update() {
+maclib::apps::b::bartender::update() {
   # No vendor update path documented for "Bartender 4".
-  maclib::log::error "bartender::update: no update path"
+  maclib::core::log::error "bartender::update: no update path"
   return 127
 }
 
-maclib::bartender::uninstall() {
+maclib::apps::b::bartender::uninstall() {
   # No clean uninstall for "Bartender 4" (documented constraint).
-  maclib::log::error "bartender::uninstall: no clean uninstall"
+  maclib::core::log::error "bartender::uninstall: no clean uninstall"
   return 1
 }

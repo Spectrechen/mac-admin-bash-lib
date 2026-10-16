@@ -11,7 +11,7 @@
 # Signal's latest-mac.yml lists relative file names (e.g.
 #   signal-desktop-mac-universal-8.24.1.dmg); Installomator prepends the
 #   https://updates.signal.org/desktop/ base.
-maclib::signal::url() {
+maclib::communication::signal::url() {
   local url file
   file="$(curl -fs 'https://updates.signal.org/desktop/latest-mac.yml' 2>/dev/null \
     | awk '/url/ && /dmg/ {print $3}' | grep -i universal | head -n1)"
@@ -21,7 +21,7 @@ maclib::signal::url() {
 
 # Print the current Signal build version.
 # Reads the version from the latest-mac.yml manifest.
-maclib::signal::latest_version() {
+maclib::communication::signal::latest_version() {
   local version
   version="$(curl -fs 'https://updates.signal.org/desktop/latest-mac.yml' 2>/dev/null | grep -E '^version:' | awk '{print $2}' | head -n1)"
   [[ -n "$version" ]] || return 1
@@ -29,12 +29,12 @@ maclib::signal::latest_version() {
 }
 
 # Return 0 if the Signal app bundle is installed.
-maclib::signal::is_installed() {
+maclib::communication::signal::is_installed() {
   [[ -d "/Applications/Signal.app" ]] || [[ -d "$HOME/Applications/Signal.app" ]]
 }
 
 # Print the path to the Signal app bundle if present.
-maclib::signal::installed_path() {
+maclib::communication::signal::installed_path() {
   if [[ -d "/Applications/Signal.app" ]]; then
     printf '%s\n' "/Applications/Signal.app"
   elif [[ -d "$HOME/Applications/Signal.app" ]]; then
@@ -44,9 +44,9 @@ maclib::signal::installed_path() {
 
 # Download the Signal disk image, mount it and copy the app bundle to
 # /Applications (requires root).
-maclib::signal::install() {
+maclib::communication::signal::install() {
   local url dmg mount
-  url="$(maclib::signal::url)"
+  url="$(maclib::communication::signal::url)"
   [[ -n "$url" ]] || return 1
   dmg="$(mktemp -t "signal_install.XXXXXX.dmg")" || return 1
   mount="$(mktemp -d /tmp/signal_dmg.XXXXXX)" || {
@@ -55,11 +55,11 @@ maclib::signal::install() {
   }
   trap 'rm -f "$dmg"; rm -rf "$mount"' RETURN
   if ! curl -fsL "$url" -o "$dmg" 2>/dev/null; then
-    maclib::log::error "signal::install: failed to download disk image"
+    maclib::core::log::error "signal::install: failed to download disk image"
     return 1
   fi
   if ! hdiutil attach "$dmg" -nobrowse -mountpoint "$mount" 2>/dev/null; then
-    maclib::log::error "signal::install: failed to mount disk image"
+    maclib::core::log::error "signal::install: failed to mount disk image"
     return 1
   fi
   local app
@@ -71,7 +71,7 @@ maclib::signal::install() {
     return "$rc"
   fi
   hdiutil detach "$mount" >/dev/null 2>&1
-  maclib::log::error "signal::install: no .app found in disk image"
+  maclib::core::log::error "signal::install: no .app found in disk image"
   return 1
 }
 

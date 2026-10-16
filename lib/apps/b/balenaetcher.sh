@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::balenaetcher::suite_installer_url() {
+maclib::apps::b::balenaetcher::suite_installer_url() {
   downloadURLFromGit balena-io etcher
 }
 
-maclib::balenaetcher::latest_version() {
+maclib::apps::b::balenaetcher::latest_version() {
   versionFromGit balena-io etcher
 }
 
-maclib::balenaetcher::is_installed() {
+maclib::apps::b::balenaetcher::is_installed() {
   [[ -d "/Applications/balenaEtcher.app" ]] || [[ -d "$HOME/Applications/balenaEtcher.app" ]]
 }
 
-maclib::balenaetcher::installed_path() {
+maclib::apps::b::balenaetcher::installed_path() {
   if [[ -d "/Applications/balenaEtcher.app" ]]; then
     printf "%s\n" "/Applications/balenaEtcher.app"
   elif [[ -d "$HOME/Applications/balenaEtcher.app" ]]; then
@@ -28,13 +28,13 @@ maclib::balenaetcher::installed_path() {
   fi
 }
 
-maclib::balenaetcher::install() {
+maclib::apps::b::balenaetcher::install() {
   local url tmp
-  url="$(maclib::balenaetcher::suite_installer_url)"
+  url="$(maclib::apps::b::balenaetcher::suite_installer_url)"
   tmp="$(mktemp -d -t "balenaetcher.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "balenaetcher::install: download failed"
+    maclib::core::log::error "balenaetcher::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::balenaetcher::install() {
   return "$rc"
 }
 
-maclib::balenaetcher::update() {
+maclib::apps::b::balenaetcher::update() {
   # No vendor update path documented for "balenaEtcher".
-  maclib::log::error "balenaetcher::update: no update path"
+  maclib::core::log::error "balenaetcher::update: no update path"
   return 127
 }
 
-maclib::balenaetcher::uninstall() {
+maclib::apps::b::balenaetcher::uninstall() {
   # No clean uninstall for "balenaEtcher" (documented constraint).
-  maclib::log::error "balenaetcher::uninstall: no clean uninstall"
+  maclib::core::log::error "balenaetcher::uninstall: no clean uninstall"
   return 1
 }

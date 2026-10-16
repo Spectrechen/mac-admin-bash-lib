@@ -8,13 +8,13 @@
 #   Source: Installomator `chatgpt` label.
 
 # Print the ChatGPT installer disk-image URL (Apple Silicon).
-maclib::chatgpt::url() {
+maclib::ai::chatgpt::url() {
   printf '%s\n' 'https://persistent.oaistatic.com/sidekick/public/ChatGPT_Desktop_public_latest.dmg'
 }
 
 # Print the current ChatGPT build version.
 # Reads the version from the public appcast title.
-maclib::chatgpt::latest_version() {
+maclib::ai::chatgpt::latest_version() {
   local html version
   html="$(curl -fs 'https://persistent.oaistatic.com/sidekick/public/sparkle_public_appcast.xml' 2>/dev/null)"
   [[ -n "$html" ]] || return 1
@@ -24,12 +24,12 @@ maclib::chatgpt::latest_version() {
 }
 
 # Return 0 if the ChatGPT app bundle is installed.
-maclib::chatgpt::is_installed() {
+maclib::ai::chatgpt::is_installed() {
   [[ -d "/Applications/ChatGPT.app" ]] || [[ -d "$HOME/Applications/ChatGPT.app" ]]
 }
 
 # Print the path to the ChatGPT app bundle if present.
-maclib::chatgpt::installed_path() {
+maclib::ai::chatgpt::installed_path() {
   if [[ -d "/Applications/ChatGPT.app" ]]; then
     printf '%s\n' "/Applications/ChatGPT.app"
   elif [[ -d "$HOME/Applications/ChatGPT.app" ]]; then
@@ -39,9 +39,9 @@ maclib::chatgpt::installed_path() {
 
 # Download the ChatGPT disk image, mount it and copy the app bundle to
 # /Applications (requires root).
-maclib::chatgpt::install() {
+maclib::ai::chatgpt::install() {
   local url dmg mount
-  url="$(maclib::chatgpt::url)"
+  url="$(maclib::ai::chatgpt::url)"
   dmg="$(mktemp -t "chatgpt_install.XXXXXX.dmg")" || return 1
   mount="$(mktemp -d /tmp/chatgpt_dmg.XXXXXX)" || {
     rm -f "$dmg"
@@ -49,11 +49,11 @@ maclib::chatgpt::install() {
   }
   trap 'rm -f "$dmg"; rm -rf "$mount"' RETURN
   if ! curl -fsL "$url" -o "$dmg" 2>/dev/null; then
-    maclib::log::error "chatgpt::install: failed to download disk image"
+    maclib::core::log::error "chatgpt::install: failed to download disk image"
     return 1
   fi
   if ! hdiutil attach "$dmg" -nobrowse -mountpoint "$mount" 2>/dev/null; then
-    maclib::log::error "chatgpt::install: failed to mount disk image"
+    maclib::core::log::error "chatgpt::install: failed to mount disk image"
     return 1
   fi
   local app
@@ -65,7 +65,7 @@ maclib::chatgpt::install() {
     return "$rc"
   fi
   hdiutil detach "$mount" >/dev/null 2>&1
-  maclib::log::error "chatgpt::install: no .app found in disk image"
+  maclib::core::log::error "chatgpt::install: no .app found in disk image"
   return 1
 }
 

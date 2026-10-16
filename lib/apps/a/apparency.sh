@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::apparency::suite_installer_url() {
+maclib::apps::a::apparency::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/apparency-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::apparency::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::apparency::latest_version() {
+maclib::apps::a::apparency::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/apparency-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::apparency::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::apparency::is_installed() {
+maclib::apps::a::apparency::is_installed() {
   [[ -d "/Applications/apparency.app" ]] || [[ -d "$HOME/Applications/apparency.app" ]]
 }
 
-maclib::apparency::installed_path() {
+maclib::apps::a::apparency::installed_path() {
   if [[ -d "/Applications/apparency.app" ]]; then
     printf '%s\n' "/Applications/apparency.app"
   elif [[ -d "$HOME/Applications/apparency.app" ]]; then
@@ -45,19 +45,19 @@ maclib::apparency::installed_path() {
   fi
 }
 
-maclib::apparency::install() {
+maclib::apps::a::apparency::install() {
   # No automated installer documented for "Apparency" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "apparency::install: no automated installer; deploy manually"
+  maclib::core::log::error "apparency::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::apparency::update() {
-  maclib::log::error "apparency::update: no update path"
+maclib::apps::a::apparency::update() {
+  maclib::core::log::error "apparency::update: no update path"
   return 127
 }
 
-maclib::apparency::uninstall() {
-  maclib::log::warn "apparency::uninstall: no clean uninstall"
+maclib::apps::a::apparency::uninstall() {
+  maclib::core::log::warn "apparency::uninstall: no clean uninstall"
   return 1
 }

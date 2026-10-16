@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::chatwork::suite_installer_url() {
+maclib::apps::c::chatwork::suite_installer_url() {
   printf '%s\n' 'https://desktop-app.chatwork.com/installer/Chatwork.dmg'
 }
 
-maclib::chatwork::latest_version() {
+maclib::apps::c::chatwork::latest_version() {
   printf '%s\n' ''
 }
 
-maclib::chatwork::is_installed() {
+maclib::apps::c::chatwork::is_installed() {
   [[ -d "/Applications/Chatwork.app" ]] || [[ -d "$HOME/Applications/Chatwork.app" ]]
 }
 
-maclib::chatwork::installed_path() {
+maclib::apps::c::chatwork::installed_path() {
   if [[ -d "/Applications/Chatwork.app" ]]; then
     printf "%s\n" "/Applications/Chatwork.app"
   elif [[ -d "$HOME/Applications/Chatwork.app" ]]; then
@@ -28,13 +28,13 @@ maclib::chatwork::installed_path() {
   fi
 }
 
-maclib::chatwork::install() {
+maclib::apps::c::chatwork::install() {
   local url tmp
-  url="$(maclib::chatwork::suite_installer_url)"
+  url="$(maclib::apps::c::chatwork::suite_installer_url)"
   tmp="$(mktemp -d -t "chatwork.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "chatwork::install: download failed"
+    maclib::core::log::error "chatwork::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::chatwork::install() {
   return "$rc"
 }
 
-maclib::chatwork::update() {
+maclib::apps::c::chatwork::update() {
   # No vendor update path documented for "Chatwork".
-  maclib::log::error "chatwork::update: no update path"
+  maclib::core::log::error "chatwork::update: no update path"
   return 127
 }
 
-maclib::chatwork::uninstall() {
+maclib::apps::c::chatwork::uninstall() {
   # No clean uninstall for "Chatwork" (documented constraint).
-  maclib::log::error "chatwork::uninstall: no clean uninstall"
+  maclib::core::log::error "chatwork::uninstall: no clean uninstall"
   return 1
 }

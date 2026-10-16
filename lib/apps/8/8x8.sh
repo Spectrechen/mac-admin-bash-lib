@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::8x8::suite_installer_url() {
+maclib::apps::8::8x8::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/8x8-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::8x8::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::8x8::latest_version() {
+maclib::apps::8::8x8::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/8x8-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::8x8::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::8x8::is_installed() {
+maclib::apps::8::8x8::is_installed() {
   [[ -d "/Applications/8x8.app" ]] || [[ -d "$HOME/Applications/8x8.app" ]]
 }
 
-maclib::8x8::installed_path() {
+maclib::apps::8::8x8::installed_path() {
   if [[ -d "/Applications/8x8.app" ]]; then
     printf '%s\n' "/Applications/8x8.app"
   elif [[ -d "$HOME/Applications/8x8.app" ]]; then
@@ -45,19 +45,19 @@ maclib::8x8::installed_path() {
   fi
 }
 
-maclib::8x8::install() {
+maclib::apps::8::8x8::install() {
   # No automated installer documented for "8x8 Work" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "8x8::install: no automated installer; deploy manually"
+  maclib::core::log::error "8x8::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::8x8::update() {
-  maclib::log::error "8x8::update: no update path"
+maclib::apps::8::8x8::update() {
+  maclib::core::log::error "8x8::update: no update path"
   return 127
 }
 
-maclib::8x8::uninstall() {
-  maclib::log::warn "8x8::uninstall: no clean uninstall"
+maclib::apps::8::8x8::uninstall() {
+  maclib::core::log::warn "8x8::uninstall: no clean uninstall"
   return 1
 }

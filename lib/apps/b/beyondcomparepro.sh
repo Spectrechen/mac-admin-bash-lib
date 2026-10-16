@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::beyondcomparepro::suite_installer_url() {
+maclib::apps::b::beyondcomparepro::suite_installer_url() {
   echo "${updateFeed}" | xpath 'string(/Update/@download)' 2>/dev/null
 }
 
-maclib::beyondcomparepro::latest_version() {
+maclib::apps::b::beyondcomparepro::latest_version() {
   ${rawVersion// build /.}
 }
 
-maclib::beyondcomparepro::is_installed() {
+maclib::apps::b::beyondcomparepro::is_installed() {
   [[ -d "/Applications/BeyondCompare.app" ]] || [[ -d "$HOME/Applications/BeyondCompare.app" ]]
 }
 
-maclib::beyondcomparepro::installed_path() {
+maclib::apps::b::beyondcomparepro::installed_path() {
   if [[ -d "/Applications/BeyondCompare.app" ]]; then
     printf "%s\n" "/Applications/BeyondCompare.app"
   elif [[ -d "$HOME/Applications/BeyondCompare.app" ]]; then
@@ -28,13 +28,13 @@ maclib::beyondcomparepro::installed_path() {
   fi
 }
 
-maclib::beyondcomparepro::install() {
+maclib::apps::b::beyondcomparepro::install() {
   local url tmp
-  url="$(maclib::beyondcomparepro::suite_installer_url)"
+  url="$(maclib::apps::b::beyondcomparepro::suite_installer_url)"
   tmp="$(mktemp -d -t "beyondcomparepro.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "beyondcomparepro::install: download failed"
+    maclib::core::log::error "beyondcomparepro::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::beyondcomparepro::install() {
   return "$rc"
 }
 
-maclib::beyondcomparepro::update() {
+maclib::apps::b::beyondcomparepro::update() {
   # No vendor update path documented for "Beyond Compare".
-  maclib::log::error "beyondcomparepro::update: no update path"
+  maclib::core::log::error "beyondcomparepro::update: no update path"
   return 127
 }
 
-maclib::beyondcomparepro::uninstall() {
+maclib::apps::b::beyondcomparepro::uninstall() {
   # No clean uninstall for "Beyond Compare" (documented constraint).
-  maclib::log::error "beyondcomparepro::uninstall: no clean uninstall"
+  maclib::core::log::error "beyondcomparepro::uninstall: no clean uninstall"
   return 1
 }

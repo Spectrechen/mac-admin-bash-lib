@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::bbeditpkg::suite_installer_url() {
+maclib::apps::b::bbeditpkg::suite_installer_url() {
   curl -s https://versioncheck.barebones.com/BBEdit.xml | grep dmg | sort | tail -n1 | cut -d">" -f2 | cut -d"<" -f1 | sed 's/dmg/pkg/'
 }
 
-maclib::bbeditpkg::latest_version() {
+maclib::apps::b::bbeditpkg::latest_version() {
   curl -s https://versioncheck.barebones.com/BBEdit.xml | grep dmg | sort | tail -n1 | sed -E 's/.*BBEdit_([0-9 .]*)\.dmg.*/\1/'
 }
 
-maclib::bbeditpkg::is_installed() {
+maclib::apps::b::bbeditpkg::is_installed() {
   [[ -d "/Applications/BBEdit.app" ]] || [[ -d "$HOME/Applications/BBEdit.app" ]]
 }
 
-maclib::bbeditpkg::installed_path() {
+maclib::apps::b::bbeditpkg::installed_path() {
   if [[ -d "/Applications/BBEdit.app" ]]; then
     printf "%s\n" "/Applications/BBEdit.app"
   elif [[ -d "$HOME/Applications/BBEdit.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bbeditpkg::installed_path() {
   fi
 }
 
-maclib::bbeditpkg::install() {
+maclib::apps::b::bbeditpkg::install() {
   local url tmp
-  url="$(maclib::bbeditpkg::suite_installer_url)"
+  url="$(maclib::apps::b::bbeditpkg::suite_installer_url)"
   tmp="$(mktemp -d -t "bbeditpkg.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bbeditpkg::install: download failed"
+    maclib::core::log::error "bbeditpkg::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bbeditpkg::install() {
   return "$rc"
 }
 
-maclib::bbeditpkg::update() {
+maclib::apps::b::bbeditpkg::update() {
   # No vendor update path documented for "BBEdit".
-  maclib::log::error "bbeditpkg::update: no update path"
+  maclib::core::log::error "bbeditpkg::update: no update path"
   return 127
 }
 
-maclib::bbeditpkg::uninstall() {
+maclib::apps::b::bbeditpkg::uninstall() {
   # No clean uninstall for "BBEdit" (documented constraint).
-  maclib::log::error "bbeditpkg::uninstall: no clean uninstall"
+  maclib::core::log::error "bbeditpkg::uninstall: no clean uninstall"
   return 1
 }

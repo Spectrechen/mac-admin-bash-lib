@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::brave::suite_installer_url() {
+maclib::apps::b::brave::suite_installer_url() {
   downloadURLFromGit brave brave-browser
 }
 
-maclib::brave::latest_version() {
+maclib::apps::b::brave::latest_version() {
   versionFromGit brave brave-browser | sed 's/\.//'
 }
 
-maclib::brave::is_installed() {
+maclib::apps::b::brave::is_installed() {
   [[ -d "/Applications/BraveBrowser.app" ]] || [[ -d "$HOME/Applications/BraveBrowser.app" ]]
 }
 
-maclib::brave::installed_path() {
+maclib::apps::b::brave::installed_path() {
   if [[ -d "/Applications/BraveBrowser.app" ]]; then
     printf "%s\n" "/Applications/BraveBrowser.app"
   elif [[ -d "$HOME/Applications/BraveBrowser.app" ]]; then
@@ -28,13 +28,13 @@ maclib::brave::installed_path() {
   fi
 }
 
-maclib::brave::install() {
+maclib::apps::b::brave::install() {
   local url tmp
-  url="$(maclib::brave::suite_installer_url)"
+  url="$(maclib::apps::b::brave::suite_installer_url)"
   tmp="$(mktemp -d -t "brave.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "brave::install: download failed"
+    maclib::core::log::error "brave::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::brave::install() {
   return "$rc"
 }
 
-maclib::brave::update() {
+maclib::apps::b::brave::update() {
   # No vendor update path documented for "Brave Browser".
-  maclib::log::error "brave::update: no update path"
+  maclib::core::log::error "brave::update: no update path"
   return 127
 }
 
-maclib::brave::uninstall() {
+maclib::apps::b::brave::uninstall() {
   # No clean uninstall for "Brave Browser" (documented constraint).
-  maclib::log::error "brave::uninstall: no clean uninstall"
+  maclib::core::log::error "brave::uninstall: no clean uninstall"
   return 1
 }

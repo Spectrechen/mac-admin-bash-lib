@@ -20,7 +20,7 @@
 
 # Print the Microsoft fwlink that resolves (redirect) to the current Office for
 # Mac suite installer package on the Office CDN.
-maclib::office::suite_installer_url() {
+maclib::productivity::office::suite_installer_url() {
   printf '%s\n' 'https://go.microsoft.com/fwlink/?linkid=525133'
 }
 
@@ -28,9 +28,9 @@ maclib::office::suite_installer_url() {
 # published on the Office CDN (e.g. 16.112.26081720).
 # Resolves the fwlink with a HEAD request and extracts the version embedded in
 # the resulting package file name (<version> between the last two underscores).
-maclib::office::latest_version() {
+maclib::productivity::office::latest_version() {
   local url location version
-  url="$(maclib::office::suite_installer_url)"
+  url="$(maclib::productivity::office::suite_installer_url)"
   # -s silent, -L follow redirects, -I HEAD request.
   location="$(curl -fsIL "$url" 2>/dev/null | grep -i '^location:' | tail -n1 | sed -E 's/^[Ii]ocation:[[:space:]]*//')"
   [[ -n "$location" ]] || return 1
@@ -43,7 +43,7 @@ maclib::office::latest_version() {
 }
 
 # Return 0 if any core Office for Mac application bundle is installed.
-maclib::office::is_installed() {
+maclib::productivity::office::is_installed() {
   local app
   for app in Word Excel Outlook PowerPoint OneNote; do
     [[ -d "/Applications/$app.app" ]] && return 0
@@ -53,7 +53,7 @@ maclib::office::is_installed() {
 }
 
 # Print the path to an installed Office app bundle if present (empty otherwise).
-maclib::office::installed_path() {
+maclib::productivity::office::installed_path() {
   local app
   for app in Word Excel PowerPoint OneNote; do
     [[ -d "/Applications/$app.app" ]] && {
@@ -72,15 +72,15 @@ maclib::office::installed_path() {
 # install it (requires root). Pass-through options are forwarded to installer.
 #
 # Requires root (installer writes to /Applications and system locations).
-maclib::office::install() {
+maclib::productivity::office::install() {
   local url tmp
-  url="$(maclib::office::suite_installer_url)"
+  url="$(maclib::productivity::office::suite_installer_url)"
   tmp="$(mktemp -t "office365_install.XXXXXX.pkg")" || return 1
   # Ensure cleanup on exit.
   trap 'rm -f "$tmp"' RETURN
   # -L follow redirects (fwlink -> CDN), -f fail on HTTP error, -s silent.
   if ! curl -fsL "$url" -o "$tmp" 2>/dev/null; then
-    maclib::log::error "office::install: failed to download suite installer"
+    maclib::core::log::error "office::install: failed to download suite installer"
     rm -f "$tmp"
     return 1
   fi
@@ -93,7 +93,7 @@ maclib::office::install() {
 # Update Office for Mac by invoking Microsoft AutoUpdate's command-line tool.
 # Uses the "msupdate" tool bundled with Microsoft AutoUpdate when present;
 # otherwise falls back to running `msupdate` on PATH.
-maclib::office::update() {
+maclib::productivity::office::update() {
   local tool
   tool='/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/MacOS/msupdate'
   if [[ -x "$tool" ]]; then
@@ -104,6 +104,6 @@ maclib::office::update() {
     msupdate --install "$@"
     return $?
   fi
-  maclib::log::error "office::update: Microsoft AutoUpdate (msupdate) not found"
+  maclib::core::log::error "office::update: Microsoft AutoUpdate (msupdate) not found"
   return 127
 }

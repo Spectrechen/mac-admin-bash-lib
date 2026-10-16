@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::caffeine::suite_installer_url() {
+maclib::apps::c::caffeine::suite_installer_url() {
   downloadURLFromGit IntelliScape caffeine
 }
 
-maclib::caffeine::latest_version() {
+maclib::apps::c::caffeine::latest_version() {
   versionFromGit IntelliScape caffeine
 }
 
-maclib::caffeine::is_installed() {
+maclib::apps::c::caffeine::is_installed() {
   [[ -d "/Applications/Caffeine.app" ]] || [[ -d "$HOME/Applications/Caffeine.app" ]]
 }
 
-maclib::caffeine::installed_path() {
+maclib::apps::c::caffeine::installed_path() {
   if [[ -d "/Applications/Caffeine.app" ]]; then
     printf "%s\n" "/Applications/Caffeine.app"
   elif [[ -d "$HOME/Applications/Caffeine.app" ]]; then
@@ -28,13 +28,13 @@ maclib::caffeine::installed_path() {
   fi
 }
 
-maclib::caffeine::install() {
+maclib::apps::c::caffeine::install() {
   local url tmp
-  url="$(maclib::caffeine::suite_installer_url)"
+  url="$(maclib::apps::c::caffeine::suite_installer_url)"
   tmp="$(mktemp -d -t "caffeine.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "caffeine::install: download failed"
+    maclib::core::log::error "caffeine::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::caffeine::install() {
   return "$rc"
 }
 
-maclib::caffeine::update() {
+maclib::apps::c::caffeine::update() {
   # No vendor update path documented for "Caffeine".
-  maclib::log::error "caffeine::update: no update path"
+  maclib::core::log::error "caffeine::update: no update path"
   return 127
 }
 
-maclib::caffeine::uninstall() {
+maclib::apps::c::caffeine::uninstall() {
   # No clean uninstall for "Caffeine" (documented constraint).
-  maclib::log::error "caffeine::uninstall: no clean uninstall"
+  maclib::core::log::error "caffeine::uninstall: no clean uninstall"
   return 1
 }

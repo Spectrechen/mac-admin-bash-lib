@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::applenyfonts::suite_installer_url() {
+maclib::apps::a::applenyfonts::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/applenyfonts-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::applenyfonts::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::applenyfonts::latest_version() {
+maclib::apps::a::applenyfonts::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/applenyfonts-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::applenyfonts::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::applenyfonts::is_installed() {
+maclib::apps::a::applenyfonts::is_installed() {
   [[ -d "/Applications/applenyfonts.app" ]] || [[ -d "$HOME/Applications/applenyfonts.app" ]]
 }
 
-maclib::applenyfonts::installed_path() {
+maclib::apps::a::applenyfonts::installed_path() {
   if [[ -d "/Applications/applenyfonts.app" ]]; then
     printf '%s\n' "/Applications/applenyfonts.app"
   elif [[ -d "$HOME/Applications/applenyfonts.app" ]]; then
@@ -45,19 +45,19 @@ maclib::applenyfonts::installed_path() {
   fi
 }
 
-maclib::applenyfonts::install() {
+maclib::apps::a::applenyfonts::install() {
   # No automated installer documented for "Apple New York Font Collection" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "applenyfonts::install: no automated installer; deploy manually"
+  maclib::core::log::error "applenyfonts::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::applenyfonts::update() {
-  maclib::log::error "applenyfonts::update: no update path"
+maclib::apps::a::applenyfonts::update() {
+  maclib::core::log::error "applenyfonts::update: no update path"
   return 127
 }
 
-maclib::applenyfonts::uninstall() {
-  maclib::log::warn "applenyfonts::uninstall: no clean uninstall"
+maclib::apps::a::applenyfonts::uninstall() {
+  maclib::core::log::warn "applenyfonts::uninstall: no clean uninstall"
   return 1
 }

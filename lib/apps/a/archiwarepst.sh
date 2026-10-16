@@ -9,32 +9,32 @@
 # Installer type: "pkgInDmg".
 #
 
-maclib::archiwarepst::suite_installer_url() {
+maclib::apps::a::archiwarepst::suite_installer_url() {
   appNrVersion=$(sed 's/[^0-9]//g' <<<$appNewVersion) && echo https://p5-downloads.s3.amazonaws.com/awpst"$appNrVersion"-darwin.dmg
 }
 
-maclib::archiwarepst::latest_version() {
+maclib::apps::a::archiwarepst::latest_version() {
   curl -sf https://www.archiware.com/download-p5 | grep -m 1 "ARCHIWARE P5 Version" | sed "s|.*Version \(.*\) -.*|\\1|"
 }
 
-maclib::archiwarepst::is_installed() {
+maclib::apps::a::archiwarepst::is_installed() {
   pkgutil --pkg-info ""com.archiware.presstore"" >/dev/null 2>&1
 }
 
-maclib::archiwarepst::installed_path() {
+maclib::apps::a::archiwarepst::installed_path() {
   local p
   p="$(pkgutil --pkg-info ""com.archiware.presstore"" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
 
-maclib::archiwarepst::install() {
+maclib::apps::a::archiwarepst::install() {
   local url tmp
-  url="$(maclib::archiwarepst::suite_installer_url)"
+  url="$(maclib::apps::a::archiwarepst::suite_installer_url)"
   tmp="$(mktemp -d -t "archiwarepst.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "archiwarepst::install: download failed"
+    maclib::core::log::error "archiwarepst::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,13 +49,13 @@ maclib::archiwarepst::install() {
   return "$rc"
 }
 
-maclib::archiwarepst::update() {
+maclib::apps::a::archiwarepst::update() {
   # No vendor update path documented for "P5".
-  maclib::log::error "archiwarepst::update: no update path"
+  maclib::core::log::error "archiwarepst::update: no update path"
   return 127
 }
 
-maclib::archiwarepst::uninstall() {
+maclib::apps::a::archiwarepst::uninstall() {
   # No clean uninstall for "P5"; removing package receipt ""com.archiware.presstore"".
   pkgutil --forget ""com.archiware.presstore""
   return $?

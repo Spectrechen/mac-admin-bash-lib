@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::betterdisplay::suite_installer_url() {
+maclib::apps::b::betterdisplay::suite_installer_url() {
   downloadURLFromGit waydabber BetterDisplay
 }
 
-maclib::betterdisplay::latest_version() {
+maclib::apps::b::betterdisplay::latest_version() {
   versionFromGit waydabber BetterDisplay
 }
 
-maclib::betterdisplay::is_installed() {
+maclib::apps::b::betterdisplay::is_installed() {
   [[ -d "/Applications/BetterDisplay.app" ]] || [[ -d "$HOME/Applications/BetterDisplay.app" ]]
 }
 
-maclib::betterdisplay::installed_path() {
+maclib::apps::b::betterdisplay::installed_path() {
   if [[ -d "/Applications/BetterDisplay.app" ]]; then
     printf "%s\n" "/Applications/BetterDisplay.app"
   elif [[ -d "$HOME/Applications/BetterDisplay.app" ]]; then
@@ -28,13 +28,13 @@ maclib::betterdisplay::installed_path() {
   fi
 }
 
-maclib::betterdisplay::install() {
+maclib::apps::b::betterdisplay::install() {
   local url tmp
-  url="$(maclib::betterdisplay::suite_installer_url)"
+  url="$(maclib::apps::b::betterdisplay::suite_installer_url)"
   tmp="$(mktemp -d -t "betterdisplay.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "betterdisplay::install: download failed"
+    maclib::core::log::error "betterdisplay::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::betterdisplay::install() {
   return "$rc"
 }
 
-maclib::betterdisplay::update() {
+maclib::apps::b::betterdisplay::update() {
   # No vendor update path documented for "BetterDisplay".
-  maclib::log::error "betterdisplay::update: no update path"
+  maclib::core::log::error "betterdisplay::update: no update path"
   return 127
 }
 
-maclib::betterdisplay::uninstall() {
+maclib::apps::b::betterdisplay::uninstall() {
   # No clean uninstall for "BetterDisplay" (documented constraint).
-  maclib::log::error "betterdisplay::uninstall: no clean uninstall"
+  maclib::core::log::error "betterdisplay::uninstall: no clean uninstall"
   return 1
 }

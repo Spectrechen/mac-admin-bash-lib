@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::charles::suite_installer_url() {
+maclib::apps::c::charles::suite_installer_url() {
   https://www.charlesproxy.com/assets/release/$appNewVersion/charles-proxy-$appNewVersion.dmg
 }
 
-maclib::charles::latest_version() {
+maclib::apps::c::charles::latest_version() {
   curl -fs https://www.charlesproxy.com/download/latest-release/ | sed -nE 's/.*version.*value="([^"]*).*/\1/p'
 }
 
-maclib::charles::is_installed() {
+maclib::apps::c::charles::is_installed() {
   [[ -d "/Applications/Charles.app" ]] || [[ -d "$HOME/Applications/Charles.app" ]]
 }
 
-maclib::charles::installed_path() {
+maclib::apps::c::charles::installed_path() {
   if [[ -d "/Applications/Charles.app" ]]; then
     printf "%s\n" "/Applications/Charles.app"
   elif [[ -d "$HOME/Applications/Charles.app" ]]; then
@@ -28,13 +28,13 @@ maclib::charles::installed_path() {
   fi
 }
 
-maclib::charles::install() {
+maclib::apps::c::charles::install() {
   local url tmp
-  url="$(maclib::charles::suite_installer_url)"
+  url="$(maclib::apps::c::charles::suite_installer_url)"
   tmp="$(mktemp -d -t "charles.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "charles::install: download failed"
+    maclib::core::log::error "charles::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::charles::install() {
   return "$rc"
 }
 
-maclib::charles::update() {
+maclib::apps::c::charles::update() {
   # No vendor update path documented for "Charles".
-  maclib::log::error "charles::update: no update path"
+  maclib::core::log::error "charles::update: no update path"
   return 127
 }
 
-maclib::charles::uninstall() {
+maclib::apps::c::charles::uninstall() {
   # No clean uninstall for "Charles" (documented constraint).
-  maclib::log::error "charles::uninstall: no clean uninstall"
+  maclib::core::log::error "charles::uninstall: no clean uninstall"
   return 1
 }

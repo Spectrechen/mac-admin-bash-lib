@@ -11,16 +11,16 @@
 #   Apple Developer Team ID: UBF8T346G9.
 
 # Print the Microsoft Teams classic installer package URL.
-maclib::microsoftteams::suite_installer_url() {
+maclib::communication::microsoftteams::suite_installer_url() {
   printf '%s\n' 'https://go.microsoft.com/fwlink/?linkid=869428'
 }
 
 # Print the current Microsoft Teams classic build version.
 # Installomator parses the version from the redirect Location header of the
 # fwlink (the fifth path segment).
-maclib::microsoftteams::latest_version() {
+maclib::communication::microsoftteams::latest_version() {
   local url location version
-  url="$(maclib::microsoftteams::suite_installer_url)"
+  url="$(maclib::communication::microsoftteams::suite_installer_url)"
   location="$(curl -fsIL "$url" 2>/dev/null | grep -i '^location:' | tail -n1 | sed -E 's/^[Ii]ocation:[[:space:]]*//')"
   [[ -n "$location" ]] || return 1
   version="$(printf '%s' "$location" | cut -d '/' -f5 | grep -oE '[0-9]+\.[0-9.]+' | head -n1)"
@@ -29,12 +29,12 @@ maclib::microsoftteams::latest_version() {
 }
 
 # Return 0 if the Microsoft Teams classic app bundle is installed.
-maclib::microsoftteams::is_installed() {
+maclib::communication::microsoftteams::is_installed() {
   [[ -d "/Applications/Microsoft Teams.app" ]] || [[ -d "$HOME/Applications/Microsoft Teams.app" ]]
 }
 
 # Print the path to the Microsoft Teams classic app bundle if present.
-maclib::microsoftteams::installed_path() {
+maclib::communication::microsoftteams::installed_path() {
   if [[ -d "/Applications/Microsoft Teams.app" ]]; then
     printf '%s\n' "/Applications/Microsoft Teams.app"
   elif [[ -d "$HOME/Applications/Microsoft Teams.app" ]]; then
@@ -46,13 +46,13 @@ maclib::microsoftteams::installed_path() {
 
 # Download the Microsoft Teams classic installer package and install it (requires
 # root).
-maclib::microsoftteams::install() {
+maclib::communication::microsoftteams::install() {
   local url tmp
-  url="$(maclib::microsoftteams::suite_installer_url)"
+  url="$(maclib::communication::microsoftteams::suite_installer_url)"
   tmp="$(mktemp -t "microsoftteams_install.XXXXXX.pkg")" || return 1
   trap 'rm -f "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp" 2>/dev/null; then
-    maclib::log::error "microsoftteams::install: failed to download installer"
+    maclib::core::log::error "microsoftteams::install: failed to download installer"
     rm -f "$tmp"
     return 1
   fi
@@ -65,7 +65,7 @@ maclib::microsoftteams::install() {
 # Microsoft Teams classic updates are delivered through Microsoft AutoUpdate's
 # msupdate tool (apps TEAMS10) when present, otherwise by re-installing the
 # latest package (see install()).
-maclib::microsoftteams::update() {
+maclib::communication::microsoftteams::update() {
   local tool
   tool='/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/MacOS/msupdate'
   if [[ -x "$tool" ]]; then
@@ -76,11 +76,11 @@ maclib::microsoftteams::update() {
     msupdate --install --apps TEAMS10 "$@"
     return $?
   fi
-  maclib::microsoftteams::install "$@"
+  maclib::communication::microsoftteams::install "$@"
 }
 
 # No clean uninstall (documented constraint).
-maclib::microsoftteams::uninstall() {
-  maclib::log::warn "microsoftteams::uninstall: no clean uninstall"
+maclib::communication::microsoftteams::uninstall() {
+  maclib::core::log::warn "microsoftteams::uninstall: no clean uninstall"
   return 1
 }

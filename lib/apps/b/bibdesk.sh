@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bibdesk::suite_installer_url() {
+maclib::apps::b::bibdesk::suite_installer_url() {
   echo $html_page_source | grep -i "current version" | grep -o 'href="[^"]*' | head -1 | awk -F '="' '{print $NF}'
 }
 
-maclib::bibdesk::latest_version() {
+maclib::apps::b::bibdesk::latest_version() {
   echo $html_page_source | grep -i "current version" | sed -n 's:.*BibDesk-\(.*\).dmg.*:\1:p'
 }
 
-maclib::bibdesk::is_installed() {
+maclib::apps::b::bibdesk::is_installed() {
   [[ -d "/Applications/BibDesk.app" ]] || [[ -d "$HOME/Applications/BibDesk.app" ]]
 }
 
-maclib::bibdesk::installed_path() {
+maclib::apps::b::bibdesk::installed_path() {
   if [[ -d "/Applications/BibDesk.app" ]]; then
     printf "%s\n" "/Applications/BibDesk.app"
   elif [[ -d "$HOME/Applications/BibDesk.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bibdesk::installed_path() {
   fi
 }
 
-maclib::bibdesk::install() {
+maclib::apps::b::bibdesk::install() {
   local url tmp
-  url="$(maclib::bibdesk::suite_installer_url)"
+  url="$(maclib::apps::b::bibdesk::suite_installer_url)"
   tmp="$(mktemp -d -t "bibdesk.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bibdesk::install: download failed"
+    maclib::core::log::error "bibdesk::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bibdesk::install() {
   return "$rc"
 }
 
-maclib::bibdesk::update() {
+maclib::apps::b::bibdesk::update() {
   # No vendor update path documented for "BibDesk".
-  maclib::log::error "bibdesk::update: no update path"
+  maclib::core::log::error "bibdesk::update: no update path"
   return 127
 }
 
-maclib::bibdesk::uninstall() {
+maclib::apps::b::bibdesk::uninstall() {
   # No clean uninstall for "BibDesk" (documented constraint).
-  maclib::log::error "bibdesk::uninstall: no clean uninstall"
+  maclib::core::log::error "bibdesk::uninstall: no clean uninstall"
   return 1
 }

@@ -9,32 +9,32 @@
 # Installer type: "pkg".
 #
 
-maclib::cherryaudioelkax::suite_installer_url() {
+maclib::apps::c::cherryaudioelkax::suite_installer_url() {
   https://store.cherryaudio.com/downloads/elka-x-macos-installer?file=Elka-X-Installer-macOS.pkg
 }
 
-maclib::cherryaudioelkax::latest_version() {
+maclib::apps::c::cherryaudioelkax::latest_version() {
   curl -fs https://cherryaudio.com/products/elka-x/version-history | grep -A 6 "info" | grep -Eo "([0-9]+(\.[0-9]+)+)" | head -1 | xargs
 }
 
-maclib::cherryaudioelkax::is_installed() {
+maclib::apps::c::cherryaudioelkax::is_installed() {
   pkgutil --pkg-info ""com.cherryaudio.pkg.Elka-XPackage-StandAlone"" >/dev/null 2>&1
 }
 
-maclib::cherryaudioelkax::installed_path() {
+maclib::apps::c::cherryaudioelkax::installed_path() {
   local p
   p="$(pkgutil --pkg-info ""com.cherryaudio.pkg.Elka-XPackage-StandAlone"" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
 
-maclib::cherryaudioelkax::install() {
+maclib::apps::c::cherryaudioelkax::install() {
   local url tmp
-  url="$(maclib::cherryaudioelkax::suite_installer_url)"
+  url="$(maclib::apps::c::cherryaudioelkax::suite_installer_url)"
   tmp="$(mktemp -d -t "cherryaudioelkax.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "cherryaudioelkax::install: download failed"
+    maclib::core::log::error "cherryaudioelkax::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,13 +49,13 @@ maclib::cherryaudioelkax::install() {
   return "$rc"
 }
 
-maclib::cherryaudioelkax::update() {
+maclib::apps::c::cherryaudioelkax::update() {
   # No vendor update path documented for "Elka-X".
-  maclib::log::error "cherryaudioelkax::update: no update path"
+  maclib::core::log::error "cherryaudioelkax::update: no update path"
   return 127
 }
 
-maclib::cherryaudioelkax::uninstall() {
+maclib::apps::c::cherryaudioelkax::uninstall() {
   # No clean uninstall for "Elka-X"; removing package receipt ""com.cherryaudio.pkg.Elka-XPackage-StandAlone"".
   pkgutil --forget ""com.cherryaudio.pkg.Elka-XPackage-StandAlone""
   return $?

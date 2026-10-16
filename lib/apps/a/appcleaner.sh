@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::appcleaner::suite_installer_url() {
+maclib::apps::a::appcleaner::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/appcleaner-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::appcleaner::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::appcleaner::latest_version() {
+maclib::apps::a::appcleaner::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/appcleaner-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::appcleaner::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::appcleaner::is_installed() {
+maclib::apps::a::appcleaner::is_installed() {
   [[ -d "/Applications/appcleaner.app" ]] || [[ -d "$HOME/Applications/appcleaner.app" ]]
 }
 
-maclib::appcleaner::installed_path() {
+maclib::apps::a::appcleaner::installed_path() {
   if [[ -d "/Applications/appcleaner.app" ]]; then
     printf '%s\n' "/Applications/appcleaner.app"
   elif [[ -d "$HOME/Applications/appcleaner.app" ]]; then
@@ -45,19 +45,19 @@ maclib::appcleaner::installed_path() {
   fi
 }
 
-maclib::appcleaner::install() {
+maclib::apps::a::appcleaner::install() {
   # No automated installer documented for "AppCleaner" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "appcleaner::install: no automated installer; deploy manually"
+  maclib::core::log::error "appcleaner::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::appcleaner::update() {
-  maclib::log::error "appcleaner::update: no update path"
+maclib::apps::a::appcleaner::update() {
+  maclib::core::log::error "appcleaner::update: no update path"
   return 127
 }
 
-maclib::appcleaner::uninstall() {
-  maclib::log::warn "appcleaner::uninstall: no clean uninstall"
+maclib::apps::a::appcleaner::uninstall() {
+  maclib::core::log::warn "appcleaner::uninstall: no clean uninstall"
   return 1
 }

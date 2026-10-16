@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::autopkgr::suite_installer_url() {
+maclib::apps::a::autopkgr::suite_installer_url() {
   downloadURLFromGit lindegroup autopkgr
 }
 
-maclib::autopkgr::latest_version() {
+maclib::apps::a::autopkgr::latest_version() {
   versionFromGit lindegroup autopkgr
 }
 
-maclib::autopkgr::is_installed() {
+maclib::apps::a::autopkgr::is_installed() {
   [[ -d "/Applications/AutoPkgr.app" ]] || [[ -d "$HOME/Applications/AutoPkgr.app" ]]
 }
 
-maclib::autopkgr::installed_path() {
+maclib::apps::a::autopkgr::installed_path() {
   if [[ -d "/Applications/AutoPkgr.app" ]]; then
     printf "%s\n" "/Applications/AutoPkgr.app"
   elif [[ -d "$HOME/Applications/AutoPkgr.app" ]]; then
@@ -28,13 +28,13 @@ maclib::autopkgr::installed_path() {
   fi
 }
 
-maclib::autopkgr::install() {
+maclib::apps::a::autopkgr::install() {
   local url tmp
-  url="$(maclib::autopkgr::suite_installer_url)"
+  url="$(maclib::apps::a::autopkgr::suite_installer_url)"
   tmp="$(mktemp -d -t "autopkgr.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "autopkgr::install: download failed"
+    maclib::core::log::error "autopkgr::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::autopkgr::install() {
   return "$rc"
 }
 
-maclib::autopkgr::update() {
+maclib::apps::a::autopkgr::update() {
   # No vendor update path documented for "AutoPkgr".
-  maclib::log::error "autopkgr::update: no update path"
+  maclib::core::log::error "autopkgr::update: no update path"
   return 127
 }
 
-maclib::autopkgr::uninstall() {
+maclib::apps::a::autopkgr::uninstall() {
   # No clean uninstall for "AutoPkgr" (documented constraint).
-  maclib::log::error "autopkgr::uninstall: no clean uninstall"
+  maclib::core::log::error "autopkgr::uninstall: no clean uninstall"
   return 1
 }

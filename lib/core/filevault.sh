@@ -2,7 +2,7 @@
 # filevault.sh - macOS File Vault full-disk-encryption helpers
 
 # Print the current File Vault status string (e.g. "On", "Off", "Pending").
-maclib::filevault::fdestatus() {
+maclib::core::filevault::fdestatus() {
   # FV1 legacy: use the fstool helper if present.
   if command -v fstool >/dev/null 2>&1; then
     fstool --list 2>/dev/null | grep -i 'FileVault' | sed 's/^ *//'
@@ -13,18 +13,18 @@ maclib::filevault::fdestatus() {
 }
 
 # Enable File Vault full-disk encryption (requires root + a local account).
-maclib::filevault::enable() {
+maclib::core::filevault::enable() {
   diskutil apfs enableFDE "$@"
 }
 
 # Disable File Vault full-disk encryption (requires root).
-maclib::filevault::disable() {
+maclib::core::filevault::disable() {
   diskutil apfs disableFDE "$@"
 }
 
 # Return 0 if File Vault is currently enabled.
-maclib::filevault::is_enabled() {
+maclib::core::filevault::is_enabled() {
   local status
-  status="$(maclib::filevault::fdestatus)" || return $?
+  status="$(maclib::core::filevault::fdestatus)" || return $?
   [[ "$status" =~ [Ee]nabled ]]
 }

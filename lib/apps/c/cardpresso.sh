@@ -8,21 +8,21 @@
 # Installer type: "dmg".
 #
 
-maclib::cardpresso::suite_installer_url() {
+maclib::apps::c::cardpresso::suite_installer_url() {
   local appNewVersion
   appNewVersion=curl -is "https://formulae.brew.sh/cask/cardpresso" | grep 'Current version:' | grep -oie "[0-9\.]*\.dmg" | awk -F ".dmg" '{print $1}'
   https://www.cardpresso.com/downloads/cardpresso_releases/for_mac_osx/cardPresso${appNewVersion}.dmg
 }
 
-maclib::cardpresso::latest_version() {
+maclib::apps::c::cardpresso::latest_version() {
   curl -is "https://formulae.brew.sh/cask/cardpresso" | grep 'Current version:' | grep -oie "[0-9\.]*\.dmg" | awk -F ".dmg" '{print $1}'
 }
 
-maclib::cardpresso::is_installed() {
+maclib::apps::c::cardpresso::is_installed() {
   [[ -d "/Applications/cardpresso.app" ]] || [[ -d "$HOME/Applications/cardpresso.app" ]]
 }
 
-maclib::cardpresso::installed_path() {
+maclib::apps::c::cardpresso::installed_path() {
   if [[ -d "/Applications/cardpresso.app" ]]; then
     printf "%s\n" "/Applications/cardpresso.app"
   elif [[ -d "$HOME/Applications/cardpresso.app" ]]; then
@@ -30,13 +30,13 @@ maclib::cardpresso::installed_path() {
   fi
 }
 
-maclib::cardpresso::install() {
+maclib::apps::c::cardpresso::install() {
   local url tmp
-  url="$(maclib::cardpresso::suite_installer_url)"
+  url="$(maclib::apps::c::cardpresso::suite_installer_url)"
   tmp="$(mktemp -d -t "cardpresso.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "cardpresso::install: download failed"
+    maclib::core::log::error "cardpresso::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -51,14 +51,14 @@ maclib::cardpresso::install() {
   return "$rc"
 }
 
-maclib::cardpresso::update() {
+maclib::apps::c::cardpresso::update() {
   # No vendor update path documented for "cardpresso".
-  maclib::log::error "cardpresso::update: no update path"
+  maclib::core::log::error "cardpresso::update: no update path"
   return 127
 }
 
-maclib::cardpresso::uninstall() {
+maclib::apps::c::cardpresso::uninstall() {
   # No clean uninstall for "cardpresso" (documented constraint).
-  maclib::log::error "cardpresso::uninstall: no clean uninstall"
+  maclib::core::log::error "cardpresso::uninstall: no clean uninstall"
   return 1
 }

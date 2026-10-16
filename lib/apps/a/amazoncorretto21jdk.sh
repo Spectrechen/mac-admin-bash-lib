@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::amazoncorretto21jdk::suite_installer_url() {
+maclib::apps::a::amazoncorretto21jdk::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/amazoncorretto21jdk-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::amazoncorretto21jdk::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::amazoncorretto21jdk::latest_version() {
+maclib::apps::a::amazoncorretto21jdk::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/amazoncorretto21jdk-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::amazoncorretto21jdk::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::amazoncorretto21jdk::is_installed() {
+maclib::apps::a::amazoncorretto21jdk::is_installed() {
   [[ -d "/Applications/amazoncorretto21jdk.app" ]] || [[ -d "$HOME/Applications/amazoncorretto21jdk.app" ]]
 }
 
-maclib::amazoncorretto21jdk::installed_path() {
+maclib::apps::a::amazoncorretto21jdk::installed_path() {
   if [[ -d "/Applications/amazoncorretto21jdk.app" ]]; then
     printf '%s\n' "/Applications/amazoncorretto21jdk.app"
   elif [[ -d "$HOME/Applications/amazoncorretto21jdk.app" ]]; then
@@ -45,19 +45,19 @@ maclib::amazoncorretto21jdk::installed_path() {
   fi
 }
 
-maclib::amazoncorretto21jdk::install() {
+maclib::apps::a::amazoncorretto21jdk::install() {
   # No automated installer documented for "Amazon Corretto 21 JDK" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "amazoncorretto21jdk::install: no automated installer; deploy manually"
+  maclib::core::log::error "amazoncorretto21jdk::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::amazoncorretto21jdk::update() {
-  maclib::log::error "amazoncorretto21jdk::update: no update path"
+maclib::apps::a::amazoncorretto21jdk::update() {
+  maclib::core::log::error "amazoncorretto21jdk::update: no update path"
   return 127
 }
 
-maclib::amazoncorretto21jdk::uninstall() {
-  maclib::log::warn "amazoncorretto21jdk::uninstall: no clean uninstall"
+maclib::apps::a::amazoncorretto21jdk::uninstall() {
+  maclib::core::log::warn "amazoncorretto21jdk::uninstall: no clean uninstall"
   return 1
 }

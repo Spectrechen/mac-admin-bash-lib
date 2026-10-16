@@ -10,13 +10,13 @@
 #   Source: Installomator `1password8` label + 1Password deploy docs.
 
 # Print the 1Password package installer URL.
-maclib::1password::url() {
+maclib::security_tools::1password::url() {
   printf '%s\n' 'https://downloads.1password.com/mac/1Password.pkg'
 }
 
 # Print the current 1Password build version (e.g. 8.x.y).
 # Reads the version from 1Password's releases XML feed.
-maclib::1password::latest_version() {
+maclib::security_tools::1password::latest_version() {
   local xml version
   xml="$(curl -fs 'https://releases.1password.com/mac/stable/index.xml' 2>/dev/null)"
   [[ -n "$xml" ]] || return 1
@@ -26,12 +26,12 @@ maclib::1password::latest_version() {
 }
 
 # Return 0 if the 1Password app bundle is installed.
-maclib::1password::is_installed() {
+maclib::security_tools::1password::is_installed() {
   [[ -d "/Applications/1Password.app" ]] || [[ -d "$HOME/Applications/1Password.app" ]]
 }
 
 # Print the path to the 1Password app bundle if present.
-maclib::1password::installed_path() {
+maclib::security_tools::1password::installed_path() {
   if [[ -d "/Applications/1Password.app" ]]; then
     printf '%s\n' "/Applications/1Password.app"
   elif [[ -d "$HOME/Applications/1Password.app" ]]; then
@@ -40,13 +40,13 @@ maclib::1password::installed_path() {
 }
 
 # Download the 1Password package installer and install it (requires root).
-maclib::1password::install() {
+maclib::security_tools::1password::install() {
   local url tmp
-  url="$(maclib::1password::url)"
+  url="$(maclib::security_tools::1password::url)"
   tmp="$(mktemp -t "1password_install.XXXXXX.pkg")" || return 1
   trap 'rm -f "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp" 2>/dev/null; then
-    maclib::log::error "1password::install: failed to download installer"
+    maclib::core::log::error "1password::install: failed to download installer"
     rm -f "$tmp"
     return 1
   fi

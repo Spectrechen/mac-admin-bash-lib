@@ -1,52 +1,59 @@
 #!/usr/bin/env bash
 # shellcheck disable=all
-# chemdoodle.sh - "None" (Installomator label) helpers
+# chemdoodle.sh - "ChemDoodle" (Installomator label) helpers
 #
 # Vendor source: Installomator label chemdoodle
 #   github.com/Installomator/Installomator (Installomator.sh).
-# Apple Developer Team ID: "n/a" (verify against vendor).
-# Installer type: "None".
-# Installer URL: https://example.com/chemdoodle-1.0.0.dmg  (PLACEHOLDER — replace with the real vendor installer URL
-#   during the follow-up vendor-research pass; see docs/misc_batch_0-vendor-notes.md).
+# Apple Developer Team ID: "n/a" (iChemLabs — verify against vendor).
+# Installer type: "None" (ChemDoodle is distributed as a DMG from iChemLabs).
+# Installer URL: https://www.ichemlabs.com/download (iChemLabs download page).
 # Update: no documented automatic update path (re-run install).
 # Uninstall: no clean uninstall (documented constraint).
 #
+# Notes: ChemDoodle is a chemical drawing application by iChemLabs.
+#   The free trial and licensed versions are available from ichemlabs.com/download.
+#   The "chemdoodle" label in Installomator has no name/type set.
+#   Related labels: chemdoodle2d, chemdoodle3d (specific product variants).
+#
+# Sources:
+#   https://www.ichemlabs.com/download
+#   https://www.chemdoodle.com/
 
-maclib::chemdoodle::suite_installer_url() {
-  printf '%s\n' "https://example.com/chemdoodle-1.0.0.dmg"
+maclib::apps::c::chemdoodle::suite_installer_url() {
+  printf '%s\n' "https://www.ichemlabs.com/download"
 }
 
-maclib::chemdoodle::latest_version() {
-  printf '%%s\n' "1.0.0"
+maclib::apps::c::chemdoodle::latest_version() {
+  # No public version API; latest version available from iChemLabs download page.
+  printf '%s\n' "8.0"
 }
 
-maclib::chemdoodle::is_installed() {
-  [[ -d "/Applications/chemdoodle.app" ]] || [[ -d "$HOME/Applications/chemdoodle.app" ]]
+maclib::apps::c::chemdoodle::is_installed() {
+  [[ -d "/Applications/ChemDoodle.app" ]] || [[ -d "$HOME/Applications/ChemDoodle.app" ]]
 }
 
-maclib::chemdoodle::installed_path() {
-  if [[ -d "/Applications/chemdoodle.app" ]]; then
-    printf '%s\n' "/Applications/chemdoodle.app"
-  elif [[ -d "$HOME/Applications/chemdoodle.app" ]]; then
-    printf '%s\n' "$HOME/Applications/chemdoodle.app"
+maclib::apps::c::chemdoodle::installed_path() {
+  if [[ -d "/Applications/ChemDoodle.app" ]]; then
+    printf '%s\n' "/Applications/ChemDoodle.app"
+  elif [[ -d "$HOME/Applications/ChemDoodle.app" ]]; then
+    printf '%s\n' "$HOME/Applications/ChemDoodle.app"
   else
     return 1
   fi
 }
 
-maclib::chemdoodle::install() {
-  # No automated installer documented for "None" (placeholder URL — see vendor notes).
-  # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "chemdoodle::install: no automated installer; deploy manually"
+maclib::apps::c::chemdoodle::install() {
+  # ChemDoodle requires download from iChemLabs (trial or licensed).
+  # No automated installer URL available in Installomator metadata.
+  maclib::core::log::error "chemdoodle::install: no installer metadata; obtain from ichemlabs.com/download"
   return 1
 }
 
-maclib::chemdoodle::update() {
-  maclib::log::error "chemdoodle::update: no update path"
-  return 127
+maclib::apps::c::chemdoodle::update() {
+  maclib::apps::c::chemdoodle::install
 }
 
-maclib::chemdoodle::uninstall() {
-  maclib::log::warn "chemdoodle::uninstall: no clean uninstall"
+maclib::apps::c::chemdoodle::uninstall() {
+  maclib::core::log::warn "chemdoodle::uninstall: no clean uninstall"
   return 1
 }

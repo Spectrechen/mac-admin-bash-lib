@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::audacity::suite_installer_url() {
+maclib::apps::a::audacity::suite_installer_url() {
   downloadURLFromGit audacity audacity
 }
 
-maclib::audacity::latest_version() {
+maclib::apps::a::audacity::latest_version() {
   versionFromGit audacity audacity
 }
 
-maclib::audacity::is_installed() {
+maclib::apps::a::audacity::is_installed() {
   [[ -d "/Applications/Audacity.app" ]] || [[ -d "$HOME/Applications/Audacity.app" ]]
 }
 
-maclib::audacity::installed_path() {
+maclib::apps::a::audacity::installed_path() {
   if [[ -d "/Applications/Audacity.app" ]]; then
     printf "%s\n" "/Applications/Audacity.app"
   elif [[ -d "$HOME/Applications/Audacity.app" ]]; then
@@ -28,13 +28,13 @@ maclib::audacity::installed_path() {
   fi
 }
 
-maclib::audacity::install() {
+maclib::apps::a::audacity::install() {
   local url tmp
-  url="$(maclib::audacity::suite_installer_url)"
+  url="$(maclib::apps::a::audacity::suite_installer_url)"
   tmp="$(mktemp -d -t "audacity.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "audacity::install: download failed"
+    maclib::core::log::error "audacity::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::audacity::install() {
   return "$rc"
 }
 
-maclib::audacity::update() {
+maclib::apps::a::audacity::update() {
   # No vendor update path documented for "Audacity".
-  maclib::log::error "audacity::update: no update path"
+  maclib::core::log::error "audacity::update: no update path"
   return 127
 }
 
-maclib::audacity::uninstall() {
+maclib::apps::a::audacity::uninstall() {
   # No clean uninstall for "Audacity" (documented constraint).
-  maclib::log::error "audacity::uninstall: no clean uninstall"
+  maclib::core::log::error "audacity::uninstall: no clean uninstall"
   return 1
 }

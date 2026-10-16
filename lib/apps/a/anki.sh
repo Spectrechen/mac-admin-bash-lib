@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::anki::suite_installer_url() {
+maclib::apps::a::anki::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/anki-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::anki::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::anki::latest_version() {
+maclib::apps::a::anki::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/anki-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::anki::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::anki::is_installed() {
+maclib::apps::a::anki::is_installed() {
   [[ -d "/Applications/anki.app" ]] || [[ -d "$HOME/Applications/anki.app" ]]
 }
 
-maclib::anki::installed_path() {
+maclib::apps::a::anki::installed_path() {
   if [[ -d "/Applications/anki.app" ]]; then
     printf '%s\n' "/Applications/anki.app"
   elif [[ -d "$HOME/Applications/anki.app" ]]; then
@@ -45,19 +45,19 @@ maclib::anki::installed_path() {
   fi
 }
 
-maclib::anki::install() {
+maclib::apps::a::anki::install() {
   # No automated installer documented for "Anki" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "anki::install: no automated installer; deploy manually"
+  maclib::core::log::error "anki::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::anki::update() {
-  maclib::log::error "anki::update: no update path"
+maclib::apps::a::anki::update() {
+  maclib::core::log::error "anki::update: no update path"
   return 127
 }
 
-maclib::anki::uninstall() {
-  maclib::log::warn "anki::uninstall: no clean uninstall"
+maclib::apps::a::anki::uninstall() {
+  maclib::core::log::warn "anki::uninstall: no clean uninstall"
   return 1
 }

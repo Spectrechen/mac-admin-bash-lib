@@ -9,32 +9,32 @@
 # Installer type: "pkg".
 #
 
-maclib::blackhole64ch::suite_installer_url() {
+maclib::apps::b::blackhole64ch::suite_installer_url() {
   getJSONValue "$(curl -fsL https://formulae.brew.sh/api/cask/blackhole-64ch.json)" "url"
 }
 
-maclib::blackhole64ch::latest_version() {
+maclib::apps::b::blackhole64ch::latest_version() {
   $(getJSONValue "$(curl -fsL https://formulae.brew.sh/api/cask/blackhole-64ch.json)" "version")
 }
 
-maclib::blackhole64ch::is_installed() {
+maclib::apps::b::blackhole64ch::is_installed() {
   pkgutil --pkg-info ""audio.existential.BlackHole64ch"" >/dev/null 2>&1
 }
 
-maclib::blackhole64ch::installed_path() {
+maclib::apps::b::blackhole64ch::installed_path() {
   local p
   p="$(pkgutil --pkg-info ""audio.existential.BlackHole64ch"" 2>/dev/null | sed -nE "s/^path: //p")"
   [[ -n "$p" ]] && printf "%s\n" "$p"
   return 1
 }
 
-maclib::blackhole64ch::install() {
+maclib::apps::b::blackhole64ch::install() {
   local url tmp
-  url="$(maclib::blackhole64ch::suite_installer_url)"
+  url="$(maclib::apps::b::blackhole64ch::suite_installer_url)"
   tmp="$(mktemp -d -t "blackhole64ch.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "blackhole64ch::install: download failed"
+    maclib::core::log::error "blackhole64ch::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,13 +49,13 @@ maclib::blackhole64ch::install() {
   return "$rc"
 }
 
-maclib::blackhole64ch::update() {
+maclib::apps::b::blackhole64ch::update() {
   # No vendor update path documented for "BlackHole".
-  maclib::log::error "blackhole64ch::update: no update path"
+  maclib::core::log::error "blackhole64ch::update: no update path"
   return 127
 }
 
-maclib::blackhole64ch::uninstall() {
+maclib::apps::b::blackhole64ch::uninstall() {
   # No clean uninstall for "BlackHole"; removing package receipt ""audio.existential.BlackHole64ch"".
   pkgutil --forget ""audio.existential.BlackHole64ch""
   return $?

@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::amazonworkspaces::suite_installer_url() {
+maclib::apps::a::amazonworkspaces::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/amazonworkspaces-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::amazonworkspaces::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::amazonworkspaces::latest_version() {
+maclib::apps::a::amazonworkspaces::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/amazonworkspaces-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::amazonworkspaces::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::amazonworkspaces::is_installed() {
+maclib::apps::a::amazonworkspaces::is_installed() {
   [[ -d "/Applications/amazonworkspaces.app" ]] || [[ -d "$HOME/Applications/amazonworkspaces.app" ]]
 }
 
-maclib::amazonworkspaces::installed_path() {
+maclib::apps::a::amazonworkspaces::installed_path() {
   if [[ -d "/Applications/amazonworkspaces.app" ]]; then
     printf '%s\n' "/Applications/amazonworkspaces.app"
   elif [[ -d "$HOME/Applications/amazonworkspaces.app" ]]; then
@@ -45,19 +45,19 @@ maclib::amazonworkspaces::installed_path() {
   fi
 }
 
-maclib::amazonworkspaces::install() {
+maclib::apps::a::amazonworkspaces::install() {
   # No automated installer documented for "Workspaces" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "amazonworkspaces::install: no automated installer; deploy manually"
+  maclib::core::log::error "amazonworkspaces::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::amazonworkspaces::update() {
-  maclib::log::error "amazonworkspaces::update: no update path"
+maclib::apps::a::amazonworkspaces::update() {
+  maclib::core::log::error "amazonworkspaces::update: no update path"
   return 127
 }
 
-maclib::amazonworkspaces::uninstall() {
-  maclib::log::warn "amazonworkspaces::uninstall: no clean uninstall"
+maclib::apps::a::amazonworkspaces::uninstall() {
+  maclib::core::log::warn "amazonworkspaces::uninstall: no clean uninstall"
   return 1
 }

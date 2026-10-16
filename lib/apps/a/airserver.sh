@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::airserver::suite_installer_url() {
+maclib::apps::a::airserver::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/airserver-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::airserver::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::airserver::latest_version() {
+maclib::apps::a::airserver::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/airserver-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::airserver::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::airserver::is_installed() {
+maclib::apps::a::airserver::is_installed() {
   [[ -d "/Applications/airserver.app" ]] || [[ -d "$HOME/Applications/airserver.app" ]]
 }
 
-maclib::airserver::installed_path() {
+maclib::apps::a::airserver::installed_path() {
   if [[ -d "/Applications/airserver.app" ]]; then
     printf '%s\n' "/Applications/airserver.app"
   elif [[ -d "$HOME/Applications/airserver.app" ]]; then
@@ -45,19 +45,19 @@ maclib::airserver::installed_path() {
   fi
 }
 
-maclib::airserver::install() {
+maclib::apps::a::airserver::install() {
   # No automated installer documented for "AirServer" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "airserver::install: no automated installer; deploy manually"
+  maclib::core::log::error "airserver::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::airserver::update() {
-  maclib::log::error "airserver::update: no update path"
+maclib::apps::a::airserver::update() {
+  maclib::core::log::error "airserver::update: no update path"
   return 127
 }
 
-maclib::airserver::uninstall() {
-  maclib::log::warn "airserver::uninstall: no clean uninstall"
+maclib::apps::a::airserver::uninstall() {
+  maclib::core::log::warn "airserver::uninstall: no clean uninstall"
   return 1
 }

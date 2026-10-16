@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::aquamacs::suite_installer_url() {
+maclib::apps::a::aquamacs::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/aquamacs-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::aquamacs::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::aquamacs::latest_version() {
+maclib::apps::a::aquamacs::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/aquamacs-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::aquamacs::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::aquamacs::is_installed() {
+maclib::apps::a::aquamacs::is_installed() {
   [[ -d "/Applications/aquamacs.app" ]] || [[ -d "$HOME/Applications/aquamacs.app" ]]
 }
 
-maclib::aquamacs::installed_path() {
+maclib::apps::a::aquamacs::installed_path() {
   if [[ -d "/Applications/aquamacs.app" ]]; then
     printf '%s\n' "/Applications/aquamacs.app"
   elif [[ -d "$HOME/Applications/aquamacs.app" ]]; then
@@ -45,19 +45,19 @@ maclib::aquamacs::installed_path() {
   fi
 }
 
-maclib::aquamacs::install() {
+maclib::apps::a::aquamacs::install() {
   # No automated installer documented for "Aquamacs" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "aquamacs::install: no automated installer; deploy manually"
+  maclib::core::log::error "aquamacs::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::aquamacs::update() {
-  maclib::log::error "aquamacs::update: no update path"
+maclib::apps::a::aquamacs::update() {
+  maclib::core::log::error "aquamacs::update: no update path"
   return 127
 }
 
-maclib::aquamacs::uninstall() {
-  maclib::log::warn "aquamacs::uninstall: no clean uninstall"
+maclib::apps::a::aquamacs::uninstall() {
+  maclib::core::log::warn "aquamacs::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::buttercup::suite_installer_url() {
+maclib::apps::b::buttercup::suite_installer_url() {
   downloadURLFromGit buttercup buttercup-desktop
 }
 
-maclib::buttercup::latest_version() {
+maclib::apps::b::buttercup::latest_version() {
   versionFromGit buttercup buttercup-desktop
 }
 
-maclib::buttercup::is_installed() {
+maclib::apps::b::buttercup::is_installed() {
   [[ -d "/Applications/Buttercup.app" ]] || [[ -d "$HOME/Applications/Buttercup.app" ]]
 }
 
-maclib::buttercup::installed_path() {
+maclib::apps::b::buttercup::installed_path() {
   if [[ -d "/Applications/Buttercup.app" ]]; then
     printf "%s\n" "/Applications/Buttercup.app"
   elif [[ -d "$HOME/Applications/Buttercup.app" ]]; then
@@ -28,13 +28,13 @@ maclib::buttercup::installed_path() {
   fi
 }
 
-maclib::buttercup::install() {
+maclib::apps::b::buttercup::install() {
   local url tmp
-  url="$(maclib::buttercup::suite_installer_url)"
+  url="$(maclib::apps::b::buttercup::suite_installer_url)"
   tmp="$(mktemp -d -t "buttercup.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "buttercup::install: download failed"
+    maclib::core::log::error "buttercup::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::buttercup::install() {
   return "$rc"
 }
 
-maclib::buttercup::update() {
+maclib::apps::b::buttercup::update() {
   # No vendor update path documented for "Buttercup".
-  maclib::log::error "buttercup::update: no update path"
+  maclib::core::log::error "buttercup::update: no update path"
   return 127
 }
 
-maclib::buttercup::uninstall() {
+maclib::apps::b::buttercup::uninstall() {
   # No clean uninstall for "Buttercup" (documented constraint).
-  maclib::log::error "buttercup::uninstall: no clean uninstall"
+  maclib::core::log::error "buttercup::uninstall: no clean uninstall"
   return 1
 }

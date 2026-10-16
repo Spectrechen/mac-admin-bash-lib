@@ -8,19 +8,19 @@
 # Installer type: "dmg".
 #
 
-maclib::bruno::suite_installer_url() {
+maclib::apps::b::bruno::suite_installer_url() {
   downloadURLFromGit usebruno bruno
 }
 
-maclib::bruno::latest_version() {
+maclib::apps::b::bruno::latest_version() {
   versionFromGit usebruno bruno
 }
 
-maclib::bruno::is_installed() {
+maclib::apps::b::bruno::is_installed() {
   [[ -d "/Applications/Bruno.app" ]] || [[ -d "$HOME/Applications/Bruno.app" ]]
 }
 
-maclib::bruno::installed_path() {
+maclib::apps::b::bruno::installed_path() {
   if [[ -d "/Applications/Bruno.app" ]]; then
     printf "%s\n" "/Applications/Bruno.app"
   elif [[ -d "$HOME/Applications/Bruno.app" ]]; then
@@ -28,13 +28,13 @@ maclib::bruno::installed_path() {
   fi
 }
 
-maclib::bruno::install() {
+maclib::apps::b::bruno::install() {
   local url tmp
-  url="$(maclib::bruno::suite_installer_url)"
+  url="$(maclib::apps::b::bruno::suite_installer_url)"
   tmp="$(mktemp -d -t "bruno.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "bruno::install: download failed"
+    maclib::core::log::error "bruno::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::bruno::install() {
   return "$rc"
 }
 
-maclib::bruno::update() {
+maclib::apps::b::bruno::update() {
   # No vendor update path documented for "Bruno".
-  maclib::log::error "bruno::update: no update path"
+  maclib::core::log::error "bruno::update: no update path"
   return 127
 }
 
-maclib::bruno::uninstall() {
+maclib::apps::b::bruno::uninstall() {
   # No clean uninstall for "Bruno" (documented constraint).
-  maclib::log::error "bruno::uninstall: no clean uninstall"
+  maclib::core::log::error "bruno::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::boop::suite_installer_url() {
+maclib::apps::b::boop::suite_installer_url() {
   downloadURLFromGit IvanMathy Boop
 }
 
-maclib::boop::latest_version() {
+maclib::apps::b::boop::latest_version() {
   versionFromGit IvanMathy Boop
 }
 
-maclib::boop::is_installed() {
+maclib::apps::b::boop::is_installed() {
   [[ -d "/Applications/Boop.app" ]] || [[ -d "$HOME/Applications/Boop.app" ]]
 }
 
-maclib::boop::installed_path() {
+maclib::apps::b::boop::installed_path() {
   if [[ -d "/Applications/Boop.app" ]]; then
     printf "%s\n" "/Applications/Boop.app"
   elif [[ -d "$HOME/Applications/Boop.app" ]]; then
@@ -28,13 +28,13 @@ maclib::boop::installed_path() {
   fi
 }
 
-maclib::boop::install() {
+maclib::apps::b::boop::install() {
   local url tmp
-  url="$(maclib::boop::suite_installer_url)"
+  url="$(maclib::apps::b::boop::suite_installer_url)"
   tmp="$(mktemp -d -t "boop.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "boop::install: download failed"
+    maclib::core::log::error "boop::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::boop::install() {
   return "$rc"
 }
 
-maclib::boop::update() {
+maclib::apps::b::boop::update() {
   # No vendor update path documented for "Boop".
-  maclib::log::error "boop::update: no update path"
+  maclib::core::log::error "boop::update: no update path"
   return 127
 }
 
-maclib::boop::uninstall() {
+maclib::apps::b::boop::uninstall() {
   # No clean uninstall for "Boop" (documented constraint).
-  maclib::log::error "boop::uninstall: no clean uninstall"
+  maclib::core::log::error "boop::uninstall: no clean uninstall"
   return 1
 }

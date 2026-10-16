@@ -12,19 +12,19 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::applesfsymbols::suite_installer_url() {
+maclib::apps::a::applesfsymbols::suite_installer_url() {
   printf '%s\n' "https://example.com/applesfsymbols-1.0.0.dmg"
 }
 
-maclib::applesfsymbols::latest_version() {
+maclib::apps::a::applesfsymbols::latest_version() {
   printf '%%s\n' "1.0.0"
 }
 
-maclib::applesfsymbols::is_installed() {
+maclib::apps::a::applesfsymbols::is_installed() {
   [[ -d "/Applications/applesfsymbols.app" ]] || [[ -d "$HOME/Applications/applesfsymbols.app" ]]
 }
 
-maclib::applesfsymbols::installed_path() {
+maclib::apps::a::applesfsymbols::installed_path() {
   if [[ -d "/Applications/applesfsymbols.app" ]]; then
     printf '%s\n' "/Applications/applesfsymbols.app"
   elif [[ -d "$HOME/Applications/applesfsymbols.app" ]]; then
@@ -34,19 +34,19 @@ maclib::applesfsymbols::installed_path() {
   fi
 }
 
-maclib::applesfsymbols::install() {
+maclib::apps::a::applesfsymbols::install() {
   # No automated installer documented for "None" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "applesfsymbols::install: no automated installer; deploy manually"
+  maclib::core::log::error "applesfsymbols::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::applesfsymbols::update() {
-  maclib::log::error "applesfsymbols::update: no update path"
+maclib::apps::a::applesfsymbols::update() {
+  maclib::core::log::error "applesfsymbols::update: no update path"
   return 127
 }
 
-maclib::applesfsymbols::uninstall() {
-  maclib::log::warn "applesfsymbols::uninstall: no clean uninstall"
+maclib::apps::a::applesfsymbols::uninstall() {
+  maclib::core::log::warn "applesfsymbols::uninstall: no clean uninstall"
   return 1
 }

@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::basecamp3::suite_installer_url() {
+maclib::apps::b::basecamp3::suite_installer_url() {
   getJSONValue "$(curl -fsL https://basecamp.com/desktop/mac/updates.json)" "url"
 }
 
-maclib::basecamp3::latest_version() {
+maclib::apps::b::basecamp3::latest_version() {
   getJSONValue "$(curl -fsL https://basecamp.com/desktop/mac/updates.json)" "version"
 }
 
-maclib::basecamp3::is_installed() {
+maclib::apps::b::basecamp3::is_installed() {
   [[ -d "/Applications/Basecamp3.app" ]] || [[ -d "$HOME/Applications/Basecamp3.app" ]]
 }
 
-maclib::basecamp3::installed_path() {
+maclib::apps::b::basecamp3::installed_path() {
   if [[ -d "/Applications/Basecamp3.app" ]]; then
     printf "%s\n" "/Applications/Basecamp3.app"
   elif [[ -d "$HOME/Applications/Basecamp3.app" ]]; then
@@ -28,13 +28,13 @@ maclib::basecamp3::installed_path() {
   fi
 }
 
-maclib::basecamp3::install() {
+maclib::apps::b::basecamp3::install() {
   local url tmp
-  url="$(maclib::basecamp3::suite_installer_url)"
+  url="$(maclib::apps::b::basecamp3::suite_installer_url)"
   tmp="$(mktemp -d -t "basecamp3.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "basecamp3::install: download failed"
+    maclib::core::log::error "basecamp3::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::basecamp3::install() {
   return "$rc"
 }
 
-maclib::basecamp3::update() {
+maclib::apps::b::basecamp3::update() {
   # No vendor update path documented for "Basecamp 3".
-  maclib::log::error "basecamp3::update: no update path"
+  maclib::core::log::error "basecamp3::update: no update path"
   return 127
 }
 
-maclib::basecamp3::uninstall() {
+maclib::apps::b::basecamp3::uninstall() {
   # No clean uninstall for "Basecamp 3" (documented constraint).
-  maclib::log::error "basecamp3::uninstall: no clean uninstall"
+  maclib::core::log::error "basecamp3::uninstall: no clean uninstall"
   return 1
 }

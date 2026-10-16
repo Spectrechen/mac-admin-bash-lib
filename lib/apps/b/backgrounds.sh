@@ -8,19 +8,19 @@
 # Installer type: "pkg".
 #
 
-maclib::backgrounds::suite_installer_url() {
+maclib::apps::b::backgrounds::suite_installer_url() {
   downloadURLFromGit SAP backgrounds
 }
 
-maclib::backgrounds::latest_version() {
+maclib::apps::b::backgrounds::latest_version() {
   versionFromGit SAP backgrounds
 }
 
-maclib::backgrounds::is_installed() {
+maclib::apps::b::backgrounds::is_installed() {
   [[ -d "/Applications/Backgrounds.app" ]] || [[ -d "$HOME/Applications/Backgrounds.app" ]]
 }
 
-maclib::backgrounds::installed_path() {
+maclib::apps::b::backgrounds::installed_path() {
   if [[ -d "/Applications/Backgrounds.app" ]]; then
     printf "%s\n" "/Applications/Backgrounds.app"
   elif [[ -d "$HOME/Applications/Backgrounds.app" ]]; then
@@ -28,13 +28,13 @@ maclib::backgrounds::installed_path() {
   fi
 }
 
-maclib::backgrounds::install() {
+maclib::apps::b::backgrounds::install() {
   local url tmp
-  url="$(maclib::backgrounds::suite_installer_url)"
+  url="$(maclib::apps::b::backgrounds::suite_installer_url)"
   tmp="$(mktemp -d -t "backgrounds.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "backgrounds::install: download failed"
+    maclib::core::log::error "backgrounds::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::backgrounds::install() {
   return "$rc"
 }
 
-maclib::backgrounds::update() {
+maclib::apps::b::backgrounds::update() {
   # No vendor update path documented for "Backgrounds".
-  maclib::log::error "backgrounds::update: no update path"
+  maclib::core::log::error "backgrounds::update: no update path"
   return 127
 }
 
-maclib::backgrounds::uninstall() {
+maclib::apps::b::backgrounds::uninstall() {
   # No clean uninstall for "Backgrounds" (documented constraint).
-  maclib::log::error "backgrounds::uninstall: no clean uninstall"
+  maclib::core::log::error "backgrounds::uninstall: no clean uninstall"
   return 1
 }

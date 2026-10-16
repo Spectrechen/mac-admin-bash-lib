@@ -12,7 +12,7 @@
 # Uninstall: no clean uninstall (documented constraint).
 #
 
-maclib::abstract::suite_installer_url() {
+maclib::apps::a::abstract::suite_installer_url() {
   # Return the live installer URL when reachable, else the placeholder.
   local live
   live="$(curl -fsL "https://example.com/abstract-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
@@ -20,7 +20,7 @@ maclib::abstract::suite_installer_url() {
   printf '%%s\n' "$live"
 }
 
-maclib::abstract::latest_version() {
+maclib::apps::a::abstract::latest_version() {
   local url ver
   url="$(curl -fsL "https://example.com/abstract-1.0.0.dmg" 2>/dev/null | grep -E -o "https://[^ ]+" | head -1)"
   if [[ "$url" =~ ([0-9]+\.[0-9]+) ]]; then
@@ -31,11 +31,11 @@ maclib::abstract::latest_version() {
   printf '%%s\n' "$ver"
 }
 
-maclib::abstract::is_installed() {
+maclib::apps::a::abstract::is_installed() {
   [[ -d "/Applications/abstract.app" ]] || [[ -d "$HOME/Applications/abstract.app" ]]
 }
 
-maclib::abstract::installed_path() {
+maclib::apps::a::abstract::installed_path() {
   if [[ -d "/Applications/abstract.app" ]]; then
     printf '%s\n' "/Applications/abstract.app"
   elif [[ -d "$HOME/Applications/abstract.app" ]]; then
@@ -45,19 +45,19 @@ maclib::abstract::installed_path() {
   fi
 }
 
-maclib::abstract::install() {
+maclib::apps::a::abstract::install() {
   # No automated installer documented for "Abstract" (placeholder URL — see vendor notes).
   # Deploy the vendor artifact manually; requires root.
-  maclib::log::error "abstract::install: no automated installer; deploy manually"
+  maclib::core::log::error "abstract::install: no automated installer; deploy manually"
   return 1
 }
 
-maclib::abstract::update() {
-  maclib::log::error "abstract::update: no update path"
+maclib::apps::a::abstract::update() {
+  maclib::core::log::error "abstract::update: no update path"
   return 127
 }
 
-maclib::abstract::uninstall() {
-  maclib::log::warn "abstract::uninstall: no clean uninstall"
+maclib::apps::a::abstract::uninstall() {
+  maclib::core::log::warn "abstract::uninstall: no clean uninstall"
   return 1
 }

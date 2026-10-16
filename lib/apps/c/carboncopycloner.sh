@@ -8,19 +8,19 @@
 # Installer type: "zip".
 #
 
-maclib::carboncopycloner::suite_installer_url() {
+maclib::apps::c::carboncopycloner::suite_installer_url() {
   curl -fsIL "https://api.bombich.com/download/ccc?v=latest" | grep -i ^location | sed -E 's/.*(https.*\.zip).*/\1/g'
 }
 
-maclib::carboncopycloner::latest_version() {
+maclib::apps::c::carboncopycloner::latest_version() {
   sed -E 's/.*-([0-9.]*)\.zip/\1/g' <<<$downloadURL | sed 's/\.[^.]*$//'
 }
 
-maclib::carboncopycloner::is_installed() {
+maclib::apps::c::carboncopycloner::is_installed() {
   [[ -d "/Applications/CarbonCopyCloner.app" ]] || [[ -d "$HOME/Applications/CarbonCopyCloner.app" ]]
 }
 
-maclib::carboncopycloner::installed_path() {
+maclib::apps::c::carboncopycloner::installed_path() {
   if [[ -d "/Applications/CarbonCopyCloner.app" ]]; then
     printf "%s\n" "/Applications/CarbonCopyCloner.app"
   elif [[ -d "$HOME/Applications/CarbonCopyCloner.app" ]]; then
@@ -28,13 +28,13 @@ maclib::carboncopycloner::installed_path() {
   fi
 }
 
-maclib::carboncopycloner::install() {
+maclib::apps::c::carboncopycloner::install() {
   local url tmp
-  url="$(maclib::carboncopycloner::suite_installer_url)"
+  url="$(maclib::apps::c::carboncopycloner::suite_installer_url)"
   tmp="$(mktemp -d -t "carboncopycloner.XXXXXX")" || return 1
   trap 'rm -rf "$tmp"' RETURN
   if ! curl -fsL "$url" -o "$tmp/i.dmg" 2>/dev/null; then
-    maclib::log::error "carboncopycloner::install: download failed"
+    maclib::core::log::error "carboncopycloner::install: download failed"
     rm -rf "$tmp"
     return 1
   fi
@@ -49,14 +49,14 @@ maclib::carboncopycloner::install() {
   return "$rc"
 }
 
-maclib::carboncopycloner::update() {
+maclib::apps::c::carboncopycloner::update() {
   # No vendor update path documented for "Carbon Copy Cloner".
-  maclib::log::error "carboncopycloner::update: no update path"
+  maclib::core::log::error "carboncopycloner::update: no update path"
   return 127
 }
 
-maclib::carboncopycloner::uninstall() {
+maclib::apps::c::carboncopycloner::uninstall() {
   # No clean uninstall for "Carbon Copy Cloner" (documented constraint).
-  maclib::log::error "carboncopycloner::uninstall: no clean uninstall"
+  maclib::core::log::error "carboncopycloner::uninstall: no clean uninstall"
   return 1
 }
