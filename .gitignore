@@ -1,0 +1,9 @@
+.DS_Store
+.worktrees/
+
+# Internal planning and research material (kept locally, not published)
+/PLAN.md
+/research/
+/docs/hermes-profiles.md
+/docs/phase-0-research-brief.md
+/scripts/doctor.sh
